@@ -5,59 +5,104 @@
 #include <sys/wait.h> 
 #include <time.h>
 #include <stdlib.h>
+#include <wchar.h>
+#include <locale.h>
+#include <stdio.h>
+
+
+#define CORRENTI 5
+#define CORSIE 5
+#define DIMCORSIE 2
+#define DIMCORRENTI 2
+#define FROG /U+1F438
 
 //maxY dal basso = sempre maxY-3
 //(0,0) == alto a sx
 //(maxX, maxY) == basso a dx
 
-//WINDOW *<nomeWindow> = newwin(int nlinee, int ncols, int inizio_y, int inizio_x)
+
+
+//WINDOW *<nomeWindow> = newwin(intsetlocale(LC_CTYPE, ""); nlinee, int ncols, int inizio_y, int inizio_x)
 void initScreen(int*, int*);
 int main() {    
-    int maxX=0, maxY=0, nCorsie=3, nFiume = 3;
+    int maxX=0, maxY=0, nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
     initScreen(&maxY,&maxX);
     WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio;
+
+    
     // box vite
+    
     box(stdscr,0,0);
     refresh();
-    vite=newwin(2,20,maxY-3,1);
-    box(vite,0,0);
-    wrefresh(vite); 
-    // box tempo
-    tempo=newwin(2,20,maxY-3,maxX-21);
-    box(tempo,0,0);
-    wrefresh(tempo); 
 
-    // box marciapiede
-    marciapiede=newwin(2,maxX-2,maxY-5,1);
-    box(marciapiede,0,0);
-    wrefresh(marciapiede); 
-    // box autostrada
+    // box punteggio    
+    punteggio=newwin(6,maxX-2,1,1);
+    box(punteggio,0,0);
+    wrefresh(punteggio); 
+    refresh();
+
+    // box tane
+    getmaxyx(punteggio, yBox, xBox);
+    incYBox += (yBox+1);
+    tane=newwin(6,maxX-2,incYBox,1);
+    box(tane,0,0);
+    wrefresh(tane);
     
-    autostrada=newwin(6,maxX-2,maxY-11,1);
+    // box fiume
+    righe = (CORRENTI * DIMCORRENTI);
+    getmaxyx(tane, yBox,xBox);
+    incYBox += (yBox );
+    fiume=newwin(righe,maxX-2,incYBox,1);
+    box(fiume,0,0);
+    wrefresh(fiume); 
+
+    // box prato 
+    getmaxyx(fiume, yBox, xBox);
+    incYBox += (yBox);
+    prato=newwin(2,maxX-2,incYBox,1);
+    box(prato,0,0);
+    wrefresh(prato); 
+
+    // box autostrada
+    righe = (CORSIE * DIMCORSIE);
+    getmaxyx(prato, yBox,xBox);
+    incYBox += (yBox);
+    autostrada=newwin(righe,maxX-2,incYBox,1);
     box(autostrada,0,0);
     wrefresh(autostrada); 
     
-    // box prato 
-    prato=newwin(2,maxX-2,maxY-13,1);
-    box(prato,0,0);
-    wrefresh(prato); 
+    // box marciapiede
+    getmaxyx(autostrada, yBox,xBox);
+    incYBox += (yBox);
+    marciapiede=newwin(2,maxX-2,incYBox,1);
+    box(marciapiede,0,0);
+    wrefresh(marciapiede);
     
-    // box fiume
+    // box tempo
+    getmaxyx(marciapiede, yBox,xBox);
+    incYBox += (yBox);
+    tempo=newwin(2,20,incYBox,maxX-21);
+    box(tempo,0,0);
+    wrefresh(tempo); 
+
+    // box vite
+    getmaxyx(tempo, yBox,xBox);
+    vite=newwin(2,20,incYBox,1);
+    box(vite,0,0);
+    wrefresh(vite); 
     
-    fiume=newwin(6,maxX-2,maxY-19,1);
-    box(fiume,0,0);
-    wrefresh(fiume); 
     
-    // box tane
+
     
-    tane=newwin(6,maxX-2,maxY-25,1);
-    box(tane,0,0);
-    wrefresh(tane); 
     
-    // box punteggio
-    punteggio=newwin(6,maxX-2,maxY-31,1);
-    box(punteggio,0,0);
-    wrefresh(punteggio); 
+    
+    
+    
+    
+    
+   
+    
+    
       
 
    
