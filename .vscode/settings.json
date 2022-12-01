@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "time.h": "c"
+        "time.h": "c",
+        "stdio.h": "c",
+        "wait.h": "c",
+        "wchar.h": "c"
     }
 }
