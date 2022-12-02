@@ -3,16 +3,17 @@ typedef struct{
     int y;
     char c;
 }elemento;
+extern WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio; //va a cercare le var in un altro file
 
+//extern int possibleStartY[] = {1,3,5,7,9};
 
 //global variables
 #define CORSIE 5
 #define DIMCORSIE 2
+#define MACCHINE 2
 
-//prot
+#define DELAY 30000
+
+
 bool ControlloCollisione(elemento, WINDOW*);
-void car1(int descriptor[],WINDOW*);
-void car2(int descriptor[],WINDOW*);
-void car3(int descriptor[],WINDOW*);
-void car4(int descriptor[],WINDOW*);
-void car5(int descriptor[],WINDOW*);
+void car(int descriptor[]);

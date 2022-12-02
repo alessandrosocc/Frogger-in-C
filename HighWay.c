@@ -11,139 +11,45 @@
 #include "HighWay.h"
 
 
-void car1(int descriptor[], WINDOW* autostrada){
-    srand(time(NULL));
-    close(descriptor[0]);
+
+
+
+
+void car(int descriptor[]){
     int maxX = 0, maxY = 0, x = 0, y = 0;
     getmaxyx(autostrada,maxY,maxX);
-    elemento macchina;
-    macchina.x = (1+rand()%maxX);
-    macchina.y = (1+rand()%maxY);
-    macchina.c = '1';
+    elemento macchina[CORSIE*MACCHINE];
+    // generazione corsie possibili per le macchine
+    int possibleStartY[CORSIE]={0}, counter = 0;
+    for(size_t i=0;i<CORSIE*MACCHINE;i++){
+        if (i%2!=0 && i != 0){
+            possibleStartY[counter]=i;
+            counter++;
+        }
+    }
+    // generazione posizioni delle macchine
+    for (size_t i = 0; i < CORSIE*MACCHINE; i++){
+        macchina[i].y= possibleStartY[(rand()%CORSIE)];
+        macchina[i].x=(1+rand()%maxX);
+        macchina[i].c = i + '0';
+    }
     while (true){
-        if (ControlloCollisione(macchina, autostrada)){
-            macchina.y=(1+rand()%maxY);
-            macchina.x=1;
+        for (size_t i=0;i<CORSIE*MACCHINE;i++){
+            if (ControlloCollisione(macchina[i], autostrada)){
+                macchina[i].y=possibleStartY[rand()%5];
+                macchina[i].x=1;
+            }
+            else{
+                macchina[i].x+=1;
+            }
+            write(descriptor[1], &(macchina[i]), sizeof(elemento));
+            usleep(DELAY); //introduce latenza di 1 secondo
         }
-        else{
-            macchina.x+=1;
-        }
-        write(descriptor[1], &macchina, sizeof(elemento));
-        usleep(30000); //introduce latenza di 1 secondo
+        
 	}
+
+    
 }
-
-void car2(int descriptor[], WINDOW* autostrada){
-    srand(time(NULL));
-    close(descriptor[0]);
-    int maxX = 0, maxY = 0, x = 0, y = 0;
-    getmaxyx(autostrada,maxY,maxX);
-    elemento macchina;
-    macchina.x = (1+rand()%maxX);
-    macchina.y = (1+rand()%maxY);
-    macchina.c = '2';
-    while (true){
-        if (ControlloCollisione(macchina, autostrada)){
-            macchina.y=(1+rand()%maxY);
-            macchina.x=1;
-        }
-        else{
-            macchina.x+=1;
-        }
-        write(descriptor[1], &macchina, sizeof(elemento));
-        usleep(30000); //introduce latenza di 1 secondo
-	}
-}
-void car3(int descriptor[], WINDOW* autostrada){
-    srand(time(NULL));
-    close(descriptor[0]);
-    int maxX = 0, maxY = 0, x = 0, y = 0;
-    getmaxyx(autostrada,maxY,maxX);
-    elemento macchina;
-    macchina.x = (1+rand()%maxX);
-    macchina.y = (1+rand()%maxY);
-    macchina.c = '3';
-    while (true){
-        if (ControlloCollisione(macchina, autostrada)){
-            macchina.y=(1+rand()%maxY);
-            macchina.x=1;
-        }
-        else{
-            macchina.x+=1;
-        }
-        write(descriptor[1], &macchina, sizeof(elemento));
-        usleep(30000); //introduce latenza di 1 secondo
-	}
-}
-void car4(int descriptor[], WINDOW* autostrada){
-    srand(time(NULL));
-    close(descriptor[0]);
-    int maxX = 0, maxY = 0, x = 0, y = 0;
-    getmaxyx(autostrada,maxY,maxX);
-    elemento macchina;
-    macchina.x = (1+rand()%maxX);
-    macchina.y = (1+rand()%maxY);
-    macchina.c = '4';
-    while (true){
-        if (ControlloCollisione(macchina, autostrada)){
-            macchina.y=(1+rand()%maxY);
-            macchina.x=1;
-        }
-        else{
-            macchina.x+=1;
-        }
-        write(descriptor[1], &macchina, sizeof(elemento));
-        usleep(30000); //introduce latenza di 1 secondo
-	}
-}
-void car5(int descriptor[], WINDOW* autostrada){
-    srand(time(NULL));
-    close(descriptor[0]);
-    int maxX = 0, maxY = 0, x = 0, y = 0;
-    getmaxyx(autostrada,maxY,maxX);
-    elemento macchina;
-    macchina.x = (1+rand()%maxX);
-    macchina.y = (1+rand()%maxY);
-    macchina.c = '5';
-    while (true){
-        if (ControlloCollisione(macchina, autostrada)){
-            macchina.y=(1+rand()%maxY);
-            macchina.x=1;
-        }
-        else{
-            macchina.x+=1;
-        }
-        write(descriptor[1], &macchina, sizeof(elemento));
-        usleep(30000); //introduce latenza di 1 secondo
-	}
-}
-
-
-
-
-/*
-void fnemico2(int p[]){
-    posizione oggetto;
-    oggetto.x=(rand()%MAXX)+1;
-    oggetto.y=1;
-    oggetto.c='x';
-
-    while (true){
-        if (oggetto.y>=MAXY){
-            oggetto.x=(rand()%MAXX)+1;
-            oggetto.y=1;
-        }
-        else{
-            oggetto.y+=1;
-        }
-        write(p[1], &oggetto, sizeof(posizione));
-        usleep(30000); //introduce latenza di 1 secondo
-	}
-    return;
-}
-
-*/
-
 
 bool ControlloCollisione(elemento oggetto, WINDOW* finestra){
     bool flag = false;
@@ -154,6 +60,4 @@ bool ControlloCollisione(elemento oggetto, WINDOW* finestra){
     }
     return flag;
 }
-
-
 

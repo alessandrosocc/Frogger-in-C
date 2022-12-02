@@ -7,6 +7,7 @@
 #include <wchar.h>
 #include <locale.h>
 #include <stdio.h>
+#include <signal.h> //per kill
 #include "HighWay.h"
 
 #define CORRENTI 5
@@ -19,12 +20,13 @@
 WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio;
 
 
-void printHighWay(int[],WINDOW*);
+void printHighWay(int p[]);
 void windowGeneration();
 
 //WINDOW *<nomeWindow> = newwin(intsetlocale(LC_CTYPE, ""); nlinee, int ncols, int inizio_y, int inizio_x)
 void initScreen(int*, int*);
-int main() {    
+int main() {
+    srand(time(NULL));
     int p[2];
     pipe(p);
     
@@ -40,18 +42,12 @@ int main() {
     if (auto1 < 0){
         perror("errore nella generazione della macchina 1");
     }
-
     else if (auto1 == 0){
-        car2(p,autostrada);
+        car(p);
     }
     else{
-        
-    } 
-
-    mvwaddch(autostrada, 1, 1, 'c');
-    wrefresh(autostrada);
-    //printHighWay(p,autostrada);
-    
+        printHighWay(p);
+    }    
     sleep(5);
     endwin();
     return 0; 
@@ -108,7 +104,7 @@ void windowGeneration(){ //WINDOW *vite, WINDOW *tempo, WINDOW *marciapiede, WIN
 
     
     // box autostrada
-    righe = (CORSIE * DIMCORSIE);
+    righe = (CORSIE * DIMCORSIE)+1;
     getmaxyx(prato, yBox,xBox);
     incYBox += (yBox);
     autostrada=newwin(righe,maxX-2,incYBox,1);
@@ -142,42 +138,70 @@ void windowGeneration(){ //WINDOW *vite, WINDOW *tempo, WINDOW *marciapiede, WIN
     return ;
 }
 
-void printHighWay(int p[], WINDOW* autostrada){
+void printHighWay(int p[]){
     close(p[1]);
-    elemento data,car1,car2,car3,car4,car5;
+    elemento data;
+    elemento macchine[MACCHINE*CORSIE];
     while (true){
-        clear();
-        read(p[0], &data, sizeof(elemento));
-        if(data.c=='1'){
-            car1.y=data.y;
-            car1.x=data.x;
+        werase(autostrada);
+        read(p[0],&data, sizeof(elemento));
+        if (data.c == '0'){
+            macchine[0].x = data.x;
+            macchine[0].y = data.y;
+            macchine[0].c = data.c;
         }
-        else if(data.c=='2'){
-            car2.y=data.y;
-            car2.x=data.x;
+        else if (data.c=='1'){
+            macchine[1].x = data.x;
+            macchine[1].y = data.y;
+            macchine[1].c = data.c;
         }
-        else if(data.c=='3'){
-            car3.y=data.y;
-            car3.x=data.x;
+        else if (data.c=='2'){
+            macchine[2].x = data.x;
+            macchine[2].y = data.y;
+            macchine[2].c = data.c;
         }
-        else if(data.c=='4'){
-            car4.y=data.y;
-            car4.x=data.x;
+        else if (data.c=='3'){
+            macchine[3].x = data.x;
+            macchine[3].y = data.y;
+            macchine[3].c = data.c;
         }
-        else if(data.c=='5'){
-            car5.y=data.y;
-            car5.x=data.x;
+        else if (data.c=='4'){
+            macchine[4].x = data.x;
+            macchine[4].y = data.y;
+            macchine[4].c = data.c;
         }
-        mvwaddch(autostrada,car1.y, car1.x, '1'); 
-        mvwaddch(autostrada,car2.y, car2.x, '2'); 
-        mvwaddch(autostrada,car3.y, car3.x, '3'); 
-        mvwaddch(autostrada,car4.y, car4.x, '4'); 
-        mvwaddch(autostrada,car5.y, car5.x, '5'); 
-        wrefresh(autostrada);
-        usleep(10000);
-        
-        //box(autostrada,0,0);
-        
+        else if (data.c=='5'){
+            macchine[5].x = data.x;
+            macchine[5].y = data.y;
+            macchine[5].c = data.c;
+        }
+        else if (data.c=='6'){
+            macchine[6].x = data.x;
+            macchine[6].y = data.y;
+            macchine[6].c = data.c;
+        }
+        else if (data.c=='7'){
+            macchine[7].x = data.x;
+            macchine[7].y = data.y;
+            macchine[7].c = data.c;
+        }
+        else if (data.c=='8'){
+            macchine[8].x = data.x;
+            macchine[8].y = data.y;
+            macchine[8].c = data.c;
+        }
+        else if (data.c=='9'){
+            macchine[9].x = data.x;
+            macchine[9].y = data.y;
+            macchine[9].c = data.c;
+        }
+
+        for (size_t i=0;i<CORSIE*MACCHINE;i++){
+            mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);
+        }
+        usleep(DELAY);
+        box(autostrada,0,0);
+        wrefresh(autostrada);    
     }
     
     return;

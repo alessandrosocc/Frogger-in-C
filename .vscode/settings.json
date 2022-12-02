@@ -3,6 +3,7 @@
         "time.h": "c",
         "stdio.h": "c",
         "wait.h": "c",
-        "wchar.h": "c"
+        "wchar.h": "c",
+        "highway.h": "c"
     }
 }
