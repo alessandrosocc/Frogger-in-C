@@ -22,9 +22,11 @@ WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *puntegg
 
 void printHighWay(int p[]);
 void windowGeneration();
+void frog(int p[]);
+void initScreen(int*, int*);
 
 //WINDOW *<nomeWindow> = newwin(intsetlocale(LC_CTYPE, ""); nlinee, int ncols, int inizio_y, int inizio_x)
-void initScreen(int*, int*);
+
 int main() {
     srand(time(NULL));
     int p[2];
@@ -34,7 +36,6 @@ int main() {
     initScreen(&maxY,&maxX);
 
     windowGeneration();
-
 
     // generazione dei processi
 
@@ -138,6 +139,44 @@ void windowGeneration(){ //WINDOW *vite, WINDOW *tempo, WINDOW *marciapiede, WIN
     return ;
 }
 
+void frog(int p[]){
+    close(p[0]);
+    int maxy=0, maxx=0;
+    getmaxyx(marciapiede, maxy, maxx);
+    elemento rana;
+    rana.c='#';
+    rana.y=maxy-1;
+    rana.x=maxx/2; 
+
+    //getmaxyx(stdscr,oggetto.y,oggetto.x);
+    while(true){
+        int c = getch();
+        switch(c) {
+            case KEY_UP: 
+                if(rana.y > 0)
+                    rana.y -= 1; 
+                    break;
+            case KEY_DOWN:
+                if(rana.y < maxy - 1)
+                    rana.y += 1; 
+                    break;
+            case KEY_LEFT: 
+                if(rana.x > 0)
+                    rana.x -= 1; 
+                break;
+            case KEY_RIGHT:
+                if(rana.x < maxx - 1)
+                    rana.x += 1; 
+                break;
+
+        }
+
+        write(p[1],&rana, sizeof(elemento));
+    }
+    return;
+}
+
+
 void printHighWay(int p[]){
     close(p[1]);
     elemento data;
@@ -197,10 +236,12 @@ void printHighWay(int p[]){
         }
 
         for (size_t i=0;i<CORSIE*MACCHINE;i++){
-            mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);
+            //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);
+            mvwprintw(autostrada,macchine[i].y,macchine[i].x,"/--\\");
+            mvwprintw(autostrada,macchine[i].y+1,macchine[i].x, "0--0");
         }
         usleep(DELAY);
-        box(autostrada,0,0);
+        //box(autostrada,0,0);
         wrefresh(autostrada);    
     }
     

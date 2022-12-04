@@ -12,7 +12,7 @@ extern WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *
 #define DIMCORSIE 2
 #define MACCHINE 2
 
-#define DELAY 30000
+#define DELAY 10000
 
 
 bool ControlloCollisione(elemento, WINDOW*);
