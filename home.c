@@ -119,9 +119,9 @@ void windowGeneration(){
     for (size_t i = offsetSum; i<= offsetSum+AUTOSTRADA; i++){
         mvhline(i, 1, COLOR_PAIR(4), maxX-2);
     }
-    
+    offsetAutostrada=offsetSum-1; //non so perchè ma vuole quel -1 altrimenti non è ben formattato
     offsetSum+=AUTOSTRADA;
-    offsetAutostrada=offsetSum;
+    
 
     //marciapiede
     for (size_t i = offsetSum; i<= MARCIAPIEDE+offsetSum; i++){
