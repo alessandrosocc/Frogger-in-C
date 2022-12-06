@@ -13,7 +13,7 @@
 
 void car(int descriptor[]){
     int maxX = 0, maxY = 0, x = 0, y = 0;
-    getmaxyx(autostrada,maxY,maxX);
+    getmaxyx(stdscr,maxY,maxX);
     elemento macchina[CORSIE*MACCHINE];
     // generazione corsie possibili per le macchine
     int possibleStartY[CORSIE]={0}, counter = 0;
@@ -43,7 +43,7 @@ void car(int descriptor[]){
     }
     while (true){
         for (size_t i=0;i<CORSIE*MACCHINE;i++){
-            if (ControlloCollisione(macchina[i], autostrada)){
+            if (ControlloCollisione(macchina[i])){
                 macchina[i].y=possibleStartY[rand()%5];
                 if (macchina[i].y == 3 || macchina[i].y == 7){
                     macchina[i].x =maxX - 1;
@@ -51,7 +51,6 @@ void car(int descriptor[]){
                 else{
                     macchina[i].x=1;
                 }
-                
             }
             else{
                 if (macchina[i].y == 3 || macchina[i].y == 7){
@@ -71,13 +70,12 @@ void car(int descriptor[]){
     
 }
 
-bool ControlloCollisione(elemento oggetto, WINDOW* finestra){
+bool ControlloCollisione(elemento oggetto){
     bool flag = false;
     int maxx, maxy;
-    getmaxyx(finestra, maxy, maxx);
+    getmaxyx(stdscr, maxy, maxx);
     if (oggetto.x < 0 || oggetto.x >= maxx || oggetto.y < 0 || oggetto.y >= maxy){
         flag = true;
     }
     return flag;
 }
-

@@ -13,17 +13,30 @@
 #define CORRENTI 5
 #define DIMCORRENTI 2
 
-//LE WINDOW NON SONO PASSATE PER VALORE!!!!!!!!!! NON PER RIFERIMENTO NON SONO PUNTATORI SONO ALTRO
+
+#define PUNTEGGIO 3
+#define TANE 6
+#define FIUME 10
+#define PRATO 2
+#define AUTOSTRADA 10
+#define MARCIAPIEDE 2
+#define TEMPO 3
+#define VITE 3
+
+
+//LE WINDOW NON SONO PASSATE PER VALORE!!!!!!!!!! NON PER RIFERIMENTO NON SONO PUNTATORI
 //maxY dal basso = sempre maxY-3
 //(0,0) == alto a sx
 //(maxX, maxY) == basso a dx
-WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio;
+//WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio;
 
 
 void printHighWay(int p[]);
 void windowGeneration();
 void frog(int p[]);
 void initScreen(int*, int*);
+int offsetAutostrada = 0;
+
 
 //WINDOW *<nomeWindow> = newwin(intsetlocale(LC_CTYPE, ""); nlinee, int ncols, int inizio_y, int inizio_x)
 
@@ -34,7 +47,6 @@ int main() {
     
     int maxX=0, maxY=0;
     initScreen(&maxY,&maxX);
-
     windowGeneration();
 
     // generazione dei processi
@@ -45,11 +57,13 @@ int main() {
     }
     else if (auto1 == 0){
         car(p);
+        
     }
     else{
-        printHighWay(p);
+        printHighWay(p);   
     }    
     sleep(5);
+
     endwin();
     return 0; 
 }
@@ -61,120 +75,147 @@ void initScreen(int* maxY, int* maxX){
     getmaxyx(stdscr,*maxY,*maxX);
 }
 
-void windowGeneration(){ //WINDOW *vite, WINDOW *tempo, WINDOW *marciapiede, WINDOW* autostrada,WINDOW *prato,WINDOW *fiume,WINDOW *tane,WINDOW *punteggio
+void windowGeneration(){
     int maxX=0, maxY=0,nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
     getmaxyx(stdscr,maxY, maxX);
     start_color();
     init_pair(1,COLOR_WHITE,COLOR_GREEN);
     init_pair(2,COLOR_WHITE,COLOR_RED);
-    // box vite
-    
+    init_pair(3,COLOR_WHITE,COLOR_YELLOW);
+    init_pair(4,COLOR_WHITE,COLOR_CYAN);
+
+
+
     box(stdscr,0,0);
-    refresh();
 
-    // box punteggio    
-    punteggio=newwin(6,maxX-2,1,1);
-    box(punteggio,0,0);
-    wrefresh(punteggio); 
-    refresh();
-
-    // box tane
-    getmaxyx(punteggio, yBox, xBox);
-    incYBox += (yBox+1);
-    tane=newwin(6,maxX-2,incYBox,1);
-    box(tane,0,0);
-    wrefresh(tane);
+    int offsetSum=1;
     
-    // box fiume
-    righe = (CORRENTI * DIMCORRENTI);
-    getmaxyx(tane, yBox,xBox);
-    incYBox += (yBox );
-    fiume=newwin(righe,maxX-2,incYBox,1);
-    box(fiume,0,0);
-    wrefresh(fiume); 
-    
-
-    // box prato 
-    getmaxyx(fiume, yBox, xBox);
-    incYBox += (yBox);
-    prato=newwin(2,maxX-2,incYBox,1);
-    box(prato,0,0);
-    wrefresh(prato);
-    wbkgd(prato,COLOR_PAIR(1));
-    wrefresh(prato); 
-
-    
-    // box autostrada
-    righe = (CORSIE * DIMCORSIE)+1;
-    getmaxyx(prato, yBox,xBox);
-    incYBox += (yBox);
-    autostrada=newwin(righe,maxX-2,incYBox,1);
-    box(autostrada,0,0);
-    wrefresh(autostrada); 
-    
-    // box marciapiede
-    init_pair(1,COLOR_WHITE,COLOR_GREEN);
-    getmaxyx(autostrada, yBox,xBox);
-    incYBox += (yBox);
-    marciapiede=newwin(2,maxX-2,incYBox,1);
-    box(marciapiede,0,0);
-    wrefresh(marciapiede);    
-    wbkgd(marciapiede,COLOR_PAIR(2));
-    wrefresh(marciapiede); 
-
-    
-    // box tempo
-    getmaxyx(marciapiede, yBox,xBox);
-    incYBox += (yBox);
-    tempo=newwin(2,20,incYBox,maxX-21);
-    box(tempo,0,0);
-    wrefresh(tempo); 
-
-    // box vite
-    getmaxyx(tempo, yBox,xBox);
-    vite=newwin(2,20,incYBox,1);
-    box(vite,0,0);
-    wrefresh(vite);   
-
-    return ;
-}
-
-void frog(int p[]){
-    close(p[0]);
-    int maxy=0, maxx=0;
-    getmaxyx(marciapiede, maxy, maxx);
-    elemento rana;
-    rana.c='#';
-    rana.y=maxy-1;
-    rana.x=maxx/2; 
-
-    //getmaxyx(stdscr,oggetto.y,oggetto.x);
-    while(true){
-        int c = getch();
-        switch(c) {
-            case KEY_UP: 
-                if(rana.y > 0)
-                    rana.y -= 1; 
-                    break;
-            case KEY_DOWN:
-                if(rana.y < maxy - 1)
-                    rana.y += 1; 
-                    break;
-            case KEY_LEFT: 
-                if(rana.x > 0)
-                    rana.x -= 1; 
-                break;
-            case KEY_RIGHT:
-                if(rana.x < maxx - 1)
-                    rana.x += 1; 
-                break;
-
-        }
-
-        write(p[1],&rana, sizeof(elemento));
+    //punteggio
+    for (size_t i = 1; i<= PUNTEGGIO; i++){
+        mvhline(i, 1, COLOR_PAIR(3), maxX-2);
     }
-    return;
+    
+    offsetSum+=3;
+    
+    //tane
+    for (size_t i = offsetSum; i<= offsetSum+TANE; i++){
+       mvhline(i, 1, COLOR_PAIR(3), maxX-2);
+    }
+    offsetSum+=TANE;
+
+    //fiume
+    for (size_t i = offsetSum; i<= FIUME+offsetSum; i++){
+        mvhline(i, 1, COLOR_PAIR(3), maxX-2);
+    }
+    offsetSum+=FIUME;
+
+    //prato
+    for (size_t i = offsetSum; i<= offsetSum+PRATO; i++){
+        mvhline(i, 1, COLOR_PAIR(1), maxX-2);
+    }
+    offsetSum+=PRATO;
+
+    // autostrada
+    for (size_t i = offsetSum; i<= offsetSum+AUTOSTRADA; i++){
+        mvhline(i, 1, COLOR_PAIR(4), maxX-2);
+    }
+    
+    offsetSum+=AUTOSTRADA;
+    offsetAutostrada=offsetSum;
+
+    //marciapiede
+    for (size_t i = offsetSum; i<= MARCIAPIEDE+offsetSum; i++){
+        mvhline(i, 1, COLOR_PAIR(2), maxX-2);
+    }
+    
+    offsetSum+=MARCIAPIEDE;
+
+    //tempo
+    for (size_t i = offsetSum; i<= TEMPO+offsetSum; i++){
+        mvhline(i, 1, COLOR_PAIR(3 ), maxX-2);
+    }
+    
+    offsetSum+=TEMPO;
+
+    //vite
+    for (size_t i = offsetSum; i<= VITE+offsetSum; i++){
+        mvhline(i, 1, COLOR_PAIR(3 ), maxX-2);
+    }
+    //refresh();
+    offsetSum+=VITE;
 }
+// void windowGeneration(){ //WINDOW *vite, WINDOW *tempo, WINDOW *marciapiede, WINDOW* autostrada,WINDOW *prato,WINDOW *fiume,WINDOW *tane,WINDOW *punteggio
+//     int maxX=0, maxY=0,nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
+//     getmaxyx(stdscr,maxY, maxX);
+//     start_color();
+//     init_pair(1,COLOR_WHITE,COLOR_GREEN);
+//     init_pair(2,COLOR_WHITE,COLOR_RED);
+//     // box vite
+    
+//     box(stdscr,0,0);
+//     refresh();
+//     // box punteggio    
+//     punteggio=newwin(6,maxX-2,1,1);
+//     box(punteggio,0,0);
+//     wrefresh(punteggio); 
+//     refresh();
+
+//     // box tane
+//     getmaxyx(punteggio, yBox, xBox);
+//     incYBox += (yBox+1);
+//     tane=newwin(6,maxX-2,incYBox,1);
+//     box(tane,0,0);
+//     wrefresh(tane);
+    
+//     // box fiume
+//     righe = (CORRENTI * DIMCORRENTI);
+//     getmaxyx(tane, yBox,xBox);
+//     incYBox += (yBox );
+//     fiume=newwin(righe,maxX-2,incYBox,1);
+//     box(fiume,0,0);
+//     wrefresh(fiume); 
+    
+//     // box prato 
+//     getmaxyx(fiume, yBox, xBox);
+//     incYBox += (yBox);
+//     prato=newwin(2,maxX-2,incYBox,1);
+//     box(prato,0,0);
+//     wrefresh(prato);
+//     wbkgd(prato,COLOR_PAIR(1));
+//     wrefresh(prato); 
+
+//     // box autostrada
+//     righe = (CORSIE * DIMCORSIE)+1;
+//     getmaxyx(prato, yBox,xBox);
+//     incYBox += (yBox);
+//     autostrada=newwin(righe,maxX-2,incYBox,1);
+//     box(autostrada,0,0);
+//     wrefresh(autostrada); 
+    
+//     // box marciapiede
+//     init_pair(1,COLOR_WHITE,COLOR_GREEN);
+//     getmaxyx(autostrada, yBox,xBox);
+//     incYBox += (yBox);
+//     marciapiede=newwin(2,maxX-2,incYBox,1);
+//     box(marciapiede,0,0);
+//     wrefresh(marciapiede);    
+//     wbkgd(marciapiede,COLOR_PAIR(2));
+//     wrefresh(marciapiede); 
+    
+//     // box tempo
+//     getmaxyx(marciapiede, yBox,xBox);
+//     incYBox += (yBox);
+//     tempo=newwin(2,20,incYBox,maxX-21);
+//     box(tempo,0,0);
+//     wrefresh(tempo); 
+
+//     // box vite
+//     getmaxyx(tempo, yBox,xBox);
+//     vite=newwin(2,20,incYBox,1);
+//     box(vite,0,0);
+//     wrefresh(vite);   
+//     return ;
+// }
 
 
 void printHighWay(int p[]){
@@ -182,7 +223,8 @@ void printHighWay(int p[]){
     elemento data;
     elemento macchine[MACCHINE*CORSIE];
     while (true){
-        werase(autostrada);
+        erase();
+        windowGeneration();
         read(p[0],&data, sizeof(elemento));
         if (data.c == '0'){
             macchine[0].x = data.x;
@@ -237,12 +279,12 @@ void printHighWay(int p[]){
 
         for (size_t i=0;i<CORSIE*MACCHINE;i++){
             //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);
-            mvwprintw(autostrada,macchine[i].y,macchine[i].x,"/--\\");
-            mvwprintw(autostrada,macchine[i].y+1,macchine[i].x, "0--0");
+            mvprintw(macchine[i].y,macchine[i].x,"/--\\");
+            mvprintw(macchine[i].y+1,macchine[i].x, "0--0");
         }
         usleep(DELAY);
         //box(autostrada,0,0);
-        wrefresh(autostrada);    
+        refresh();
     }
     
     return;
