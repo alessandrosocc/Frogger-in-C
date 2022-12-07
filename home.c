@@ -279,8 +279,10 @@ void printHighWay(int p[]){
 
         for (size_t i=0;i<CORSIE*MACCHINE;i++){
             //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);
+            attron(COLOR_PAIR(4));
             mvprintw(macchine[i].y,macchine[i].x,"/--\\");
             mvprintw(macchine[i].y+1,macchine[i].x, "0--0");
+            attroff(COLOR_PAIR(4));
         }
         usleep(DELAY);
         //box(autostrada,0,0);
