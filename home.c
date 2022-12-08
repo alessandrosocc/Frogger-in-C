@@ -35,7 +35,13 @@ void printHighWay(int p[]);
 void windowGeneration();
 void frog(int p[]);
 void initScreen(int*, int*);
+
+
+// global variables
 int offsetAutostrada = 0;
+int idMacchine = 0;
+
+
 
 
 //WINDOW *<nomeWindow> = newwin(intsetlocale(LC_CTYPE, ""); nlinee, int ncols, int inizio_y, int inizio_x)
@@ -50,20 +56,106 @@ int main() {
     windowGeneration();
 
     // generazione dei processi
+    
 
-    pid_t auto1 = fork();
-    if (auto1 < 0){
+    pid_t auto0 = fork();
+    if (auto0 < 0){
         perror("errore nella generazione della macchina 1");
     }
-    else if (auto1 == 0){
-        car(p);
-        
+    else if (auto0 == 0){
+        car2(p,idMacchine);
+        idMacchine++;
     }
     else{
-        printHighWay(p);   
+        pid_t auto1=fork();
+        if (auto1<0){
+            perror("Errore generazione macchina 0");
+        }
+        else if(auto1==0){
+            car2(p,idMacchine);
+            idMacchine++;
+        }
+        else{
+            pid_t auto2=fork();
+            if (auto2<0){
+                perror("Errore generazione macchina 0");
+            }
+            else if(auto2==0){
+                car2(p,idMacchine++);
+            }
+            else{
+                pid_t auto3=fork();
+                if (auto3<0){
+                    perror("Errore generazione macchina 0");
+                }
+                else if(auto3==0){
+                    car2(p,idMacchine++);
+                }
+                else{
+                    pid_t auto4=fork();
+                    if (auto4<0){
+                        perror("Errore generazione macchina 0");
+                    }
+                    else if(auto4==0){
+                        car2(p,idMacchine++);
+                    }
+                    else{
+                        pid_t auto5=fork();
+                        if (auto5<0){
+                            perror("Errore generazione macchina 0");
+                        }
+                        else if(auto5==0){
+                            car2(p,idMacchine++);
+                        }
+                        else{
+                            pid_t auto6=fork();
+                            if (auto6<0){
+                                perror("Errore generazione macchina 0");
+                            }
+                            else if(auto6==0){
+                                car2(p,idMacchine++);
+                            }
+                            else{
+                                pid_t auto7=fork();
+                                if (auto7<0){
+                                    perror("Errore generazione macchina 0");
+                                }
+                                else if(auto7==0){
+                                    car2(p,idMacchine++);
+                                }
+                                else{
+                                    pid_t auto8=fork();
+                                    if (auto8<0){
+                                        perror("Errore generazione macchina 0");
+                                    }
+                                    else if(auto8==0){
+                                        car2(p,idMacchine++);
+                                    }
+                                    else{
+                                        pid_t auto9=fork();
+                                        if (auto9<0){
+                                            perror("Errore generazione macchina 0");
+                                        }
+                                        else if(auto9==0){
+                                            car2(p,idMacchine++);
+                                        }
+                                        else{
+                                            printHighWay(p);
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+        
+        
+        
     }    
     sleep(5);
-
     endwin();
     return 0; 
 }
@@ -83,8 +175,6 @@ void windowGeneration(){
     init_pair(2,COLOR_WHITE,COLOR_RED);
     init_pair(3,COLOR_WHITE,COLOR_YELLOW);
     init_pair(4,COLOR_WHITE,COLOR_CYAN);
-
-
 
     box(stdscr,0,0);
 
@@ -109,7 +199,7 @@ void windowGeneration(){
 
     //fiume
     for (size_t i = offsetSum; i<= FIUME+offsetSum; i++){
-         attron(COLOR_PAIR(3));
+        attron(COLOR_PAIR(3));
         mvhline(i, 1, ' ', maxX-2);
         attroff(COLOR_PAIR(3));
     }
@@ -139,99 +229,25 @@ void windowGeneration(){
         mvhline(i, 1, ' ', maxX-2);
         attroff(COLOR_PAIR(2));
     }
-    
-    offsetSum+=MARCIAPIEDE;
+    offsetSum+=MARCIAPIEDE+1;
 
     //tempo
     for (size_t i = offsetSum; i<= TEMPO+offsetSum; i++){
         attron(COLOR_PAIR(3));
-        mvhline(i, 1,' ', maxX-2);
+        mvhline(i, 1, ' ', 20);
         attroff(COLOR_PAIR(3));
     }
-    
-    offsetSum+=TEMPO;
+    //offsetSum+=TEMPO;
 
     //vite
     for (size_t i = offsetSum; i<= VITE+offsetSum; i++){
         attron(COLOR_PAIR(3));
-        mvhline(i, 1, ' ', maxX-2);
+        mvhline(i, maxX-21, ' ', 20);
         attroff(COLOR_PAIR(3));
     }
     //refresh();
     offsetSum+=VITE;
 }
-// void windowGeneration(){ //WINDOW *vite, WINDOW *tempo, WINDOW *marciapiede, WINDOW* autostrada,WINDOW *prato,WINDOW *fiume,WINDOW *tane,WINDOW *punteggio
-//     int maxX=0, maxY=0,nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
-//     getmaxyx(stdscr,maxY, maxX);
-//     start_color();
-//     init_pair(1,COLOR_WHITE,COLOR_GREEN);
-//     init_pair(2,COLOR_WHITE,COLOR_RED);
-//     // box vite
-    
-//     box(stdscr,0,0);
-//     refresh();
-//     // box punteggio    
-//     punteggio=newwin(6,maxX-2,1,1);
-//     box(punteggio,0,0);
-//     wrefresh(punteggio); 
-//     refresh();
-
-//     // box tane
-//     getmaxyx(punteggio, yBox, xBox);
-//     incYBox += (yBox+1);
-//     tane=newwin(6,maxX-2,incYBox,1);
-//     box(tane,0,0);
-//     wrefresh(tane);
-    
-//     // box fiume
-//     righe = (CORRENTI * DIMCORRENTI);
-//     getmaxyx(tane, yBox,xBox);
-//     incYBox += (yBox );
-//     fiume=newwin(righe,maxX-2,incYBox,1);
-//     box(fiume,0,0);
-//     wrefresh(fiume); 
-    
-//     // box prato 
-//     getmaxyx(fiume, yBox, xBox);
-//     incYBox += (yBox);
-//     prato=newwin(2,maxX-2,incYBox,1);
-//     box(prato,0,0);
-//     wrefresh(prato);
-//     wbkgd(prato,COLOR_PAIR(1));
-//     wrefresh(prato); 
-
-//     // box autostrada
-//     righe = (CORSIE * DIMCORSIE)+1;
-//     getmaxyx(prato, yBox,xBox);
-//     incYBox += (yBox);
-//     autostrada=newwin(righe,maxX-2,incYBox,1);
-//     box(autostrada,0,0);
-//     wrefresh(autostrada); 
-    
-//     // box marciapiede
-//     init_pair(1,COLOR_WHITE,COLOR_GREEN);
-//     getmaxyx(autostrada, yBox,xBox);
-//     incYBox += (yBox);
-//     marciapiede=newwin(2,maxX-2,incYBox,1);
-//     box(marciapiede,0,0);
-//     wrefresh(marciapiede);    
-//     wbkgd(marciapiede,COLOR_PAIR(2));
-//     wrefresh(marciapiede); 
-    
-//     // box tempo
-//     getmaxyx(marciapiede, yBox,xBox);
-//     incYBox += (yBox);
-//     tempo=newwin(2,20,incYBox,maxX-21);
-//     box(tempo,0,0);
-//     wrefresh(tempo); 
-
-//     // box vite
-//     getmaxyx(tempo, yBox,xBox);
-//     vite=newwin(2,20,incYBox,1);
-//     box(vite,0,0);
-//     wrefresh(vite);   
-//     return ;
-// }
 
 
 void printHighWay(int p[]){
@@ -242,62 +258,66 @@ void printHighWay(int p[]){
         erase();
         windowGeneration();
         read(p[0],&data, sizeof(elemento));
-        if (data.c == '0'){
+        if (data.c == 0){
             macchine[0].x = data.x;
             macchine[0].y = data.y;
             macchine[0].c = data.c;
         }
-        else if (data.c=='1'){
+        else if (data.c==1){
             macchine[1].x = data.x;
             macchine[1].y = data.y;
             macchine[1].c = data.c;
         }
-        else if (data.c=='2'){
+        else if (data.c==2){
             macchine[2].x = data.x;
             macchine[2].y = data.y;
             macchine[2].c = data.c;
         }
-        else if (data.c=='3'){
+        else if (data.c==3){
             macchine[3].x = data.x;
             macchine[3].y = data.y;
             macchine[3].c = data.c;
         }
-        else if (data.c=='4'){
+        else if (data.c==4){
             macchine[4].x = data.x;
             macchine[4].y = data.y;
             macchine[4].c = data.c;
         }
-        else if (data.c=='5'){
+        else if (data.c==5){
             macchine[5].x = data.x;
             macchine[5].y = data.y;
             macchine[5].c = data.c;
         }
-        else if (data.c=='6'){
+        else if (data.c==6){
             macchine[6].x = data.x;
             macchine[6].y = data.y;
             macchine[6].c = data.c;
         }
-        else if (data.c=='7'){
+        else if (data.c==7){
             macchine[7].x = data.x;
             macchine[7].y = data.y;
             macchine[7].c = data.c;
         }
-        else if (data.c=='8'){
+        else if (data.c==8){
             macchine[8].x = data.x;
             macchine[8].y = data.y;
             macchine[8].c = data.c;
         }
-        else if (data.c=='9'){
+        else if (data.c==9){
             macchine[9].x = data.x;
             macchine[9].y = data.y;
             macchine[9].c = data.c;
         }
 
-        for (size_t i=0;i<CORSIE*MACCHINE;i++){
+        
             //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);
-            attron(COLOR_PAIR(4));
+            
+        
+        for(int i=0;i<CORSIE*MACCHINE;i++){
+            attron(COLOR_PAIR(4));    
             mvprintw(macchine[i].y,macchine[i].x,"/--\\");
             mvprintw(macchine[i].y+1,macchine[i].x, "0--0");
+            //mvaddch(data.y, data.x, '0'+data.c);    
             attroff(COLOR_PAIR(4));
         }
         usleep(DELAY);
