@@ -92,32 +92,42 @@ void windowGeneration(){
     
     //punteggio
     for (size_t i = 1; i<= PUNTEGGIO; i++){
-        mvhline(i, 1, COLOR_PAIR(3), maxX-2);
+        attron(COLOR_PAIR(3));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(3));
     }
     
     offsetSum+=3;
     
     //tane
     for (size_t i = offsetSum; i<= offsetSum+TANE; i++){
-       mvhline(i, 1, COLOR_PAIR(3), maxX-2);
+        attron(COLOR_PAIR(3));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(3));
     }
     offsetSum+=TANE;
 
     //fiume
     for (size_t i = offsetSum; i<= FIUME+offsetSum; i++){
-        mvhline(i, 1, COLOR_PAIR(3), maxX-2);
+         attron(COLOR_PAIR(3));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(3));
     }
     offsetSum+=FIUME;
 
     //prato
     for (size_t i = offsetSum; i<= offsetSum+PRATO; i++){
-        mvhline(i, 1, COLOR_PAIR(1), maxX-2);
+        attron(COLOR_PAIR(1));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(1));
     }
     offsetSum+=PRATO;
 
     // autostrada
     for (size_t i = offsetSum; i<= offsetSum+AUTOSTRADA; i++){
-        mvhline(i, 1, COLOR_PAIR(4), maxX-2);
+        attron(COLOR_PAIR(4));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(4));
     }
     offsetAutostrada=offsetSum-1; //non so perchè ma vuole quel -1 altrimenti non è ben formattato
     offsetSum+=AUTOSTRADA;
@@ -125,21 +135,27 @@ void windowGeneration(){
 
     //marciapiede
     for (size_t i = offsetSum; i<= MARCIAPIEDE+offsetSum; i++){
-        mvhline(i, 1, COLOR_PAIR(2), maxX-2);
+        attron(COLOR_PAIR(2));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(2));
     }
     
     offsetSum+=MARCIAPIEDE;
 
     //tempo
     for (size_t i = offsetSum; i<= TEMPO+offsetSum; i++){
-        mvhline(i, 1, COLOR_PAIR(3 ), maxX-2);
+        attron(COLOR_PAIR(3));
+        mvhline(i, 1,' ', maxX-2);
+        attroff(COLOR_PAIR(3));
     }
     
     offsetSum+=TEMPO;
 
     //vite
     for (size_t i = offsetSum; i<= VITE+offsetSum; i++){
-        mvhline(i, 1, COLOR_PAIR(3 ), maxX-2);
+        attron(COLOR_PAIR(3));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(3));
     }
     //refresh();
     offsetSum+=VITE;

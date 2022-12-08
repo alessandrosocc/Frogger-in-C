@@ -1,6 +1,6 @@
 home: home.o HighWay.o
-	gcc -lncurses home.o HighWay.o -o home
+	gcc home.o HighWay.o -o home -lncurses
 HighWay.o: HighWay.c HighWay.h
-	gcc -lncurses -c HighWay.c
+	gcc -c HighWay.c -lncurses
 clean:
 	rm *.o
