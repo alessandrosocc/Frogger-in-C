@@ -164,6 +164,7 @@ void initScreen(int* maxY, int* maxX){
     initscr(); 
     curs_set(0); // settiamo il cursore per essere invisibile
     noecho();
+    keypad(stdsrc,1);
     getmaxyx(stdscr,*maxY,*maxX);
 }
 

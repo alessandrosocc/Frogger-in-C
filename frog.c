@@ -8,165 +8,137 @@
 #include <locale.h>
 #include <stdio.h>
 #include <signal.h> //per kill
-#include "HighWay.h"
+#include <stdbool.h>
 
-/* quest.c */
 
-#include <curses.h>
-#include <stdlib.h>
+typedef struct{
+    int x;
+    int y;
+    int c;
+    bool sparato;
+}elemento;
 
-#define GRASS     ' '
-#define EMPTY     '.'
-#define WATER     '~'
-#define MOUNTAIN  '^'
-#define PLAYER    '*'
+void ffrog(int[]);
+void bullet(int[]);
+void padre(int[]);
 
-#define GRASS_PAIR     1
-#define EMPTY_PAIR     1
-#define WATER_PAIR     2
-#define MOUNTAIN_PAIR  3
-#define PLAYER_PAIR    4
 
-int is_move_okay(int y, int x);
-void draw_map(void);
-
-int main(void)
-{
-    int y, x;
-    int ch;
-
-    /* initialize curses */
-
+int main(){
+    elemento data;
+    int p[2];
+    pipe(p);
     initscr();
-    keypad(stdscr, TRUE);
-    cbreak();
     noecho();
-
-
-    start_color();
-    init_pair(GRASS_PAIR, COLOR_YELLOW, COLOR_GREEN);
-    init_pair(WATER_PAIR, COLOR_CYAN, COLOR_BLUE);
-    init_pair(MOUNTAIN_PAIR, COLOR_BLACK, COLOR_WHITE);
-    init_pair(PLAYER_PAIR, COLOR_RED, COLOR_MAGENTA);
-
-    clear();
-
-    /* initialize the quest map */
-
-    draw_map();
-
-    /* start player at lower-left */
-
-    y = LINES - 1;
-    x = 0;
-
-    do {
-                            
-        /* by default, you get a blinking cursor - use it to
-           indicate player * */
-
-        attron(COLOR_PAIR(PLAYER_PAIR));
-        mvaddch(y, x, PLAYER);
-        attroff(COLOR_PAIR(PLAYER_PAIR));
-        move(y, x);
-        refresh();
-
-        ch = getch();
-
-        /* test inputted key and determine direction */
-
-        switch (ch) {
-        case KEY_UP:
-        case 'w':
-        case 'W':
-            if ((y > 0) && is_move_okay(y - 1, x)) {
-                attron(COLOR_PAIR(EMPTY_PAIR));
-                mvaddch(y, x, EMPTY);
-                attroff(COLOR_PAIR(EMPTY_PAIR));
-                y = y - 1;
-            }
-            break;
-        case KEY_DOWN:
-        case 's':
-        case 'S':
-            if ((y < LINES - 1) && is_move_okay(y + 1, x)) {
-                attron(COLOR_PAIR(EMPTY_PAIR));
-                mvaddch(y, x, EMPTY);
-                attroff(COLOR_PAIR(EMPTY_PAIR));
-                y = y + 1;
-            }
-            break;
-        case KEY_LEFT:
-        case 'a':
-        case 'A':
-            if ((x > 0) && is_move_okay(y, x - 1)) {
-                attron(COLOR_PAIR(EMPTY_PAIR));
-                mvaddch(y, x, EMPTY);
-                attroff(COLOR_PAIR(EMPTY_PAIR));
-                x = x - 1;
-            }
-            break;
-        case KEY_RIGHT:
-        case 'd':
-        case 'D':
-            if ((x < COLS - 1) && is_move_okay(y, x + 1)) {
-                attron(COLOR_PAIR(EMPTY_PAIR));
-                mvaddch(y, x, EMPTY);
-                attroff(COLOR_PAIR(EMPTY_PAIR));
-                x = x + 1;
-            }
-            break;
+    keypad(stdscr, 1);
+    curs_set(0);
+    pid_t frog=fork();
+    if (frog < 0){
+        _exit(3);
+    }
+    if(frog == 0){
+        ffrog(p);
+    }
+    else{
+        pid_t proiettile = fork();
+        if(proiettile == 0){
+            bullet(p);
+        }
+        else{
+            padre(p);
         }
     }
-    while ((ch != 'q') && (ch != 'Q'));
-
     endwin();
-
-    exit(0);
 }
 
-int is_move_okay(int y, int x)
-{
-    int testch;
 
-    /* return true if the space is okay to move into */
+void ffrog(int p[]){
+    elemento rana;
+    close(p[0]);
+    int maxx=0,maxy=0;
+    getmaxyx(stdscr,maxy,maxx);
+    rana.c= 1;
+    rana.y=maxy/2;
+    rana.x=maxx/2; 
+    rana.sparato=false;
+    //getmaxyx(stdscr,oggetto.y,oggetto.x);
+    while(true){
+        int c = getch();
+        switch(c) {
+            case KEY_ENTER:
+                rana.sparato=true;
+                break;
+            case KEY_UP: 
+                if(rana.y > 0)
+                    rana.y -= 1; 
+                    break;
+            case KEY_DOWN:
+                if(rana.y < maxy - 1)
+                    rana.y += 1; 
+                    break;
+            case KEY_LEFT: 
+                if(rana.x > 0)
+                    rana.x -= 1; 
+                break;
+            case KEY_RIGHT:
+                if(rana.x < maxx - 1)
+                    rana.x += 1;
+                break;
+            
 
-    testch = mvinch(y, x);
-    return (((testch & A_CHARTEXT) == GRASS)
-            || ((testch & A_CHARTEXT) == EMPTY));
+        }
+        write(p[1],&rana, sizeof(elemento));
+    }
+    return;
 }
 
-void draw_map(void)
-{
-    int y, x;
+void padre(int p[]){
+    close(p[1]);
+    elemento data, animale, bull;
 
-    /* draw the quest map */
-
-    /* background */
-
-    attron(COLOR_PAIR(GRASS_PAIR));
-    for (y = 0; y < LINES; y++) {
-        mvhline(y, 0, GRASS, COLS);
+    while(true){
+        clear();
+        read(p[0], &data,sizeof(elemento));
+        if (data.c == 1){
+            animale.x = data.x;
+            animale.y = data.y;
+            if (data.sparato==true){
+                bull.sparato=true;
+            }
+        }
+        else if (data.c == 2){
+            bull.x = data.x;
+            bull.y = data.y;
+        }
+        // stampa
+        mvprintw(animale.y,animale.x,"\\/");
+        mvprintw(animale.y+1,animale.x,"/\\");
+        if (bull.sparato == true){
+            mvprintw(bull.y, bull.x, "*");
+        }
+        //box(stdscr, 0, 0);
+        refresh();
+        
     }
-    attroff(COLOR_PAIR(GRASS_PAIR));
-
-    /* mountains, and mountain path */
-
-    attron(COLOR_PAIR(MOUNTAIN_PAIR));
-    for (x = COLS / 2; x < COLS * 3 / 4; x++) {
-        mvvline(0, x, MOUNTAIN, LINES);
+    sleep(5);
+    return;
+}
+void bullet(int p[]){
+    elemento proiettile,data;
+    while(true){
+        read(p[0], &data, sizeof(elemento));
+        if (data.sparato == true){
+            proiettile.c = 2;
+            proiettile.y=data.y;
+            proiettile.x=data.x;
+            while(true){
+                proiettile.y -= 1;
+                write(p[1], &proiettile, sizeof(elemento));
+                sleep(1);
+            }
+        }
+        else{
+            write(p[1],&data,sizeof(elemento));
+        }
     }
-    attroff(COLOR_PAIR(MOUNTAIN_PAIR));
-
-    attron(COLOR_PAIR(GRASS_PAIR));
-    mvhline(LINES / 4, 0, GRASS, COLS);
-    attroff(COLOR_PAIR(GRASS_PAIR));
-
-    /* lake */
-
-    attron(COLOR_PAIR(WATER_PAIR));
-    for (y = 1; y < LINES / 2; y++) {
-        mvhline(y, 1, WATER, COLS / 3);
-    }
-    attroff(COLOR_PAIR(WATER_PAIR));
+    
 }

@@ -126,6 +126,7 @@ void car2(int descriptor[], int id){
             }
                 
         }
+        
         write(descriptor[1], &(veicoli[id]), sizeof(elemento));
         usleep(DELAY); //introduce latenza di 1 secondo
 	}
