@@ -9,14 +9,9 @@
 #include <stdio.h>
 #include <signal.h> //per kill
 #include <stdbool.h>
+#include "frog.h"
 
 
-typedef struct{
-    int x;
-    int y;
-    int c;
-    bool sparato;
-}elemento;
 
 void ffrog(int[]);
 void bullet(int[]);
@@ -24,7 +19,7 @@ void padre(int[]);
 
 
 int main(){
-    elemento data;
+    elementoFrog data;
     int p[2];
     pipe(p);
     initscr();
@@ -52,7 +47,7 @@ int main(){
 
 
 void ffrog(int p[]){
-    elemento rana;
+    elementoFrog rana;
     close(p[0]);
     int maxx=0,maxy=0;
     getmaxyx(stdscr,maxy,maxx);
@@ -64,7 +59,7 @@ void ffrog(int p[]){
     while(true){
         int c = getch();
         switch(c) {
-            case KEY_ENTER:
+            case 32: //barra spaziatrice
                 rana.sparato=true;
                 break;
             case KEY_UP: 
@@ -86,18 +81,18 @@ void ffrog(int p[]){
             
 
         }
-        write(p[1],&rana, sizeof(elemento));
+        write(p[1],&rana, sizeof(elementoFrog));
     }
     return;
 }
 
 void padre(int p[]){
     close(p[1]);
-    elemento data, animale, bull;
+    elementoFrog data, animale, bull;
 
     while(true){
         clear();
-        read(p[0], &data,sizeof(elemento));
+        read(p[0], &data,sizeof(elementoFrog));
         if (data.c == 1){
             animale.x = data.x;
             animale.y = data.y;
@@ -119,25 +114,25 @@ void padre(int p[]){
         refresh();
         
     }
-    sleep(5);
+    usleep(10000);
     return;
 }
 void bullet(int p[]){
-    elemento proiettile,data;
+    elementoFrog proiettile,data;
     while(true){
-        read(p[0], &data, sizeof(elemento));
+        read(p[0], &data, sizeof(elementoFrog));
         if (data.sparato == true){
             proiettile.c = 2;
             proiettile.y=data.y;
             proiettile.x=data.x;
             while(true){
                 proiettile.y -= 1;
-                write(p[1], &proiettile, sizeof(elemento));
+                write(p[1], &proiettile, sizeof(elementoFrog));
                 sleep(1);
             }
         }
         else{
-            write(p[1],&data,sizeof(elemento));
+            write(p[1],&data,sizeof(elementoFrog));
         }
     }
     

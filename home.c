@@ -43,7 +43,6 @@ int idMacchine = 0;
 
 
 
-
 //WINDOW *<nomeWindow> = newwin(intsetlocale(LC_CTYPE, ""); nlinee, int ncols, int inizio_y, int inizio_x)
 
 int main() {
@@ -56,7 +55,6 @@ int main() {
     windowGeneration();
 
     // generazione dei processi
-    
 
     pid_t auto0 = fork();
     if (auto0 < 0){
@@ -72,8 +70,7 @@ int main() {
             perror("Errore generazione macchina 0");
         }
         else if(auto1==0){
-            car2(p,idMacchine);
-            idMacchine++;
+            car2(p,idMacchine++);
         }
         else{
             pid_t auto2=fork();
@@ -164,7 +161,7 @@ void initScreen(int* maxY, int* maxX){
     initscr(); 
     curs_set(0); // settiamo il cursore per essere invisibile
     noecho();
-    keypad(stdsrc,1);
+    keypad(stdscr,1);
     getmaxyx(stdscr,*maxY,*maxX);
 }
 
@@ -310,9 +307,7 @@ void printHighWay(int p[]){
             macchine[9].c = data.c;
         }
 
-        
-            //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);
-            
+        //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);    
         
         for(int i=0;i<CORSIE*MACCHINE;i++){
             attron(COLOR_PAIR(4));    
