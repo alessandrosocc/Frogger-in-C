@@ -79,56 +79,63 @@ void car2(int descriptor[], int id){
     getmaxyx(stdscr,maxY,maxX);
     maxY=offsetAutostrada;
 
+    elemento veicoli;
+
     // generazione corsie possibili per le macchine
-    int possibleStartY[CORSIE]={0}, counter = 0;
+    int possibleStartY[CORSIE]={0};
+    int counter = 0;
     for(size_t i=0;i<CORSIE*MACCHINE;i++){
         if (i%2!=0 && i != 0){
             possibleStartY[counter]=i;
             counter++;
         }
     }
-
+    
     // generazione posizioni delle macchine
-    veicoli[id].y= possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
-    veicoli[id].x=(1+rand()%maxX);
-    veicoli[id].c = id;
-    write(descriptor[1], &(veicoli[id]), sizeof(elemento));
+    veicoli.y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
+    veicoli.x=(1+rand()%maxX);
+    veicoli.c=id;
+    write(descriptor[1], &(veicoli), sizeof(elemento));
+    
 
     //check se una macchina è sopra un'altra, nel caso genera altra posizione
-    if (id > 0){ // check dalla seconda macchina generata
-        size_t j = id-1;
-        while(j<CORSIE*MACCHINE){ //genera altre pos se collidono finchè pos è diversa dalle pos di altre macchine
-            if (veicoli[id].x == veicoli[j].x && veicoli[id].y == veicoli[j].y)
-            {
-                j = id-1;
-                veicoli[id].x=(1+rand()%maxX);
-            }
-            j--;
-        }
-    }
+    // if (id > 0){ // check dalla seconda macchina generata
+    //     size_t j = id-1;
+    //     while(j<CORSIE*MACCHINE){ //genera altre pos se collidono finchè pos è diversa dalle pos di altre macchine
+    //         if (veicoli.x == veicoli[j].x && veicoli.y == veicoli[j].y)
+    //         {
+    //             j = id-1;
+    //             veicoli.x=(1+rand()%maxX);
+    //         }
+    //         j--;
+    //     }
+    // }
 
     
     // // continua ad andare ad x+1
     while (true){
-        if (ControlloCollisione(veicoli[id])){
-            veicoli[id].y=possibleStartY[rand()%5]+offsetAutostrada;
-            if (veicoli[id].y == 3+offsetAutostrada || veicoli[id].y == 7+offsetAutostrada){
-                veicoli[id].x =maxX - 1;
+        
+        if (ControlloCollisione(veicoli))
+        {
+            veicoli.y=possibleStartY[rand()%CORSIE]+offsetAutostrada; // nuova riga
+        
+            if (veicoli.y == 3+offsetAutostrada || veicoli.y == 7+offsetAutostrada){ 
+                veicoli.x =maxX - 1; // la macchina inizia da destra
             }
             else{
-                veicoli[id].x=1;
+                veicoli.x=1; // la macchina inizia da sinistra
             }
         }
         else{
-            if (veicoli[id].y == 3+offsetAutostrada || veicoli[id].y == 7+offsetAutostrada){
-                veicoli[id].x-=1;
+            if (veicoli.y == 3+offsetAutostrada || veicoli.y == 7+offsetAutostrada){
+                veicoli.x-=1;
             }
             else{
-                veicoli[id].x+=1;
+                veicoli.x+=1;
             }
                 
         }
-        write(descriptor[1], &(veicoli[id]), sizeof(elemento));
+        write(descriptor[1], &veicoli, sizeof(elemento));
         usleep(DELAY); //introduce latenza di 1 secondo
 	}
 }

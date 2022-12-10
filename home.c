@@ -69,103 +69,102 @@ int main() {
         if(proiettile == 0){
             bullet(p);
         }
-
-    else{
-        pid_t auto0 = fork();
-    if (auto0 < 0){
-        perror("errore nella generazione della macchina 1");
-    }
-    else if (auto0 == 0){
-        car2(p,0);
-       
-    }
-    else{
-        pid_t auto1=fork();
-        if (auto1<0){
-            perror("Errore generazione macchina 0");
-        }
-        else if(auto1==0){
-            car2(p,1);
-        }
         else{
-            pid_t auto2=fork();
-            if (auto2<0){
-                perror("Errore generazione macchina 0");
+            pid_t auto0 = fork();
+            if (auto0 < 0){
+                perror("errore nella generazione della macchina 1");
             }
-            else if(auto2==0){
-                car2(p,2);
+            else if (auto0 == 0){
+                car2(p,0);
+            
             }
             else{
-                pid_t auto3=fork();
-                if (auto3<0){
+                pid_t auto1=fork();
+                if (auto1<0){
                     perror("Errore generazione macchina 0");
                 }
-                else if(auto3==0){
-                    car2(p,3);
+                else if(auto1==0){
+                    car2(p,1);
                 }
                 else{
-                    pid_t auto4=fork();
-                    if (auto4<0){
+                    pid_t auto2=fork();
+                    if (auto2<0){
                         perror("Errore generazione macchina 0");
                     }
-                    else if(auto4==0){
-                        car2(p,0);
+                    else if(auto2==0){
+                        car2(p,2);
                     }
                     else{
-                        pid_t auto5=fork();
-                        if (auto5<0){
+                        pid_t auto3=fork();
+                        if (auto3<0){
                             perror("Errore generazione macchina 0");
                         }
-                        else if(auto5==0){
-                            car2(p,5);
+                        else if(auto3==0){
+                            car2(p,3);
                         }
                         else{
-                            pid_t auto6=fork();
-                            if (auto6<0){
+                            pid_t auto4=fork();
+                            if (auto4<0){
                                 perror("Errore generazione macchina 0");
                             }
-                            else if(auto6==0){
-                                car2(p,6);
+                            else if(auto4==0){
+                                car2(p,0);
                             }
                             else{
-                                pid_t auto7=fork();
-                                if (auto7<0){
+                                pid_t auto5=fork();
+                                if (auto5<0){
                                     perror("Errore generazione macchina 0");
                                 }
-                                else if(auto7==0){
-                                    car2(p,7);
+                                else if(auto5==0){
+                                    car2(p,5);
                                 }
                                 else{
-                                    pid_t auto8=fork();
-                                    if (auto8<0){
+                                    pid_t auto6=fork();
+                                    if (auto6<0){
                                         perror("Errore generazione macchina 0");
                                     }
-                                    else if(auto8==0){
-                                        car2(p,8);
+                                    else if(auto6==0){
+                                        car2(p,6);
                                     }
                                     else{
-                                        pid_t auto9=fork();
-                                        if (auto9<0){
+                                        pid_t auto7=fork();
+                                        if (auto7<0){
                                             perror("Errore generazione macchina 0");
                                         }
-                                        else if(auto9==0){
-                                            car2(p,9);
+                                        else if(auto7==0){
+                                            car2(p,7);
                                         }
                                         else{
-                                            printHighWay(p);
-                                            
-                                            //padre(p);
+                                            pid_t auto8=fork();
+                                            if (auto8<0){
+                                                perror("Errore generazione macchina 0");
+                                            }
+                                            else if(auto8==0){
+                                                car2(p,8);
+                                            }
+                                            else{
+                                                pid_t auto9=fork();
+                                                if (auto9<0){
+                                                    perror("Errore generazione macchina 0");
+                                                }
+                                                else if(auto9==0){
+                                                    car2(p,9);
+                                                }
+                                                else{
+                                                    printHighWay(p);
+                                                    
+                                                    //padre(p);
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                    }
+                    }   
                 }
-            }   
-        }
-    }
-} 
+            }
+        } 
     }
         
         
@@ -267,13 +266,22 @@ void windowGeneration(){
 
 
 void printHighWay(int p[]){
+    
     close(p[1]);
     elemento data;
     elemento macchine[MACCHINE*CORSIE];
+
+    //inizializzo il vettore
+    for(int i=0;i<CORSIE*MACCHINE;i++){
+            macchine[i].x=0;
+            macchine[i].y=0;
+            macchine[i].c=0;
+            
+    }
     while (true){
         erase();
         windowGeneration();
-        read(p[0],&data, sizeof(elemento));
+        read(p[0], &data, sizeof(elemento));
         if (data.c == 0){
             macchine[0].x = data.x;
             macchine[0].y = data.y;
@@ -329,11 +337,15 @@ void printHighWay(int p[]){
         //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);    
         
         for(int i=0;i<CORSIE*MACCHINE;i++){
-            attron(COLOR_PAIR(4));    
-            // mvprintw(macchine[i].y,macchine[i].x,"/--\\");
-            // mvprintw(macchine[i].y+1,macchine[i].x, "0--0");
-            mvaddch(data.y, data.x, '0'+data.c);    
-            attroff(COLOR_PAIR(4));
+            
+            if (macchine[i].x!=0 && macchine[i].y!=0 && macchine[i].c!=0){
+                attron(COLOR_PAIR(4));
+                mvprintw(macchine[i].y,macchine[i].x,"/--\\");
+                mvprintw(macchine[i].y+1,macchine[i].x, "0--0");
+                //mvaddch(macchine[i].y, macchine[i].x, '0'+macchine[i].c);    
+                attroff(COLOR_PAIR(4));
+            }
+            
         }
         usleep(DELAY);
         //box(autostrada,0,0);
