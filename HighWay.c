@@ -17,6 +17,7 @@ void car(int descriptor[]){
     getmaxyx(stdscr,maxY,maxX);
     maxY=offsetAutostrada;
     elemento macchina[CORSIE*MACCHINE];
+    
     // generazione corsie possibili per le macchine
     int possibleStartY[CORSIE]={0}, counter = 0;
     for(size_t i=0;i<CORSIE*MACCHINE;i++){
@@ -25,6 +26,7 @@ void car(int descriptor[]){
             counter++;
         }
     }
+    
     // generazione posizioni delle macchine
     for (int i = 0; i < CORSIE*MACCHINE; i++){
         macchina[i].y= possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
@@ -63,7 +65,6 @@ void car(int descriptor[]){
                 }
                  
             }
-            write(descriptor[1], &(macchina[i]), sizeof(elemento));
             usleep(DELAY); //introduce latenza di 1 secondo
         }
         
@@ -91,22 +92,23 @@ void car2(int descriptor[], int id){
     veicoli[id].y= possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
     veicoli[id].x=(1+rand()%maxX);
     veicoli[id].c = id;
-    
-        //check se una macchina è sopra un'altra, nel caso genera altra posizione
-    // if (id > 0){ // check dalla seconda macchina generata
-    //     size_t j = id-1;
-    //     while(j<CORSIE*MACCHINE){ //genera altre pos se collidono finchè pos è diversa dalle pos di altre macchine
-    //         if (veicoli[id].x == veicoli[j].x && veicoli[id].y == veicoli[j].y)
-    //         {
-    //             j = id-1;
-    //             veicoli[id].x=(1+rand()%maxX);
-    //         }
-    //         j--;
-    //     }
-    // }
+    write(descriptor[1], &(veicoli[id]), sizeof(elemento));
+
+    //check se una macchina è sopra un'altra, nel caso genera altra posizione
+    if (id > 0){ // check dalla seconda macchina generata
+        size_t j = id-1;
+        while(j<CORSIE*MACCHINE){ //genera altre pos se collidono finchè pos è diversa dalle pos di altre macchine
+            if (veicoli[id].x == veicoli[j].x && veicoli[id].y == veicoli[j].y)
+            {
+                j = id-1;
+                veicoli[id].x=(1+rand()%maxX);
+            }
+            j--;
+        }
+    }
 
     
-    // continua ad andare ad x+1
+    // // continua ad andare ad x+1
     while (true){
         if (ControlloCollisione(veicoli[id])){
             veicoli[id].y=possibleStartY[rand()%5]+offsetAutostrada;
@@ -126,11 +128,11 @@ void car2(int descriptor[], int id){
             }
                 
         }
-        
         write(descriptor[1], &(veicoli[id]), sizeof(elemento));
         usleep(DELAY); //introduce latenza di 1 secondo
 	}
 }
+
 
 bool ControlloCollisione(elemento oggetto){
     bool flag = false;

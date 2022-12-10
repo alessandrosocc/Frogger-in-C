@@ -2,7 +2,6 @@ typedef struct{
     int x;
     int y;
     int c;
-    bool sparato;
 }elemento;
 //extern WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio; //va a cercare le var in un altro file
 extern int offsetAutostrada;

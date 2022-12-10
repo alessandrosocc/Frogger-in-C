@@ -6,9 +6,11 @@
 #include <stdlib.h>
 #include <wchar.h>
 #include <locale.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <signal.h> //per kill
 #include "HighWay.h"
+#include "frog.h"
 
 #define CORRENTI 5
 #define DIMCORRENTI 2
@@ -33,7 +35,6 @@
 
 void printHighWay(int p[]);
 void windowGeneration();
-void frog(int p[]);
 void initScreen(int*, int*);
 
 
@@ -56,13 +57,27 @@ int main() {
 
     // generazione dei processi
 
-    pid_t auto0 = fork();
+    pid_t rana = fork();
+    if (rana < 0){
+        perror("Errore nella generazione della rana");
+    }
+    else if (rana == 0){
+        ffrog(p);
+    }
+    else{
+        pid_t proiettile = fork();
+        if(proiettile == 0){
+            bullet(p);
+        }
+
+    else{
+        pid_t auto0 = fork();
     if (auto0 < 0){
         perror("errore nella generazione della macchina 1");
     }
     else if (auto0 == 0){
-        car2(p,idMacchine);
-        idMacchine++;
+        car2(p,0);
+       
     }
     else{
         pid_t auto1=fork();
@@ -70,7 +85,7 @@ int main() {
             perror("Errore generazione macchina 0");
         }
         else if(auto1==0){
-            car2(p,idMacchine++);
+            car2(p,1);
         }
         else{
             pid_t auto2=fork();
@@ -78,7 +93,7 @@ int main() {
                 perror("Errore generazione macchina 0");
             }
             else if(auto2==0){
-                car2(p,idMacchine++);
+                car2(p,2);
             }
             else{
                 pid_t auto3=fork();
@@ -86,7 +101,7 @@ int main() {
                     perror("Errore generazione macchina 0");
                 }
                 else if(auto3==0){
-                    car2(p,idMacchine++);
+                    car2(p,3);
                 }
                 else{
                     pid_t auto4=fork();
@@ -94,7 +109,7 @@ int main() {
                         perror("Errore generazione macchina 0");
                     }
                     else if(auto4==0){
-                        car2(p,idMacchine++);
+                        car2(p,0);
                     }
                     else{
                         pid_t auto5=fork();
@@ -102,7 +117,7 @@ int main() {
                             perror("Errore generazione macchina 0");
                         }
                         else if(auto5==0){
-                            car2(p,idMacchine++);
+                            car2(p,5);
                         }
                         else{
                             pid_t auto6=fork();
@@ -110,7 +125,7 @@ int main() {
                                 perror("Errore generazione macchina 0");
                             }
                             else if(auto6==0){
-                                car2(p,idMacchine++);
+                                car2(p,6);
                             }
                             else{
                                 pid_t auto7=fork();
@@ -118,7 +133,7 @@ int main() {
                                     perror("Errore generazione macchina 0");
                                 }
                                 else if(auto7==0){
-                                    car2(p,idMacchine++);
+                                    car2(p,7);
                                 }
                                 else{
                                     pid_t auto8=fork();
@@ -126,7 +141,7 @@ int main() {
                                         perror("Errore generazione macchina 0");
                                     }
                                     else if(auto8==0){
-                                        car2(p,idMacchine++);
+                                        car2(p,8);
                                     }
                                     else{
                                         pid_t auto9=fork();
@@ -134,11 +149,12 @@ int main() {
                                             perror("Errore generazione macchina 0");
                                         }
                                         else if(auto9==0){
-                                            car2(p,idMacchine++);
+                                            car2(p,9);
                                         }
                                         else{
                                             printHighWay(p);
                                             
+                                            //padre(p);
                                         }
                                     }
                                 }
@@ -148,10 +164,12 @@ int main() {
                 }
             }   
         }
+    }
+} 
+    }
         
         
         
-    }    
     sleep(5);
     endwin();
     return 0; 
@@ -306,20 +324,20 @@ void printHighWay(int p[]){
             macchine[9].y = data.y;
             macchine[9].c = data.c;
         }
+        
 
         //mvwaddch(autostrada, macchine[i].y, macchine[i].x, macchine[i].c);    
         
         for(int i=0;i<CORSIE*MACCHINE;i++){
             attron(COLOR_PAIR(4));    
-            mvprintw(macchine[i].y,macchine[i].x,"/--\\");
-            mvprintw(macchine[i].y+1,macchine[i].x, "0--0");
-            //mvaddch(data.y, data.x, '0'+data.c);    
+            // mvprintw(macchine[i].y,macchine[i].x,"/--\\");
+            // mvprintw(macchine[i].y+1,macchine[i].x, "0--0");
+            mvaddch(data.y, data.x, '0'+data.c);    
             attroff(COLOR_PAIR(4));
         }
         usleep(DELAY);
         //box(autostrada,0,0);
         refresh();
+        }   
     }
-    
-    return;
-}
+

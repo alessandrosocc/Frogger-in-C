@@ -13,37 +13,32 @@
 
 
 
-void ffrog(int[]);
-void bullet(int[]);
-void padre(int[]);
-
-
-int main(){
-    elementoFrog data;
-    int p[2];
-    pipe(p);
-    initscr();
-    noecho();
-    keypad(stdscr, 1);
-    curs_set(0);
-    pid_t frog=fork();
-    if (frog < 0){
-        _exit(3);
-    }
-    if(frog == 0){
-        ffrog(p);
-    }
-    else{
-        pid_t proiettile = fork();
-        if(proiettile == 0){
-            bullet(p);
-        }
-        else{
-            padre(p);
-        }
-    }
-    endwin();
-}
+// int main(){
+//     elementoFrog data;
+//     int p[2];
+//     pipe(p);
+//     initscr();
+//     noecho();
+//     keypad(stdscr, 1);
+//     curs_set(0);
+//     pid_t frog=fork();
+//     if (frog < 0){
+//         _exit(3);
+//     }
+//     if(frog == 0){
+//         ffrog(p);
+//     }
+//     else{
+//         pid_t proiettile = fork();
+//         if(proiettile == 0){
+//             bullet(p);
+//         }
+//         else{
+//             padre(p);
+//         }
+//     }
+//     endwin();
+// }
 
 
 void ffrog(int p[]){
@@ -55,6 +50,7 @@ void ffrog(int p[]){
     rana.y=maxy/2;
     rana.x=maxx/2; 
     rana.sparato=false;
+    write(p[1],&rana, sizeof(elementoFrog));
     //getmaxyx(stdscr,oggetto.y,oggetto.x);
     while(true){
         int c = getch();
@@ -82,6 +78,7 @@ void ffrog(int p[]){
 
         }
         write(p[1],&rana, sizeof(elementoFrog));
+        rana.sparato = false;
     }
     return;
 }
@@ -91,7 +88,8 @@ void padre(int p[]){
     elementoFrog data, animale, bull;
 
     while(true){
-        clear();
+        erase();
+        windowGeneration();
         read(p[0], &data,sizeof(elementoFrog));
         if (data.c == 1){
             animale.x = data.x;
@@ -114,26 +112,55 @@ void padre(int p[]){
         refresh();
         
     }
-    usleep(10000);
+    usleep(1000);
     return;
 }
+
 void bullet(int p[]){
     elementoFrog proiettile,data;
     while(true){
         read(p[0], &data, sizeof(elementoFrog));
-        if (data.sparato == true){
+        if (data.sparato == true && data.c == 1){
             proiettile.c = 2;
             proiettile.y=data.y;
             proiettile.x=data.x;
-            while(true){
-                proiettile.y -= 1;
-                write(p[1], &proiettile, sizeof(elementoFrog));
-                sleep(1);
+            while(proiettile.y>0){
+                    proiettile.y -= 1;
+                    write(p[1], &proiettile, sizeof(elementoFrog));
+                    usleep(10000);
             }
         }
         else{
             write(p[1],&data,sizeof(elementoFrog));
-        }
+        }  
     }
-    
+      
 }
+
+// void f_proiettile(int p[2]){
+
+//     getmaxyx(stdscr, maxy, maxx);
+//     posizione oggetto = {-1, -1, '^','P'};
+//     posizione letto;
+
+//     while(true){
+//         read(p[0], &letto, sizeof(posizione)); //lettura della rana
+//         usleep(100000);
+//         if (letto.ID == 'R' && letto.sparato == 1){ //controllo se si tratta della rana 
+//              //prendo le coordinate della rana da cui deve partire il proittile
+//                 oggetto.x = letto.x;
+//                 oggetto.y = letto.y-1;
+
+//                 while(oggetto.y > -1){ //movimento del proiettile 
+//                     oggetto.y -= 1;
+//                     write(p[1], &oggetto, sizeof(posizione));
+//                     usleep(100000);
+//             }
+//         }
+//         else{
+//             write(p[1], &oggetto, sizeof(posizione)); //se non è la rana quella che legge fa questa write
+//             usleep(100000);
+//         }
+//     }    
+//     return;
+// }

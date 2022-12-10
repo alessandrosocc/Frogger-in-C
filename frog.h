@@ -4,3 +4,8 @@ typedef struct{
     int c;
     bool sparato;
 }elementoFrog;
+
+extern void windowGeneration();
+void ffrog(int[]);
+void bullet(int[]);
+void padre(int[]);

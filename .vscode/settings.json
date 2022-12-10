@@ -5,6 +5,7 @@
         "wait.h": "c",
         "wchar.h": "c",
         "highway.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "types.h": "c"
     }
 }
