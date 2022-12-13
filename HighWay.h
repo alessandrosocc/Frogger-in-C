@@ -14,7 +14,6 @@ extern int offsetAutostrada;
 
 #define DELAY 10000
 bool ControlloCollisione(elemento);
-void car(int descriptor[]);
 void car2(int descriptor[], int id);
 
 

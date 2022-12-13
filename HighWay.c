@@ -12,73 +12,13 @@
 
 elemento veicoli[CORSIE*MACCHINE];
 
-void car(int descriptor[]){
-    int maxX = 0, maxY = 0, x = 0, y = 0;
-    getmaxyx(stdscr,maxY,maxX);
-    maxY=offsetAutostrada;
-    elemento macchina[CORSIE*MACCHINE];
-    
-    // generazione corsie possibili per le macchine
-    int possibleStartY[CORSIE]={0}, counter = 0;
-    for(size_t i=0;i<CORSIE*MACCHINE;i++){
-        if (i%2!=0 && i != 0){
-            possibleStartY[counter]=i;
-            counter++;
-        }
-    }
-    
-    // generazione posizioni delle macchine
-    for (int i = 0; i < CORSIE*MACCHINE; i++){
-        macchina[i].y= possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
-        macchina[i].x=(1+rand()%maxX);
-        if (i > 0){ // check dalla seconda macchina generata
-            size_t j=0;
-            while(j<CORSIE*MACCHINE){ //genera altre pos se collidono finchè pos è diversa dalle pos di altre macchine
-                if (macchina[i].x == macchina[j].x && i != j)
-                {
-                    j = 0;
-                    macchina[i].x=(1+rand()%maxX);
-                }
-                j++;
-            }
-
-        }
-        macchina[i].c = i+1;
-    }
-    while (true){
-        for (size_t i=0;i<CORSIE*MACCHINE;i++){
-            if (ControlloCollisione(macchina[i])){
-                macchina[i].y=possibleStartY[rand()%5]+offsetAutostrada;
-                if (macchina[i].y == 3+offsetAutostrada || macchina[i].y == 7+offsetAutostrada){
-                    macchina[i].x =maxX - 1;
-                }
-                else{
-                    macchina[i].x=1;
-                }
-            }
-            else{
-                if (macchina[i].y == 3+offsetAutostrada || macchina[i].y == 7+offsetAutostrada){
-                    macchina[i].x-=1;
-                }
-                else{
-                    macchina[i].x+=1;
-                }
-                 
-            }
-            usleep(DELAY); //introduce latenza di 1 secondo
-        }
-        
-	}
-}
-
-
 
 void car2(int descriptor[], int id){
+    srand(getpid());
     close(descriptor[0]);
     int maxX = 0, maxY = 0, x = 0, y = 0;
-    getmaxyx(stdscr,maxY,maxX);
+    getmaxyx(stdscr,maxY,maxX); //only for getting maxX
     maxY=offsetAutostrada;
-
     elemento veicoli;
 
     // generazione corsie possibili per le macchine
@@ -92,12 +32,18 @@ void car2(int descriptor[], int id){
     }
     
     // generazione posizioni delle macchine
+
     veicoli.y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
     veicoli.x=(1+rand()%maxX);
     veicoli.c=id;
-    write(descriptor[1], &(veicoli), sizeof(elemento));
-    
 
+    //write(descriptor[1], &(veicoli), sizeof(elemento));
+    //printf("start: \n");
+    //printf("y: %d - x: %d - car %d\n",veicoli.y,veicoli.x,veicoli.c);
+
+            
+
+    
     //check se una macchina è sopra un'altra, nel caso genera altra posizione
     // if (id > 0){ // check dalla seconda macchina generata
     //     size_t j = id-1;
@@ -111,10 +57,9 @@ void car2(int descriptor[], int id){
     //     }
     // }
 
-    
+    //printf("Inside WHILE\n\n");
     // // continua ad andare ad x+1
     while (true){
-        
         if (ControlloCollisione(veicoli))
         {
             veicoli.y=possibleStartY[rand()%CORSIE]+offsetAutostrada; // nuova riga
@@ -123,7 +68,7 @@ void car2(int descriptor[], int id){
                 veicoli.x =maxX - 1; // la macchina inizia da destra
             }
             else{
-                veicoli.x=1; // la macchina inizia da sinistra
+                veicoli.x+=1; // la macchina inizia da sinistra
             }
         }
         else{
@@ -135,15 +80,18 @@ void car2(int descriptor[], int id){
             }
                 
         }
+        //printf("y: %d - x: %d - car %d\n",veicoli.y,veicoli.x,veicoli.c);
+        //printf("\n\n");
         write(descriptor[1], &veicoli, sizeof(elemento));
-        usleep(DELAY); //introduce latenza di 1 secondo
-	}
+        //usleep(10000000); //introduce latenza di 1 secondo
+        usleep(DELAY);
+    }
 }
 
 
 bool ControlloCollisione(elemento oggetto){
     bool flag = false;
-    int maxx, maxy;
+    int maxx=100, maxy=100;
     getmaxyx(stdscr, maxy, maxx);
     if (oggetto.x < 0 || oggetto.x >= maxx || oggetto.y < 0 || oggetto.y >= maxy){
         flag = true;
