@@ -2,6 +2,7 @@ typedef struct{
     int x;
     int y;
     int c;
+    int type;
 }elemento;
 //extern WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio; //va a cercare le var in un altro file
 extern int offsetAutostrada;
@@ -15,5 +16,6 @@ extern int offsetAutostrada;
 #define DELAY 10000
 bool ControlloCollisione(elemento);
 void car2(int descriptor[], int id);
+bool carCollision(elemento, int p[]);
 
 

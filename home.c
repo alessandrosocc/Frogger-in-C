@@ -76,7 +76,6 @@ int main() {
     }
     else if (auto0 == 0){
         car2(p,0);
-    
     }
     else{
         pid_t auto1=fork();
@@ -152,7 +151,7 @@ int main() {
                                         }
                                         else{
                                             printHighWay(p);
-                                            //padre(p);
+                                            //padre(p); 
                                         }
                                     }
                                 }
@@ -263,73 +262,56 @@ void windowGeneration(){
 void printHighWay(int p[]){
     close(p[1]);
 
-    elemento d, macchina0, macchina1,macchina2,macchina3,macchina4,macchina5,macchina6, macchina7, macchina8, macchina9;
+    elemento d;
+    elemento macchine[CORSIE*MACCHINE];
+
+    //inizializziamo macchine
+    for (size_t i = 0; i< CORSIE*MACCHINE; i++){
+        macchine[i].x=-1;
+        macchine[i].y=-1;
+        macchine[i].c=-1;
+    }
+    
     while(true){
         erase();
         windowGeneration();
         read(p[0], &(d), sizeof(elemento));
-        if (d.c == 0){
-            macchina0.x = d.x;
-            macchina0.y = d.y;
-            macchina0.c = d.c;
+        for (int i=0;i<CORSIE*MACCHINE;i++){
+            if (d.c == i){ //assegna a macchina iesima
+            macchine[i].x = d.x;
+            macchine[i].y = d.y;
+            macchine[i].c = d.c; 
+            macchine[i].type = d.type;       
         }
-        else if(d.c == 1){
-            macchina1.x = d.x;
-            macchina1.y = d.y;
-            macchina1.c = d.c;
-        }
-        else if(d.c == 2){
-            macchina2.x = d.x;
-            macchina2.y = d.y;
-            macchina2.c = d.c;
-        }
-        else if(d.c == 3){
-            macchina3.x = d.x;
-            macchina3.y = d.y;
-            macchina3.c = d.c;
-        }
-        else if(d.c == 4){
-            macchina4.x = d.x;
-            macchina4.y = d.y;
-            macchina4.c = d.c;
-        }
-        else if(d.c == 5){
-            macchina5.x = d.x;
-            macchina5.y = d.y;
-            macchina5.c = d.c;
-        }
-        else if(d.c == 6){
-            macchina6.x = d.x;
-            macchina6.y = d.y;
-            macchina6.c = d.c;
-        }
-        else if(d.c == 7){
-            macchina7.x = d.x;
-            macchina7.y = d.y;
-            macchina7.c = d.c;
-        }
-        else if(d.c == 8){
-            macchina8.x = d.x;
-            macchina8.y = d.y;
-            macchina8.c = d.c;
-        }
-        else if(d.c == 9){
-            macchina9.x = d.x;
-            macchina9.y = d.y;
-            macchina9.c = d.c;
-        }
+        
 
-        mvprintw(macchina0.y, macchina0.x, "0");
-        mvprintw(macchina1.y, macchina1.x, "1");
-        mvprintw(macchina2.y, macchina2.x, "2");
-        mvprintw(macchina3.y, macchina3.x, "3");
-        mvprintw(macchina4.y, macchina4.x, "4");
-        mvprintw(macchina5.y, macchina5.x, "5");
-        mvprintw(macchina6.y, macchina6.x, "6");
-        mvprintw(macchina7.y, macchina7.x, "7");
-        mvprintw(macchina8.y, macchina8.x, "8");
-        mvprintw(macchina9.y, macchina9.x, "9");
 
+
+        
+        // stampa macchine
+        for(size_t i = 0; i<CORSIE*MACCHINE; i++){
+            if (macchine[i].c!=-1){
+                attron(COLOR_PAIR(4));
+                //stampa macchina
+                if(macchine[i].type==1){ //camion
+                    mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
+                    mvprintw(macchine[i].y+1,macchine[i].x,"O-----O");
+                }
+                else{ //macchina
+                    mvprintw(macchine[i].y,macchine[i].x,"/--\\");
+                    mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
+                }
+                    
+                
+                
+                
+                
+                
+                // mvaddch(macchine[i].y,macchine[i].x, '0'+macchine[i].c);
+                attroff(COLOR_PAIR(4));
+            }
+
+        }
 
         
         
@@ -338,5 +320,5 @@ void printHighWay(int p[]){
         refresh();
         usleep(DELAY);
     }
-}
+}}
 
