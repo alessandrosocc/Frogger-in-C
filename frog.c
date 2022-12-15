@@ -83,38 +83,38 @@ void ffrog(int p[]){
     return;
 }
 
-void padre(int p[]){
-    close(p[1]);
-    elementoFrog data, animale, bull;
+// void printFrog(int p[]){
+//     close(p[1]);
+//     elementoFrog data, animale, bull;
 
-    while(true){
-        erase();
-        windowGeneration();
-        read(p[0], &data,sizeof(elementoFrog));
-        if (data.c == 1){
-            animale.x = data.x;
-            animale.y = data.y;
-            if (data.sparato==true){
-                bull.sparato=true;
-            }
-        }
-        else if (data.c == 2){
-            bull.x = data.x;
-            bull.y = data.y;
-        }
-        // stampa
-        mvprintw(animale.y,animale.x,"\\/");
-        mvprintw(animale.y+1,animale.x,"/\\");
-        if (bull.sparato == true){
-            mvprintw(bull.y, bull.x, "*");
-        }
-        //box(stdscr, 0, 0);
-        refresh();
+//     while(true){
+//         // erase();
+//         // windowGeneration();
+//         read(p[0], &data,sizeof(elementoFrog));
+//         if (data.c == 1){
+//             animale.x = data.x;
+//             animale.y = data.y;
+//             if (data.sparato==true){
+//                 bull.sparato=true;
+//             }
+//         }
+//         else if (data.c == 2){
+//             bull.x = data.x;
+//             bull.y = data.y;
+//         }
+//         // stampa
+//         mvprintw(animale.y,animale.x,"\\/");
+//         mvprintw(animale.y+1,animale.x,"/\\");
+//         if (bull.sparato == true){
+//             mvprintw(bull.y, bull.x, "*");
+//         }
+//         //box(stdscr, 0, 0);
+//         // refresh();
         
-    }
-    usleep(1000);
-    return;
-}
+//     }
+//     usleep(1000);
+//     return;
+// }
 
 void bullet(int p[]){
     elementoFrog proiettile,data;
