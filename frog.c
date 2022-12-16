@@ -52,9 +52,7 @@ void ffrog(int p[]){
     write(p[1],&rana, sizeof(elemento));
     //getmaxyx(stdscr,oggetto.y,oggetto.x);
     while(true){
-        int c = getch();
-        mvprintw(3,1,"char : %d",c);
-        
+        int c = getch();      
         switch(c) {
             case 32: //barra spaziatrice
                 rana.sparato=true;
@@ -109,11 +107,8 @@ void padre(int p[]){
         }
         //box(stdscr, 0, 0);
         refresh();
-        
-//     }
-//     usleep(1000);
-//     return;
-// }
+    }
+}
 
 void bullet(int p[]){
     elemento proiettile,data;
