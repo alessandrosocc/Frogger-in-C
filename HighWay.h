@@ -1,9 +1,10 @@
 typedef struct{
     int x;
     int y;
-    int c; //0-9 identificativo macchina ; 20 = rana ; 21 = proiettile
+    int c; //0-9 identificativo macchina ; 20 = rana ; 21 = proiettile ; 30 legnetto
     int type; //camion o auto?
     bool sparato;
+    bool enemy; //il tronco ha un nemico sopra? gestito in river.c
 }elemento;
 extern int offsetAutostrada;
 
