@@ -8,4 +8,4 @@ typedef struct{
 extern void windowGeneration();
 void ffrog(int[]);
 void bullet(int[]);
-void padre(int[]);
+void printFrog(int[]);

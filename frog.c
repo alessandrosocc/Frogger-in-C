@@ -89,7 +89,7 @@ void padre(int p[]){
     while(true){
         erase();
         windowGeneration();
-        read(p[0], &data,sizeof(elemento));
+        read(p[0], &data,sizeof(elementoFrog));
         if (data.c == 1){
             animale.x = data.x;
             animale.y = data.y;
@@ -110,10 +110,10 @@ void padre(int p[]){
         //box(stdscr, 0, 0);
         refresh();
         
-    }
-    usleep(1000);
-    return;
-}
+//     }
+//     usleep(1000);
+//     return;
+// }
 
 void bullet(int p[]){
     elemento proiettile,data;

@@ -33,7 +33,7 @@
 //WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio;
 
 
-void printAll(int p[]);
+void printHighWay(int p[]);
 void windowGeneration();
 void initScreen(int*, int*);
 
@@ -46,12 +46,26 @@ int main() {
     srand(time(NULL));
     int p[2],p2[2];
     pipe(p);
-    pipe(p2);
     
     int maxX=0, maxY=0;
     initScreen(&maxY,&maxX);
     windowGeneration();
 
+    // generazione dei processi
+
+    // pid_t rana = fork();
+    // if (rana < 0){
+    //     perror("Errore nella generazione della rana");
+    // }
+    // else if (rana == 0){
+    //     ffrog(p);
+    // }
+    // else{
+    //     pid_t proiettile = fork();
+    //     if(proiettile == 0){
+    //         bullet(p);
+    //     }
+        
     pid_t auto0 = fork();
     if (auto0 < 0){
         perror("errore nella generazione della macchina 1");
@@ -246,11 +260,12 @@ void windowGeneration(){
 }
 
 
-void printAll(int p[]){
+void printHighWay(int p[]){
     close(p[1]);
     elemento d,d2, rana;
     elemento macchine[CORSIE*MACCHINE];
     //inizializziamo macchine
+    elemento macchine[CORSIE*MACCHINE];
     for (size_t i = 0; i< CORSIE*MACCHINE; i++){
         macchine[i].x=-1;
         macchine[i].y=-1;
@@ -260,23 +275,18 @@ void printAll(int p[]){
         erase();
         windowGeneration();
         read(p[0], &(d), sizeof(elemento));
-        
-        
-        if (d.c == 20){
-            rana.x = d.x;
-            rana.y = d.y;
-            rana.c = d.c;
+        for (int i=0;i<CORSIE*MACCHINE;i++){
+            if (d.c == i){ //assegna a macchina iesima
+            macchine[i].x = d.x;
+            macchine[i].y = d.y;
+            macchine[i].c = d.c; 
+            macchine[i].type = d.type;       
         }
-        else{
-            for (int i=0;i<CORSIE*MACCHINE;i++){
-                if (d.c == i){ //assegna a macchina iesima
-                    macchine[i].x = d.x;
-                    macchine[i].y = d.y;
-                    macchine[i].c = d.c; 
-                    macchine[i].type = d.type;
-                }
-            }
-        }
+        
+
+
+
+        
         // stampa macchine
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if (macchine[i].c!=-1){
@@ -294,13 +304,36 @@ void printAll(int p[]){
                 attroff(COLOR_PAIR(4));
             }
         }
+
         
-        mvprintw(1,1,"rana: %d %d",rana.y,rana.x);  
-        mvprintw(rana.y,rana.x,"\\/");
-        mvprintw(rana.y+1,rana.x,"/\\");
         
-        //usleep(DELAY);
+        //printf("x: %d y: %d, id: %d\n", d.x,d.y, d.c);
+        
         refresh();
+        usleep(DELAY);
     }
 }
 
+
+void printFFrog(int p2[]){
+    close(p2[1]);
+    elementoFrog data, animale, bull;
+    read(p2[0], &data,sizeof(elementoFrog));
+    if (data.c == 1){
+        animale.x = data.x;
+        animale.y = data.y;
+        if (data.sparato==true){
+            bull.sparato=true;
+        }
+    }
+    else if (data.c == 2){
+        bull.x = data.x;
+        bull.y = data.y;
+    }
+    // stampa
+    mvprintw(animale.y,animale.x,"\\/");
+    mvprintw(animale.y+1,animale.x,"/\\");
+    if (bull.sparato == true){
+        mvprintw(bull.y, bull.x, "*");
+    }
+}
