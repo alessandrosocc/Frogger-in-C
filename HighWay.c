@@ -13,7 +13,7 @@
 elemento veicoli[CORSIE*MACCHINE];
 
 
-void car2(int descriptor[], int id){
+void car(int descriptor[], int id){
     srand(getpid());
     int maxX = 0, maxY = 0, x = 0, y = 0;
     getmaxyx(stdscr,maxY,maxX); //only for getting maxX
@@ -45,7 +45,6 @@ void car2(int descriptor[], int id){
     }
     // controllo delle collisioni durante la generazione delle macchine
     if (id!=0){ 
-        
         for (size_t i = 0; i < CORSIE*MACCHINE; i++ ){ //prendi scorsi elementi
             read(descriptor[0], &(tmp[i]), sizeof(elemento));
         }
@@ -56,7 +55,6 @@ void car2(int descriptor[], int id){
                     veicoli[id].x=(1+rand()%maxX);
                     i = 0; 
                 }
-                
         }
         for (size_t i = 0; i < CORSIE*MACCHINE; i++){
             write(descriptor[1], &(tmp[i]), sizeof(elemento));
@@ -85,16 +83,11 @@ void car2(int descriptor[], int id){
                 veicoli[id].x+=1;
             }
                 
-        }
-        //printf("y: %d - x: %d - car %d\n",veicoli[id].y,veicoli[id].x,veicoli[id].c);
-        //printf("\n\n");
-        
+        }      
         write(descriptor[1], &veicoli[id], sizeof(elemento));
-        //usleep(10000000); //introduce latenza di 1 secondo
         usleep(DELAY);
     }
 }
-
 
 bool ControlloCollisione(elemento oggetto){
     bool flag = false;

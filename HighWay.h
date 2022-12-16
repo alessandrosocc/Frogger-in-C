@@ -1,22 +1,20 @@
 typedef struct{
     int x;
     int y;
-    int c; //numero macchina
+    int c; //0-9 identificativo macchina ; 20 = rana ; 21 = proiettile
     int type; //camion o auto?
     bool sparato;
 }elemento;
-//extern WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio; //va a cercare le var in un altro file
 extern int offsetAutostrada;
-//extern int possibleStartY[] = {1,3,5,7,9};
 
 //global variables
 #define CORSIE 5
 #define DIMCORSIE 2
 #define MACCHINE 2
+#define DELAY 50000
 
-#define DELAY 10000
 bool ControlloCollisione(elemento);
-void car2(int descriptor[], int id);
+void car(int descriptor[], int id);
 bool carCollision(elemento, int p[]);
 
 
