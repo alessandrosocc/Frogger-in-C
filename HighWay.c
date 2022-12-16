@@ -88,6 +88,7 @@ void car2(int descriptor[], int id){
         }
         //printf("y: %d - x: %d - car %d\n",veicoli[id].y,veicoli[id].x,veicoli[id].c);
         //printf("\n\n");
+        
         write(descriptor[1], &veicoli[id], sizeof(elemento));
         //usleep(10000000); //introduce latenza di 1 secondo
         usleep(DELAY);

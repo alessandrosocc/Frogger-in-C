@@ -33,7 +33,7 @@
 //WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio;
 
 
-void printHighWay(int p[]);
+void printAll(int p[]);
 void windowGeneration();
 void initScreen(int*, int*);
 
@@ -42,34 +42,16 @@ void initScreen(int*, int*);
 int offsetAutostrada = 0;
 int idMacchine = 0;
 
-
-
-//WINDOW *<nomeWindow> = newwin(intsetlocale(LC_CTYPE, ""); nlinee, int ncols, int inizio_y, int inizio_x)
-
 int main() {
     srand(time(NULL));
-    int p[2];
+    int p[2],p2[2];
     pipe(p);
+    pipe(p2);
     
     int maxX=0, maxY=0;
     initScreen(&maxY,&maxX);
     windowGeneration();
 
-    // generazione dei processi
-
-    // pid_t rana = fork();
-    // if (rana < 0){
-    //     perror("Errore nella generazione della rana");
-    // }
-    // else if (rana == 0){
-    //     ffrog(p);
-    // }
-    // else{
-    //     pid_t proiettile = fork();
-    //     if(proiettile == 0){
-    //         bullet(p);
-    //     }
-        
     pid_t auto0 = fork();
     if (auto0 < 0){
         perror("errore nella generazione della macchina 1");
@@ -150,7 +132,13 @@ int main() {
                                             car2(p,9);
                                         }
                                         else{
-                                            printHighWay(p);
+                                            pid_t frog = fork();
+                                            if (frog == 0){
+                                                ffrog(p);
+                                            }
+                                            else{
+                                                printAll(p);
+                                            }
                                             //padre(p); 
                                         }
                                     }
@@ -162,8 +150,7 @@ int main() {
             }   
         }
     }
-
-    sleep(5);
+    sleep(10);
     endwin();
     return 0;
 }
@@ -259,35 +246,37 @@ void windowGeneration(){
 }
 
 
-void printHighWay(int p[]){
+void printAll(int p[]){
     close(p[1]);
-
-    elemento d;
+    elemento d,d2, rana;
     elemento macchine[CORSIE*MACCHINE];
-
     //inizializziamo macchine
     for (size_t i = 0; i< CORSIE*MACCHINE; i++){
         macchine[i].x=-1;
         macchine[i].y=-1;
         macchine[i].c=-1;
     }
-    
     while(true){
         erase();
         windowGeneration();
         read(p[0], &(d), sizeof(elemento));
-        for (int i=0;i<CORSIE*MACCHINE;i++){
-            if (d.c == i){ //assegna a macchina iesima
-            macchine[i].x = d.x;
-            macchine[i].y = d.y;
-            macchine[i].c = d.c; 
-            macchine[i].type = d.type;       
+        
+        
+        if (d.c == 20){
+            rana.x = d.x;
+            rana.y = d.y;
+            rana.c = d.c;
         }
-        
-
-
-
-        
+        else{
+            for (int i=0;i<CORSIE*MACCHINE;i++){
+                if (d.c == i){ //assegna a macchina iesima
+                    macchine[i].x = d.x;
+                    macchine[i].y = d.y;
+                    macchine[i].c = d.c; 
+                    macchine[i].type = d.type;
+                }
+            }
+        }
         // stampa macchine
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if (macchine[i].c!=-1){
@@ -301,24 +290,17 @@ void printHighWay(int p[]){
                     mvprintw(macchine[i].y,macchine[i].x,"/--\\");
                     mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
                 }
-                    
-                
-                
-                
-                
-                
                 // mvaddch(macchine[i].y,macchine[i].x, '0'+macchine[i].c);
                 attroff(COLOR_PAIR(4));
             }
-
         }
-
         
+        mvprintw(1,1,"rana: %d %d",rana.y,rana.x);  
+        mvprintw(rana.y,rana.x,"\\/");
+        mvprintw(rana.y+1,rana.x,"/\\");
         
-        //printf("x: %d y: %d, id: %d\n", d.x,d.y, d.c);
-        
+        //usleep(DELAY);
         refresh();
-        usleep(DELAY);
     }
-}}
+}
 

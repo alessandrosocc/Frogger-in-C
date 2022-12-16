@@ -10,8 +10,7 @@
 #include <signal.h> //per kill
 #include <stdbool.h>
 #include "frog.h"
-
-
+#include "HighWay.h"
 
 // int main(){
 //     elementoFrog data;
@@ -42,18 +41,20 @@
 
 
 void ffrog(int p[]){
-    elementoFrog rana;
     close(p[0]);
-    int maxx=0,maxy=0;
+    elemento rana;
+    int maxx=0,maxy=0, counter = 0;
     getmaxyx(stdscr,maxy,maxx);
-    rana.c= 1;
+    rana.c = 20;
     rana.y=maxy/2;
     rana.x=maxx/2; 
     rana.sparato=false;
-    write(p[1],&rana, sizeof(elementoFrog));
+    write(p[1],&rana, sizeof(elemento));
     //getmaxyx(stdscr,oggetto.y,oggetto.x);
     while(true){
         int c = getch();
+        mvprintw(3,1,"char : %d",c);
+        
         switch(c) {
             case 32: //barra spaziatrice
                 rana.sparato=true;
@@ -74,10 +75,8 @@ void ffrog(int p[]){
                 if(rana.x < maxx - 1)
                     rana.x += 1;
                 break;
-            
-
         }
-        write(p[1],&rana, sizeof(elementoFrog));
+        write(p[1],&rana, sizeof(elemento));
         rana.sparato = false;
     }
     return;
@@ -85,12 +84,12 @@ void ffrog(int p[]){
 
 void padre(int p[]){
     close(p[1]);
-    elementoFrog data, animale, bull;
+    elemento data, animale, bull;
 
     while(true){
         erase();
         windowGeneration();
-        read(p[0], &data,sizeof(elementoFrog));
+        read(p[0], &data,sizeof(elemento));
         if (data.c == 1){
             animale.x = data.x;
             animale.y = data.y;
@@ -117,21 +116,21 @@ void padre(int p[]){
 }
 
 void bullet(int p[]){
-    elementoFrog proiettile,data;
+    elemento proiettile,data;
     while(true){
-        read(p[0], &data, sizeof(elementoFrog));
+        read(p[0], &data, sizeof(elemento));
         if (data.sparato == true && data.c == 1){
             proiettile.c = 2;
             proiettile.y=data.y;
             proiettile.x=data.x;
             while(proiettile.y>0){
                     proiettile.y -= 1;
-                    write(p[1], &proiettile, sizeof(elementoFrog));
+                    write(p[1], &proiettile, sizeof(elemento));
                     usleep(10000);
             }
         }
         else{
-            write(p[1],&data,sizeof(elementoFrog));
+            write(p[1],&data,sizeof(elemento));
         }  
     }
       

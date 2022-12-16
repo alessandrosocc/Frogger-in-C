@@ -1,8 +1,9 @@
 typedef struct{
     int x;
     int y;
-    int c;
-    int type;
+    int c; //numero macchina
+    int type; //camion o auto?
+    bool sparato;
 }elemento;
 //extern WINDOW *vite, *tempo, *marciapiede, *autostrada, *prato, *fiume, *tane, *punteggio; //va a cercare le var in un altro file
 extern int offsetAutostrada;
