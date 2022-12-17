@@ -12,7 +12,7 @@
 #include "HighWay.h"
 #include "frog.h"
 #include "home.h"
-
+#include "river.h"
 
 
 
@@ -115,9 +115,40 @@ int main() {
                                                     bullet(p);
                                                 }
                                                 else{
-                                                    printAll(p);
-                                                }
-                                                
+                                                    pid_t log0 = fork();
+                                                    if (log0 == 0){
+                                                        legnetto(p, 0);
+                                                    }
+                                                    else{
+                                                        pid_t log1 = fork();
+                                                        if (log1 == 0){
+                                                            legnetto(p,1);
+                                                        }
+                                                        else
+                                                        {
+                                                            pid_t log2 = fork();
+                                                            if (log2 == 0){
+                                                                legnetto(p, 2);
+                                                            }
+                                                            else{
+                                                                pid_t log3=fork();
+                                                                if (log3==0){
+                                                                    legnetto(p, 3);
+
+                                                                }
+                                                                else{
+                                                                    pid_t log4=fork();
+                                                                    if (log4==0){
+                                                                        legnetto(p, 4);
+                                                                    }
+                                                                    else{
+                                                                        printAll(p);
+                                                                    }      
+                                                                } 
+                                                            }
+                                                        }
+                                                    }
+                                                } 
                                             }
                                         }
                                     }
@@ -179,6 +210,7 @@ void windowGeneration(){
         mvhline(i, 1, ' ', maxX-2);
         attroff(COLOR_PAIR(3));
     }
+    offsetFiume=offsetSum-1;
     offsetSum+=FIUME;
 
     //prato
@@ -228,7 +260,8 @@ void windowGeneration(){
 void printAll(int p[]){
     close(p[1]);
     elemento d, rana,bull; //bull=bullet
-
+    elemento woody[5];
+    elemento bullets[5]; //bullets nemici sui tronchi
     //inizializziamo macchine
     elemento macchine[CORSIE*MACCHINE];
     for (size_t i = 0; i< CORSIE*MACCHINE; i++){
@@ -237,7 +270,7 @@ void printAll(int p[]){
         macchine[i].c=-1;
     }
 
-    //get valori rana, bullet se presente e macchine
+    //get valori rana, bullet se presente, macchine, tronchi e bullet nemici sui trochi
     while(true){
         erase();
         windowGeneration();
@@ -264,7 +297,6 @@ void printAll(int p[]){
                 }
             }
         }
-        
         
         // stampa macchine
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
@@ -293,6 +325,51 @@ void printAll(int p[]){
             mvprintw(bull.y, bull.x, "*");
         }
         attroff(COLOR_PAIR(4));
+        
+        //Stampa Fiume, tronchi, nemici e proiettili nemici
+        for (int i=0;i<CORSIE;i++){
+            if (d.c == i+30){ //assegna a legnetto iesimo
+                woody[i].x = d.x;
+                woody[i].y = d.y;
+                woody[i].c = d.c; 
+                woody[i].enemy=d.enemy;
+            }
+            if (d.c  == i+70){ // se è un proiettile => 30 (tronco ID) + 40 (proiettile ID)
+                bullets[i].x = d.x;
+                bullets[i].y = d.y;
+                bullets[i].c = d.c;
+                bullets[i].sparato = d.sparato;
+                
+            }
+        }       
+        // stampa tronchi e nemici
+        for(size_t i = 0; i<CORSIE; i++)
+        { 
+            //DEBUG
+            attron(COLOR_PAIR(3));
+            //debug
+            //mvprintw(i+20,1,"Posizione woody %d -> y: %d x: %d c: %d enemy: %d, sparato %d",i,woody[i].y,woody[i].x,woody[i].c,woody[i].enemy, woody[i].sparato);
+            if(woody[i].enemy==false){
+                mvprintw(woody[i].y,woody[i].x,"/----\\");
+                mvprintw(woody[i].y+1,woody[i].x,"\\----/");
+            }
+            //C'è un nemico!
+            else{
+                mvprintw(woody[i].y,woody[i].x,"/-00-\\");
+                mvprintw(woody[i].y+1,woody[i].x,"\\-||-/");
+            }
+        }
+        //stampa proiettili quando sparati
+        for (size_t i = 0; i< CORSIE; i++){
+            if (bullets[i].sparato == true){
+                mvaddch(bullets[i].y, bullets[i].x, '*');
+                //debug
+                mvprintw(i+40,1,"Posizione bull %d -> y: %d x: %d c: %d",i,bullets[i].y,bullets[i].x,bullets[i].c);
+            }
+        }
+        attroff(COLOR_PAIR(3));
+        
+        
         refresh();
     
     }

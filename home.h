@@ -22,4 +22,5 @@ void initScreen(int*, int*);
 
 // global variables
 int offsetAutostrada = 0;
+int offsetFiume=0;
 int idMacchine = 0;

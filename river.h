@@ -4,4 +4,4 @@ void enemyBullet(int [], elemento);
 void enemyBulletShoot(int[], elemento);
 void printEnemyBullets(int[]);
 
-//extern int offsetFiume;
+extern int offsetFiume;
