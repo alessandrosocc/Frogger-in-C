@@ -1,7 +1,7 @@
 typedef struct{
     int x;
     int y;
-    int c; //0-9 identificativo macchina ; 20 = rana ; 21 = proiettile ; 30 legnetto
+    int c; //0-9 identificativo macchina ; 20 = rana ; 21 = proiettile ; 30-35 legnetto ; 40 - 45 proiettili nemici su tronco
     int type; //camion o auto?
     bool sparato;
     bool enemy; //il tronco ha un nemico sopra? gestito in river.c

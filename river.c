@@ -28,7 +28,6 @@ int main(){
     pid_t log0 = fork();
     if (log0 == 0){
         legnetto(p, 0);
-
     }
     else{
         pid_t log1 = fork();
@@ -85,6 +84,7 @@ void legnetto(int descriptor[], int start){
     //generazione di un nemico!
     if (rand()%6 > 4){
         woody.enemy=true;
+        //enemyBullet(woody);
     }
     
     write(descriptor[1], &woody, sizeof(elemento));
@@ -101,6 +101,7 @@ void legnetto(int descriptor[], int start){
         if (woody.enemy == false){
             if (timeLimit == counter){
                 woody.enemy = true;
+                //enemyBullet(woody);
             }
         }
         write(descriptor[1], &woody, sizeof(elemento));
@@ -126,7 +127,6 @@ void printLog(int p[]){
                 woody[i].y = d.y;
                 woody[i].c = d.c; 
                 woody[i].enemy=d.enemy;
-                
             }
         }       
        
@@ -147,4 +147,62 @@ void printLog(int p[]){
         }
         refresh();
     }
+}
+
+void enemyBullet(elemento enemy){
+    int p[2];
+    pipe(p);
+    pid_t bullet=fork();
+    if (bullet==0){
+        enemyBulletShoot(p, enemy);
+    }
+    else{
+        printEnemyBullets(p);
+    }
+}
+void enemyBulletShoot(int p[], elemento enemy){
+    close(p[0]);
+    elemento proiettileNemico;
+    int counter = 0;
+    proiettileNemico.c = 40+enemy.c; // da modificare quando si aggiunge a home
+    while(true){
+        if (enemy.sparato == false){
+            proiettileNemico.x = enemy.x;
+            proiettileNemico.y = enemy.y;   
+        }
+        if (counter == 30){
+            enemy.sparato = true;
+        }
+        else{
+            proiettileNemico.y = proiettileNemico.y+1;
+            write(p[1], &proiettileNemico, sizeof(elemento));
+        }
+        counter++;
+    }
+}
+void printEnemyBullets(int p[]){
+    close(p[1]);
+    elemento proiettili[5];
+    elemento data;
+    bool flag = false;
+    while(true){
+        clear();
+        read(p[0], &data, sizeof(elemento));
+        for (size_t i = 0; i< CORSIE || flag == false; i++){
+            if (data.c-40 == i){// da modificare il -40
+                proiettili[i].x = data.x;
+                proiettili[i].y = data.y;
+                proiettili[i].c = data.c; 
+                flag = true;
+            }
+        }
+
+        for(size_t i = 0; i<CORSIE; i++)
+        { 
+            mvaddch(proiettili[i].y, proiettili[i].x, '*');
+        }
+        refresh();
+
+    }
+
 }
