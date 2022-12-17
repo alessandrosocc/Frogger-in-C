@@ -1,6 +1,6 @@
 void printLog(int[]);
 void legnetto(int[],int);
-void enemyBullet(elemento);
+void enemyBullet(int [], elemento);
 void enemyBulletShoot(int[], elemento);
 void printEnemyBullets(int[]);
 
