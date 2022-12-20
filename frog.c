@@ -20,7 +20,7 @@ void ffrog(int p[]){
     int maxx=0,maxy=0, counter = 0;
     getmaxyx(stdscr,maxy,maxx);
     rana.c = 20; //identificativo Rana
-    rana.y=maxy/2;
+    rana.y=maxy/2+5;
     rana.x=maxx/2; 
     rana.sparato=false;
     write(p[1],&rana, sizeof(elemento));
@@ -32,11 +32,11 @@ void ffrog(int p[]){
                 break;
             case KEY_UP: 
                 if(rana.y > 0)
-                    rana.y -= 1; 
+                    rana.y -= 2; 
                     break;
             case KEY_DOWN:
                 if(rana.y < maxy - 1)
-                    rana.y += 1; 
+                    rana.y += 2; 
                     break;
             case KEY_LEFT: 
                 if(rana.x > 0)

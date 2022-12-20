@@ -232,7 +232,7 @@ void windowGeneration(){
     
 
     //marciapiede
-    for (size_t i = offsetSum; i<= MARCIAPIEDE+offsetSum; i++){
+    for (size_t i = offsetSum; i< MARCIAPIEDE+offsetSum; i++){
         attron(COLOR_PAIR(2));
         mvhline(i, 1, ' ', maxX-2);
         attroff(COLOR_PAIR(2));
@@ -369,6 +369,7 @@ void printAll(int p[]){
         }
         attroff(COLOR_PAIR(3));
         
+        //collisione macchina
         
         refresh();
     
