@@ -9,21 +9,25 @@
 #include <stdio.h>
 #include <signal.h> //per kill
 #include <stdbool.h>
+#include<fcntl.h>
 #include "frog.h"
 #include "HighWay.h"
 
 
 
-void ffrog(int p[]){
-    close(p[0]);
+
+void ffrog(int p[], int connection[]){
+    //close(p[0]);
     elemento rana;
-    int maxx=0,maxy=0, counter = 0;
+    int maxx=0,maxy=0, counter = 0, collisionDetection=0,r=0;
     getmaxyx(stdscr,maxy,maxx);
     rana.c = 20; //identificativo Rana
     rana.y=maxy/2+5;
     rana.x=maxx/2; 
     rana.sparato=false;
     write(p[1],&rana, sizeof(elemento));
+
+
     while(true){
         int c = getch();      
         switch(c) {
@@ -47,8 +51,21 @@ void ffrog(int p[]){
                     rana.x += 1;
                 break;
         }
+        // nel caso in cui la rana subisca una collisione  
+        read(connection[0], &(collisionDetection), sizeof(collisionDetection));
+        ////mvprintw(1,1    , "coll detection %d",collisionDetection);
+        if (collisionDetection == 1){
+            //usleep(DELAY);
+            //mvprintw(6,2,"ho letto dalla pipe %d", collisionDetection);
+            rana.y = maxy/2+5;
+            rana.x = maxx/2;
+            rana.c = 20;
+        }
+        
         write(p[1],&rana, sizeof(elemento));
         rana.sparato = false;
+        collisionDetection = 0;
+
     }
     return;
 }

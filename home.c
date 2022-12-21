@@ -9,6 +9,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <signal.h> //per kill
+#include <fcntl.h>
 #include "HighWay.h"
 #include "frog.h"
 #include "home.h"
@@ -16,10 +17,15 @@
 
 
 
+
 int main() {
     srand(time(NULL));
-    int p[2],p2[2];
+    int p[2];
+    int p2[2];
+    pipe(p2);
+    fcntl(p2[0], F_SETFL, O_NONBLOCK);
     pipe(p);
+    
     
     int maxX=0, maxY=0;
     initScreen(&maxY,&maxX);
@@ -30,7 +36,7 @@ int main() {
         perror("errore nella generazione della macchina 1");
     }
     else if (auto0 == 0){
-        car(p,0);
+        car(p,p2,0);
     }
     else{
         pid_t auto1=fork();
@@ -38,7 +44,7 @@ int main() {
             perror("Errore generazione macchina 0");
         }
         else if(auto1==0){
-            car(p,1);
+            car(p,p2,1);
         }
         else{
             pid_t auto2=fork();
@@ -46,7 +52,7 @@ int main() {
                 perror("Errore generazione macchina 0");
             }
             else if(auto2==0){
-                car(p,2);
+                car(p,p2,2);
             }
             else{
                 pid_t auto3=fork();
@@ -54,7 +60,7 @@ int main() {
                     perror("Errore generazione macchina 0");
                 }
                 else if(auto3==0){
-                    car(p,3);
+                    car(p,p2,3);
                 }
                 else{
                     pid_t auto4=fork();
@@ -62,7 +68,7 @@ int main() {
                         perror("Errore generazione macchina 0");
                     }
                     else if(auto4==0){
-                        car(p,4);
+                        car(p,p2,4);
                     }
                     else{
                         pid_t auto5=fork();
@@ -70,7 +76,7 @@ int main() {
                             perror("Errore generazione macchina 0");
                         }
                         else if(auto5==0){
-                            car(p,5);
+                            car(p,p2,5);
                         }
                         else{
                             pid_t auto6=fork();
@@ -78,7 +84,7 @@ int main() {
                                 perror("Errore generazione macchina 0");
                             }
                             else if(auto6==0){
-                                car(p,6);
+                                car(p,p2,6);
                             }
                             else{
                                 pid_t auto7=fork();
@@ -86,7 +92,7 @@ int main() {
                                     perror("Errore generazione macchina 0");
                                 }
                                 else if(auto7==0){
-                                    car(p,7);
+                                    car(p,p2,7);
                                 }
                                 else{
                                     pid_t auto8=fork();
@@ -94,7 +100,7 @@ int main() {
                                         perror("Errore generazione macchina 0");
                                     }
                                     else if(auto8==0){
-                                        car(p,8);
+                                        car(p,p2,8);
                                     }
                                     else{
                                         pid_t auto9=fork();
@@ -102,12 +108,12 @@ int main() {
                                             perror("Errore generazione macchina 0");
                                         }
                                         else if(auto9==0){
-                                            car(p,9);
+                                            car(p,p2,9);
                                         }
                                         else{
                                             pid_t frog = fork();
                                             if (frog == 0){
-                                                ffrog(p);
+                                                ffrog(p,p2);
                                             }
                                             else{
                                                 pid_t proiettile=fork();
@@ -142,7 +148,7 @@ int main() {
                                                                         legnetto(p, 4);
                                                                     }
                                                                     else{
-                                                                        printAll(p);
+                                                                        printAll(p,p2);
                                                                     }      
                                                                 } 
                                                             }
@@ -238,7 +244,7 @@ void windowGeneration(){
         attroff(COLOR_PAIR(2));
     }
     offsetSum+=MARCIAPIEDE+1;
-
+    offsetTempo=offsetSum;
     //tempo
     for (size_t i = offsetSum; i<= TEMPO+offsetSum; i++){
         attron(COLOR_PAIR(3));
@@ -257,11 +263,14 @@ void windowGeneration(){
 }
 
 
-void printAll(int p[]){
+void printAll(int p[], int p2[]){
     close(p[1]);
     elemento d, rana,bull; //bull=bullet
     elemento woody[5];
     elemento bullets[5]; //bullets nemici sui tronchi
+    int frogCollision = 1;
+    int counter = 0;
+
     //inizializziamo macchine
     elemento macchine[CORSIE*MACCHINE];
     for (size_t i = 0; i< CORSIE*MACCHINE; i++){
@@ -274,6 +283,7 @@ void printAll(int p[]){
     while(true){
         erase();
         windowGeneration();
+        mostraVita(vite);
         read(p[0], &(d), sizeof(elemento));
         if (d.c==20){ //se è la rana
             rana.x=d.x;
@@ -298,6 +308,7 @@ void printAll(int p[]){
             }
         }
         
+    
         // stampa macchine
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if (macchine[i].c!=-1){
@@ -306,20 +317,74 @@ void printAll(int p[]){
                 if(macchine[i].type==1){ //camion
                     mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
                     mvprintw(macchine[i].y+1,macchine[i].x,"O-----O");
+                    //controllo collisione 1 - rana <> macchine
+                    if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+7 && rana.y==macchine[i].y)
+                    {
+                        counter+=1;
+                        // passo alla pipe2 1 se la rana subisce una collisione con un veicolo
+                        
+                        write(p2[1], &frogCollision, 8);
+                        //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
+                        frogCollision = 0;
+                        //refresh();
+
+
+                        // if (vite>0){
+                        //     vite-=1;
+                        //     mostraVita(vite);
+                        //     refresh();
+                        //     //sleep(1);
+                        // }
+                        // else if(vite==0){
+                        //     clear();
+                        //     refresh();
+                        //     int maxx=0,maxy=0;
+                        //     getmaxyx(stdscr,maxy,maxx);
+                        //     mvprintw(maxy/2,maxx/2,"win");
+                        //     sleep(5);
+                        //     refresh();
+                        //     break;
+                        // } 
+                    }
+                    frogCollision = 1;
+                mvprintw(1,1,"if counter: %d", counter);
                 }
                 else{ //macchina
                     mvprintw(macchine[i].y,macchine[i].x,"/--\\");
                     mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
+                    //controllo collisione 1 - rana <> macchine
+                    if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+4 && rana.y==macchine[i].y)
+                    {
+                        if (vite>0){
+                            vite-=1;
+                            mostraVita(vite);
+                            refresh();
+                            //sleep(1);
+                        }
+                        // else if(vite==0){
+                        //     clear();
+                        //     refresh();
+                        //     int maxx=0,maxy=0;
+                        //     getmaxyx(stdscr,maxy,maxx);
+                        //     mvprintw(maxy/2,maxx/2,"win");
+                        //     sleep(5);
+                        //     refresh();
+                        //     break;
+                        // }   
+                    }
                 }
                 // mvaddch(macchine[i].y,macchine[i].x, '0'+macchine[i].c);
                 attroff(COLOR_PAIR(4));
             }
+            
         }
+        
 
         //Stampa Rana
         attron(COLOR_PAIR(4));
         mvprintw(rana.y,rana.x,"\\/");
         mvprintw(rana.y+1,rana.x,"/\\");
+        mvprintw(2,1,"rana x : %d rana y : %d",rana.x,rana.y);
         
         if (bull.sparato == true){
             mvprintw(bull.y, bull.x, "*");
@@ -364,14 +429,26 @@ void printAll(int p[]){
             if (bullets[i].sparato == true){
                 mvaddch(bullets[i].y, bullets[i].x, '*');
                 //debug
-                mvprintw(i+40,1,"Posizione bull %d -> y: %d x: %d c: %d",i,bullets[i].y,bullets[i].x,bullets[i].c);
+                //mvprintw(i+40,1,"Posizione bull %d -> y: %d x: %d c: %d",i,bullets[i].y,bullets[i].x,bullets[i].c);
             }
         }
         attroff(COLOR_PAIR(3));
         
-        //collisione macchina
         
         refresh();
     
     }
+}
+
+
+void mostraVita(int n){
+    int x=1;
+    for (int i=0;i<n;i++){
+        mvaddch(offsetTempo+1,x+=2,'#');
+        //mvprintw(offsetTempo,1,"CIAODAJDAJDJDAD");
+    }
+    if (n==0){
+        mvaddch(offsetTempo+1,x+=2,'!');
+    }
+    return;
 }

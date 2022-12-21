@@ -13,7 +13,7 @@
 elemento veicoli[CORSIE*MACCHINE];
 
 
-void car(int descriptor[], int id){
+void car(int descriptor[], int connection[], int id){
     srand(getpid());
     int maxX = 0, maxY = 0, x = 0, y = 0;
     getmaxyx(stdscr,maxY,maxX); //only for getting maxX
