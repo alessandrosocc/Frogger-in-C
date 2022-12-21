@@ -64,6 +64,8 @@ void car(int descriptor[], int connection[], int id){
     
     // continua ad andare ad x+1
     while (true){
+        int collision = 0;
+        read(connection[0], &collision, sizeof(collision));
         if (ControlloCollisione(veicoli[id]))
         {
             veicoli[id].y=possibleStartY[rand()%CORSIE]+offsetAutostrada; // nuova riga
@@ -82,8 +84,13 @@ void car(int descriptor[], int connection[], int id){
             else{
                 veicoli[id].x+=1;
             }
-                
-        }      
+        }
+        // se la macchina subisce una collisione allora resetto l'autostrada
+        if (collision == 1){
+            veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
+            veicoli[id].x=(1+rand()%maxX);
+            usleep(1000);
+        }
         write(descriptor[1], &veicoli[id], sizeof(elemento));
         usleep(DELAY);
     }

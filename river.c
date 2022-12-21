@@ -30,7 +30,7 @@ void legnetto(int descriptor[], int start){
     elemento woody;
     timeLimit = 1+rand()%500; //generare un limite di tempo casuale per ogni tronco
     // inizializziamo le posizioni
-    woody.y = (start*2)+offsetFiume;
+    woody.y = (start*2)+offsetFiume-1;
     woody.x=(1+rand()%maxX);
     woody.c = start+30;   
     woody.enemy=false; 

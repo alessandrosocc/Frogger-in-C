@@ -17,7 +17,7 @@
 //(maxX, maxY) == basso a dx
 
 
-void printAll(int p[], int p2[]);
+void printAll(int p[], int p2[], int p3[]);
 void windowGeneration();
 void initScreen(int*, int*);
 void mostraVita(int);

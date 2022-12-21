@@ -22,8 +22,12 @@ int main() {
     srand(time(NULL));
     int p[2];
     int p2[2];
+    int p3[2];
     pipe(p2);
+    pipe(p3);
     fcntl(p2[0], F_SETFL, O_NONBLOCK);
+    fcntl(p3[0], F_SETFL, O_NONBLOCK);
+
     pipe(p);
     
     
@@ -113,7 +117,7 @@ int main() {
                                         else{
                                             pid_t frog = fork();
                                             if (frog == 0){
-                                                ffrog(p,p2);
+                                                ffrog(p,p3);
                                             }
                                             else{
                                                 pid_t proiettile=fork();
@@ -148,7 +152,7 @@ int main() {
                                                                         legnetto(p, 4);
                                                                     }
                                                                     else{
-                                                                        printAll(p,p2);
+                                                                        printAll(p,p2,p3);
                                                                     }      
                                                                 } 
                                                             }
@@ -263,7 +267,7 @@ void windowGeneration(){
 }
 
 
-void printAll(int p[], int p2[]){
+void printAll(int p[], int p2[], int p3[]){
     close(p[1]);
     elemento d, rana,bull; //bull=bullet
     elemento woody[5];
@@ -321,11 +325,12 @@ void printAll(int p[], int p2[]){
                     if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+7 && rana.y==macchine[i].y)
                     {
                         counter+=1;
-                        // passo alla pipe2 1 se la rana subisce una collisione con un veicolo
-                        
-                        write(p2[1], &frogCollision, 8);
+                        // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
+                        write(p2[1], &frogCollision, sizeof(frogCollision));
+                        // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
+                        write(p3[1], &frogCollision, sizeof(frogCollision));
+
                         //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
-                        frogCollision = 0;
                         //refresh();
 
 
@@ -346,7 +351,6 @@ void printAll(int p[], int p2[]){
                         //     break;
                         // } 
                     }
-                    frogCollision = 1;
                 mvprintw(1,1,"if counter: %d", counter);
                 }
                 else{ //macchina
