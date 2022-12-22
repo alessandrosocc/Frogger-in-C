@@ -10,15 +10,21 @@
 #include <stdio.h>
 #include <signal.h> //per kill
 #include <fcntl.h>
+#include <time.h>
+#include <string.h>
 #include "HighWay.h"
 #include "frog.h"
 #include "home.h"
 #include "river.h"
 
-
+time_t t;
+FILE* fp; 
 
 
 int main() {
+    t=time(NULL);
+    fp=fopen("log.txt","w+");
+    
     srand(time(NULL));
     int p[2];
     int p2[2];
@@ -272,9 +278,11 @@ void printAll(int p[], int p2[], int p3[]){
     elemento d, rana,bull; //bull=bullet
     elemento woody[5];
     elemento bullets[5]; //bullets nemici sui tronchi
-    int frogCollision = 1;
+    elemento tmp;
+    int maxy=0,maxx=0;
+    int frogCollision = 0;
     int counter = 0;
-
+    int iterazione=0,iterazioneTmp=0;
     //inizializziamo macchine
     elemento macchine[CORSIE*MACCHINE];
     for (size_t i = 0; i< CORSIE*MACCHINE; i++){
@@ -282,25 +290,31 @@ void printAll(int p[], int p2[], int p3[]){
         macchine[i].y=-1;
         macchine[i].c=-1;
     }
-
+    
     //get valori rana, bullet se presente, macchine, tronchi e bullet nemici sui trochi
+    getmaxyx(stdscr,maxy,maxx);
     while(true){
         erase();
         windowGeneration();
         mostraVita(vite);
         read(p[0], &(d), sizeof(elemento));
-        if (d.c==20){ //se è la rana
+        
+        //se è la rana
+        if (d.c==20){ 
             rana.x=d.x;
             rana.y=d.y;
             rana.c=d.c;
             if (d.sparato==true){
                 bull.sparato=true;
             }
+
         }
-        else if(d.c==21){ //se è il proiettile
+        //se è il proiettile
+        else if(d.c==21){ 
             bull.x = d.x;
             bull.y = d.y;
         }
+        // allora è la macchina
         else{
             for (int i=0;i<CORSIE*MACCHINE;i++){
                 if (d.c == i){ //assegna a macchina iesima
@@ -311,85 +325,93 @@ void printAll(int p[], int p2[], int p3[]){
                 }
             }
         }
-        
-    
+        if(rana.x==maxx/2 && rana.y==maxy/2+1){
+            frogCollision=0;
+            fprintf(fp,"frog collision home.c %d\n",frogCollision);
+        }
+
         // stampa macchine
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if (macchine[i].c!=-1){
                 attron(COLOR_PAIR(4));
-                //stampa macchina
-                if(macchine[i].type==1){ //camion
+                // stampa camion
+                
+                if(macchine[i].type==1){
                     mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
                     mvprintw(macchine[i].y+1,macchine[i].x,"O-----O");
-                    //controllo collisione 1 - rana <> macchine
-                    if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+7 && rana.y==macchine[i].y)
+                    //controllo collisione 1 - rana <> macchine (camion)
+                    if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+7 && rana.y==macchine[i].y && frogCollision==0)
                     {
-                        counter+=1;
+                        //counter+=1;
                         // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
-                        write(p2[1], &frogCollision, sizeof(frogCollision));
+                        frogCollision=1;
+                        // write(p2[1], &frogCollision, sizeof(frogCollision));
                         // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
                         write(p3[1], &frogCollision, sizeof(frogCollision));
-
+                        
                         //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
                         //refresh();
-
-
-                        // if (vite>0){
-                        //     vite-=1;
-                        //     mostraVita(vite);
-                        //     refresh();
-                        //     //sleep(1);
-                        // }
-                        // else if(vite==0){
-                        //     clear();
-                        //     refresh();
-                        //     int maxx=0,maxy=0;
-                        //     getmaxyx(stdscr,maxy,maxx);
-                        //     mvprintw(maxy/2,maxx/2,"win");
-                        //     sleep(5);
-                        //     refresh();
-                        //     break;
-                        // } 
-                    }
-                mvprintw(1,1,"if counter: %d", counter);
-                }
-                else{ //macchina
-                    mvprintw(macchine[i].y,macchine[i].x,"/--\\");
-                    mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
-                    //controllo collisione 1 - rana <> macchine
-                    if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+4 && rana.y==macchine[i].y)
-                    {
+                        fprintf(fp,"collisione camion | vite: %d\n",vite);
+                         // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
                         if (vite>0){
-                            vite-=1;
+                            vite--; 
                             mostraVita(vite);
                             refresh();
-                            //sleep(1);
                         }
                         // else if(vite==0){
                         //     clear();
                         //     refresh();
                         //     int maxx=0,maxy=0;
                         //     getmaxyx(stdscr,maxy,maxx);
-                        //     mvprintw(maxy/2,maxx/2,"win");
-                        //     sleep(5);
+                        //     mvprintw(maxy/2,maxx/2,"SCONFITTA");
                         //     refresh();
-                        //     break;
-                        // }   
+                        //     sleep(5);
+                        // }
                     }
                 }
-                // mvaddch(macchine[i].y,macchine[i].x, '0'+macchine[i].c);
+                else{ //macchina
+                    mvprintw(macchine[i].y,macchine[i].x,"/--\\");
+                    mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
+                    //controllo collisione 1 - rana <> macchine
+                    if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+4 && rana.y==macchine[i].y && frogCollision==0)
+                    {
+                        //counter+=1;
+                        // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
+
+                        frogCollision=1;
+                        //write(p2[1], &frogCollision, sizeof(frogCollision));
+                        // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
+                        write(p3[1], &frogCollision, sizeof(frogCollision));
+                        
+                        //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
+                        //refresh();
+                        fprintf(fp,"collisione macchina | vite: %d \n",vite);
+                         // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
+                        if (vite>0){
+                            vite--;
+                            mostraVita(vite);
+                            refresh();
+                        }
+                        // else if(vite==0){
+                        //     clear();
+                        //     refresh();
+                        //     int maxx=0,maxy=0;
+                        //     getmaxyx(stdscr,maxy,maxx);
+                        //     mvprintw(maxy/2,maxx/2,"SCONFITTA");
+                        //     refresh();
+                        //     sleep(5);
+                        // }
+                    }
+                }   
                 attroff(COLOR_PAIR(4));
             }
-            
         }
-        
-
         //Stampa Rana
         attron(COLOR_PAIR(4));
         mvprintw(rana.y,rana.x,"\\/");
         mvprintw(rana.y+1,rana.x,"/\\");
         mvprintw(2,1,"rana x : %d rana y : %d",rana.x,rana.y);
-        
+        //proiettile rana
         if (bull.sparato == true){
             mvprintw(bull.y, bull.x, "*");
         }
@@ -403,7 +425,7 @@ void printAll(int p[], int p2[], int p3[]){
                 woody[i].c = d.c; 
                 woody[i].enemy=d.enemy;
             }
-            if (d.c  == i+70){ // se è un proiettile => 30 (tronco ID) + 40 (proiettile ID)
+            if (d.c  == i+70){ // se è un proiettile allora d.c=70 <=> 30 (tronco ID) + 40 (proiettile ID)
                 bullets[i].x = d.x;
                 bullets[i].y = d.y;
                 bullets[i].c = d.c;
@@ -428,7 +450,7 @@ void printAll(int p[], int p2[], int p3[]){
                 mvprintw(woody[i].y+1,woody[i].x,"\\-||-/");
             }
         }
-        //stampa proiettili quando sparati
+        //stampa proiettili dei nemici sui tronchi \addindex sparati
         for (size_t i = 0; i< CORSIE; i++){
             if (bullets[i].sparato == true){
                 mvaddch(bullets[i].y, bullets[i].x, '*');
@@ -437,22 +459,17 @@ void printAll(int p[], int p2[], int p3[]){
             }
         }
         attroff(COLOR_PAIR(3));
-        
-        
-        refresh();
     
+        mvprintw(5,1,"VITE %d tmp.x,y %d %d ",vite,tmp.x,tmp.y);
+        refresh();
     }
 }
 
 
 void mostraVita(int n){
-    int x=1;
+    int x=3;
     for (int i=0;i<n;i++){
         mvaddch(offsetTempo+1,x+=2,'#');
-        //mvprintw(offsetTempo,1,"CIAODAJDAJDJDAD");
-    }
-    if (n==0){
-        mvaddch(offsetTempo+1,x+=2,'!');
     }
     return;
 }
