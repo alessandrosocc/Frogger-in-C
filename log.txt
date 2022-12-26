@@ -1,9 +1,20 @@
 collisione camion | vite: 6 | frogCollision=1
-vite>0? frogCollision 0 iterazione 3857
+vite>0? frogCollision 0 
 collisionDetection!
 collisione camion | vite: 5 | frogCollision=1
-vite>0? frogCollision 0 iterazione 10261
+vite>0? frogCollision 0 
 collisionDetection!
 collisione camion | vite: 4 | frogCollision=1
-vite>0? frogCollision 0 iterazione 10264
+vite>0? frogCollision 0 
+collisionDetection!
+collisione camion | vite: 3 | frogCollision=1
+vite>0? frogCollision 0 
+collisionDetection!
+collisione camion | vite: 2 | frogCollision=1
+vite>0? frogCollision 0 
+collisionDetection!
+collisione camion | vite: 1 | frogCollision=1
+vite>0? frogCollision 0 
+collisionDetection!
+collisione camion | vite: 0 | frogCollision=1
 collisionDetection!

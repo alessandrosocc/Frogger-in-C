@@ -305,74 +305,8 @@ void printAll(int p[], int p2[], int p3[]){
         //Stampa Fiume, tronchi, nemici e proiettili nemici
         getTronchiBullets(dptr,woody,bullets);
         stampaTronchiNemici(woody,bullets);
+        collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
         
-        //collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
-        if (rana.y==offsetMarciapiede && rana.x==maxX/2){
-                frogCollision=1;                    
-        } 
-        //collisioni
-        for(size_t i = 0; i<CORSIE*MACCHINE; i++){
-            if(macchine[i].type==1){// camion
-                if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+7 && rana.y==macchine[i].y && frogCollision==1)
-                {
-                    // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
-                    fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,frogCollision);
-                    fflush(fp);
-                    //write(p2[1], &frogCollision, sizeof(frogCollision));
-                    // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
-                    write(p3[1], &frogCollision, sizeof(int)); 
-                    
-                    //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
-                    //refresh();
-                    
-                    // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
-                    if (vite>0){
-                        vite--;
-                        frogCollision=0;
-                        fprintf(fp,"vite>0? frogCollision %d iterazione %d\n",frogCollision,iterazione);
-                        fflush(fp);
-                        mostraVita(vite);
-                        refresh();
-                    }
-                    else if(vite==0){
-                        clear();
-                        refresh();
-                        int maxx=0,maxy=0;
-                        getmaxyx(stdscr,maxy,maxx);
-                        mvprintw(maxy/2,maxx/2,"SCONFITTA");
-                        refresh();
-                        sleep(5);
-                    }
-                }
-            }
-            else{ //macchina
-                if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+4 && rana.y==macchine[i].y && frogCollision==1)
-                {   
-                    // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
-                    //write(p2[1], &frogCollision, sizeof(frogCollision));
-                    // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
-                    write(p3[1], &frogCollision, sizeof(int));
-                    // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
-                    if (vite>0){
-                        vite--;
-                        frogCollision=0;
-                        fprintf(fp,"vite>0? frogCollision %d iterazione %d\n",frogCollision,iterazione);
-                        fflush(fp);
-                        mostraVita(vite);
-                        refresh();
-                    }
-                    else if(vite==0){
-                        clear();
-                        refresh();
-                        int maxx=0,maxy=0;
-                        getmaxyx(stdscr,maxy,maxx);
-                        mvprintw(maxy/2,maxx/2,"SCONFITTA");
-                        refresh();
-                        sleep(5);
-                    }
-                }
-            }   
-        }
         iterazione++;
         refresh();
     }
@@ -492,5 +426,74 @@ void getDataFromPipe(int p[],elemento* d,elemento macchine[], elemento* rana, el
 
 
 void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento macchine[]){
-        
+        if (rana->y==offsetMarciapiede && rana->x==maxX/2){
+                *(frogCollision)=1;                    
+        } 
+        //collisioni
+        for(size_t i = 0; i<CORSIE*MACCHINE; i++){
+            if(macchine[i].type==1){// camion
+                if (rana->x>=macchine[i].x && rana->x<=macchine[i].x+7 && rana->y==macchine[i].y && *(frogCollision)==1)
+                {
+                    // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
+                    fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
+                    fflush(fp);
+                    //write(p2[1], &frogCollision, sizeof(frogCollision));
+                    // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
+                    write(p3[1], frogCollision, sizeof(*(frogCollision))); 
+                    
+                    //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
+                    //refresh();
+                    
+                    // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
+                    if (vite>0){
+                        vite--;
+                        *(frogCollision)=0;
+                        fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
+                        fflush(fp);
+                        mostraVita(vite);
+                        refresh();
+                    }
+                    else if(vite==0){
+                        clear();
+                        refresh();
+                        int maxx=0,maxy=0;
+                        getmaxyx(stdscr,maxy,maxx);
+                        mvprintw(maxy/2,maxx/2,"SCONFITTA");
+                        refresh();
+                        sleep(5);
+                    }
+                }
+            }
+            else{ //macchina
+                if (rana->x>=macchine[i].x && rana->x<=macchine[i].x+4 && rana->y==macchine[i].y && *(frogCollision)==1)
+                {   
+                    // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
+                    //write(p2[1], &frogCollision, sizeof(frogCollision));
+                    // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
+                    write(p3[1], frogCollision, sizeof(*(frogCollision)));
+                    fprintf(fp,"collisione macchina | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
+                    fflush(fp);
+                    fprintf(fp,"sizeof %ld sizeof int %ld",sizeof(*(frogCollision)),sizeof(int));
+                    fflush(fp);
+                    // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
+                    if (vite>0){
+                        vite--;
+                        *(frogCollision)=0;
+                        fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
+                        fflush(fp);
+                        mostraVita(vite);
+                        refresh();
+                    }
+                    else if(vite==0){
+                        clear();
+                        refresh();
+                        int maxx=0,maxy=0;
+                        getmaxyx(stdscr,maxy,maxx);
+                        mvprintw(maxy/2,maxx/2,"SCONFITTA");
+                        refresh();
+                        sleep(5);
+                    }
+                }
+            }   
+        }
 }

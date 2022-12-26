@@ -31,9 +31,9 @@ void ffrog(int p[], int connection[]){
         read(connection[0], &(collisionDetection), sizeof(collisionDetection));
         // se l'intero letto è uguale a 1 allora si è verificata una collisione, quindi riporto la rana alla posizione di partenza
         if (collisionDetection == 1){
+            collisionDetection=0;
             fprintf(fp,"collisionDetection!\n");
             fflush(fp);
-            collisionDetection=0;
             rana.y=offsetMarciapiede;
             rana.x = maxx/2;
             write(p[1],&rana, sizeof(elemento)); // scrivo direttamente, in modo da non dover aspettare il getch
