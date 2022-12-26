@@ -10,11 +10,11 @@ collisionDetection!
 collisione camion | vite: 3 | frogCollision=1
 vite>0? frogCollision 0 
 collisionDetection!
-collisione camion | vite: 2 | frogCollision=1
-vite>0? frogCollision 0 
+collisione macchina | vite: 2 | frogCollision=1
+sizeof 4 sizeof int 4vite>0? frogCollision 0 
 collisionDetection!
-collisione camion | vite: 1 | frogCollision=1
-vite>0? frogCollision 0 
+collisione macchina | vite: 1 | frogCollision=1
+sizeof 4 sizeof int 4vite>0? frogCollision 0 
 collisionDetection!
-collisione camion | vite: 0 | frogCollision=1
-collisionDetection!
+collisione macchina | vite: 0 | frogCollision=1
+sizeof 4 sizeof int 4collisionDetection!

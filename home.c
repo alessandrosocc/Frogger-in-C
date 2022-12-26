@@ -199,6 +199,7 @@ void windowGeneration(){
     init_pair(2,COLOR_WHITE,COLOR_RED);
     init_pair(3,COLOR_WHITE,COLOR_YELLOW);
     init_pair(4,COLOR_WHITE,COLOR_CYAN);
+    init_pair(5,COLOR_WHITE,COLOR_BLACK);//antiglitch
 
     box(stdscr,0,0);
 
@@ -275,6 +276,7 @@ void windowGeneration(){
 
 
 void printAll(int p[], int p2[], int p3[]){
+    bkgd(COLOR_PAIR(5));
     elemento d; 
     elemento* dptr=&d;
     elemento rana,bull; // rana e proiettile rana
