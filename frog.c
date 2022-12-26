@@ -14,22 +14,26 @@
 #include "HighWay.h"
 
 void ffrog(int p[], int connection[]){
+
     //close(p[0]);
     elemento rana;
-    int maxx=0,maxy=0, counter = 0, collisionDetection=0,r=0;
+    int maxx=0,maxy=0, counter = 0, collisionDetection=0;
     getmaxyx(stdscr,maxy,maxx);
     rana.c = 20; //identificativo Rana
     rana.y=offsetMarciapiede;
     rana.x=maxx/2;
     rana.sparato=false;
     write(p[1],&rana, sizeof(elemento));
-
+    
 
     while(true){
         // prima di tutto leggo la pipe che mi fa comunicare con la funzione di controllo
         read(connection[0], &(collisionDetection), sizeof(collisionDetection));
         // se l'intero letto è uguale a 1 allora si è verificata una collisione, quindi riporto la rana alla posizione di partenza
         if (collisionDetection == 1){
+            fprintf(fp,"collisionDetection!\n");
+            fflush(fp);
+            collisionDetection=0;
             rana.y=offsetMarciapiede;
             rana.x = maxx/2;
             write(p[1],&rana, sizeof(elemento)); // scrivo direttamente, in modo da non dover aspettare il getch
