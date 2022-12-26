@@ -44,28 +44,28 @@ void car(int descriptor[], int connection[], int id){
         veicoli[id].type=1; //camion
     }
     // controllo delle collisioni durante la generazione delle macchine
-    if (id!=0){ 
-        for (size_t i = 0; i < CORSIE*MACCHINE; i++ ){ //prendi scorsi elementi
-            read(descriptor[0], &(tmp[i]), sizeof(elemento));
-        }
+    // if (id!=0){ 
+    //     for (size_t i = 0; i < CORSIE*MACCHINE; i++ ){ //prendi scorsi elementi
+    //         read(descriptor[0], &(tmp[i]), sizeof(elemento));
+    //     }
 
-        for (size_t i = 0; i<CORSIE*MACCHINE; i++){ //scorriamo gli altri elementi per cercare collisioni
-                if(veicoli[id].y==tmp[id].y && veicoli[id].x>=tmp[i].x-7 && veicoli[id].x<=tmp[i].x+7){
-                    veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
-                    veicoli[id].x=(1+rand()%maxX);
-                    i = 0; 
-                }
-        }
-        for (size_t i = 0; i < CORSIE*MACCHINE; i++){
-            write(descriptor[1], &(tmp[i]), sizeof(elemento));
-        }
-    }
-    close(descriptor[0]);
+    //     for (size_t i = 0; i<CORSIE*MACCHINE; i++){ //scorriamo gli altri elementi per cercare collisioni
+    //             if(veicoli[id].y==tmp[id].y && veicoli[id].x>=tmp[i].x-7 && veicoli[id].x<=tmp[i].x+7){
+    //                 veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
+    //                 veicoli[id].x=(1+rand()%maxX);
+    //                 i = 0; 
+    //             }
+    //     }
+    //     for (size_t i = 0; i < CORSIE*MACCHINE; i++){
+    //         write(descriptor[1], &(tmp[i]), sizeof(elemento));
+    //     }
+    // }
+    //close(descriptor[0]);
     
     // continua ad andare ad x+1
     while (true){
-        int collision = 0;
-        read(connection[0], &collision, sizeof(collision));
+        //int collision = 0;
+        //read(connection[0], &collision, sizeof(collision));
         if (ControlloCollisione(veicoli[id]))
         {
             veicoli[id].y=possibleStartY[rand()%CORSIE]+offsetAutostrada; // nuova riga
@@ -85,12 +85,12 @@ void car(int descriptor[], int connection[], int id){
                 veicoli[id].x+=1;
             }
         }
-        // se la macchina subisce una collisione allora resetto l'autostrada
-        if (collision == 1){
-            veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
-            veicoli[id].x=(1+rand()%maxX);
-            usleep(1000);
-        }
+        // // se la macchina subisce una collisione allora resetto l'autostrada
+        // if (collision == 1){
+        //     veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
+        //     veicoli[id].x=(1+rand()%maxX);
+        //     usleep(1000);
+        // }
         write(descriptor[1], &veicoli[id], sizeof(elemento));
         usleep(DELAY);
     }
@@ -100,7 +100,7 @@ bool ControlloCollisione(elemento oggetto){
     bool flag = false;
     int maxx=0, maxy=0;
     getmaxyx(stdscr, maxy, maxx);
-    if (oggetto.x < 0 || oggetto.x >= maxx || oggetto.y < 0 || oggetto.y >= maxy){
+    if (oggetto.x < 0 || oggetto.x > maxx || oggetto.y < 0 || oggetto.y >= maxy){
         flag = true;
     }
     return flag;

@@ -6,6 +6,7 @@ typedef struct{
 }elementoFrog;
 
 extern void windowGeneration();
+extern int offsetMarciapiede;
 void ffrog(int[], int[]);
 void bullet(int[]);
 void printFrog(int[]);

@@ -16,6 +16,6 @@ extern int offsetAutostrada;
 
 bool ControlloCollisione(elemento);
 void car(int descriptor[], int connection[], int id);
-bool carCollision(elemento, int p[]);
+//bool carCollision(elemento, int p[]);
 
 

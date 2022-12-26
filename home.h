@@ -26,6 +26,14 @@ void mostraVita(int);
 int offsetAutostrada = 0;
 int offsetFiume=0;
 int offsetTempo=0;
+int offsetMarciapiede=0;
 int idMacchine = 0;
 int vite=6;
 
+
+
+void stampaTronchiNemici(elemento[],elemento[]);
+void getTronchiBullets(elemento*,elemento[],elemento[]);
+void stampaRanaBullets(elemento,elemento);
+void stampaMacchinaCamion(elemento[]);
+void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*);
