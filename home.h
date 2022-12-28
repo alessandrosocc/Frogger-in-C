@@ -28,7 +28,7 @@ int offsetFiume=0;
 int offsetTempo=0;
 int offsetMarciapiede=0;
 int idMacchine = 0;
-int vite=6;
+int vite=5;
 int maxX=0, maxY=0;
 
 void stampaTronchiNemici(elemento[],elemento[]);
