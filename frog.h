@@ -8,6 +8,6 @@ typedef struct{
 extern void windowGeneration();
 extern int offsetMarciapiede;
 extern FILE* fp;
-void ffrog(int[], int[]);
+void ffrog(int[], int[],int[]);
 void bullet(int[]);
 void printFrog(int[]);
