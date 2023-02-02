@@ -26,6 +26,8 @@ void ffrog(int p[], int p3[], int p5[]){
     rana.offsetLogOccupied=-1;
     int relPos=0;
     int idxLog=0;
+    fprintf(fp,"ranax %d ranay %d\n",rana.x,rana.y);
+    fflush(fp);
     write(p[1],&rana, sizeof(elemento));
     while(true){
         // prima di tutto leggo la pipe che mi fa comunicare con la funzione di controllo
@@ -74,7 +76,6 @@ void ffrog(int p[], int p3[], int p5[]){
             case KEY_LEFT:
                 if(rana.x > 0)
                 {
-                    
                     rana.isOnLog?relPos-=1:1; // la rana si sposta sul tronco
                     rana.x -= 1;
                 }
@@ -140,7 +141,7 @@ void bullet(int p[]){
             while(proiettile.y>0){
                     proiettile.y -= 1;
                     write(p[1], &proiettile, sizeof(elemento));
-                    usleep(10000);
+                    usleep(30000);
             }
         }
         else{

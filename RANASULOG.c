@@ -15,7 +15,8 @@
 
 #define NUMLOGS 5
 
-
+int offsetMarciapiede=29;
+int offsetFiume=10;
 char* sprite1[]={"|\\/----|","|-\\/---|","|--\\/--|","|---\\/-|","|----\\/|"};
 char* sprite2[]={"|/\\----|","|-/\\---|","|--/\\--|","|---/\\-|","|----/\\|"};
 
@@ -261,8 +262,10 @@ void ffrog(int p[], int p3[], int p5[]){
     int maxx=0,maxy=0, counter = 0, collisionDetection=0, direzione = 1, x = 0;
     getmaxyx(stdscr,maxy,maxx);
     rana.c = 20; //identificativo Rana
-    rana.y=offsetMarciapiede;
+    rana.y=maxy/2;//offsetMarciapiede;
     rana.x=maxx/2;
+    fprintf(fp,"rana.y %d rana.x %d\n",rana.y,rana.x);
+    fflush(fp);
     rana.sparato=false;
     rana.isOnLog = false;
     rana.idxLogOccupied=-1;

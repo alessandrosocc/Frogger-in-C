@@ -44,142 +44,7 @@ int main() {
     initScreen(&maxY,&maxX);
     windowGeneration();
     processGeneration(p1,p2,p3,p4,p5);
-    // pid_t auto0 = fork();
-    // if (auto0 < 0){
-    //     perror("errore nella generazione della macchina 1");
-    // }
-    // else if (auto0 == 0){
-    //     car(p,p2,0);
-    // }
-    // else{
-    //     pid_t auto1=fork();
-    //     if (auto1<0){
-    //         perror("Errore generazione macchina 0");
-    //     }
-    //     else if(auto1==0){
-    //         car(p,p2,1);
-    //     }
-    //     else{
-    //         pid_t auto2=fork();
-    //         if (auto2<0){
-    //             perror("Errore generazione macchina 0");
-    //         }
-    //         else if(auto2==0){
-    //             car(p,p2,2);
-    //         }
-    //         else{
-    //             pid_t auto3=fork();
-    //             if (auto3<0){
-    //                 perror("Errore generazione macchina 0");
-    //             }
-    //             else if(auto3==0){
-    //                 car(p,p2,3);
-    //             }
-    //             else{
-    //                 pid_t auto4=fork();
-    //                 if (auto4<0){
-    //                     perror("Errore generazione macchina 0");
-    //                 }
-    //                 else if(auto4==0){
-    //                     car(p,p2,4);
-    //                 }
-    //                 else{
-    //                     pid_t auto5=fork();
-    //                     if (auto5<0){
-    //                         perror("Errore generazione macchina 0");
-    //                     }
-    //                     else if(auto5==0){
-    //                         car(p,p2,5);
-    //                     }
-    //                     else{
-    //                         pid_t auto6=fork();
-    //                         if (auto6<0){
-    //                             perror("Errore generazione macchina 0");
-    //                         }
-    //                         else if(auto6==0){
-    //                             car(p,p2,6);
-    //                         }
-    //                         else{
-    //                             pid_t auto7=fork();
-    //                             if (auto7<0){
-    //                                 perror("Errore generazione macchina 0");
-    //                             }
-    //                             else if(auto7==0){
-    //                                 car(p,p2,7);
-    //                             }
-    //                             else{
-    //                                 pid_t auto8=fork();
-    //                                 if (auto8<0){
-    //                                     perror("Errore generazione macchina 0");
-    //                                 }
-    //                                 else if(auto8==0){
-    //                                     car(p,p2,8);
-    //                                 }
-    //                                 else{
-    //                                     pid_t auto9=fork();
-    //                                     if (auto9<0){
-    //                                         perror("Errore generazione macchina 0");
-    //                                     }
-    //                                     else if(auto9==0){
-    //                                         car(p,p2,9);
-    //                                     }
-    //                                     else{
-    //                                         pid_t frog = fork();
-    //                                         if (frog == 0){
-    //                                             ffrog(p,p3);
-    //                                         }
-    //                                         else{
-    //                                             pid_t proiettile=fork();
-    //                                             if (proiettile==0){
-    //                                                 bullet(p);
-    //                                             }
-    //                                             else{
-    //                                                 pid_t log0 = fork();
-    //                                                 if (log0 == 0){
-    //                                                     legnetto(p, 0);
-    //                                                 }
-    //                                                 else{
-    //                                                     pid_t log1 = fork();
-    //                                                     if (log1 == 0){
-    //                                                         legnetto(p,1);
-    //                                                     }
-    //                                                     else
-    //                                                     {
-    //                                                         pid_t log2 = fork();
-    //                                                         if (log2 == 0){
-    //                                                             legnetto(p, 2);
-    //                                                         }
-    //                                                         else{
-    //                                                             pid_t log3=fork();
-    //                                                             if (log3==0){
-    //                                                                 legnetto(p, 3);
-
-    //                                                             }
-    //                                                             else{
-    //                                                                 pid_t log4=fork();
-    //                                                                 if (log4==0){
-    //                                                                     legnetto(p, 4);
-    //                                                                 }
-    //                                                                 else{
-    //                                                                     printAll(p,p2,p3);
-    //                                                                 }      
-    //                                                             } 
-    //                                                         }
-    //                                                     }
-    //                                                 }
-    //                                             } 
-    //                                         }
-    //                                     }
-    //                                 }
-    //                             }
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }   
-    //     }
-    //}
-    
+ 
     sleep(10);
     endwin();
     fclose(fp);
@@ -192,7 +57,7 @@ void processGeneration(int p1[],int p2[],int p3[], int p4[], int p5[]){
         for(size_t i=0;i<10;i++){
             cars[i]=fork();
             if (cars[i]==0){
-                car(p1,p3,i);
+                car(p1,p2,i);
             }
         }
         pid_t frog = fork();
@@ -410,9 +275,8 @@ void getTronchiBullets(elemento* d,elemento woody[], elemento bullets[]){
 
 
 void stampaRanaBullets(elemento rana, elemento bull){
-    attron(COLOR_PAIR(4));
-
-                //proiettile rana
+        attron(COLOR_PAIR(4));
+        //proiettile rana
         if (bull.sparato == true){
             mvprintw(bull.y, bull.x, "*");
         }
@@ -477,8 +341,8 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
                 if (rana->x>=macchine[i].x && rana->x<macchine[i].x+7 && rana->y==macchine[i].y && *(frogCollision)==1)
                 {
                     // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
-                    fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
-                    fflush(fp);
+                    // fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
+                    // fflush(fp);
                     //write(p2[1], &frogCollision, sizeof(frogCollision));
                     // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
                     write(p3[1], frogCollision, sizeof(*(frogCollision))); 
@@ -490,8 +354,8 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
                     if (vite>0){
                         vite--;
                         *(frogCollision)=0;
-                        fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
-                        fflush(fp);
+                        // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
+                        // fflush(fp);
                         mostraVita(vite);
                         refresh();
                     }
@@ -513,16 +377,16 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
                     //write(p2[1], &frogCollision, sizeof(frogCollision));
                     // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
                     write(p3[1], frogCollision, sizeof(*(frogCollision)));
-                    fprintf(fp,"collisione macchina | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
-                    fflush(fp);
-                    fprintf(fp,"sizeof %ld sizeof int %ld",sizeof(*(frogCollision)),sizeof(int));
-                    fflush(fp);
+                    // fprintf(fp,"collisione macchina | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
+                    // fflush(fp);
+                    // fprintf(fp,"sizeof %ld sizeof int %ld",sizeof(*(frogCollision)),sizeof(int));
+                    // fflush(fp);
                     // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
                     if (vite>0){
                         vite--;
                         *(frogCollision)=0;
-                        fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
-                        fflush(fp);
+                        // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
+                        // fflush(fp);
                         mostraVita(vite);
                         refresh();
                     }

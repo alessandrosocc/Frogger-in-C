@@ -46,7 +46,7 @@ void legnetto(int descriptor[], int connection[], int start){
         }
         if (woody.enemy == false){
             if (counter == timeLimit){
-                //woody.enemy = true; // METTI A TRUE PER AVERE I NEMICI!!!!!!!!!!!!!!!!!!!!!
+                woody.enemy = true; // METTI A TRUE PER AVERE I NEMICI!!!!!!!!!!!!!!!!!!!!!
                 enemyBullet(descriptor, connection, woody);
             }
             counter++;
