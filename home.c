@@ -175,12 +175,7 @@ void windowGeneration(){
 }
 
 
-<<<<<<< HEAD
 void printAll(int p[], int p2[], int p3[],int p4[],int p5[]){
-=======
-void printAll(int p[], int p2[], int p3[]){
-    bkgd(COLOR_PAIR(5));
->>>>>>> parent of 6ed2f98 (Vite funzionanti)
     elemento d; 
     elemento* dptr=&d;
     elemento rana,bull; // rana e proiettile rana
@@ -212,13 +207,7 @@ void printAll(int p[], int p2[], int p3[]){
         getTronchiBullets(dptr,woody,bullets);
         stampaTronchiNemici(rana,woody,bullets);
         collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
-<<<<<<< HEAD
         frogIsOnLog(p3,p5, rana, woody); // rana sale sul tronco
-
-=======
-        
-        iterazione++;
->>>>>>> parent of 6ed2f98 (Vite funzionanti)
         refresh();
     }
     
