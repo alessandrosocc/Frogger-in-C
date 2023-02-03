@@ -78,7 +78,7 @@ void processGeneration(int p1[],int p2[],int p3[], int p4[], int p5[]){
         
     }
     else{
-        printAll(p1,p2,p3,p4,p5);
+        printAll(p1,p2,p3);
         sleep(5);
         endwin();
     }
@@ -175,7 +175,7 @@ void windowGeneration(){
 }
 
 
-void printAll(int p[], int p2[], int p3[],int p4[],int p5[]){
+void printAll(int p[], int p2[], int p3[]){
     elemento d; 
     elemento* dptr=&d;
     elemento rana,bull; // rana e proiettile rana
@@ -191,7 +191,6 @@ void printAll(int p[], int p2[], int p3[],int p4[],int p5[]){
         macchine[i].y=-1;
         macchine[i].c=-1;
     }
-    int iterazione=0;
     while(true){
         erase();
         windowGeneration();
@@ -207,7 +206,8 @@ void printAll(int p[], int p2[], int p3[],int p4[],int p5[]){
         getTronchiBullets(dptr,woody,bullets);
         stampaTronchiNemici(rana,woody,bullets);
         collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
-        frogIsOnLog(p3,p5, rana, woody); // rana sale sul tronco
+
+
         refresh();
     }
     
@@ -371,7 +371,7 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
                 }
             }
             else{ //macchina
-                if (rana->x>=macchine[i].x && rana->x<=macchine[i].x+4 && rana->y==macchine[i].y && *(frogCollision)==1)
+                if (rana->x>=macchine[i].x && rana->x<macchine[i].x+4 && rana->y==macchine[i].y && *(frogCollision)==1)
                 {   
                     // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
                     //write(p2[1], &frogCollision, sizeof(frogCollision));
