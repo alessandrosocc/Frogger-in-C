@@ -21,68 +21,168 @@ time_t t;
 FILE* fp; 
 
 
-
 int main() {
     t=time(NULL);
     fp=fopen("log.txt","w");
     srand(time(NULL));
-    
-    int p1[2];
+    int p[2];
     int p2[2];
     int p3[2];
-    int p4[2];
-    int p5[2];
-    pipe(p1);
     pipe(p2);
     pipe(p3);
-    pipe(p4);
-    pipe(p5);
     fcntl(p2[0], F_SETFL, O_NONBLOCK);
     fcntl(p3[0], F_SETFL, O_NONBLOCK);
-    fcntl(p4[0], F_SETFL, O_NONBLOCK);
-    fcntl(p5[0], F_SETFL, O_NONBLOCK);
+
+    pipe(p);
+    
+
+    
+    
     initScreen(&maxY,&maxX);
     windowGeneration();
-    processGeneration(p1,p2,p3,p4,p5);
- 
+    
+    pid_t auto0 = fork();
+    if (auto0 < 0){
+        perror("errore nella generazione della macchina 1");
+    }
+    else if (auto0 == 0){
+        car(p,p2,0);
+    }
+    else{
+        pid_t auto1=fork();
+        if (auto1<0){
+            perror("Errore generazione macchina 0");
+        }
+        else if(auto1==0){
+            car(p,p2,1);
+        }
+        else{
+            pid_t auto2=fork();
+            if (auto2<0){
+                perror("Errore generazione macchina 0");
+            }
+            else if(auto2==0){
+                car(p,p2,2);
+            }
+            else{
+                pid_t auto3=fork();
+                if (auto3<0){
+                    perror("Errore generazione macchina 0");
+                }
+                else if(auto3==0){
+                    car(p,p2,3);
+                }
+                else{
+                    pid_t auto4=fork();
+                    if (auto4<0){
+                        perror("Errore generazione macchina 0");
+                    }
+                    else if(auto4==0){
+                        car(p,p2,4);
+                    }
+                    else{
+                        pid_t auto5=fork();
+                        if (auto5<0){
+                            perror("Errore generazione macchina 0");
+                        }
+                        else if(auto5==0){
+                            car(p,p2,5);
+                        }
+                        else{
+                            pid_t auto6=fork();
+                            if (auto6<0){
+                                perror("Errore generazione macchina 0");
+                            }
+                            else if(auto6==0){
+                                car(p,p2,6);
+                            }
+                            else{
+                                pid_t auto7=fork();
+                                if (auto7<0){
+                                    perror("Errore generazione macchina 0");
+                                }
+                                else if(auto7==0){
+                                    car(p,p2,7);
+                                }
+                                else{
+                                    pid_t auto8=fork();
+                                    if (auto8<0){
+                                        perror("Errore generazione macchina 0");
+                                    }
+                                    else if(auto8==0){
+                                        car(p,p2,8);
+                                    }
+                                    else{
+                                        pid_t auto9=fork();
+                                        if (auto9<0){
+                                            perror("Errore generazione macchina 0");
+                                        }
+                                        else if(auto9==0){
+                                            car(p,p2,9);
+                                        }
+                                        else{
+                                            pid_t frog = fork();
+                                            if (frog == 0){
+                                                ffrog(p,p3);
+                                            }
+                                            else{
+                                                pid_t proiettile=fork();
+                                                if (proiettile==0){
+                                                    bullet(p);
+                                                }
+                                                else{
+                                                    pid_t log0 = fork();
+                                                    if (log0 == 0){
+                                                        legnetto(p, 0);
+                                                    }
+                                                    else{
+                                                        pid_t log1 = fork();
+                                                        if (log1 == 0){
+                                                            legnetto(p,1);
+                                                        }
+                                                        else
+                                                        {
+                                                            pid_t log2 = fork();
+                                                            if (log2 == 0){
+                                                                legnetto(p, 2);
+                                                            }
+                                                            else{
+                                                                pid_t log3=fork();
+                                                                if (log3==0){
+                                                                    legnetto(p, 3);
+
+                                                                }
+                                                                else{
+                                                                    pid_t log4=fork();
+                                                                    if (log4==0){
+                                                                        legnetto(p, 4);
+                                                                    }
+                                                                    else{
+                                                                        printAll(p,p2,p3);
+                                                                    }      
+                                                                } 
+                                                            }
+                                                        }
+                                                    }
+                                                } 
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }   
+        }
+    }
+    
     sleep(10);
     endwin();
     fclose(fp);
     return 0;
 }
-void processGeneration(int p1[],int p2[],int p3[], int p4[], int p5[]){
-    pid_t processInit = fork();
-    if (processInit == 0){
-        pid_t cars[10];
-        for(size_t i=0;i<10;i++){
-            cars[i]=fork();
-            if (cars[i]==0){
-                car(p1,p2,i);
-            }
-        }
-        pid_t frog = fork();
-        if (frog == 0){
-            ffrog(p1,p3,p5);
-        }
-        pid_t proiettile=fork();
-        if (proiettile==0){
-            bullet(p1);
-        }
-        pid_t logs[NUMLOGS];
-        for(size_t i = 0; i<NUMLOGS; i++){
-            logs[i] = fork();
-            if (logs[i] == 0){
-                legnetto(p1,p4,i);
-            }
-        }
-        
-    }
-    else{
-        printAll(p1,p2,p3);
-        sleep(5);
-        endwin();
-    }
-}
+
 void initScreen(int* maxY, int* maxX){
     initscr(); 
     curs_set(0); // settiamo il cursore per essere invisibile
@@ -204,7 +304,7 @@ void printAll(int p[], int p2[], int p3[]){
         stampaRanaBullets(rana,bull);
         //Stampa Fiume, tronchi, nemici e proiettili nemici
         getTronchiBullets(dptr,woody,bullets);
-        stampaTronchiNemici(rana,woody,bullets);
+        stampaTronchiNemici(woody,bullets);
         collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
 
 
@@ -222,34 +322,26 @@ void mostraVita(int n){
     return;
 }
 
-void stampaTronchiNemici(elemento rana,elemento logs[], elemento bullets[]){
+void stampaTronchiNemici(elemento woody[], elemento bullets[]){
     // stampa tronchi e nemici
-        if (!rana.isOnLog){
-            mvprintw(rana.y,rana.x,"\\/");
-            mvprintw(rana.y+1,rana.x,"/\\");
-        }
-        for(size_t i = 0; i<NUMLOGS; i++){ 
+        for(size_t i = 0; i<CORSIE; i++)
+        { 
             attron(COLOR_PAIR(3));
-            if(logs[i].enemy==false ){
-                if (rana.idxLogOccupied==i){
-                    mvprintw(logs[i].y,logs[i].x,sprite1[rana.offsetLogOccupied]);
-                    mvprintw(logs[i].y+1,logs[i].x,sprite2[rana.offsetLogOccupied]);
-                }
-                else{
-                    mvprintw(logs[i].y,logs[i].x,"|------|");
-                    mvprintw(logs[i].y+1,logs[i].x,"|------|");
-                }
+            if(woody[i].enemy==false){
+                mvprintw(woody[i].y,woody[i].x,"/----\\");
+                mvprintw(woody[i].y+1,woody[i].x,"\\----/");
             }
-            else if(logs[i].enemy==true ){//C'è un nemico
-                mvprintw(logs[i].y,logs[i].x,"|--00--|");
-                mvprintw(logs[i].y+1,logs[i].x,"|--||--|");
+            else{//C'è un nemico
+                mvprintw(woody[i].y,woody[i].x,"/-00-\\");
+                mvprintw(woody[i].y+1,woody[i].x,"\\-||-/");
             }
         }
-
-        //stampa proiettili dei nemici sui tronchi sparati
-        for (size_t i = 0; i < NUMLOGS; i++){
+        //stampa proiettili dei nemici sui tronchi \addindex sparati
+        for (size_t i = 0; i< CORSIE; i++){
             if (bullets[i].sparato == true){
                 mvaddch(bullets[i].y, bullets[i].x, '*');
+                //debug
+                //mvprintw(i+40,1,"Posizione bull %d -> y: %d x: %d c: %d",i,bullets[i].y,bullets[i].x,bullets[i].c);
             }
         }
         attroff(COLOR_PAIR(3));
@@ -275,8 +367,10 @@ void getTronchiBullets(elemento* d,elemento woody[], elemento bullets[]){
 
 
 void stampaRanaBullets(elemento rana, elemento bull){
-        attron(COLOR_PAIR(4));
-        //proiettile rana
+    attron(COLOR_PAIR(4));
+        mvprintw(rana.y,rana.x,"\\/");
+        mvprintw(rana.y+1,rana.x,"/\\");
+                //proiettile rana
         if (bull.sparato == true){
             mvprintw(bull.y, bull.x, "*");
         }
@@ -318,7 +412,7 @@ void getDataFromPipe(int p[],elemento* d,elemento macchine[], elemento* rana, el
             bull->y = d->y;
         }
         // allora è la macchina
-        else if(d->c>=0 && d->c<=9){
+        else{
             for (int i=0;i<CORSIE*MACCHINE;i++){
                 if (d->c == i){ //assegna a macchina iesima
                     macchine[i].x = d->x;
@@ -338,11 +432,11 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
         //collisioni
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if(macchine[i].type==1){// camion
-                if (rana->x>=macchine[i].x && rana->x<=macchine[i].x+7 && rana->y==macchine[i].y && *(frogCollision)==1)
+                if (rana->x>=macchine[i].x && rana->x<macchine[i].x+7 && rana->y==macchine[i].y && *(frogCollision)==1)
                 {
                     // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
-                    // fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
-                    // fflush(fp);
+                    fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
+                    fflush(fp);
                     //write(p2[1], &frogCollision, sizeof(frogCollision));
                     // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
                     write(p3[1], frogCollision, sizeof(*(frogCollision))); 
@@ -354,8 +448,8 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
                     if (vite>0){
                         vite--;
                         *(frogCollision)=0;
-                        // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
-                        // fflush(fp);
+                        fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
+                        fflush(fp);
                         mostraVita(vite);
                         refresh();
                     }
@@ -377,16 +471,16 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
                     //write(p2[1], &frogCollision, sizeof(frogCollision));
                     // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
                     write(p3[1], frogCollision, sizeof(*(frogCollision)));
-                    // fprintf(fp,"collisione macchina | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
-                    // fflush(fp);
-                    // fprintf(fp,"sizeof %ld sizeof int %ld",sizeof(*(frogCollision)),sizeof(int));
-                    // fflush(fp);
+                    fprintf(fp,"collisione macchina | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
+                    fflush(fp);
+                    fprintf(fp,"sizeof %ld sizeof int %ld",sizeof(*(frogCollision)),sizeof(int));
+                    fflush(fp);
                     // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
                     if (vite>0){
                         vite--;
                         *(frogCollision)=0;
-                        // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
-                        // fflush(fp);
+                        fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
+                        fflush(fp);
                         mostraVita(vite);
                         refresh();
                     }
@@ -403,4 +497,3 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
             }   
         }
 }
-

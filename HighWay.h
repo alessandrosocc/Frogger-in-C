@@ -5,11 +5,6 @@ typedef struct{
     int type; //camion o auto?
     bool sparato;
     bool enemy; //il tronco ha un nemico sopra? gestito in river.c
-    bool isOnLog;
-    bool logOccupied;
-    int idxLogOccupied;
-    int offsetLogOccupied;
-    int collision; 
 }elemento;
 extern int offsetAutostrada;
 
