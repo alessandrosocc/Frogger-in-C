@@ -1,9 +1,0 @@
-collisione camion | vite: 5 | frogCollision=1
-vite>0? frogCollision 0 
-collisionDetection!
-collisione camion | vite: 4 | frogCollision=1
-vite>0? frogCollision 0 
-collisionDetection!
-collisione camion | vite: 3 | frogCollision=1
-vite>0? frogCollision 0 
-collisionDetection!
