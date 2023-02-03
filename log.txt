@@ -1,1 +1,24 @@
+<<<<<<< HEAD
 ranax 96 ranay 32
+=======
+collisione camion | vite: 6 | frogCollision=1
+vite>0? frogCollision 0 
+collisionDetection!
+collisione camion | vite: 5 | frogCollision=1
+vite>0? frogCollision 0 
+collisionDetection!
+collisione camion | vite: 4 | frogCollision=1
+vite>0? frogCollision 0 
+collisionDetection!
+collisione camion | vite: 3 | frogCollision=1
+vite>0? frogCollision 0 
+collisionDetection!
+collisione macchina | vite: 2 | frogCollision=1
+sizeof 4 sizeof int 4vite>0? frogCollision 0 
+collisionDetection!
+collisione macchina | vite: 1 | frogCollision=1
+sizeof 4 sizeof int 4vite>0? frogCollision 0 
+collisionDetection!
+collisione macchina | vite: 0 | frogCollision=1
+sizeof 4 sizeof int 4collisionDetection!
+>>>>>>> parent of 6ed2f98 (Vite funzionanti)

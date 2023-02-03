@@ -175,7 +175,12 @@ void windowGeneration(){
 }
 
 
+<<<<<<< HEAD
 void printAll(int p[], int p2[], int p3[],int p4[],int p5[]){
+=======
+void printAll(int p[], int p2[], int p3[]){
+    bkgd(COLOR_PAIR(5));
+>>>>>>> parent of 6ed2f98 (Vite funzionanti)
     elemento d; 
     elemento* dptr=&d;
     elemento rana,bull; // rana e proiettile rana
@@ -191,6 +196,7 @@ void printAll(int p[], int p2[], int p3[],int p4[],int p5[]){
         macchine[i].y=-1;
         macchine[i].c=-1;
     }
+    int iterazione=0;
     while(true){
         erase();
         windowGeneration();
@@ -206,8 +212,13 @@ void printAll(int p[], int p2[], int p3[],int p4[],int p5[]){
         getTronchiBullets(dptr,woody,bullets);
         stampaTronchiNemici(rana,woody,bullets);
         collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
+<<<<<<< HEAD
         frogIsOnLog(p3,p5, rana, woody); // rana sale sul tronco
 
+=======
+        
+        iterazione++;
+>>>>>>> parent of 6ed2f98 (Vite funzionanti)
         refresh();
     }
     
@@ -338,7 +349,7 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
         //collisioni
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if(macchine[i].type==1){// camion
-                if (rana->x>=macchine[i].x && rana->x<macchine[i].x+7 && rana->y==macchine[i].y && *(frogCollision)==1)
+                if (rana->x>=macchine[i].x && rana->x<=macchine[i].x+7 && rana->y==macchine[i].y && *(frogCollision)==1)
                 {
                     // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
                     // fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
@@ -371,7 +382,7 @@ void collisionRanaVehicles(int p3[],int* frogCollision, elemento* rana,elemento 
                 }
             }
             else{ //macchina
-                if (rana->x>=macchine[i].x && rana->x<macchine[i].x+4 && rana->y==macchine[i].y && *(frogCollision)==1)
+                if (rana->x>=macchine[i].x && rana->x<=macchine[i].x+4 && rana->y==macchine[i].y && *(frogCollision)==1)
                 {   
                     // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
                     //write(p2[1], &frogCollision, sizeof(frogCollision));
