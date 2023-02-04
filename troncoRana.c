@@ -19,8 +19,8 @@
 int offsetFiume = 10;
 int offsetMarciapiede = 29;
 
-char* sprite1[]={"|\\/----|","|-\\/---|","|--\\/--|","|---\\/-|","|----\\/|"};
-char* sprite2[]={"|/\\----|","|-/\\---|","|--/\\--|","|---/\\-|","|----/\\|"};
+char* sprite1[]={"|\\/----|","|\\/----|","|-\\/---|","|--\\/--|","|---\\/-|","|----\\/|","|----\\/|"};
+char* sprite2[]={"|/\\----|","|/\\----|","|-/\\---|","|--/\\--|","|---/\\-|","|----/\\|","|----/\\|"};
 
 time_t t;
 FILE* fp; 
@@ -68,35 +68,56 @@ int main(){
     fcntl(p3[0], F_SETFL, O_NONBLOCK);
     fcntl(p4[0], F_SETFL, O_NONBLOCK);
     fcntl(p5[0], F_SETFL, O_NONBLOCK);
-    processGeneration(p1,p2,p3,p4,p5);
-    return 0;
-}
-
-void processGeneration(int p1[],int p2[],int p3[], int p4[], int p5[]){
-    pid_t processInit = fork();
-    if (processInit == 0){
-        pid_t frog = fork();
-        if (frog == 0){
-            ffrog(p1,p3,p5);
-        }
+    pid_t frog = fork();
+    if (frog == 0){
+        ffrog(p1,p3,p5);
+    }
+    else{
         pid_t proiettile=fork();
         if (proiettile==0){
             bullet(p1);
         }
-        pid_t logs[NUMLOGS];
-        for(size_t i = 0; i<NUMLOGS; i++){
-            logs[i] = fork();
-            if (logs[i] == 0){
-                legnetto(p1,p4,i);
+        else{
+            pid_t log0 = fork();
+            if (log0 == 0){
+                legnetto(p1,p4, 0);
             }
-        }
+            else{
+                pid_t log1 = fork();
+                if (log1 == 0){
+                    legnetto(p1,p4,1);
+                }
+                else
+                {
+                    pid_t log2 = fork();
+                    if (log2 == 0){
+                        legnetto(p1,p4, 2);
+                    }
+                    else{
+                        pid_t log3=fork();
+                        if (log3==0){
+                            legnetto(p1,p4, 3);
+
+                        }
+                        else{
+                            pid_t log4=fork();
+                            if (log4==0){
+                                legnetto(p1,p4, 4);
+                            }
+                            else{
+                                printAll(p1,p2,p3,p4,p5);
+                            }      
+                        } 
+                    }
+                }
+            }
+        } 
     }
-    else{
-        printAll(p1,p2,p3,p4,p5);
-        sleep(5);
-        endwin();
-    }
+    //processGeneration(p1,p2,p3,p4,p5);
+    return 0;
 }
+
+
 
 void printAll(int p1[], int p2[], int p3[], int p4[], int p5[]){
     erase();
@@ -176,9 +197,9 @@ void printAll(int p1[], int p2[], int p3[], int p4[], int p5[]){
 }
     
 
-void legnetto(int descriptor[], int connection[], int start){
+void legnetto(int p1[], int p4[], int start){
     srand(getpid());
-    close(descriptor[0]);
+    close(p1[0]);
     int maxX = 0, maxY = 0, x = 0, startRow = 0, direzione = 1;
     int timeLimit = 0, counter = 0;
     getmaxyx(stdscr, maxY, maxX);
@@ -196,7 +217,7 @@ void legnetto(int descriptor[], int connection[], int start){
     //     
     // }
     
-    write(descriptor[1], &woody, sizeof(elemento));
+    write(p1[1], &woody, sizeof(elemento));
     while(true){
         x = woody.x + direzione;
         // right
@@ -210,16 +231,16 @@ void legnetto(int descriptor[], int connection[], int start){
         if (woody.enemy == false){
             if (counter == timeLimit){
                 //woody.enemy = true; // METTI A TRUE PER AVERE I NEMICI!!!!!!!!!!!!!!!!!!!!!
-                enemyBullet(descriptor, connection, woody);
+                enemyBullet(p1, p4, woody);
             }
             counter++;
         }
         if (woody.enemy == true){
             woody.sparato = true;
-            write(connection[1], &woody, sizeof(elemento));
+            write(p4[1], &woody, sizeof(elemento));
             woody.sparato = false;
         }
-        write(descriptor[1], &woody, sizeof(elemento));
+        write(p1[1], &woody, sizeof(elemento));
         usleep(150000);
     }
     
@@ -270,8 +291,8 @@ void ffrog(int p[], int p3[], int p5[]){
     rana.isOnLog = false;
     rana.idxLogOccupied=-1;
     rana.offsetLogOccupied=-1;
-    int relPos=0;
-    int idxLog=0;
+    int relPos=-1;
+    int idxLog=-1;
     write(p[1],&rana, sizeof(elemento));
     while(true){
         // prima di tutto leggo la pipe che mi fa comunicare con la funzione di controllo
@@ -294,7 +315,7 @@ void ffrog(int p[], int p3[], int p5[]){
         if (tmp.logOccupied){
             tmp.logOccupied = false;
             rana.isOnLog = true;
-            rana.x = tmp.x+relPos;
+            relPos!=-1?rana.x = tmp.x+relPos:1;
             rana.idxLogOccupied=idxLog;
             // fprintf(fp,"rana.offsetLogOccupied %d | rana.idxLogOccupied",rana.offsetLogOccupied,rana.idxLogOccupied);
             // fflush(fp);
