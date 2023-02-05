@@ -12,11 +12,10 @@
 #include <fcntl.h>
 #include <time.h>
 #include <string.h>
-#include "HighWay.h"
+//#include "HighWay.h"
 #include "frog.h"
 #include "home.h"
 #include "river.h"
-
 time_t t;
 FILE* fp; 
 
@@ -25,18 +24,27 @@ int main() {
     t=time(NULL);
     fp=fopen("log.txt","w");
     srand(time(NULL));
-    int p[2];
+    int p1[2];
     int p2[2];
     int p3[2];
+    int p4[2];
+    int p5[2];
+    int p8[2];
+    int p9[2];
+    pipe(p1);
     pipe(p2);
     pipe(p3);
+    pipe(p4);
+    pipe(p5);
+    pipe(p8);
+    pipe(p9);
     fcntl(p2[0], F_SETFL, O_NONBLOCK);
     fcntl(p3[0], F_SETFL, O_NONBLOCK);
+    fcntl(p4[0], F_SETFL, O_NONBLOCK);
+    fcntl(p5[0], F_SETFL, O_NONBLOCK);
+    fcntl(p8[0], F_SETFL, O_NONBLOCK);
+    fcntl(p9[0], F_SETFL, O_NONBLOCK);
 
-    pipe(p);
-    
-
-    
     
     initScreen(&maxY,&maxX);
     windowGeneration();
@@ -46,7 +54,7 @@ int main() {
         perror("errore nella generazione della macchina 1");
     }
     else if (auto0 == 0){
-        car(p,p2,0);
+        car(p1,p2,0);
     }
     else{
         pid_t auto1=fork();
@@ -54,7 +62,7 @@ int main() {
             perror("Errore generazione macchina 0");
         }
         else if(auto1==0){
-            car(p,p2,1);
+            car(p1,p2,1);
         }
         else{
             pid_t auto2=fork();
@@ -62,7 +70,7 @@ int main() {
                 perror("Errore generazione macchina 0");
             }
             else if(auto2==0){
-                car(p,p2,2);
+                car(p1,p2,2);
             }
             else{
                 pid_t auto3=fork();
@@ -70,7 +78,7 @@ int main() {
                     perror("Errore generazione macchina 0");
                 }
                 else if(auto3==0){
-                    car(p,p2,3);
+                    car(p1,p2,3);
                 }
                 else{
                     pid_t auto4=fork();
@@ -78,7 +86,7 @@ int main() {
                         perror("Errore generazione macchina 0");
                     }
                     else if(auto4==0){
-                        car(p,p2,4);
+                        car(p1,p2,4);
                     }
                     else{
                         pid_t auto5=fork();
@@ -86,7 +94,7 @@ int main() {
                             perror("Errore generazione macchina 0");
                         }
                         else if(auto5==0){
-                            car(p,p2,5);
+                            car(p1,p2,5);
                         }
                         else{
                             pid_t auto6=fork();
@@ -94,7 +102,7 @@ int main() {
                                 perror("Errore generazione macchina 0");
                             }
                             else if(auto6==0){
-                                car(p,p2,6);
+                                car(p1,p2,6);
                             }
                             else{
                                 pid_t auto7=fork();
@@ -102,7 +110,7 @@ int main() {
                                     perror("Errore generazione macchina 0");
                                 }
                                 else if(auto7==0){
-                                    car(p,p2,7);
+                                    car(p1,p2,7);
                                 }
                                 else{
                                     pid_t auto8=fork();
@@ -110,7 +118,7 @@ int main() {
                                         perror("Errore generazione macchina 0");
                                     }
                                     else if(auto8==0){
-                                        car(p,p2,8);
+                                        car(p1,p2,8);
                                     }
                                     else{
                                         pid_t auto9=fork();
@@ -118,47 +126,47 @@ int main() {
                                             perror("Errore generazione macchina 0");
                                         }
                                         else if(auto9==0){
-                                            car(p,p2,9);
+                                            car(p1,p2,9);
                                         }
                                         else{
                                             pid_t frog = fork();
                                             if (frog == 0){
-                                                ffrog(p,p3);
+                                                ffrog(p1,p3,p8,p9);
                                             }
                                             else{
                                                 pid_t proiettile=fork();
                                                 if (proiettile==0){
-                                                    bullet(p);
+                                                    bullet(p1);
                                                 }
                                                 else{
                                                     pid_t log0 = fork();
                                                     if (log0 == 0){
-                                                        legnetto(p, 0);
+                                                        legnetto(p1,p4,0);
                                                     }
                                                     else{
                                                         pid_t log1 = fork();
                                                         if (log1 == 0){
-                                                            legnetto(p,1);
+                                                            legnetto(p1,p4,1);
                                                         }
                                                         else
                                                         {
                                                             pid_t log2 = fork();
                                                             if (log2 == 0){
-                                                                legnetto(p, 2);
+                                                                legnetto(p1, p4,2);
                                                             }
                                                             else{
                                                                 pid_t log3=fork();
                                                                 if (log3==0){
-                                                                    legnetto(p, 3);
+                                                                    legnetto(p1,p4, 3);
 
                                                                 }
                                                                 else{
                                                                     pid_t log4=fork();
                                                                     if (log4==0){
-                                                                        legnetto(p, 4);
+                                                                        legnetto(p1,p4, 4);
                                                                     }
                                                                     else{
-                                                                        printAll(p,p2,p3);
+                                                                        printAll(p1,p2,p3,p4,p5,p8,p9);
                                                                     }      
                                                                 } 
                                                             }
@@ -275,7 +283,7 @@ void windowGeneration(){
 }
 
 
-void printAll(int p[], int p2[], int p3[]){
+void printAll(int p[], int p2[], int p3[],int p4[],int p5[],int p8[],int p9[]){
     elemento d; 
     elemento* dptr=&d;
     elemento rana,bull; // rana e proiettile rana
@@ -297,16 +305,21 @@ void printAll(int p[], int p2[], int p3[]){
         mostraVita(vite);
         
         read(p[0], &(d), sizeof(elemento));
-        getDataFromPipe(p,dptr,macchine,ranaPtr,bullPtr);
+        getDataFromPipe(p,dptr,macchine,ranaPtr,bullPtr,woody,bullets);
         // stampa macchine
         stampaMacchinaCamion(macchine);
         //Stampa Rana e Proiettile Rana
         stampaRanaBullets(rana,bull);
         //Stampa Fiume, tronchi, nemici e proiettili nemici
-        getTronchiBullets(dptr,woody,bullets);
-        stampaTronchiNemici(woody,bullets);
+        
+        getTronchiBullets(dptr,woody,bullets); // CANCELLA
         collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
-
+        stampaTronchiNemici(woody,bullets,rana);
+        // for (int i=0;i<NUMLOGS;i++){
+        //     fprintf(fp,"logs[%d].x %d logs[%d].y %d logsoccupied %d\n",i,woody[i].x,i,woody[i].y,woody[i].logOccupied);
+        //     fflush(fp);
+        // }
+        frogIsOnLog(p8,p9, rana, woody);
 
         refresh();
     }
@@ -322,20 +335,20 @@ void mostraVita(int n){
     return;
 }
 
-void stampaTronchiNemici(elemento woody[], elemento bullets[]){
+void stampaTronchiNemici(elemento woody[], elemento bullets[],elemento rana){
     // stampa tronchi e nemici
-        for(size_t i = 0; i<CORSIE; i++)
-        { 
-            attron(COLOR_PAIR(3));
-            if(woody[i].enemy==false){
-                mvprintw(woody[i].y,woody[i].x,"/----\\");
-                mvprintw(woody[i].y+1,woody[i].x,"\\----/");
-            }
-            else{//C'è un nemico
-                mvprintw(woody[i].y,woody[i].x,"/-00-\\");
-                mvprintw(woody[i].y+1,woody[i].x,"\\-||-/");
-            }
-        }
+        // for(size_t i = 0; i<CORSIE; i++)
+        // { 
+        //     attron(COLOR_PAIR(3));
+        //     if(woody[i].enemy==false){
+        //         mvprintw(woody[i].y,woody[i].x,"/----\\");
+        //         mvprintw(woody[i].y+1,woody[i].x,"\\----/");
+        //     }
+        //     else{//C'è un nemico
+        //         mvprintw(woody[i].y,woody[i].x,"/-00-\\");
+        //         mvprintw(woody[i].y+1,woody[i].x,"\\-||-/");
+        //     }
+        // }
         //stampa proiettili dei nemici sui tronchi \addindex sparati
         for (size_t i = 0; i< CORSIE; i++){
             if (bullets[i].sparato == true){
@@ -344,33 +357,55 @@ void stampaTronchiNemici(elemento woody[], elemento bullets[]){
                 //mvprintw(i+40,1,"Posizione bull %d -> y: %d x: %d c: %d",i,bullets[i].y,bullets[i].x,bullets[i].c);
             }
         }
+        for(size_t i = 0; i<NUMLOGS; i++){ 
+            attron(COLOR_PAIR(3));
+            if(woody[i].enemy==false ){
+                if (rana.idxLogOccupied==i){
+                    mvprintw(woody[i].y,woody[i].x,sprite1[rana.offsetLogOccupied]);
+                    mvprintw(woody[i].y+1,woody[i].x,sprite2[rana.offsetLogOccupied]);
+                }
+                else{
+                    mvprintw(woody[i].y,woody[i].x,"|------|");
+                    mvprintw(woody[i].y+1,woody[i].x,"|------|");
+                }
+            }
+            else if(woody[i].enemy==true ){//C'è un nemico
+                mvprintw(woody[i].y,woody[i].x,"|--00--|");
+                mvprintw(woody[i].y+1,woody[i].x,"|--||--|");
+            }
+        }
         attroff(COLOR_PAIR(3));
 }
 
 void getTronchiBullets(elemento* d,elemento woody[], elemento bullets[]){
-    for (int i=0;i<CORSIE;i++){
-            if (d->c == i+30){ //assegna a legnetto iesimo
-                woody[i].x = d->x;
-                woody[i].y = d->y;
-                woody[i].c = d->c; 
-                woody[i].enemy=d->enemy;
-            }
-            if (d->c  == i+70){ // se è un proiettile allora d.c=70 <=> 30 (tronco ID) + 40 (proiettile ID)
-                bullets[i].x = d->x;
-                bullets[i].y = d->y;
-                bullets[i].c = d->c;
-                bullets[i].sparato = d->sparato;
-                
-            }
-        }
+    // for (int i=0;i<NUMLOGS;i++){
+    //     if (d->c == i+30){ //assegna a legnetto iesimo
+    //         woody[i].x = d->x;
+    //         woody[i].y = d->y;
+    //         woody[i].c = d->c; 
+    //         woody[i].enemy=d->enemy;
+    //         woody[i].logOccupied=d->logOccupied;
+    //     }
+    //     if (d->c  == i+70){ // se è un proiettile allora d.c=70 <=> 30 (tronco ID) + 40 (proiettile ID)
+    //         bullets[i].x = d->x;
+    //         bullets[i].y = d->y;
+    //         bullets[i].c = d->c;
+    //         bullets[i].sparato = d->sparato;
+            
+    //     }
+    // }
 }
 
 
 void stampaRanaBullets(elemento rana, elemento bull){
-    attron(COLOR_PAIR(4));
-        mvprintw(rana.y,rana.x,"\\/");
-        mvprintw(rana.y+1,rana.x,"/\\");
-                //proiettile rana
+        attron(COLOR_PAIR(4));
+        // mvprintw(rana.y,rana.x,"\\/");
+        // mvprintw(rana.y+1,rana.x,"/\\");
+        if (!rana.isOnLog){
+            mvprintw(rana.y,rana.x,"\\/");
+            mvprintw(rana.y+1,rana.x,"/\\");
+        }
+        //proiettile rana
         if (bull.sparato == true){
             mvprintw(bull.y, bull.x, "*");
         }
@@ -395,8 +430,25 @@ void stampaMacchinaCamion(elemento macchine[]){
                 attroff(COLOR_PAIR(4));
             }
         }
+        
 }
-void getDataFromPipe(int p[],elemento* d,elemento macchine[], elemento* rana, elemento* bull){
+void getDataFromPipe(int p[],elemento* d,elemento macchine[], elemento* rana, elemento* bull,elemento woody[],elemento bullets[]){
+    for (int i=0;i<NUMLOGS;i++){
+        if (d->c == i+30){ //assegna a legnetto iesimo
+            woody[i].x = d->x;
+            woody[i].y = d->y;
+            woody[i].c = d->c; 
+            woody[i].enemy=d->enemy;
+    
+        }
+        if (d->c  == i+70){ // se è un proiettile allora d.c=70 <=> 30 (tronco ID) + 40 (proiettile ID)
+            bullets[i].x = d->x;
+            bullets[i].y = d->y;
+            bullets[i].c = d->c;
+            bullets[i].sparato = d->sparato;
+            
+        }
+    }
      //se è la rana
         if (d->c==20){ 
             rana->x=d->x;

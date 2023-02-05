@@ -300,6 +300,8 @@ void ffrog(int p[], int p3[], int p5[]){
         read(p3[0], &(idxLog), sizeof(int));
 
         read(p5[0], &tmp, sizeof(elemento)); 
+        fprintf(fp,"collDe %d relPos %d idxLog %d tmp.x %d tmp.y %d tmp.logOccupied %d\n",collisionDetection,relPos,idxLog,tmp.x,tmp.y,tmp.logOccupied);
+        fflush(fp);
         //fprintf(fp,"x %d y %d c %d onfrog %d\n",tmp.x,tmp.y,tmp.c,tmp.isOnLog);
         // se l'intero letto è uguale a 1 allora si è verificata una collisione, quindi riporto la rana alla posizione di partenza
         //rana.collision = collisionDetection;

@@ -10,14 +10,13 @@
 #define VITE 3
 
 
-
 //LE WINDOW NON SONO PASSATE PER VALORE!!!!!!!!!! NON PER RIFERIMENTO NON SONO PUNTATORI
 //maxY dal basso = sempre maxY-3
 //(0,0) == alto a sx
 //(maxX, maxY) == basso a dx
 
 
-void printAll(int p[], int p2[], int p3[]);
+void printAll(int p[], int p2[], int p3[],int p4[],int p5[],int p8[],int p9[]);
 void windowGeneration();
 void initScreen(int*, int*);
 void mostraVita(int);
@@ -31,9 +30,13 @@ int idMacchine = 0;
 int vite=5;
 int maxX=0, maxY=0;
 
-void stampaTronchiNemici(elemento[],elemento[]);
+char* sprite1[]={"|\\/----|","|\\/----|","|-\\/---|","|--\\/--|","|---\\/-|","|----\\/|","|----\\/|"};
+char* sprite2[]={"|/\\----|","|/\\----|","|-/\\---|","|--/\\--|","|---/\\-|","|----/\\|","|----/\\|"};
+
+
+void stampaTronchiNemici(elemento[],elemento[],elemento);
 void getTronchiBullets(elemento*,elemento[],elemento[]);
 void stampaRanaBullets(elemento,elemento);
 void stampaMacchinaCamion(elemento[]);
-void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*);
+void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*,elemento[],elemento[]);
 void collisionRanaVehicles(int[], int*,elemento*,elemento[]);

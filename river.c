@@ -13,17 +13,15 @@
 #include "river.h"
 
 //da togliere quando usi vm
-#define true 1
-#define false 0
+// #define true 1
+// #define false 0
 
 
 
 
-void legnetto(int descriptor[], int start){
+void legnetto(int p1[], int p4[],int start){
     srand(getpid());
-
-    close(descriptor[0]);
-    
+    close(p1[0]);
     int maxX = 0, maxY = 0, x = 0, startRow = 0, direzione = 1;
     int timeLimit = 0, counter = 0;
     getmaxyx(stdscr, maxY, maxX);
@@ -34,14 +32,14 @@ void legnetto(int descriptor[], int start){
     woody.x=(1+rand()%maxX);
     woody.c = start+30;   
     woody.enemy=false; 
-    
+    //woody.logOccupied=false;
     //generazione di un nemico!
     // if (rand()%6 > 4){
     //     woody.enemy=true;
-    //     enemyBullet(descriptor,woody);
+    //     enemyBullet(p1,woody);
     // }
     
-    write(descriptor[1], &woody, sizeof(elemento));
+    write(p1[1], &woody, sizeof(elemento));
     while(true){
         x = woody.x + direzione;
         // right
@@ -55,10 +53,10 @@ void legnetto(int descriptor[], int start){
         if (woody.enemy == false){
             if (timeLimit == counter){
                 woody.enemy = true;
-                enemyBullet(descriptor,woody);
+                enemyBullet(p1,woody);
             }
         }
-        write(descriptor[1], &woody, sizeof(elemento));
+        write(p1[1], &woody, sizeof(elemento));
         usleep(50000);
         //sleep(); //OGNI QUANTO GENERARE TRONCHI?
         counter++; //delay enemy

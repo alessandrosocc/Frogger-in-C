@@ -1,0 +1,5187 @@
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x 21 logoccupied 32
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 30
+FINE WHILE rana x 116 y 30
+collisiondet PRIMA0
+rana x 116 y 30
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 28
+FINE WHILE rana x 116 y 28
+collisiondet PRIMA0
+rana x 116 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 28
+FINE WHILE rana x 115 y 28
+collisiondet PRIMA0
+rana x 115 y 28
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 26
+FINE WHILE rana x 115 y 26
+collisiondet PRIMA0
+rana x 115 y 26
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA0
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+collisione camion | vite: 5 | frogCollision=1
+vite>0? frogCollision 0 
+rana x 115 y 24
+FINE WHILE rana x 115 y 24
+collisiondet PRIMA1
+rana x 115 y 24
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+collisione camion | vite: 4 | frogCollision=1
+vite>0? frogCollision 0 
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA1
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
+rana x 116 y 32
+FINE WHILE rana x 116 y 32
+collisiondet PRIMA0
+rana x 116 y 32
+ tmp.x -44777216 logoccupied 1
