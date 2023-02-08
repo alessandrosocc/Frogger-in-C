@@ -20,7 +20,14 @@
 time_t t;
 FILE* fp; 
 
+/*
+            PUNTEGGIO
+        1. Se rana sale su tronco  = +50
+        2. Se rana uccide nemico, +100
 
+
+
+*/
 int main(){
     time(NULL);
     srand(time(NULL));
@@ -77,26 +84,36 @@ void windowGeneration(){
     init_pair(4,COLOR_WHITE,COLOR_CYAN);
     init_pair(5,COLOR_WHITE,COLOR_BLACK);//antiglitch
     init_pair(6,COLOR_WHITE, COLOR_MAGENTA);
-
+    init_pair(7,COLOR_WHITE,COLOR_BLUE);
+    init_pair(8,COLOR_BLACK,COLOR_RED);
     box(stdscr,0,0);
 
     int offsetSum=1;
     
     //punteggio
     for (size_t i = 1; i<= PUNTEGGIO; i++){
-        attron(COLOR_PAIR(3));
+        attron(COLOR_PAIR(7));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(3));
+        attroff(COLOR_PAIR(7));
     }
     
+    offsetPunteggio=offsetSum;
     offsetSum+=3;
-    
+    offsetTane=offsetSum;
     //tane
-    for (size_t i = offsetSum; i<= offsetSum+TANE; i++){
+    // for (size_t i = offsetSum; i<= offsetSum+TANE; i++){
+    //     attron(COLOR_PAIR(3));
+    //     mvhline(i, 1, ' ', maxX-2);
+    //     attroff(COLOR_PAIR(3));
+    // }
+    for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(3));
-        mvhline(i, 1, ' ', maxX-2);
+        if (i<=3||(i%(maxX/NTANE)==0) || i>=maxX-3){
+            mvvline(offsetSum,i,' ',TANE);
+        }
         attroff(COLOR_PAIR(3));
     }
+    
     offsetSum+=TANE;
 
     //fiume
@@ -134,7 +151,7 @@ void windowGeneration(){
     }
     offsetSum+=MARCIAPIEDE+1;
     offsetTempo=offsetSum;
-    //tempo
+    //Punteggio
     for (size_t i = offsetSum; i<= TEMPO+offsetSum; i++){
         attron(COLOR_PAIR(3));
         mvhline(i, 1, ' ', 20);
@@ -206,13 +223,36 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     controlloGenerazioneMacchine(p1,p2,p7);
     //inizializzo il ciclo di stampa
     while(true){
+        iterazione++;
         erase();
         windowGeneration();
+        mostraPunteggio(punteggio);
         mostraVita(vite);
+        // chiudi tana
+        for (size_t i=0;i<NTANE;i++){
+            if(taneChiuse[i]==1){
+                chiudiTana(i);
+            }
+        }
+        //end chiudi tana
+
         read(p1[0], &(d), sizeof(elemento));
         getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr);
         getTronchiBullets(dptr,woody,bullets);
         //*********************************************************************************************************************************************************************
+        // CHECK RANA IN TANA
+        for (size_t i=0;i<NTANE;i++){ 
+            if (rana.y<10 && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
+                if (!taneChiuse[i]){
+                    taneChiuse[i]=1;
+                }
+                else{
+                    // ritorna l marciapiede, stai cercando di entrare in una tana già scoperta
+                    write(p4[1], &frogCollision, sizeof(frogCollision)); // è come se facesse una collisione con camion o auto in autostrada
+                }
+            }
+        }
+        
         //CHECK RANA SCENDE DAL FIUME
         if(vecchiaRana.y==woody[0].y && rana.y==woody[0].y+2){
             rana.cambioMovimento=true;
@@ -250,6 +290,16 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         stampaRanaBullets(rana,bull);
         collisionRanaVehicles(p4,frogCollisionPtr,ranaPtr,macchine);
         ranaKillEnemy(rana,bull,woody,p8);
+        if (addPoints!=-1 && iterazioneMoment==iterazione){
+            fprintf(fp,"punteggio %d addPoints %d iterazione %d iterazioneMoment %d\n",punteggio,addPoints,iterazione,iterazioneMoment);
+            fflush(fp);
+            punteggio+=addPoints;
+            iterazioneMoment=-1;
+            addPoints=-1;
+        }
+        
+        
+        
         //frogIsOnLog(p5,p7, rana, woody);
         refresh();
     }
@@ -538,6 +588,8 @@ void frogIsOnLog(int p5[], int p7[],  elemento rana, elemento logs[]){
                 write(p5[1],&relPos,sizeof(int));
                 write(p5[1],&idxLog,sizeof(int));
             }
+            addPoints=50;
+            iterazioneMoment=iterazione;
             write(p7[1], &logs[i], sizeof(elemento));
         }
     }
@@ -551,6 +603,8 @@ void ranaKillEnemy(elemento rana,elemento ranaProiettile, elemento logs[], int p
                 if (ranaProiettile.x == logs[i].x+3 || ranaProiettile.x == logs[i].x+4){
                     // il proiettile della rana ha colpito un nemico, deve lui deve sparire
                     fprintf(fp, "il proiettile ha beccato un nemico\n");
+                    addPoints=100; // aggiungi punteggio
+                    iterazioneMoment=iterazione;
                     removeEnemy += logs[i].c;
                     for (int i = 0; i<NUMTRONCHI; i++){
                         write(p8[1], &removeEnemy, sizeof(int));
@@ -559,5 +613,21 @@ void ranaKillEnemy(elemento rana,elemento ranaProiettile, elemento logs[], int p
                 }
             }
         }
+    }
+}
+
+void mostraPunteggio(int n){
+    mvprintw(2,maxX/2-2,"%d",punteggio);
+    return;
+}
+
+
+void chiudiTana(int n){
+    for (size_t i=1;i<=maxX-2;i++){
+        attron(COLOR_PAIR(8));
+        if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
+            mvvline(offsetTane,i,'x',TANE);
+        }
+        attroff(COLOR_PAIR(8));
     }
 }

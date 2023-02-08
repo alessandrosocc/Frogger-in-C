@@ -8,8 +8,7 @@
 #define MARCIAPIEDE 2
 #define TEMPO 3
 #define VITE 3
-
-
+#define NTANE 5
 
 //LE WINDOW NON SONO PASSATE PER VALORE!!!!!!!!!! NON PER RIFERIMENTO NON SONO PUNTATORI
 //maxY dal basso = sempre maxY-3
@@ -28,9 +27,18 @@ int offsetAutostrada = 0;
 int offsetFiume=0;
 int offsetTempo=0;
 int offsetMarciapiede=0;
+int offsetTane=0;
+int offsetPunteggio=0;
 int idMacchine = 0;
 int vite=5;
+int punteggio=0;
+int iterazione=0;
+int iterazioneMoment=0;
+bool collisionFrog=false;
 int maxX=0, maxY=0;
+int addPoints=0;
+int taneChiuse[NTANE]={0};
+
 
 void stampaTronchiNemici(elemento[],elemento[], elemento);
 void getTronchiBullets(elemento*,elemento[],elemento[]);
@@ -41,3 +49,5 @@ void collisionRanaVehicles(int[], int*,elemento*,elemento[]);
 void processGeneration(int[],int[],int[],int[],int[],int[],int[],int[]);
 void frogIsOnLog(int p5[], int p7[],  elemento, elemento[]);
 void ranaKillEnemy(elemento,elemento, elemento [], int []);
+void mostraPunteggio(int);
+void chiudiTana(int);

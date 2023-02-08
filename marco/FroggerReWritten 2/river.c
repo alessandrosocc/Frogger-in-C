@@ -57,7 +57,7 @@ void legnetto(int p1[],int p6[], int p8[], int riga){
         }
         if (woody.enemy == false){
             if (timeLimit == counter){
-                woody.enemy = true;
+                //woody.enemy = true; // RIATTIVAAAA!!!! SE VUOI NEMICII!!
                 enemyBullet(p1,p6,woody);
             }
         }
