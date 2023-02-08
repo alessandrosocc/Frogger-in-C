@@ -1,0 +1,23 @@
+counter: 1
+counter: 2
+counter: 3
+counter: 4
+counter: 5
+counter: 6
+counter: 7
+counter: 8
+counter: 9
+counter: 10
+la macchina 0, si trova in posizione (x: 233, y: 28)
+la macchina 1, si trova in posizione (x: 193, y: 30)
+la macchina 2, si trova in posizione (x: 26, y: 24)
+la macchina 3, si trova in posizione (x: 229, y: 30)
+la macchina 4, si trova in posizione (x: 243, y: 26)
+la macchina 5, si trova in posizione (x: 207, y: 30)
+la macchina 6, si trova in posizione (x: 63, y: 24)
+la macchina 7, si trova in posizione (x: 194, y: 26)
+la macchina 8, si trova in posizione (x: 178, y: 30)
+la macchina 9, si trova in posizione (x: 4, y: 22)
+
+
+non ci sono state collisioni
