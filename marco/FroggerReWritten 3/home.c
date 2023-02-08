@@ -209,6 +209,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     int counter = 0;
     // mi assicuro che le macchine vengano generate in maniera corretta
     controlloGenerazioneMacchine(p1,p2,p7);
+    
     //inizializzo il ciclo di stampa
     while(true){
         erase();
@@ -216,6 +217,8 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         mostraVita(vite);
         read(p1[0], &(d), sizeof(elemento));
         getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr);
+        fprintf(fp,"rana.x %d rana.y %d\n",rana.x,rana.y);
+        fflush(fp);
         getTronchiBullets(dptr,woody,bullets);
         //*********************************************************************************************************************************************************************
         //CHECK RANA SCENDE DAL FIUME
