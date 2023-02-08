@@ -299,6 +299,11 @@ void printAll(int p[], int p2[], int p3[],int p4[],int p5[],int p8[],int p9[]){
         macchine[i].y=-1;
         macchine[i].c=-1;
     }
+
+    int relPos=0;
+    int idxLog=0;
+    int previdx=0;
+
     while(true){
         erase();
         windowGeneration();
@@ -315,12 +320,41 @@ void printAll(int p[], int p2[], int p3[],int p4[],int p5[],int p8[],int p9[]){
         getTronchiBullets(dptr,woody,bullets); // CANCELLA
         collisionRanaVehicles(p3,frogCollisionPtr,ranaPtr,macchine);
         stampaTronchiNemici(woody,bullets,rana);
-        // for (int i=0;i<NUMLOGS;i++){
-        //     fprintf(fp,"logs[%d].x %d logs[%d].y %d logsoccupied %d\n",i,woody[i].x,i,woody[i].y,woody[i].logOccupied);
-        //     fflush(fp);
-        // }
-        frogIsOnLog(p8,p9, rana, woody);
-
+        for (int i=0;i<NUMLOGS;i++){
+            fprintf(fp,"PRIMA DI FROGISONLOG woody[%d].x %d woody[%d].y %d logsoccupied %d\n",i,woody[i].x,i,woody[i].y,woody[i].logOccupied);
+            fflush(fp);
+        }
+        //frogIsOnLog(p8,p9, rana, woody);
+        //FROG IS ON LOG
+        for (int i = 0; i < NUMLOGS; i++){
+        // fprintf(fp,"log x %d y %d occupied %d\n");
+        // fflush(fp);
+        // TO D
+        //  [+] se collisione e woody[i].enemy==false allora decrementa vita!
+        for (int i=0;i<NUMLOGS;i++){
+            fprintf(fp,"DOPO FROGISONLOG woody[%d].x %d woody[%d].y %d logsoccupied %d\n",i,woody[i].x,i,woody[i].y,woody[i].logOccupied);
+            fflush(fp);
+        }
+        if (rana.y == woody[i].y && rana.x < woody[i].x+6 && rana.x >= woody[i].x && woody[i].enemy==false){ // la rana sale se collisione e se non c'è un enemy 
+            woody[i].logOccupied = true;
+            // fprintf(fp,"woody[%d].x %d y %d",i,woody[i].x,woody[i].y);
+            // fflush(fp);
+            if (rana.isOnLog==false){
+                relPos = (rana.x-woody[i].x);
+                idxLog=i;     
+                write(p8[1],&relPos,sizeof(int));
+                write(p8[1],&idxLog,sizeof(int));
+            }
+            else if(rana.idxLogOccupied!=i){ // la rana è sul tronco ma cambia tronco!
+                relPos = (rana.x-woody[i].x);
+                idxLog=i;     
+                write(p8[1],&relPos,sizeof(int));
+                write(p8[1],&idxLog,sizeof(int));
+            }
+            write(p9[1], &woody[i], sizeof(elemento));
+        }
+    }
+    // FROG IS ON LOG
         refresh();
     }
     

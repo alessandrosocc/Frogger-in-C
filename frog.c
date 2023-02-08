@@ -167,6 +167,10 @@ void frogIsOnLog(int p8[], int p9[],  elemento rana, elemento logs[]){
         // fflush(fp);
         // TO D
         //  [+] se collisione e logs[i].enemy==false allora decrementa vita!
+        for (int i=0;i<NUMLOGS;i++){
+            fprintf(fp,"DOPO FROGISONLOG logs[%d].x %d logs[%d].y %d logsoccupied %d\n",i,logs[i].x,i,logs[i].y,logs[i].logOccupied);
+            fflush(fp);
+        }
         if (rana.y == logs[i].y && rana.x < logs[i].x+6 && rana.x >= logs[i].x && logs[i].enemy==false){ // la rana sale se collisione e se non c'è un enemy 
             logs[i].logOccupied = true;
             // fprintf(fp,"logs[%d].x %d y %d",i,logs[i].x,logs[i].y);
@@ -184,9 +188,6 @@ void frogIsOnLog(int p8[], int p9[],  elemento rana, elemento logs[]){
                 write(p8[1],&idxLog,sizeof(int));
             }
             write(p9[1], &logs[i], sizeof(elemento));
-        }
-        else{
-            logs[i].logOccupied=false;
         }
     }
 }
