@@ -19,9 +19,6 @@
 #define false 0
 #define KILLPROIETTILE 99
 
-
-
-
 void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
     srand(getpid());
     close(p1[0]);
@@ -56,19 +53,18 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
             timeLimit = 1+rand()%200;
         }
 
-        // RIATTIVARE!!!!!!!!!!
-        // if(x > maxX-1 || x < 0){
-        //     direzione *= -1;
-        //     //woody.y = 1 + rand()%(maxY-1);
-        // }
-        // else{
-        //     woody.x += direzione;
-        // }
-        woody.x=100;
+        if(x > maxX-1 || x < 0){
+            direzione *= -1;
+            //woody.y = 1 + rand()%(maxY-1);
+        }
+        else{
+            woody.x += direzione;
+        }
+        //woody.x=100;
         if (woody.enemy == false){
             if (comunication <= 0 && id2 != woody.c ){
                 if (timeLimit == counter){ 
-                    woody.enemy = true; // TRUE PER AVERE I NEMICI
+                    //woody.enemy = true; // TRUE PER AVERE I NEMICI
                     //enemyBullet(p1,p6,p9,woody);
                     counter = 0;
                 }

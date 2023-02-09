@@ -1,515 +1,549 @@
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
-getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
-punteggio 500
-punteggio 500
-punteggio 500
-punteggio 500
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 115 d.x 115 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 114 d.x 114 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 113 d.x 113 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 112 d.x 112 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32
+getdatafrom pipa -> rana.x 111 d.x 111 rana.y 32 d.y 32

@@ -40,10 +40,10 @@ int iterazione=0;
 int iterazioneMoment=0;
 int offsetTane=0;
 int offsetPunteggio=0;
-
+int offsetPrato=0;
 bool gioca=true;
-
-void proiettiliKillRana(elemento, elemento[], int[], int *);
+int offsetFinale=0;
+void proiettiliKillRana(elemento, elemento[], int[], int *,int*);
 void stampaTronchiNemici(elemento[],elemento[], elemento);
 void getTronchiBullets(elemento*,elemento[],elemento[]);
 void stampaRanaBullets(elemento,elemento);
@@ -51,7 +51,7 @@ void stampaMacchinaCamion(elemento[]);
 void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*);
 void collisionRanaVehicles(int[], int*,elemento*,elemento[],int*);
 void processGeneration(int[],int[],int[],int[],int[],int[],int[],int[], int[]);
-void frogIsOnLog(int p5[], int p7[],  elemento, elemento[]);
+void frogIsOnLog(int p5[], int p7[],  elemento, elemento[],int*);
 void ranaKillEnemy(elemento,elemento*, elemento [], int [], int*);
 void collisioneProiettiliMacchine(elemento *, elemento [], elemento [], int []);
 void collisioneProiettileRanaProiettiliNemici(elemento *, elemento[], int[]);
