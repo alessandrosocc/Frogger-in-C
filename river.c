@@ -12,238 +12,133 @@
 #include "HighWay.h"
 #include "river.h"
 
+
+
 //da togliere quando usi vm
-// #define true 1
-// #define false 0
+#define true 1
+#define false 0
+#define KILLPROIETTILE 99
 
 
 
 
-void legnetto(int p1[], int p4[],int start){
+void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
     srand(getpid());
     close(p1[0]);
-    int maxX = 0, maxY = 0, x = 0, startRow = 0, direzione = 1;
+    int maxX = 0, maxY = 0, x = 0,direzione = 1, removeEnemy = 0, id1 = 0,id2 = 0, comunication = 0;
     int timeLimit = 0, counter = 0;
     getmaxyx(stdscr, maxY, maxX);
     elemento woody;
-    timeLimit = 1+rand()%500; //generare un limite di tempo casuale per ogni tronco
+    timeLimit = 1+rand()%100; //generare un limite di tempo casuale per ogni tronco
     // inizializziamo le posizioni
-    woody.y = (start*2)+offsetFiume-1;
+    woody.y = (riga*2)+offsetFiume-1;
     woody.x=(1+rand()%maxX);
-    woody.c = start+30;   
-    woody.enemy=false; 
-    //woody.logOccupied=false;
-    //generazione di un nemico!
-    // if (rand()%6 > 4){
-    //     woody.enemy=true;
-    //     enemyBullet(p1,woody);
-    // }
-    
+    woody.c = riga+30;
+    woody.enemy=false;
+    enemyBullet(p1,p6,p9,woody);
     write(p1[1], &woody, sizeof(elemento));
     while(true){
+        removeEnemy = 0;
+        comunication = 0;
+        id1 = 0;
+        id2 = 0;
+        read(p9[0], &comunication, sizeof(int));
+        read(p8[0],&removeEnemy, sizeof(int));
+        id2 = comunication -1;
+        id1 = removeEnemy - 1;
         x = woody.x + direzione;
         // right
-        if(x > maxX-1 || x < 0){
-            direzione *= -1;
-            //woody.y = 1 + rand()%(maxY-1);
+        if (removeEnemy > 0 && woody.c == id1){
+            woody.enemy = false;
+            woody.sparato = false;
+            write(p6[1], &woody, sizeof(elemento));
+            counter = 0;
+            timeLimit = 1+rand()%200;
         }
-        else{
-            woody.x += direzione;
-        }
+
+        // if(x > maxX-1 || x < 0){
+        //     direzione *= -1;
+        //     //woody.y = 1 + rand()%(maxY-1);
+        // }
+        // else{
+        //     woody.x += direzione;
+        // }
+        woody.x=100;
         if (woody.enemy == false){
-            if (timeLimit == counter){
-                woody.enemy = true;
-                enemyBullet(p1,woody);
+            if (comunication <= 0 && id2 != woody.c ){
+                if (timeLimit == counter){ 
+                    woody.enemy = true; // RIATTIVA PER AVERE I NEMICI
+                    //enemyBullet(p1,p6,p9,woody);
+                    counter = 0;
+                }
+            }
+            else{
+                woody.enemy = false;
+                counter = 0;
             }
         }
+        else if(woody.enemy == true && counter == TIMERPROIETTILI){
+            fprintf(fp, "ciao\n");
+            woody.sparato = true;
+            write(p6[1], &woody, sizeof(elemento));
+            woody.sparato = false;
+            counter = 0;
+        }
         write(p1[1], &woody, sizeof(elemento));
-        usleep(50000);
+        usleep(DELAYT);
         //sleep(); //OGNI QUANTO GENERARE TRONCHI?
         counter++; //delay enemy
     }
     
+    
 }
 
 //nemico == woody
-void enemyBullet(int p[], elemento nemico){
+void enemyBullet(int p1[],int p6[],int p9[], elemento nemico){
     pid_t bullet=fork();
+    int comunication = 0;
     if (bullet==0){
-        enemyBulletShoot(p, nemico);
+        fprintf(fp,"\n ho generato un processo proiettile\n");
+        enemyBulletShoot(p1, p6,p9, nemico);
+        fprintf(fp,"ho killato un proiettile\n");
     }
-
+    // kill(bullet,1);
+    
 }
 
 //aggiorna le posizioni del proiettile
 //se counter==30 allora stampa un proiettile
-void enemyBulletShoot(int p[], elemento enemy){
-    close(p[0]);
-    elemento proiettileNemico;
-    int x=0,y=1;
-    int counter = 0;
+void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
+    close(p1[0]);
+    elemento proiettileNemico, tmp;
+    tmp.sparato = false;
+    int maxY = 0, maxX = 0, comunication = 0;
+    getmaxyx(stdscr, maxY, maxX);
     proiettileNemico.c = 40+enemy.c; // da modificare quando si aggiunge a home
-    bool flag = false;
-    while(true){
-        if (flag == false){
-            proiettileNemico.x = enemy.x;
-            proiettileNemico.y = enemy.y;  
+    proiettileNemico.x = enemy.x;
+    proiettileNemico.y = enemy.y;
+    bool flag = true;
+    while(flag){
+        read(p6[0],&tmp, sizeof(elemento));
+        read(p9[0], &comunication, sizeof(int));
+        if(tmp.sparato){
+            proiettileNemico.x = tmp.x+3;
+            proiettileNemico.y = tmp.y;
+            proiettileNemico.sparato = true;
         }
-        if (counter == 30){
-            enemy.sparato = true;
-            flag = true;
-            counter = 0;
+        if (comunication-1 == proiettileNemico.c && comunication > 0){
+            proiettileNemico.sparato = false;
         }
-        if (enemy.sparato == true){
-            proiettileNemico.y+=1;
-            //proiettileNemico.y = proiettileNemico.y+1;
-            // proiettileNemico.x = proiettileNemico.x+1;
-            write(p[1], &proiettileNemico, sizeof(elemento));
+        // else{
+        //     write(p9[1], &comunication, sizeof(int));
+        // }
+
+        if (proiettileNemico.y<maxY){
+            proiettileNemico.y += 1;
+            write(p1[1], &proiettileNemico, sizeof(elemento));
         }
-        counter++;
-        usleep(30000);
+        comunication = 0;
+        tmp.sparato = false;
+        usleep(40000);
     }
 }
-
-
-//######################
-// ROBA VECCHIA
-//######################
-
-
-//int offsetFiume = 0; //temp da cancellare
-
-
-// int main(){
-//     initscr(); 
-//     curs_set(0); // settiamo il cursore per essere invisibile
-//     noecho();
-//     keypad(stdscr,1);
-
-//     int p[2];
-//     pipe(p);
-    
-//     pid_t log0 = fork();
-//     if (log0 == 0){
-//         legnetto(p, 0);
-//     }
-//     else{
-//         pid_t log1 = fork();
-//         if (log1 == 0){
-//             legnetto(p,1);
-//         }
-//         else
-//         {
-//             pid_t log2 = fork();
-//             if (log2 == 0){
-//                 legnetto(p, 2);
-//             }
-//             else{
-//                 pid_t log3=fork();
-//                 if (log3==0){
-//                     legnetto(p, 3);
-
-//                 }
-//                 else{
-//                     pid_t log4=fork();
-//                     if (log4==0){
-//                         legnetto(p, 4);
-//                     }
-//                     else{
-//                         printLog(p);
-//                     }      
-//                 } 
-//             }
-//         }
-//     }
-//     endwin();
-// }
-
-
-// void printLog(int p[]){
-//     close(p[1]);
-//     elemento woody[5];
-//     elemento bullets[5];
-//     elemento d;
-//     while (true){
-//         clear();
-//         read(p[0],&d,sizeof(elemento));
-//         for (int i=0;i<5;i++){
-//             if (d.c == i){ //assegna a legnetto iesimo
-//                 woody[i].x = d.x;
-//                 woody[i].y = d.y;
-//                 woody[i].c = d.c; 
-//                 woody[i].enemy=d.enemy;
-//             }
-//             if (d.c - 40 == i){ // se è un proiettile
-//                 bullets[i].x = d.x;
-//                 bullets[i].y = d.y;
-//                 bullets[i].c = d.c;
-//                 bullets[i].sparato = d.sparato;
-                
-//             }
-//         }       
-//         // stampa tronchi e nemici
-//         for(size_t i = 0; i<CORSIE; i++)
-//         { 
-//             //DEBUG
-//             mvprintw(i+20,1,"Posizione woody %d -> y: %d x: %d c: %d enemy: %d, sparato %d",i,woody[i].y,woody[i].x,woody[i].c,woody[i].enemy, woody[i].sparato);
-//             if(woody[i].enemy==false){
-//                 mvprintw(woody[i].y,woody[i].x,"/----\\");
-//                 mvprintw(woody[i].y+1,woody[i].x,"\\----/");
-//             }
-//             //C'è un nemico!
-//             else{
-//                 mvprintw(woody[i].y,woody[i].x,"/-00-\\");
-//                 mvprintw(woody[i].y+1,woody[i].x,"\\-||-/");
-//             }
-//         }
-//         //stampa proiettili quando sparati
-//         for (size_t i = 0; i< CORSIE; i++){
-//             if (bullets[i].sparato == true){
-//                 mvaddch(bullets[i].y, bullets[i].x, '*');
-//                 mvprintw(i+40,1,"Posizione bull %d -> y: %d x: %d c: %d",i,bullets[i].y,bullets[i].x,bullets[i].c);
-//             }
-//         }
-//         refresh();
-//     }
-// }
-
-
-
-
-
-
-// void printEnemyBullets(int p[]){
-//     close(p[1]);
-//     elemento proiettili;
-//     elemento data;
-//     while(true){
-//         read(p[0], &data, sizeof(elemento));
-//         mvaddch(data.y, data.x, '*');
-//     }
-// }
-//  void f_proiettile(int p[2]){
-
-//     elemento oggetto = {-1, -1, '^','P'};
-//     elemento letto;
-
-//     while(true){
-//         read(p[0], &letto, sizeof(elemento)); //lettura della rana
-//         usleep(100000);
-//         if (letto.c >= 0 && letto.sparato == 1){ //controllo se si tratta della rana 
-//              //prendo le coordinate della rana da cui deve partire il proittile
-//                 oggetto.x = letto.x;
-//                 oggetto.y = letto.y-1;
-
-//                 while(oggetto.y > -1){ //movimento del proiettile 
-//                     oggetto.y += 1;
-//                     write(p[1], &oggetto, sizeof(elemento));
-//                     usleep(100000);
-//             }
-//         }
-//         else{
-//             write(p[1], &oggetto, sizeof(elemento)); //se non è la rana quella che legge fa questa write
-//             usleep(100000);
-//         }
-//     }    
-//     return;
-// }

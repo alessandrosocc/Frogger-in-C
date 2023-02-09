@@ -10,89 +10,95 @@
 #include <stdbool.h>
 #include "HighWay.h"
 
-elemento veicoli[CORSIE*MACCHINE];
 
-
-void car(int descriptor[], int connection[], int id){
+void funzioneMacchina(int p1[], int p2[], int p3[], int id){
+    
     srand(getpid());
-    int maxX = 0, maxY = 0, x = 0, y = 0;
+    int maxX = 0, maxY = 0, x = 0, y = 0, n = 0, counter = 0;
     getmaxyx(stdscr,maxY,maxX); //only for getting maxX
     maxY=offsetAutostrada;
-    elemento tmp[CORSIE*MACCHINE];
-    
-
-    // generazione corsie possibili per le macchine
+    elemento macchina;
     int possibleStartY[CORSIE]={0};
-    int counter = 0;
-    for(size_t i=0;i<CORSIE*MACCHINE;i++){
+    bool flag = true;
+    
+    
+    // generazione corsie possibili per le macchine
+    for(int i=0;i<NUMMACCHINE;i++){
         if (i%2!=0 && i != 0){
             possibleStartY[counter]=i;
             counter++;
         }
     }
-    
-    // generazione posizioni delle macchine
-    veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
-    veicoli[id].x=(1+rand()%maxX);
-    veicoli[id].c=id;
-
-    // generazione casuale macchina e camion in base ad attributo type
+    // randomicamente decidiamo se il veicolo generato sarà un camion oppure una macchina
     if (1+rand()%6 > 4){
-        veicoli[id].type=0; //macchina
+        macchina.type=0; //macchina
     }
     else{
-        veicoli[id].type=1; //camion
+        macchina.type=1; //camion
     }
-    // controllo delle collisioni durante la generazione delle macchine
-    // if (id!=0){ 
-    //     for (size_t i = 0; i < CORSIE*MACCHINE; i++ ){ //prendi scorsi elementi
-    //         read(descriptor[0], &(tmp[i]), sizeof(elemento));
-    //     }
+    // inizializzo la prima posizione della macchina
+    macchina.y=possibleStartY[(rand()%5)]+offsetAutostrada;
+    macchina.x=(1+rand()%maxX);
+    macchina.c=id;
+    // scrivo nella pipe 1 la prima posizione della macchina per effettuare un controllo
+    write(p1[1],&macchina,sizeof(elemento));
+    // controllo che la posizione non sia contestata
 
-    //     for (size_t i = 0; i<CORSIE*MACCHINE; i++){ //scorriamo gli altri elementi per cercare collisioni
-    //             if(veicoli[id].y==tmp[id].y && veicoli[id].x>=tmp[i].x-7 && veicoli[id].x<=tmp[i].x+7){
-    //                 veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
-    //                 veicoli[id].x=(1+rand()%maxX);
-    //                 i = 0; 
-    //             }
-    //     }
-    //     for (size_t i = 0; i < CORSIE*MACCHINE; i++){
-    //         write(descriptor[1], &(tmp[i]), sizeof(elemento));
-    //     }
-    // }
-    //close(descriptor[0]);
-    
-    // continua ad andare ad x+1
+    while (flag){
+        int num = CORSIE;
+        read(p2[0], &num, sizeof(int));
+        usleep(DELAYM/10);
+        if (num == 1){
+            //fprintf(fp,"ho cambiamo la posizione della macchine %d\n", id);
+            macchina.y=possibleStartY[(rand()%5)]+offsetAutostrada;
+            macchina.x=(1+rand()%maxX);
+            write(p1[1],&macchina,sizeof(elemento));
+        }
+        else if (num == 0){
+            flag = false;
+        }
+        //fprintf(fp, "\nsono bloccato qua %d\n", id);
+    }
+    //fprintf(fp,"\nciao sono qua\n");
+    write(p1[1],&macchina,sizeof(elemento));
+
     while (true){
-        //int collision = 0;
-        //read(connection[0], &collision, sizeof(collision));
-        if (ControlloCollisione(veicoli[id]))
-        {
-            veicoli[id].y=possibleStartY[rand()%CORSIE]+offsetAutostrada; // nuova riga
-        
-            if (veicoli[id].y == 3+offsetAutostrada || veicoli[id].y == 7+offsetAutostrada){ 
-                veicoli[id].x =maxX - 1; // la macchina inizia da destra
-            }
-            else{
-                veicoli[id].x+=1; // la macchina inizia da sinistra
+        flag = true;
+        if (ControlloCollisione(macchina)){ // verifico se c'è stata una collisione
+            while(flag){ // se si entro nel while 
+                n = 0;
+                read(p3[0], &n, sizeof(int)); // leggo dalla pipe 3 n, per controllare se qualche altra macchina ha chiesto di cambiare riga
+                if (n == 1){ // se un'altra macchina sta cambiando riga allora aspetto un tempo definito e ci riprovo
+                    usleep(50000);
+                }
+                else{ // se la coda è libera allora imposto la flag a false, occupo il cambio corsia scrivendo 1 e effettuo il cambio
+                    flag = false;
+                    n = 1;
+                    for (int i = 0; i<NUMMACCHINE; i++){
+                        write(p3[1], &n, sizeof(int));
+                    }
+                    macchina.y=possibleStartY[(rand()%5)]+offsetAutostrada;
+                    if(macchina.y == 3+offsetAutostrada || macchina.y == 7+offsetAutostrada){
+                        macchina.x = maxX-1;
+                    }
+                    else{
+                        macchina.x = 1;
+                    }
+                    usleep(ATTESACAMBIOCORSIA/2);
+                    //write(p1[1], &macchina, sizeof(elemento));
+                }
             }
         }
         else{
-            if (veicoli[id].y == 3+offsetAutostrada || veicoli[id].y == 7+offsetAutostrada){
-                veicoli[id].x-=1;
+            if (macchina.y == 3+offsetAutostrada || macchina.y == 7+offsetAutostrada){
+                macchina.x -=1;
             }
             else{
-                veicoli[id].x+=1;
+                macchina.x += 1;
             }
         }
-        // // se la macchina subisce una collisione allora resetto l'autostrada
-        // if (collision == 1){
-        //     veicoli[id].y=possibleStartY[(rand()%CORSIE)]+offsetAutostrada;
-        //     veicoli[id].x=(1+rand()%maxX);
-        //     usleep(1000);
-        // }
-        write(descriptor[1], &veicoli[id], sizeof(elemento));
-        usleep(DELAY);
+        usleep(DELAYM);
+        write(p1[1], &macchina, sizeof(elemento));
     }
 }
 

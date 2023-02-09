@@ -1,3 +1,4 @@
+
 home: home.o HighWay.o frog.o river.o
 	gcc home.o HighWay.o frog.o river.o -o home -lncurses
 home.o: home.c

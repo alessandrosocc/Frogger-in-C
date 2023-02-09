@@ -1,15 +1,11 @@
-// typedef struct{
-//     int x;
-//     int y;
-//     int c;
-//     bool sparato;
-// }elementoFrog;
-#define NUMLOGS 5
 #include "HighWay.h"
+
+#define VELOCITAPROIETTILE 20000
+
 extern void windowGeneration();
 extern int offsetMarciapiede;
 extern FILE* fp;
-void ffrog(int[], int[],int[],int[]);
-void bullet(int[]);
+void ffrog(int[], int[], int[], int[]);
+void bulletGeneration(int[],int[], elemento rana);
+void bulletMovement(int[], int[], elemento rana);
 void printFrog(int[]);
-void frogIsOnLog(int p3[], int p5[],  elemento, elemento[]);

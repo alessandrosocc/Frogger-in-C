@@ -8,6 +8,7 @@
 #define MARCIAPIEDE 2
 #define TEMPO 3
 #define VITE 3
+#define NTANE 5
 
 
 //LE WINDOW NON SONO PASSATE PER VALORE!!!!!!!!!! NON PER RIFERIMENTO NON SONO PUNTATORI
@@ -16,10 +17,13 @@
 //(maxX, maxY) == basso a dx
 
 
-void printAll(int p[], int p2[], int p3[],int p4[],int p5[],int p8[],int p9[]);
+void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[], int p8[], int p9[]);
+void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]);
 void windowGeneration();
 void initScreen(int*, int*);
 void mostraVita(int);
+
+
 
 // global variables
 int offsetAutostrada = 0;
@@ -29,14 +33,25 @@ int offsetMarciapiede=0;
 int idMacchine = 0;
 int vite=5;
 int maxX=0, maxY=0;
+int addPoints=0;
+int taneChiuse[NTANE]={0};
 
-char* sprite1[]={"|\\/----|","|\\/----|","|-\\/---|","|--\\/--|","|---\\/-|","|----\\/|","|----\\/|"};
-char* sprite2[]={"|/\\----|","|/\\----|","|-/\\---|","|--/\\--|","|---/\\-|","|----/\\|","|----/\\|"};
+int iterazione=0;
+int iterazioneMoment=0;
+int offsetTane=0;
+int offsetPunteggio=0;
 
-
-void stampaTronchiNemici(elemento[],elemento[],elemento);
+void proiettiliKillRana(elemento, elemento[], int[], int *);
+void stampaTronchiNemici(elemento[],elemento[], elemento);
 void getTronchiBullets(elemento*,elemento[],elemento[]);
 void stampaRanaBullets(elemento,elemento);
 void stampaMacchinaCamion(elemento[]);
-void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*,elemento[],elemento[]);
+void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*);
 void collisionRanaVehicles(int[], int*,elemento*,elemento[]);
+void processGeneration(int[],int[],int[],int[],int[],int[],int[],int[], int[]);
+void frogIsOnLog(int p5[], int p7[],  elemento, elemento[]);
+void ranaKillEnemy(elemento,elemento*, elemento [], int [], int*);
+void collisioneProiettiliMacchine(elemento *, elemento [], elemento [], int []);
+void collisioneProiettileRanaProiettiliNemici(elemento *, elemento[], int[]);
+void mostraPunteggio(int);
+void chiudiTana(int);
