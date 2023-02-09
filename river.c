@@ -60,7 +60,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
         else{
             woody.x += direzione;
         }
-        //woody.x=100;
+        //woody.x=120;
         if (woody.enemy == false){
             if (comunication <= 0 && id2 != woody.c ){
                 if (timeLimit == counter){ 

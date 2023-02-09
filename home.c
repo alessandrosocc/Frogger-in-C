@@ -42,6 +42,8 @@ int main(){
     int p7[2];
     int p8[2];    
     int p9[2];
+    int pipeTempo[2];
+    int restartTime[2];
     pipe(p1);
     pipe(p2);
     pipe(p3);
@@ -51,6 +53,8 @@ int main(){
     pipe(p7);
     pipe(p8);
     pipe(p9);
+    pipe(restartTime);
+    pipe(pipeTempo);
     fcntl(p2[0], F_SETFL, O_NONBLOCK);
     fcntl(p3[0], F_SETFL, O_NONBLOCK);
     fcntl(p4[0], F_SETFL, O_NONBLOCK);
@@ -59,6 +63,8 @@ int main(){
     fcntl(p7[0], F_SETFL, O_NONBLOCK);
     fcntl(p8[0], F_SETFL, O_NONBLOCK);
     fcntl(p9[0], F_SETFL, O_NONBLOCK);
+    fcntl(pipeTempo[0], F_SETFL, O_NONBLOCK);
+    fcntl(restartTime[0], F_SETFL, O_NONBLOCK);
 
     initScreen(&maxY, &maxX); // inizializzo lo schermo
 
@@ -76,8 +82,7 @@ int main(){
             clear();
             refresh();
             windowGeneration(); // genero la window
-            processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9);
-            
+            processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9,pipeTempo,restartTime);
             wait(NULL);
         }
         choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
@@ -180,10 +185,18 @@ void windowGeneration(){
 
     offsetSum+=VITE;
     offsetFinale=offsetSum+1;
+
+    //tempo
+    for (size_t i = offsetSum; i<= offsetSum+4; i++){
+        attron(COLOR_PAIR(4));
+        mvhline(i, 1, ' ', maxX-2);
+        attroff(COLOR_PAIR(4));
+    }
 }
 
-void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], int p7[], int p8[], int p9[]){
+void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int restartTime[]){
     int via = 0;
+
     pid_t inizializzatoreProcessi;
     pid_t macchine[NUMMACCHINE];
     pid_t rana,tempoProcess;
@@ -202,28 +215,32 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
         rana = fork();
         if (rana == 0){
             // chiamo la funzione rana
+         
             ffrog(p1,p4,p5,p7);
         }
-
+        tempoProcess=fork();
+        if (tempoProcess==0){
+            tempo(pipeTempo,restartTime);
+        }
         // forco i tronchi
         for (int i = 0; i<NUMTRONCHI; i++){
             tronchi[i] = fork();
             if (tronchi[i] == 0){
                 // chiamo la funzione tronchi
-                legnetto(p1,p6,p8,p9,i);
-            }
+                legnetto(p1,p6,p8,p9,i);            }
         }
+        
     }
     
     else{
         // inizializzo l'area di gioco
-        areaDiGioco(p1,p2,p3,p4,p5,p6,p7,p8, p9);
+        areaDiGioco(p1,p2,p3,p4,p5,p6,p7,p8, p9,pipeTempo,restartTime);
     }
     exit(0);
 
 }
 
-void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[],int p8[], int p9[]){
+void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[],int p8[], int p9[],int pipeTempo[],int restartTime[]){
     elemento d; 
     elemento* dptr=&d;
     
@@ -242,8 +259,11 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     elemento macchine[NUMMACCHINE];
     int ranaSulTronco = 1;
     int counter = 0;
+    int timeSignal=0;
     // mi assicuro che le macchine vengano generate in maniera corretta
     controlloGenerazioneMacchine(p1,p2,p7);
+    int timeRestart=1;
+    bool flagTime=1;
     //inizializzo il ciclo di stampa
     while(gioca){
         //iterazione++;
@@ -251,7 +271,31 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         windowGeneration();
         mostraPunteggio(punteggio);
         mostraVita(vite);
+        read(pipeTempo[0],&timeSignal,sizeof(timeSignal));
+        displayTime(timeSignal);
+        if (!timeSignal && flagTime){
+            // Fine Manche
+            if(vite>0){  //decrementa vita se non chiudi una rana entro la mance
+                vite--;
+                flagTime=0;
+            }
+            else if(vite==0){
+                clear();
+                refresh();
+                riprova(punteggioPtr);
+            }
+            
+            write(p4[1], &frogCollision, sizeof(frogCollision));
+            write(restartTime[1], &timeRestart, sizeof(timeRestart));
+            usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
+        }
+        if(flagTime==0 && timeSignal!=0){ //il processo creato dalla funzione time invia sempre zeri a caso, quindi cosi gli facciamo decrementare una vita solo se dopo che ha reimpostato il tempo, funziona tutto dandoci il tempo diverso da zero.
+            flagTime=1;
+        }
         
+      
+
+
         //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
         for (size_t i=0;i<NTANE;i++){
             if(taneChiuse[i]==1){
@@ -280,13 +324,15 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         //*********************************************************************************************************************************************************************/
         // CHECK RANA IN TANA
         if (rana.y==offsetMarciapiede && rana.x==maxX/2){
-                frogCollision=1;                    
+            frogCollision=1;
         } 
         for (size_t i=0;i<NTANE;i++){ 
             if (rana.y<10 && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
                 if (!taneChiuse[i]){ // se la tana è aperta
                     taneChiuse[i]=1; // chiude la tana
                     punteggio+=500;
+                    write(restartTime[1], &timeRestart, sizeof(timeRestart));
+                    usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
                 }
                 else if(frogCollision){
                     if (vite>0){
@@ -387,6 +433,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         // }
 
         counter ++;
+        
         refresh();
     }
     return;
@@ -398,7 +445,7 @@ void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, e
             rana->y=d->y;
             rana->x=d->x;
             
-            fprintf(fp,"getdatafrom pipa -> rana.x %d d.x %d rana.y %d d.y %d\n",rana->x,d->x,rana->y,d->y);
+            //fprintf(fp,"getdatafrom pipa -> rana.x %d d.x %d rana.y %d d.y %d\n",rana->x,d->x,rana->y,d->y);
             fflush(fp);
             rana->c=d->c;
             rana->offsetLogOccupied = d->offsetLogOccupied;
@@ -747,20 +794,18 @@ void collisioneProiettiliMacchine(elemento *proiettileRana, elemento macchine[],
 }
 
 void collisioneProiettileRanaProiettiliNemici(elemento *ranaProiettile, elemento proiettiliNemici[], int p9[]){
-        int comunication = 0;
-        for (int i = 0; i < NUMTRONCHI; i++){
-            comunication = 1;
-            if (ranaProiettile->y == proiettiliNemici[i].y && proiettiliNemici[i].y != 0){
-                if (ranaProiettile->x == proiettiliNemici[i].x){
-                    comunication = 1+proiettiliNemici[i].c;
-                    for(int i = 0; i<NUMTRONCHI; i++){
-                        write(p9[1], &comunication, sizeof(int));
-                    }
+    int comunication = 0;
+    for (int i = 0; i < NUMTRONCHI; i++){
+        comunication = 1;
+        if (ranaProiettile->y == proiettiliNemici[i].y && proiettiliNemici[i].y != 0){
+            if (ranaProiettile->x == proiettiliNemici[i].x){
+                comunication = 1+proiettiliNemici[i].c;
+                for(int i = 0; i<NUMTRONCHI; i++){
+                    write(p9[1], &comunication, sizeof(int));
                 }
             }
-
         }
-
+    }
 }
 
 
@@ -781,7 +826,6 @@ void chiudiTana(int n){
 }
 
 void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *frogCollision, int* punteggio){
-
     for (int i = 0; i<NUMTRONCHI; i++){
         if (proiettili[i].y == rana.y && rana.y != 0){
             if (proiettili[i].x == rana.x || proiettili[i].x == rana.x+1){
@@ -825,3 +869,41 @@ void riprova(int* punteggio){
     return;
 }
 
+void tempo(int pipeTempo[],int restartTime[]){
+    int flag=0;
+    int secondoSignal=maxX-2;
+    while(gioca){
+        // invia ad intervalli di un secondo, un segnale
+        write(pipeTempo[1],&secondoSignal,sizeof(secondoSignal));
+        secondoSignal--;
+        read(restartTime[0],&flag,sizeof(flag));
+        if(flag){
+            secondoSignal=maxX-2;
+            flag=0;
+        }
+        usleep(100000);
+    }
+    exit(0);
+    
+}
+void displayTime(int secondoSegnale){
+    if (secondoSegnale>=((maxX-2)/2)){
+        attron(COLOR_PAIR(1));
+        mvhline(offsetFinale,1,' ',secondoSegnale);
+        mvhline(offsetFinale+1,1,' ',secondoSegnale);
+        attroff(COLOR_PAIR(1));
+    }
+    else if(secondoSegnale<((maxX-2)/2) && secondoSegnale>=((maxX-2)/4)){
+        attron(COLOR_PAIR(3));
+        mvhline(offsetFinale,1,' ',secondoSegnale);
+        mvhline(offsetFinale+1,1,' ',secondoSegnale);
+        attroff(COLOR_PAIR(3));
+    }
+    else{
+        attron(COLOR_PAIR(2));
+        mvhline(offsetFinale,1,' ',secondoSegnale);
+        mvhline(offsetFinale+1,1,' ',secondoSegnale);
+        attroff(COLOR_PAIR(2));
+    }
+    
+}
