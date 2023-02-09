@@ -30,3 +30,5 @@ void funzioneMacchina(int p1[], int p2[], int p3[], int id);
 //bool carCollision(elemento, int p[]);
 
 
+extern bool gioca;
+

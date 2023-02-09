@@ -62,7 +62,7 @@ void funzioneMacchina(int p1[], int p2[], int p3[], int id){
     //fprintf(fp,"\nciao sono qua\n");
     write(p1[1],&macchina,sizeof(elemento));
 
-    while (true){
+    while (gioca){
         flag = true;
         if (ControlloCollisione(macchina)){ // verifico se c'è stata una collisione
             while(flag){ // se si entro nel while 
@@ -100,6 +100,7 @@ void funzioneMacchina(int p1[], int p2[], int p3[], int id){
         usleep(DELAYM);
         write(p1[1], &macchina, sizeof(elemento));
     }
+    exit(0);
 }
 
 bool ControlloCollisione(elemento oggetto){

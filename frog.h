@@ -9,3 +9,5 @@ void ffrog(int[], int[], int[], int[]);
 void bulletGeneration(int[],int[], elemento rana);
 void bulletMovement(int[], int[], elemento rana);
 void printFrog(int[]);
+
+extern bool gioca;

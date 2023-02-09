@@ -15,4 +15,5 @@ void enemyBullet(int[], int[],int [], elemento);
 void enemyBulletShoot(int[], int[],int[], elemento);
 void printEnemyBullets(int[]);
 
+extern bool gioca;
 extern int offsetFiume;

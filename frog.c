@@ -32,7 +32,7 @@ void ffrog(int p1[], int p4[], int p5[], int p7[]){
     // fflush(fp);
     write(p1[1],&rana, sizeof(elemento));
 
-    while(true){
+    while(gioca){
         // fprintf(fp,"ffrog start while write -> rana.x %d rana.y %d\n",rana.x,rana.y);
         // fflush(fp);
         // prima di tutto leggo la pipe che mi fa comunicare con la funzione di controllo
@@ -102,7 +102,7 @@ void ffrog(int p1[], int p4[], int p5[], int p7[]){
         // nel caso in cui la rana subisca una collisione
         ////mvprintw(1,1    , "coll detection %d",collisionDetection);
     }
-    return;
+    exit(0);
 }
 
 

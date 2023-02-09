@@ -37,7 +37,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
     woody.enemy=false;
     enemyBullet(p1,p6,p9,woody);
     write(p1[1], &woody, sizeof(elemento));
-    while(true){
+    while(gioca){
         removeEnemy = 0;
         comunication = 0;
         id1 = 0;
@@ -56,6 +56,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
             timeLimit = 1+rand()%200;
         }
 
+        // RIATTIVARE!!!!!!!!!!
         // if(x > maxX-1 || x < 0){
         //     direzione *= -1;
         //     //woody.y = 1 + rand()%(maxY-1);
@@ -67,7 +68,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
         if (woody.enemy == false){
             if (comunication <= 0 && id2 != woody.c ){
                 if (timeLimit == counter){ 
-                    woody.enemy = true; // RIATTIVA PER AVERE I NEMICI
+                    woody.enemy = true; // TRUE PER AVERE I NEMICI
                     //enemyBullet(p1,p6,p9,woody);
                     counter = 0;
                 }
@@ -89,8 +90,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
         //sleep(); //OGNI QUANTO GENERARE TRONCHI?
         counter++; //delay enemy
     }
-    
-    
+    exit(0);
 }
 
 //nemico == woody
@@ -118,7 +118,7 @@ void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
     proiettileNemico.x = enemy.x;
     proiettileNemico.y = enemy.y;
     bool flag = true;
-    while(flag){
+    while(flag && gioca){
         read(p6[0],&tmp, sizeof(elemento));
         read(p9[0], &comunication, sizeof(int));
         if(tmp.sparato){
@@ -141,4 +141,5 @@ void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
         tmp.sparato = false;
         usleep(40000);
     }
+    exit(0);
 }

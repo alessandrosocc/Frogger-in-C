@@ -17,6 +17,9 @@
 #include "home.h"
 #include "river.h"
 
+#include "menuGenerator.h"
+
+
 time_t t;
 FILE* fp; 
 /*
@@ -58,10 +61,32 @@ int main(){
     fcntl(p9[0], F_SETFL, O_NONBLOCK);
 
     initScreen(&maxY, &maxX); // inizializzo lo schermo
-    windowGeneration(); // genero la window
-    processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9);
-    wait(NULL);
-    sleep(10);
+
+    //test menu
+    bool flag=false;
+    char* choices[]={"Inizia a Giocare","Credits"};
+    char* choicesCredits[]={""};
+    int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
+    while(choice){
+        if(choice==2){
+            choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/000??",choicesCredits,0,false,true);
+            choice+=1;
+        }
+        else if(choice==1){
+            clear();
+            refresh();
+            windowGeneration(); // genero la window
+            processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9);
+            
+            
+            wait(NULL);
+        }
+        choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
+    }
+    
+
+    
+    //sleep(10);
     endwin();
     fclose(fp);
     return 0;
@@ -189,6 +214,7 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
             // chiamo la funzione rana
             ffrog(p1,p4,p5,p7);
         }
+
         // forco i tronchi
         for (int i = 0; i<NUMTRONCHI; i++){
             tronchi[i] = fork();
@@ -204,6 +230,8 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
         // inizializzo l'area di gioco
         areaDiGioco(p1,p2,p3,p4,p5,p6,p7,p8, p9);
     }
+    exit(0);
+
 }
 
 void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[],int p8[], int p9[]){
@@ -227,7 +255,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     // mi assicuro che le macchine vengano generate in maniera corretta
     controlloGenerazioneMacchine(p1,p2,p7);
     //inizializzo il ciclo di stampa
-    while(true){
+    while(gioca){
         //iterazione++;
         erase();
         windowGeneration();
@@ -291,7 +319,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
             rana.cambioMovimento=false;
             vecchiaRana.y=10;
         }
-        // //CHECK RANA SUL FIUME
+        // //CHECK RANA SUL FIUME |||| NON CANCELLARE !!!!!! RIATTIVARE!!!! |||||
         // if(rana.y<=20 && rana.y>=10){
         //     rana.cambioMovimento=true;
         //     for(int i=0; i<5; i++){
@@ -326,7 +354,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         stampaTronchiNemici(woody,bullets,rana);
         //Stampa Rana e Proiettile Rana
         stampaRanaBullets(rana,bull);
-        collisionRanaVehicles(p4,frogCollisionPtr,ranaPtr,macchine);
+        collisionRanaVehicles(p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr);
         
         
         proiettiliKillRana(rana, bullets,p4,frogCollisionPtr);
@@ -348,7 +376,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         counter ++;
         refresh();
     }
-    return ;
+    return;
 }
 
 void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, elemento* bull){
@@ -446,7 +474,7 @@ void stampaTronchiNemici(elemento woody[], elemento bullets[], elemento rana){
         attroff(COLOR_PAIR(6));
 }
 
-void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento macchine[]){
+void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento macchine[],int* punteggio){
         // if (rana->y==offsetMarciapiede && rana->x==maxX/2){
         //         *(frogCollision)=1;                    
         // } 
@@ -477,11 +505,12 @@ void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento 
                     else if(vite==0){
                         clear();
                         refresh();
-                        int maxx=0,maxy=0;
-                        getmaxyx(stdscr,maxy,maxx);
-                        mvprintw(maxy/2,maxx/2,"SCONFITTA");
-                        refresh();
-                        sleep(5);
+                        riprova(punteggio);
+                        // int maxx=0,maxy=0;
+                        // getmaxyx(stdscr,maxy,maxx);
+                        // mvprintw(maxy/2,maxx/2,"SCONFITTA");
+                        // refresh();
+                        // sleep(5);
                     }
                 }
             }
@@ -507,11 +536,12 @@ void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento 
                     else if(vite==0){
                         clear();
                         refresh();
-                        int maxx=0,maxy=0;
-                        getmaxyx(stdscr,maxy,maxx);
-                        mvprintw(maxy/2,maxx/2,"SCONFITTA");
-                        refresh();
-                        sleep(5);
+                        riprova(punteggio);
+                        // int maxx=0,maxy=0;
+                        // getmaxyx(stdscr,maxy,maxx);
+                        // mvprintw(maxy/2,maxx/2,"SCONFITTA");
+                        // refresh();
+                        // sleep(5);
                     }
                 }
             }   
@@ -752,4 +782,22 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
             }
         }
     }
+}
+
+void riprova(int* punteggio){
+    char* choices[]={"Si","NO"};
+    clear();
+    //gioca
+    int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
+    if(choice==0 || choice==2){
+        gioca=false;
+    }else{
+        // resetto tutto
+        vite=VITE;
+        *punteggio=0;
+        for(size_t i=0;i<NTANE;i++){
+            taneChiuse[i]=0;
+        }
+    }
+    return;
 }
