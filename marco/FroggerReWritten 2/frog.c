@@ -26,6 +26,7 @@ void ffrog(int p1[], int p4[], int p5[], int p7[]){
     rana.sparato=false;
     
     write(p1[1],&rana, sizeof(elemento));
+    
     while(true){
         // prima di tutto leggo la pipe che mi fa comunicare con la funzione di controllo
         read(p4[0], &(collisionDetection), sizeof(int));

@@ -159,11 +159,11 @@ void windowGeneration(){
     }
 
     //vite
-    for (size_t i = offsetSum; i<= VITE+offsetSum; i++){
-        attron(COLOR_PAIR(3));
-        mvhline(i, maxX-21, ' ', 20);
-        attroff(COLOR_PAIR(3));
-    }
+    // for (size_t i = offsetSum; i<= VITE+offsetSum; i++){
+    //     attron(COLOR_PAIR(3));
+    //     mvhline(i, maxX-21, ' ', 20);
+    //     attroff(COLOR_PAIR(3));
+    // }
     //refresh();
     offsetSum+=VITE;
 }

@@ -8,19 +8,19 @@ counter: 7
 counter: 8
 counter: 9
 counter: 10
-la macchina 0, si trova in posizione (x: 130, y: 24)
-la macchina 1, si trova in posizione (x: 158, y: 22)
-la macchina 2, si trova in posizione (x: 73, y: 22)
-la macchina 3, si trova in posizione (x: 53, y: 28)
-la macchina 4, si trova in posizione (x: 7, y: 30)
-la macchina 5, si trova in posizione (x: 88, y: 22)
-la macchina 6, si trova in posizione (x: 10, y: 24)
-la macchina 7, si trova in posizione (x: 170, y: 30)
-la macchina 8, si trova in posizione (x: 110, y: 28)
-la macchina 9, si trova in posizione (x: 57, y: 28)
+la macchina 0, si trova in posizione (x: 223, y: 24)
+la macchina 1, si trova in posizione (x: 168, y: 28)
+la macchina 2, si trova in posizione (x: 44, y: 26)
+la macchina 3, si trova in posizione (x: 155, y: 24)
+la macchina 4, si trova in posizione (x: 9, y: 28)
+la macchina 5, si trova in posizione (x: 36, y: 22)
+la macchina 6, si trova in posizione (x: 37, y: 26)
+la macchina 7, si trova in posizione (x: 22, y: 30)
+la macchina 8, si trova in posizione (x: 45, y: 24)
+la macchina 9, si trova in posizione (x: 16, y: 22)
 
 
-c'è stata una collisione tra la macchina 3 e la macchina 9
+c'è stata una collisione tra la macchina 2 e la macchina 6
 counter: 0
 counter: 1
 counter: 2
@@ -32,16 +32,64 @@ counter: 7
 counter: 8
 counter: 9
 counter: 10
-la macchina 0, si trova in posizione (x: 153, y: 24)
-la macchina 1, si trova in posizione (x: 41, y: 28)
-la macchina 2, si trova in posizione (x: 76, y: 28)
-la macchina 3, si trova in posizione (x: 196, y: 26)
-la macchina 4, si trova in posizione (x: 96, y: 28)
-la macchina 5, si trova in posizione (x: 168, y: 30)
-la macchina 6, si trova in posizione (x: 193, y: 22)
-la macchina 7, si trova in posizione (x: 79, y: 30)
-la macchina 8, si trova in posizione (x: 133, y: 22)
-la macchina 9, si trova in posizione (x: 177, y: 30)
+la macchina 0, si trova in posizione (x: 45, y: 22)
+la macchina 1, si trova in posizione (x: 144, y: 30)
+la macchina 2, si trova in posizione (x: 49, y: 22)
+la macchina 3, si trova in posizione (x: 92, y: 22)
+la macchina 4, si trova in posizione (x: 150, y: 30)
+la macchina 5, si trova in posizione (x: 23, y: 28)
+la macchina 6, si trova in posizione (x: 92, y: 28)
+la macchina 7, si trova in posizione (x: 85, y: 28)
+la macchina 8, si trova in posizione (x: 147, y: 22)
+la macchina 9, si trova in posizione (x: 123, y: 24)
+
+
+c'è stata una collisione tra la macchina 0 e la macchina 2
+counter: 0
+counter: 1
+counter: 2
+counter: 3
+counter: 4
+counter: 5
+counter: 6
+counter: 7
+counter: 8
+counter: 9
+counter: 10
+la macchina 0, si trova in posizione (x: 209, y: 22)
+la macchina 1, si trova in posizione (x: 211, y: 22)
+la macchina 2, si trova in posizione (x: 114, y: 28)
+la macchina 3, si trova in posizione (x: 3, y: 30)
+la macchina 4, si trova in posizione (x: 13, y: 22)
+la macchina 5, si trova in posizione (x: 97, y: 26)
+la macchina 6, si trova in posizione (x: 191, y: 26)
+la macchina 7, si trova in posizione (x: 102, y: 24)
+la macchina 8, si trova in posizione (x: 66, y: 28)
+la macchina 9, si trova in posizione (x: 94, y: 30)
+
+
+c'è stata una collisione tra la macchina 0 e la macchina 1
+counter: 0
+counter: 1
+counter: 2
+counter: 3
+counter: 4
+counter: 5
+counter: 6
+counter: 7
+counter: 8
+counter: 9
+counter: 10
+la macchina 0, si trova in posizione (x: 74, y: 26)
+la macchina 1, si trova in posizione (x: 113, y: 22)
+la macchina 2, si trova in posizione (x: 147, y: 24)
+la macchina 3, si trova in posizione (x: 161, y: 30)
+la macchina 4, si trova in posizione (x: 88, y: 28)
+la macchina 5, si trova in posizione (x: 28, y: 22)
+la macchina 6, si trova in posizione (x: 100, y: 22)
+la macchina 7, si trova in posizione (x: 42, y: 22)
+la macchina 8, si trova in posizione (x: 217, y: 26)
+la macchina 9, si trova in posizione (x: 33, y: 28)
 
 
 non ci sono state collisioni

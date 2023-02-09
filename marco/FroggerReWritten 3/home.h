@@ -8,7 +8,7 @@
 #define MARCIAPIEDE 2
 #define TEMPO 3
 #define VITE 3
-
+#define NTANE 5
 
 
 //LE WINDOW NON SONO PASSATE PER VALORE!!!!!!!!!! NON PER RIFERIMENTO NON SONO PUNTATORI
@@ -31,6 +31,13 @@ int offsetMarciapiede=0;
 int idMacchine = 0;
 int vite=5;
 int maxX=0, maxY=0;
+int addPoints=0;
+int taneChiuse[NTANE]={0};
+int punteggio=0;
+int iterazione=0;
+int iterazioneMoment=0;
+int offsetTane=0;
+int offsetPunteggio=0;
 
 void stampaTronchiNemici(elemento[],elemento[], elemento);
 void getTronchiBullets(elemento*,elemento[],elemento[]);
@@ -43,3 +50,5 @@ void frogIsOnLog(int p5[], int p7[],  elemento, elemento[]);
 void ranaKillEnemy(elemento,elemento, elemento [], int []);
 void collisioneProiettiliMacchine(elemento *, elemento [], elemento [], int []);
 void collisioneProiettileRanaProiettiliNemici(elemento *, elemento[], int[]);
+void mostraPunteggio(int);
+void chiudiTana(int);

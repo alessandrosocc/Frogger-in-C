@@ -87,6 +87,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
         counter++; //delay enemy
     }
     
+    
 }
 
 //nemico == woody
