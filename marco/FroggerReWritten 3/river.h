@@ -5,7 +5,9 @@
 #define true 1
 #define false 0
 #define TIMERPROIETTILI 100
+
 extern FILE* fp;
+
 
 void printLog(int[]);
 void legnetto(int[],int[],int[],int[],int);

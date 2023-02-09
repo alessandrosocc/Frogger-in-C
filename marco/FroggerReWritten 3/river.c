@@ -13,6 +13,7 @@
 #include "river.h"
 
 
+
 //da togliere quando usi vm
 #define true 1
 #define false 0
@@ -54,17 +55,19 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
             counter = 0;
             timeLimit = 1+rand()%200;
         }
-        if(x > maxX-1 || x < 0){
-            direzione *= -1;
-            //woody.y = 1 + rand()%(maxY-1);
-        }
-        else{
-            woody.x += direzione;
-        }
+
+        // if(x > maxX-1 || x < 0){
+        //     direzione *= -1;
+        //     //woody.y = 1 + rand()%(maxY-1);
+        // }
+        // else{
+        //     woody.x += direzione;
+        // }
+        woody.x=100;
         if (woody.enemy == false){
-            if (comunication <= 0 && id2 != woody.c && woody.c == 33){
-                if (timeLimit == counter){
-                    woody.enemy = true;
+            if (comunication <= 0 && id2 != woody.c ){
+                if (timeLimit == counter){ 
+                    woody.enemy = true; // RIATTIVA PER AVERE I NEMICI
                     //enemyBullet(p1,p6,p9,woody);
                     counter = 0;
                 }
@@ -119,7 +122,7 @@ void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
         read(p6[0],&tmp, sizeof(elemento));
         read(p9[0], &comunication, sizeof(int));
         if(tmp.sparato){
-            proiettileNemico.x = tmp.x;
+            proiettileNemico.x = tmp.x+3;
             proiettileNemico.y = tmp.y;
             proiettileNemico.sparato = true;
         }

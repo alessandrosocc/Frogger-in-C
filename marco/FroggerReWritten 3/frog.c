@@ -125,6 +125,6 @@ void bulletMovement(int p1[],int p7[], elemento rana){
     while(proiettile.y>=0){
         proiettile.y -= 1;
         write(p1[1], &proiettile, sizeof(elemento));
-        usleep(20000);
+        usleep(4000);
     }
 }
