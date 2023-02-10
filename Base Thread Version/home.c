@@ -169,12 +169,13 @@ void areaDiGioco(){
         erase();
         macchineGenerateCorrettamente = true;
         windowGeneration();
+        printRana();
         mostraVita();
         mostraPunteggio();
         displayTime();
-        mvprintw(rana.y,rana.x,"\\/");
-        mvprintw(rana.y+1,rana.x,"/\\");
-        mvaddch(ranaProiettile.y, ranaProiettile.x, '*');
+        checkTane();
+        checkRanaInTana();
+        checkRanaInFiume();
         for (int i = 0; i<NUMACCHINE; i++){
             if (!(macchine[i].generatoCorrettamente)){
                 macchineGenerateCorrettamente = false;
@@ -194,14 +195,91 @@ void areaDiGioco(){
         refresh();
     }
 }
+void checkRanaInFiume()
+{
+    
+}
+void chiudiTana(int n){
+    for (size_t i=1;i<=maxX-2;i++){
+        attron(COLOR_PAIR(8));
+        if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
+            mvvline(offsetTane,i,'x',TANE);
+        }
+        attroff(COLOR_PAIR(8));
+    }
+}
+void checkRanaInTana(){
+    pthread_mutex_lock(&mutex);
+    for (size_t i=0;i<NTANE;i++){ 
+        if (rana.y<10 && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
+            if (!taneChiuse[i]){ // se la tana è aperta
+                taneChiuse[i]=1; // chiude la tana
+                punteggio+=500;
+                flagTime=1;
+                usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
+            }
+            else if(taneChiuse[i]){
+                if (vite>0){
+                    vite--;
+                }
+                else{
+                    clear();
+                    riprova();
+                }
+                
+            }
+            rana.x=maxX/2;
+            rana.y=offsetMarciapiede;
+        }
+    }
 
+    // CHIUDI TANA se è chiusa
+    for (size_t i=0;i<NTANE;i++){
+        if(taneChiuse[i]==1){
+            chiudiTana(i);
+        }
+    }
+    pthread_mutex_unlock(&mutex);
+}
+void checkTane(){
+    //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
+    pthread_mutex_lock(&mutex);
+    for (size_t i=0;i<NTANE;i++){
+        if(taneChiuse[i]==1){
+            totaleTaneChiuse+=1;
+        }
+    }
+    if (totaleTaneChiuse==NTANE){
+        clear();
+        refresh();
+        mvprintw(maxY/2,maxX/2,"HAI VINTO!");
+        refresh();
+        sleep(5);
+        exit(0);
+    }
+    else{
+        totaleTaneChiuse=0;
+    }
+    pthread_mutex_unlock(&mutex);
+}
 void displayTime(){
     pthread_mutex_lock(&mutex);
-    fprintf(fp,"secondi %d\n",secondiRimanenti);
-    fflush(fp);
-    secondiRimanenti--;
-    if(secondiRimanenti==0){
+    if(flagTime){
+        flagTime=0;
         secondiRimanenti=maxX-2;
+    }
+    secondiRimanenti--;
+    if(secondiRimanenti==0 && !flagTime){
+        if(vite>0){
+            vite--;
+            secondiRimanenti=maxX-2;
+            rana.y=offsetMarciapiede;
+            rana.x=maxX/2;
+        }
+        else{
+            riprova();
+        }
+        
     }
     
     if (secondiRimanenti>=((maxX-2)/2)){
@@ -226,7 +304,13 @@ void displayTime(){
     pthread_mutex_unlock(&mutex);
 }
 
-
+void riprova(){
+    clear();
+    mvprintw(50,50,"hai perso manche");
+    refresh();
+    sleep(5);
+    
+}
 void mostraVita(){
     int x=3;
     for (int i=0;i<vite;i++){

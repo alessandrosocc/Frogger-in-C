@@ -37,7 +37,7 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 #define NUMTRONCHI 5
 #define SPACE_BAR 32
 #define NUMACCHINE 10
-
+#define NTANE 5
 // variabili globali
 int offsetAutostrada = 0;
 int offsetFiume=0;
@@ -56,6 +56,12 @@ int secondiRimanenti=0;
 int maxX=0, maxY=0;
 bool macchineGenerateCorrettamente = false;
 bool cambioRigaLibero = true;
+bool flagTime=0;
+int timeSignal=0;
+int taneChiuse[NTANE]={0};
+int totaleTaneChiuse=0;
+
+
 
 elemento rana;
 elemento ranaProiettile;
@@ -77,8 +83,11 @@ void enemyKillRana();
 void printRana();
 void printMacchine();
 void printTronchi();
-
-
+void riprova();
+void checkTane();
+void checkRanaInTana();
+void chiudiTana(int);
+void checkRanaInFiume();
 extern void* ffrog();
 extern void* bullet();
 extern void* log(void*);
