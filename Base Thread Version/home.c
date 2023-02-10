@@ -53,7 +53,6 @@ int main(){
     for (int i = 0;i<NUMTRONCHI; i++){
         pthread_join(proiettiliId[i],NULL);
     }
-
     wait(NULL);
     endwin();
     fclose(fp);
@@ -169,13 +168,12 @@ void areaDiGioco(){
         erase();
         macchineGenerateCorrettamente = true;
         windowGeneration();
-        printRana();
+        
         mostraVita();
         mostraPunteggio();
         displayTime();
         checkTane();
         checkRanaInTana();
-        checkRanaInFiume();
         for (int i = 0; i<NUMACCHINE; i++){
             if (!(macchine[i].generatoCorrettamente)){
                 macchineGenerateCorrettamente = false;
@@ -189,15 +187,26 @@ void areaDiGioco(){
             proiettileRanaCollideConMacchine();
             ranaKillTronchi();
             enemyKillRana();
+            ranaSulFiume();
             printTronchi();
+            printRana();
         }
         usleep(500);
         refresh();
     }
 }
-void checkRanaInFiume()
-{
-    
+void ranaSulFiume(){
+    for (int i = 0; i<NUMTRONCHI; i++){
+        if (tronchi[i].y == rana.y){
+            if((rana.y==tronchi[i].y && (rana.x<tronchi[i].x || rana.x>=tronchi[i].x+8))||(tronchi[i].enemy)){
+                pthread_mutex_lock(&mutex);
+                rana.x = maxX/2;
+                rana.y = offsetMarciapiede;
+                pthread_mutex_unlock(&mutex);
+
+            }
+        }
+    }
 }
 void chiudiTana(int n){
     for (size_t i=1;i<=maxX-2;i++){
@@ -300,7 +309,7 @@ void displayTime(){
         mvhline(offsetTempo+1,1,' ',secondiRimanenti);
         attroff(COLOR_PAIR(2));
     }
-    usleep(20000);
+    usleep(90000);
     pthread_mutex_unlock(&mutex);
 }
 
@@ -350,6 +359,7 @@ void ranaCollideConMacchine(){
                     pthread_mutex_lock(&mutex);
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
+                    vite--;
                     pthread_mutex_unlock(&mutex);
                 }
             }
@@ -358,6 +368,7 @@ void ranaCollideConMacchine(){
                     pthread_mutex_lock(&mutex);
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
+                    vite--;
                     pthread_mutex_unlock(&mutex);
                 }
             }
@@ -385,10 +396,11 @@ void enemyKillRana(){
     for (int i = NUMTRONCHI-1; i>= 0;i--){
         if (tronchiProiettili[i].sparato){
             if (rana.y == tronchiProiettili[i].y){
-                if (rana.x == tronchiProiettili[i].x || rana.x+1 == tronchiProiettili[i].x+4){
+                if (rana.x == tronchiProiettili[i].x ){
                     pthread_mutex_lock(&mutex);
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
+                    vite--;
                     i = NUMTRONCHI;
                     pthread_mutex_unlock(&mutex);
                 }

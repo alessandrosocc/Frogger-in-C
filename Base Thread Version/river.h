@@ -14,6 +14,7 @@
 #include <string.h>
 #define NUMTRONCHI 5
 #include "HighWay.h"
+
 time_t t;
 FILE* fp; 
 
@@ -23,7 +24,7 @@ extern int maxX;
 extern int maxY;
 elemento tronchi[NUMTRONCHI];
 elemento tronchiProiettili[NUMTRONCHI];
-
+extern elemento rana;
 void generaProiettile();
 void* log(void*);
 void* logBullets(void*);

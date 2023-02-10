@@ -11,15 +11,16 @@ void* log(void*id){
     pthread_mutex_lock(&mutex);
     tronchi[identifier].x = (1+rand()%maxX-10);
     tronchi[identifier].y = (identifier*2)+offsetFiume-1;
+    fprintf(fp, "y tronchi %d\n", tronchi[identifier].y);
     tronchi[identifier].enemy = false;
     pthread_mutex_unlock(&mutex);
 
     while(true){
         if (counter == enemyLimit && tronchi[identifier].enemy == false && tronchi[identifier].killed == false){
-            pthread_mutex_lock(&mutex);
-            tronchi[identifier].enemy = true;
-            pthread_mutex_unlock(&mutex);
-            counter = 0;
+            // pthread_mutex_lock(&mutex);
+            // tronchi[identifier].enemy = true;
+            // pthread_mutex_unlock(&mutex);
+            // counter = 0;
         }
         if (tronchi[identifier].enemy){
             if (counter == bulletLimit){
@@ -44,10 +45,12 @@ void* log(void*id){
         else{
             tronchi[identifier].x += direzione;            
         }
+        if (rana.y == tronchi[identifier].y && rana.x >= tronchi[identifier].x && rana.x+2 <= tronchi[identifier].x+7){
+            rana.x += direzione;
+        }
         pthread_mutex_unlock(&mutex);
-        usleep(30000);
+        usleep(70000);
         counter ++;
-        fprintf(fp, "sono bloccato dentro i tronchi\n");
     }
 }
 

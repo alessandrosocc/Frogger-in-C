@@ -87,7 +87,7 @@ void riprova();
 void checkTane();
 void checkRanaInTana();
 void chiudiTana(int);
-void checkRanaInFiume();
+void ranaSulFiume();
 extern void* ffrog();
 extern void* bullet();
 extern void* log(void*);
