@@ -49,12 +49,12 @@ int offsetTane=0;
 int offsetPrato=0;
 int offsetTempo=0;
 bool gioca=true;
-
 int idMacchine = 0;
 int vite=5;
 int punteggio=0;
 int secondiRimanenti=0;
 int maxX=0, maxY=0;
+int bakIDTroncoPunteggio=0;
 bool macchineGenerateCorrettamente = false;
 bool cambioRigaLibero = true;
 bool flagTime=0;

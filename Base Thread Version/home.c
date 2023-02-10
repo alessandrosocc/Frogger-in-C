@@ -66,7 +66,6 @@ int main(){
                 pthread_join(proiettiliId[i],NULL);
             }
             wait(NULL);
-
         }
         choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
     }
@@ -180,7 +179,6 @@ void areaDiGioco(){
     pthread_mutex_lock(&mutex);
     secondiRimanenti=maxX-2;
     pthread_mutex_unlock(&mutex);
-
     while(gioca){
         erase();
         macchineGenerateCorrettamente = true;
@@ -213,23 +211,26 @@ void areaDiGioco(){
 }
 void ranaSulFiume(){
     for (int i = 0; i<NUMTRONCHI; i++){
+        pthread_mutex_lock(&mutex);
         if (tronchi[i].y == rana.y){
             if((rana.y==tronchi[i].y && (rana.x<tronchi[i].x || rana.x>=tronchi[i].x+8))||(tronchi[i].enemy)){
-                pthread_mutex_lock(&mutex);
+                
                 rana.x = maxX/2;
                 rana.y = offsetMarciapiede;
                 if (vite>0){
                     vite--;
                 }
                 else{
-
-
                     riprova();
                 }
-                pthread_mutex_unlock(&mutex);
-
+                
+            }
+            else if(bakIDTroncoPunteggio!=i){ // la rana è su un tronco, non può scendere e salire sullo stesso tronco altrimenti potrebbe ottenere un punteggio alto pur facendo niente
+                punteggio+=500;
+                bakIDTroncoPunteggio=i;
             }
         }
+        pthread_mutex_unlock(&mutex);
     }
 }
 void chiudiTana(int n){
@@ -258,7 +259,6 @@ void checkRanaInTana(){
                 else{
                     riprova();
                 }
-                
             }
             rana.x=maxX/2;
             rana.y=offsetMarciapiede;
@@ -311,7 +311,6 @@ void displayTime(){
         else{
             riprova();
         }
-        
     }
     
     if (secondiRimanenti>=((maxX-2)/2)){
@@ -482,29 +481,27 @@ void printMacchine(){
 }
 void printTronchi(){
     attron(COLOR_PAIR(6));
-            for(size_t i = 0; i<NUMTRONCHI; i++){ 
-                //fprintf(fp, "log %d pos:%d %d\n", woody[i].c, woody[i].x, woody[i].y);
-
-                if(tronchi[i].enemy==false ){
-                    pthread_mutex_lock(&mutex);
-                    mvprintw(tronchi[i].y,tronchi[i].x,"|------|");
-                    mvprintw(tronchi[i].y+1,tronchi[i].x,"|------|");
-                    pthread_mutex_unlock(&mutex);
-                }
-                else if(tronchi[i].enemy){//C'è un nemico
-                    pthread_mutex_lock(&mutex);
-                    mvprintw(tronchi[i].y,tronchi[i].x,"|--00--|");
-                    mvprintw(tronchi[i].y+1,tronchi[i].x,"|--||--|");
-                    pthread_mutex_unlock(&mutex);
-                }
-            }
-            //stampa proiettili dei nemici sui tronchi \addindex sparati
-            for (size_t i = 0; i< NUMTRONCHI; i++){
-                if (tronchiProiettili[i].sparato){
-                    pthread_mutex_lock(&mutex);
-                    mvaddch(tronchiProiettili[i].y, tronchiProiettili[i].x, '*');
-                    pthread_mutex_unlock(&mutex);
-                }
-            }
-                attroff(COLOR_PAIR(6));
+    for(size_t i = 0; i<NUMTRONCHI; i++){ 
+        if(tronchi[i].enemy==false ){
+            pthread_mutex_lock(&mutex);
+            mvprintw(tronchi[i].y,tronchi[i].x,"|------|");
+            mvprintw(tronchi[i].y+1,tronchi[i].x,"|------|");
+            pthread_mutex_unlock(&mutex);
+        }
+        else if(tronchi[i].enemy){//C'è un nemico
+            pthread_mutex_lock(&mutex);
+            mvprintw(tronchi[i].y,tronchi[i].x,"|--00--|");
+            mvprintw(tronchi[i].y+1,tronchi[i].x,"|--||--|");
+            pthread_mutex_unlock(&mutex);
+        }
+    }
+    //stampa proiettili dei nemici sui tronchi \addindex sparati
+    for (size_t i = 0; i< NUMTRONCHI; i++){
+        if (tronchiProiettili[i].sparato){
+            pthread_mutex_lock(&mutex);
+            mvaddch(tronchiProiettili[i].y, tronchiProiettili[i].x, '*');
+            pthread_mutex_unlock(&mutex);
+        }
+    }
+    attroff(COLOR_PAIR(6));
 }
