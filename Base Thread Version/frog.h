@@ -9,7 +9,7 @@
 #include <locale.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <signal.h> //per kill
+#include <signal.h> //per killª
 #include <time.h>
 #include <string.h>
 #include "HighWay.h"

@@ -40,3 +40,5 @@ extern pthread_mutex_t mutex;
 extern int offsetAutostrada;
 extern bool macchineGenerateCorrettamente;
 elemento macchine[NUMACCHINE];
+
+void* car(void*);

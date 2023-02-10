@@ -72,9 +72,8 @@ void mostraPunteggio();
 void mostraVita();
 void displayTime();
 
-// funzioni thread
-void* ffrog(void*);
-void* bullet(void*);
-void* car(void*);
+
+extern void* ffrog();
+extern void* bullet();
 
 
