@@ -6,54 +6,71 @@ int main(){
     srand(time(NULL));
     fp = fopen("log.txt", "w");
     initScreen();
-    windowGeneration();
-    // variabili intere
-    int carId[NUMACCHINE];
-    int logId[NUMTRONCHI];
-    int logBulletsId[NUMTRONCHI];
-    for (int i = 0;i<NUMACCHINE; i++){
-        carId[i] = i;
-    }
-    for (int i = 0;i<NUMTRONCHI; i++){
-        logId[i] = i;
-    }
-    for (int i = 0; i<NUMTRONCHI; i++){
-        logBulletsId[i] = i;
-    }
+    //windowGeneration();
 
+    char* choices[]={"Inizia a Giocare","Credits"};
+    char* choicesCredits[]={""};
+    int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
+    while(choice){
+        if(choice==2){
+            choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/000??",choicesCredits,0,false,true);
+            choice+=1;
+        }
+        else if(choice==1){
+            clear();
+            refresh();
+            windowGeneration(); // genero la window
+            // variabili intere
+            int carId[NUMACCHINE];
+            int logId[NUMTRONCHI];
+            int logBulletsId[NUMTRONCHI];
+            for (int i = 0;i<NUMACCHINE; i++){
+                carId[i] = i;
+            }
+            for (int i = 0;i<NUMTRONCHI; i++){
+                logId[i] = i;
+            }
+            for (int i = 0; i<NUMTRONCHI; i++){
+                logBulletsId[i] = i;
+            }
 
-    // id thread
-    pthread_t ranaId, ranaProiettileId;
-    pthread_t macchineId[NUMACCHINE];
-    pthread_t tronchiId[NUMTRONCHI];
-    pthread_t proiettiliId[NUMTRONCHI];
-    // creazione dei thread
-    pthread_create(&ranaId, NULL, &ffrog, NULL);
-    pthread_create(&ranaProiettileId, NULL, &bullet, NULL);
-    for (int i = 0; i<NUMACCHINE; i++){
-        pthread_create(&macchineId[i], NULL, &car,(void*)&carId[i]);
-    }
-    for (int i = 0; i<NUMTRONCHI; i++){
-        pthread_create(&tronchiId[i], NULL, &log, (void*)&logId[i]);
-    }
-    for (int i = 0;i<NUMTRONCHI; i++){
-        pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
-    }
-    sleep(2);
-    areaDiGioco();
+            // id thread
+            pthread_t ranaId, ranaProiettileId;
+            pthread_t macchineId[NUMACCHINE];
+            pthread_t tronchiId[NUMTRONCHI];
+            pthread_t proiettiliId[NUMTRONCHI];
+            // creazione dei thread
+            pthread_create(&ranaId, NULL, &ffrog, NULL);
+            pthread_create(&ranaProiettileId, NULL, &bullet, NULL);
+            for (int i = 0; i<NUMACCHINE; i++){
+                pthread_create(&macchineId[i], NULL, &car,(void*)&carId[i]);
+            }
+            for (int i = 0; i<NUMTRONCHI; i++){
+                pthread_create(&tronchiId[i], NULL, &log, (void*)&logId[i]);
+            }
+            for (int i = 0;i<NUMTRONCHI; i++){
+                pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
+            }
+            sleep(2);
+            areaDiGioco();
 
-    pthread_join(ranaId,NULL);
-    pthread_join(ranaProiettileId,NULL);
-    for (int i = 0;i<NUMACCHINE; i++){
-        pthread_join(macchineId[i],NULL);
+            pthread_join(ranaId,NULL);
+            pthread_join(ranaProiettileId,NULL);
+            for (int i = 0;i<NUMACCHINE; i++){
+                pthread_join(macchineId[i],NULL);
+            }
+            for (int i = 0;i<NUMTRONCHI; i++){
+                pthread_join(tronchiId[i],NULL);
+            }
+            for (int i = 0;i<NUMTRONCHI; i++){
+                pthread_join(proiettiliId[i],NULL);
+            }
+            wait(NULL);
+
+        }
+        choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
     }
-    for (int i = 0;i<NUMTRONCHI; i++){
-        pthread_join(tronchiId[i],NULL);
-    }
-    for (int i = 0;i<NUMTRONCHI; i++){
-        pthread_join(proiettiliId[i],NULL);
-    }
-    wait(NULL);
+    
     endwin();
     fclose(fp);
     return 0;
@@ -164,11 +181,10 @@ void areaDiGioco(){
     secondiRimanenti=maxX-2;
     pthread_mutex_unlock(&mutex);
 
-    while(true){
+    while(gioca){
         erase();
         macchineGenerateCorrettamente = true;
         windowGeneration();
-        
         mostraVita();
         mostraPunteggio();
         displayTime();
@@ -202,6 +218,14 @@ void ranaSulFiume(){
                 pthread_mutex_lock(&mutex);
                 rana.x = maxX/2;
                 rana.y = offsetMarciapiede;
+                if (vite>0){
+                    vite--;
+                }
+                else{
+
+
+                    riprova();
+                }
                 pthread_mutex_unlock(&mutex);
 
             }
@@ -232,7 +256,6 @@ void checkRanaInTana(){
                     vite--;
                 }
                 else{
-                    clear();
                     riprova();
                 }
                 
@@ -314,11 +337,20 @@ void displayTime(){
 }
 
 void riprova(){
+    char* choices[]={"Si","NO"};
     clear();
-    mvprintw(50,50,"hai perso manche");
-    refresh();
-    sleep(5);
-    
+    //gioca
+    int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
+    if(choice==0 || choice==2){
+        gioca=false;
+    }else{
+        // resetto tutto
+        vite=NVITE;
+        punteggio=0;
+        for(size_t i=0;i<NTANE;i++){
+            taneChiuse[i]=0;
+        }
+    }
 }
 void mostraVita(){
     int x=3;
@@ -359,7 +391,12 @@ void ranaCollideConMacchine(){
                     pthread_mutex_lock(&mutex);
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
-                    vite--;
+                    if (vite>0){
+                        vite--;
+                    }
+                    else{
+                        riprova();
+                    }
                     pthread_mutex_unlock(&mutex);
                 }
             }
@@ -368,7 +405,12 @@ void ranaCollideConMacchine(){
                     pthread_mutex_lock(&mutex);
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
-                    vite--;
+                    if (vite>0){
+                        vite--;
+                    }
+                    else{
+                        riprova();
+                    }
                     pthread_mutex_unlock(&mutex);
                 }
             }
@@ -400,7 +442,12 @@ void enemyKillRana(){
                     pthread_mutex_lock(&mutex);
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
+                    if (vite>0){
                     vite--;
+                    }
+                    else{
+                        riprova();
+                    }
                     i = NUMTRONCHI;
                     pthread_mutex_unlock(&mutex);
                 }

@@ -6,6 +6,7 @@
         "wchar.h": "c",
         "highway.h": "c",
         "unistd.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "menugenerator.h": "c"
     }
 }

@@ -16,7 +16,7 @@
 #define NTANE 5
 time_t t;
 FILE* fp; 
-
+extern bool gioca;
 extern pthread_mutex_t mutex;
 extern int maxX;
 extern int maxY;

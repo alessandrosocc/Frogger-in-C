@@ -13,7 +13,7 @@
 #include <time.h>
 #include <string.h>
 #include "HighWay.h"
-
+#include "menuGenerator.h"
 
 // puntatore del file per il debug
 time_t t;
@@ -38,6 +38,7 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 #define SPACE_BAR 32
 #define NUMACCHINE 10
 #define NTANE 5
+#define NVITE 5
 // variabili globali
 int offsetAutostrada = 0;
 int offsetFiume=0;
@@ -47,7 +48,7 @@ int offsetPunteggio=0;
 int offsetTane=0;
 int offsetPrato=0;
 int offsetTempo=0;
-
+bool gioca=true;
 
 int idMacchine = 0;
 int vite=5;

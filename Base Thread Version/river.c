@@ -15,7 +15,7 @@ void* log(void*id){
     tronchi[identifier].enemy = false;
     pthread_mutex_unlock(&mutex);
 
-    while(true){
+    while(gioca){
         if (counter == enemyLimit && tronchi[identifier].enemy == false && tronchi[identifier].killed == false){
             // pthread_mutex_lock(&mutex);
             // tronchi[identifier].enemy = true;
@@ -57,7 +57,7 @@ void* log(void*id){
 void* logBullets(void*id){
     int identifier = *((int *)id);
     
-    while(true){
+    while(gioca){
         if (tronchiProiettili[identifier].sparato){
 
             tronchiProiettili[identifier].x = tronchi[identifier].x+3;

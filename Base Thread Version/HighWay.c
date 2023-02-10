@@ -72,7 +72,7 @@ void* car(void*id){
         }
     }
 
-    while(true){
+    while(gioca){
         flag = true;
         if (macchine[identifier].x < 0 || macchine[identifier].x > maxX || macchine[identifier].y < 0 || macchine[identifier].y >= maxY){ // verifico se c'è stata una collisione con i bordi dell'area di gioco 
             

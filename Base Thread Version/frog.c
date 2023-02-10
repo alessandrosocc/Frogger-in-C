@@ -4,7 +4,7 @@ void* ffrog(){
     rana.c=20;
     rana.x = maxX/2;
     rana.y = offsetMarciapiede;
-    while(true){
+    while(gioca){
         int c = getch();
         pthread_mutex_lock(&mutex);
         switch(c) {
@@ -35,7 +35,7 @@ void* ffrog(){
     }
 }
 void* bullet(){
-    while(true){
+    while(gioca){
         if (ranaProiettile.sparato == true){
             pthread_mutex_lock(&mutex);
             ranaProiettile.x = rana.x;

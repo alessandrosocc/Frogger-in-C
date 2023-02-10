@@ -17,7 +17,7 @@
 
 time_t t;
 FILE* fp; 
-
+extern bool gioca;
 extern int offsetFiume;
 extern pthread_mutex_t mutex;
 extern int maxX;

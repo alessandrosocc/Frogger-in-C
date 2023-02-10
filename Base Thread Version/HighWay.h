@@ -41,6 +41,7 @@ extern int maxY;
 extern pthread_mutex_t mutex;
 extern int offsetAutostrada;
 extern bool macchineGenerateCorrettamente;
+extern bool gioca;
 elemento macchine[NUMACCHINE];
 elemento tronchi[NUMTRONCHI];
 elemento tronchiProiettili[NUMTRONCHI];
