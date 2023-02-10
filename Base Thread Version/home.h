@@ -77,7 +77,7 @@ void areaDiGioco();
 void generaProiettile();
 void mostraPunteggio();
 void mostraVita();
-void displayTime();
+void* calculateResidualTime(void*);
 void ranaCollideConMacchine();
 void proiettileRanaCollideConMacchine();
 void ranaKillTronchi();
@@ -94,4 +94,5 @@ extern void* ffrog();
 extern void* bullet();
 extern void* log(void*);
 extern void* logBullets(void*);
-
+void collisioneProiettileRanaTronco();
+void showTime();

@@ -39,7 +39,9 @@ int main(){
             pthread_t macchineId[NUMACCHINE];
             pthread_t tronchiId[NUMTRONCHI];
             pthread_t proiettiliId[NUMTRONCHI];
+            pthread_t tempoThread;
             // creazione dei thread
+            pthread_create(&tempoThread,NULL,&calculateResidualTime,NULL);
             pthread_create(&ranaId, NULL, &ffrog, NULL);
             pthread_create(&ranaProiettileId, NULL, &bullet, NULL);
             for (int i = 0; i<NUMACCHINE; i++){
@@ -53,9 +55,10 @@ int main(){
             }
             //sleep(2);
             areaDiGioco();
-
+            pthread_join(tempoThread,NULL);
             pthread_join(ranaId,NULL);
             pthread_join(ranaProiettileId,NULL);
+            
             for (int i = 0;i<NUMACCHINE; i++){
                 pthread_join(macchineId[i],NULL);
             }
@@ -181,9 +184,11 @@ void areaDiGioco(){
         windowGeneration();
         mostraVita();
         mostraPunteggio();
-        displayTime();
+        //displayTime();
         checkTane();
         checkRanaInTana();
+        collisioneProiettileRanaTronco();
+        showTime();
         for (int i = 0; i<NUMACCHINE; i++){
             if (!(macchine[i].generatoCorrettamente)){
                 macchineGenerateCorrettamente = false;
@@ -290,25 +295,33 @@ void checkTane(){
     }
     pthread_mutex_unlock(&mutex);
 }
-void displayTime(){
-    pthread_mutex_lock(&mutex);
-    if(flagTime){
+void* calculateResidualTime(void* X){
+    
+    while(gioca){
+        pthread_mutex_lock(&mutex);
+        if(flagTime){
         flagTime=0;
         secondiRimanenti=maxX-10;
-    }
-    secondiRimanenti--;
-    if(secondiRimanenti==0 && !flagTime){
-        if(vite>0){
-            vite--;
-            secondiRimanenti=maxX-10;
-            rana.y=offsetMarciapiede;
-            rana.x=maxX/2;
         }
-        else{
-            riprova();
+        secondiRimanenti--;
+        if(secondiRimanenti==0 && !flagTime){
+            if(vite>0){
+                vite--;
+                secondiRimanenti=maxX-10;
+                rana.y=offsetMarciapiede;
+                rana.x=maxX/2;
+            }
+            else{
+                riprova();
+            }
         }
+        pthread_mutex_unlock(&mutex);
+        usleep(1000000);
     }
     
+}
+void showTime(){
+    pthread_mutex_lock(&mutex);
     if (secondiRimanenti>=((maxX-2)/2)){
         attron(COLOR_PAIR(1));
         mvhline(offsetTempo,1,' ',secondiRimanenti);
@@ -336,10 +349,8 @@ void displayTime(){
         mvprintw(offsetTempo,maxX-8,"TEMPO");
         attron(COLOR_PAIR(13));
     }
-    usleep(90000);
     pthread_mutex_unlock(&mutex);
 }
-
 void riprova(){
     char* choices[]={"Si","NO"};
     clear();
@@ -523,4 +534,14 @@ void printTronchi(){
         }
     }
     attroff(COLOR_PAIR(9) | A_BOLD);
+}
+void collisioneProiettileRanaTronco(){
+    for (int i = NUMTRONCHI-1; i>= 0;i--){
+        pthread_mutex_lock(&mutex);
+        if(tronchiProiettili[i].y==ranaProiettile.y && tronchiProiettili[i].x==ranaProiettile.x){
+            ranaProiettile.sparato=false;
+            tronchiProiettili[i].sparato=false;
+        }
+        pthread_mutex_unlock(&mutex);
+    }
 }

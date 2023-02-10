@@ -6,22 +6,15 @@
 #define PRATO 2
 #define AUTOSTRADA 10
 #define MARCIAPIEDE 2
-#define TEMPO 3
-#define VITE 6
+#define TEMPO 2
+#define VITE 3
 #define NTANE 5
-//LE WINDOW NON SONO PASSATE PER VALORE!!!!!!!!!! NON PER RIFERIMENTO NON SONO PUNTATORI
-//maxY dal basso = sempre maxY-3
-//(0,0) == alto a sx
-//(maxX, maxY) == basso a dx
-
-
+#define PUNTEGGIOVITE 1
 void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int[]);
 void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]);
 void windowGeneration();
 void initScreen(int*, int*);
 void mostraVita(int);
-
-
 
 
 // global variables
@@ -34,7 +27,7 @@ int vite=5;
 int maxX=0, maxY=0;
 int addPoints=0;
 int taneChiuse[NTANE]={0};
-
+int offsetEndTane=0;
 int iterazione=0;
 int iterazioneMoment=0;
 int offsetTane=0;
@@ -51,7 +44,6 @@ void stampaMacchinaCamion(elemento[]);
 void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*);
 void collisionRanaVehicles(int[], int*,elemento*,elemento[],int*);
 void processGeneration(int[],int[],int[],int[],int[],int[],int[],int[], int[],int[],int[]);
-void frogIsOnLog(int p5[], int p7[],  elemento, elemento[],int*);
 void ranaKillEnemy(elemento,elemento*, elemento [], int [], int*);
 void collisioneProiettiliMacchine(elemento *, elemento [], elemento [], int []);
 void collisioneProiettileRanaProiettiliNemici(elemento *, elemento[], int[]);
@@ -60,6 +52,8 @@ void chiudiTana(int);
 void tempo(int[],int[]);
 void riprova(int*);
 void displayTime(int);
-
-
-
+void fineMancheThxTime(int[],int[],int,bool,int*,int,int);
+void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr);
+void checkRanaInTana(int* frogCollisionPtr,elemento rana,int restartTime[],int timeRestart,int* punteggioPtr, int p4[]);
+void displayTanaChiusa(int taneChiuse[]);
+void checkRanaFiume(int vecchioWoody[],elemento woody[],int* punteggioPtr, elemento* ranaPtr, int* frogCollisionChangeLogScore, int* ranaSuLTroncoPtr, int p5[],elemento* vecchiaRanaPtr,int p9[]);

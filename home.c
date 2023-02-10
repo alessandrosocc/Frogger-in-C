@@ -19,7 +19,6 @@
 
 #include "menuGenerator.h"
 
-
 time_t t;
 FILE* fp; 
 /*
@@ -33,6 +32,9 @@ int main(){
     time(NULL);
     srand(time(NULL));
     fp = fopen("log.txt", "w");
+    // #########################
+    // Inizializzazione Pipe ###
+    // #########################
     int p1[2];
     int p2[2];
     int p3[2];
@@ -65,11 +67,11 @@ int main(){
     fcntl(p9[0], F_SETFL, O_NONBLOCK);
     fcntl(pipeTempo[0], F_SETFL, O_NONBLOCK);
     fcntl(restartTime[0], F_SETFL, O_NONBLOCK);
-
     initScreen(&maxY, &maxX); // inizializzo lo schermo
 
-    //test menu
-    bool flag=false; //??
+    // #####################
+    // ### Menu Iniziale ###
+    // #####################
     char* choices[]={"Inizia a Giocare","Credits"};
     char* choicesCredits[]={""};
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
@@ -87,10 +89,7 @@ int main(){
         }
         choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
     }
-    
 
-    
-    //sleep(10);
     endwin();
     fclose(fp);
     return 0;
@@ -105,8 +104,7 @@ void initScreen(int* maxY, int* maxX){
 }
 
 void windowGeneration(){
-    int maxX=0, maxY=0,nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
-    getmaxyx(stdscr,maxY, maxX);
+    int nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
     start_color();
     init_pair(1,COLOR_WHITE,COLOR_GREEN);
     init_pair(2,COLOR_WHITE,COLOR_RED);
@@ -116,35 +114,43 @@ void windowGeneration(){
     init_pair(6,COLOR_WHITE, COLOR_MAGENTA);
     init_pair(7,COLOR_WHITE,COLOR_BLUE);
     init_pair(8,COLOR_BLACK,COLOR_RED);
+    init_pair(9,COLOR_YELLOW,COLOR_BLUE);
+    init_pair(10,COLOR_BLACK, COLOR_YELLOW);
+    //TEMPO text 
+    init_pair(11,COLOR_GREEN,COLOR_BLACK);
+    init_pair(12,COLOR_YELLOW,COLOR_BLACK);
+    init_pair(13,COLOR_RED,COLOR_BLACK);
     
     box(stdscr,0,0);
-
     int offsetSum=1;
-    
     //punteggio
-    for (size_t i = 1; i<= PUNTEGGIO; i++){
+    for (size_t i = 1; i<= PUNTEGGIOVITE; i++){
         attron(COLOR_PAIR(7));
         mvhline(i, 1, ' ', maxX-2);
         attroff(COLOR_PAIR(7));
     }
     offsetPunteggio=offsetSum;
-    offsetSum+=3;
+    offsetSum+=PUNTEGGIOVITE;
     offsetTane=offsetSum;
+    attron(COLOR_PAIR(9));
+    mvhline(offsetSum,1,' ',maxX-2);
+    attroff(COLOR_PAIR(9));
+    offsetSum+=1;
     //tane
     for (size_t i=1;i<=maxX-2;i++){
-        attron(COLOR_PAIR(3));
+        attron(COLOR_PAIR(9));
         if (i<=3||(i%(maxX/NTANE)==0) || i>=maxX-3){
             mvvline(offsetSum,i,' ',TANE);
         }
-        attroff(COLOR_PAIR(3));
+        attroff(COLOR_PAIR(9));
     }
     offsetSum+=TANE;
-
+    offsetEndTane=offsetSum;
     //fiume
     for (size_t i = offsetSum; i<= FIUME+offsetSum; i++){
-        attron(COLOR_PAIR(6));
+        attron(COLOR_PAIR(9));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(6));
+        attroff(COLOR_PAIR(9));
     }
     offsetFiume=offsetSum+1;
     offsetSum+=FIUME;
@@ -160,9 +166,9 @@ void windowGeneration(){
 
     // autostrada
     for (size_t i = offsetSum; i<= offsetSum+AUTOSTRADA; i++){
-        attron(COLOR_PAIR(4));
+        attron(COLOR_PAIR(9));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(4));
+        attroff(COLOR_PAIR(9));
     }
     offsetAutostrada=offsetSum-1; //non so perchè ma vuole quel -1 altrimenti non è ben formattato
     offsetSum+=AUTOSTRADA;
@@ -170,33 +176,16 @@ void windowGeneration(){
     offsetMarciapiede=offsetSum;
     //marciapiede
     for (size_t i = offsetSum; i< MARCIAPIEDE+offsetSum; i++){
-        attron(COLOR_PAIR(2));
-        mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(2));
-    }
-    offsetSum+=MARCIAPIEDE+1;
-    offsetTempo=offsetSum;
-    //vite
-    for (size_t i = offsetSum; i<= TEMPO+offsetSum; i++){
         attron(COLOR_PAIR(3));
-        mvhline(i, 1, ' ', 20);
+        mvhline(i, 1, ' ', maxX-2);
         attroff(COLOR_PAIR(3));
     }
-
-    offsetSum+=VITE;
-    offsetFinale=offsetSum+1;
-
-    //tempo
-    for (size_t i = offsetSum; i<= offsetSum+4; i++){
-        attron(COLOR_PAIR(4));
-        mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(4));
-    }
+    offsetSum+=MARCIAPIEDE;
+    offsetTempo=offsetSum;
 }
 
 void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int restartTime[]){
     int via = 0;
-
     pid_t inizializzatoreProcessi;
     pid_t macchine[NUMMACCHINE];
     pid_t rana,tempoProcess;
@@ -211,11 +200,9 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
                 funzioneMacchina(p1,p2,p3,i);
             }
         }
-        
         rana = fork();
         if (rana == 0){
             // chiamo la funzione rana
-         
             ffrog(p1,p4,p5,p7);
         }
         tempoProcess=fork();
@@ -227,11 +214,10 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
             tronchi[i] = fork();
             if (tronchi[i] == 0){
                 // chiamo la funzione tronchi
-                legnetto(p1,p6,p8,p9,i);            }
+                legnetto(p1,p6,p8,p9,i);
+            }
         }
-        
     }
-    
     else{
         // inizializzo l'area di gioco
         areaDiGioco(p1,p2,p3,p4,p5,p6,p7,p8, p9,pipeTempo,restartTime);
@@ -243,21 +229,24 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
 void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[],int p8[], int p9[],int pipeTempo[],int restartTime[]){
     elemento d; 
     elemento* dptr=&d;
-    
     elemento rana,bull, vecchiaRana; // rana e proiettile rana
+    elemento* vecchiaRanaPtr=&vecchiaRana;
     elemento* ranaPtr=&rana;
     elemento* bullPtr=&bull;
     elemento woody[NUMTRONCHI], bullets[NUMTRONCHI]; //tronchi e proiettili nemici sui tronchi
     int frogCollision = 0;
     int frogCollisionChangeLogScore=0;
+    int* frogCollisionChangeLogScorePtr=&frogCollisionChangeLogScore;
     int punteggio=0;
     int *punteggioPtr=&punteggio;
     int totaleTaneChiuse=0;
+    int* totaleTaneChiusePtr=&totaleTaneChiuse;
     int* frogCollisionPtr=&frogCollision;
     int vecchioWoody[NUMTRONCHI] = {0};
     //inizializziamo macchine
     elemento macchine[NUMMACCHINE];
     int ranaSulTronco = 1;
+    int* ranaSulTroncoPtr=&ranaSulTronco;
     int counter = 0;
     int timeSignal=0;
     // mi assicuro che le macchine vengano generate in maniera corretta
@@ -266,14 +255,148 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     bool flagTime=1;
     //inizializzo il ciclo di stampa
     while(gioca){
-        //iterazione++;
         erase();
         windowGeneration();
         mostraPunteggio(punteggio);
         mostraVita(vite);
         read(pipeTempo[0],&timeSignal,sizeof(timeSignal));
         displayTime(timeSignal);
-        if (!timeSignal && flagTime){
+        fineMancheThxTime(restartTime,p4,timeSignal,flagTime,punteggioPtr,frogCollision,timeRestart);
+        checkTaneOccupate(taneChiuse,totaleTaneChiusePtr);
+        read(p1[0], &(d), sizeof(elemento));
+        getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr);
+        getTronchiBullets(dptr,woody,bullets);
+        checkRanaInTana(frogCollisionPtr, rana,restartTime,timeRestart,punteggioPtr,p4);
+        displayTanaChiusa(taneChiuse);
+
+        checkRanaFiume(vecchioWoody,woody,punteggioPtr, ranaPtr, frogCollisionChangeLogScorePtr,  ranaSulTroncoPtr, p5, vecchiaRanaPtr,p9);
+        collisioneProiettiliMacchine(bullPtr,macchine,bullets,p9);
+        collisioneProiettileRanaProiettiliNemici(bullPtr,bullets,p9);
+        // stampa macchine
+        stampaMacchinaCamion(macchine);
+        //Stampa Fiume, tronchi, nemici e proiettili nemici
+        stampaTronchiNemici(woody,bullets,rana);
+        //Stampa Rana e Proiettile Rana
+        stampaRanaBullets(rana,bull);
+        collisionRanaVehicles(p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr);
+        proiettiliKillRana(rana, bullets,p4,frogCollisionPtr,punteggioPtr);
+        //fprintf(fp, "coordinate proiettile (%d,%d)\n", bull.x, bull.y);
+        if (bull.sparato){ // per non avere collateral
+            ranaKillEnemy(rana,bullPtr,woody,p8,punteggioPtr);
+        }
+        counter ++;
+        refresh();
+    }
+    return;
+}
+void checkRanaFiume(int vecchioWoody[],elemento woody[],int* punteggioPtr, elemento* ranaPtr, int* frogCollisionChangeLogScorePtr, int* ranaSulTroncoPtr, int p5[],elemento* vecchiaRanaPtr,int p9[]){
+//CHECK RANA SCENDE DAL FIUME
+    if(vecchiaRanaPtr->y==woody[0].y && ranaPtr->y==woody[0].y+2){
+        ranaPtr->cambioMovimento=true;
+        write(p5[1], ranaPtr, sizeof(elemento)); //se la rana scende dal fiume, si scrive alla funzione rana di cambiare la posizione di questa con quella nuova
+        ranaPtr->cambioMovimento=false;
+        vecchiaRanaPtr->y=10;
+    }
+    //CHECK RANA SUL FIUME |||| NON CANCELLARE !!!!!! RIATTIVARE!!!! |||||
+    if(ranaPtr->y<=20 && ranaPtr->y>=10){
+        ranaPtr->cambioMovimento=true;
+        for(int i=0; i<5; i++){
+            if(woody[i].x!=vecchioWoody[i] && ranaPtr->y == woody[i].y){
+                ranaPtr->x=ranaPtr->x+woody[i].x-vecchioWoody[i];
+                //CHECK RANA SUI TRONCHI
+                if((ranaPtr->y==woody[i].y && (ranaPtr->x<woody[i].x || ranaPtr->x>=woody[i].x+8))||(woody[i].enemy)){ //rana scende dal tronco e cade sul fiume
+                    ranaPtr->x=maxX/2;
+                    ranaPtr->y=offsetMarciapiede;
+                    if (vite>0){
+                        vite--; // DECREMENTA VITA SE CADE DAL TRONCO O SE DAL PRATO CADE NEL FIUME
+                    }
+                    
+                    
+                
+                }
+                else if (*frogCollisionChangeLogScorePtr!=i){ // la rana cambia tronco, voglio aggiungere 50 anche se torna sullo stesso
+                    *punteggioPtr+=50;
+                    *frogCollisionChangeLogScorePtr=i; // tengo traccia di dove sono salito
+                }
+                //write che serve per comunicare alla funzione rana la nuova posizione di questa ogni volta che cambia con il movimento del tronco, serve anche in caso la rana scenda dal tronco e cada nel fime
+                write(p5[1],ranaPtr, sizeof(elemento));
+                *ranaSulTroncoPtr += woody[i].c;
+                for (int i = 0; i<NUMTRONCHI; i++){
+                    write(p9[1],ranaSulTroncoPtr, sizeof(int));
+                }
+            }
+        }
+        *vecchiaRanaPtr=*ranaPtr; //aggiorno vecchiaRana utilizzato nel controllo quando la rana passa dal tronco al prato 
+    }
+    if (ranaPtr->y>=offsetPrato){ // voglio che la rana prenda +50 ogni volta che cambia tronco oppure che torna sul prato oppure è in qualunque altro posto sotto il prato
+        *frogCollisionChangeLogScorePtr=-1;// cosi mi aggiunge punteggio anche se la rana torna sul prato e vuole risalire sullo stesso tronco
+    }
+    if (vite==0){// controllo se le vite sono uguali a zero per check rana sul fiume
+        clear();
+        riprova(punteggioPtr);
+    }
+    //AGGIORNAMENTO OLDLOG
+    for(int i=0; i<5; i++){
+        vecchioWoody[i]=woody[i].x; //in oldlog vengono la x di ogni tronco che poi verrà confrontato con la nuova nell'iterazione successiva
+    }
+}
+void displayTanaChiusa(int taneChiuse[]){
+    // CHIUDI TANA se è chiusa
+    for (size_t i=0;i<NTANE;i++){
+        if(taneChiuse[i]==1){
+            chiudiTana(i);
+        }
+    }
+}
+void checkRanaInTana(int* frogCollisionPtr, elemento rana, int restartTime[], int timeRestart, int* punteggioPtr, int p4[]){
+    // CHECK RANA IN TANA
+    if (rana.y==offsetMarciapiede && rana.x==maxX/2){
+        *frogCollisionPtr=1;
+    } 
+    for (size_t i=0;i<NTANE;i++){ 
+        if (rana.y<10 && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
+            if (!taneChiuse[i]){ // se la tana è aperta
+                taneChiuse[i]=1; // chiude la tana
+                *punteggioPtr+=500;
+                write(restartTime[1], &timeRestart, sizeof(timeRestart));
+                usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
+            }
+            else if(*frogCollisionPtr){
+                if (vite>0){
+                    vite--;
+                }
+                else{
+                    clear();
+                    riprova(punteggioPtr);
+                }
+                
+            }
+            write(p4[1], &*frogCollisionPtr, sizeof(*frogCollisionPtr));
+            *frogCollisionPtr=0;
+        }
+    }
+}
+void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr){
+    //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
+    for (size_t i=0;i<NTANE;i++){
+        if(taneChiuse[i]==1){
+            *totaleTaneChiusePtr+=1;
+        }
+    }
+    if (*totaleTaneChiusePtr==NTANE){
+        clear();
+        refresh();
+        mvprintw(maxY/2,maxX/2,"HAI VINTO!");
+        refresh();
+        sleep(5);
+        exit(0);
+    }
+    else{
+        *totaleTaneChiusePtr=0;
+    }
+}
+void fineMancheThxTime(int restartTime[], int p4[],int timeSignal, bool flagTime,int* punteggioPtr,int frogCollision,int timeRestart){
+    if (!timeSignal && flagTime){
             // Fine Manche
             if(vite>0){  //decrementa vita se non chiudi una rana entro la mance
                 vite--;
@@ -292,151 +415,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         if(flagTime==0 && timeSignal!=0){ //il processo creato dalla funzione time invia sempre zeri a caso, quindi cosi gli facciamo decrementare una vita solo se dopo che ha reimpostato il tempo, funziona tutto dandoci il tempo diverso da zero.
             flagTime=1;
         }
-
-
-        //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
-        for (size_t i=0;i<NTANE;i++){
-            if(taneChiuse[i]==1){
-                totaleTaneChiuse+=1;
-            }
-        }
-        if (totaleTaneChiuse==NTANE){
-            clear();
-            refresh();
-            mvprintw(maxY/2,maxX/2,"HAI VINTO!");
-            refresh();
-            sleep(5);
-            exit(0);
-        }
-        else{
-            totaleTaneChiuse=0;
-        }
-        
-        //end chiudi tana
-        
-        read(p1[0], &(d), sizeof(elemento));
-        getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr);
-        // fprintf(fp,"AREA DI GIOCO -> rana.x %d rana.y %d\n",rana.x,rana.y);
-        // fflush(fp);
-        getTronchiBullets(dptr,woody,bullets);
-        //*********************************************************************************************************************************************************************/
-        // CHECK RANA IN TANA
-        if (rana.y==offsetMarciapiede && rana.x==maxX/2){
-            frogCollision=1;
-        } 
-        for (size_t i=0;i<NTANE;i++){ 
-            if (rana.y<10 && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
-                if (!taneChiuse[i]){ // se la tana è aperta
-                    taneChiuse[i]=1; // chiude la tana
-                    punteggio+=500;
-                    write(restartTime[1], &timeRestart, sizeof(timeRestart));
-                    usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
-                }
-                else if(frogCollision){
-                    if (vite>0){
-                        vite--;
-                    }
-                    else{
-                        clear();
-                        riprova(punteggioPtr);
-                    }
-                    
-                }
-                write(p4[1], &frogCollision, sizeof(frogCollision));
-                frogCollision=0;
-            }
-        }
-
-        // CHIUDI TANA se è chiusa
-        for (size_t i=0;i<NTANE;i++){
-            if(taneChiuse[i]==1){
-                chiudiTana(i);
-            }
-        }
-
-        //CHECK RANA SCENDE DAL FIUME
-        if(vecchiaRana.y==woody[0].y && rana.y==woody[0].y+2){
-            rana.cambioMovimento=true;
-            write(p5[1], &rana, sizeof(elemento)); //se la rana scende dal fiume, si scrive alla funzione rana di cambiare la posizione di questa con quella nuova
-            rana.cambioMovimento=false;
-            vecchiaRana.y=10;
-        }
-        //CHECK RANA SUL FIUME |||| NON CANCELLARE !!!!!! RIATTIVARE!!!! |||||
-        if(rana.y<=20 && rana.y>=10){
-            rana.cambioMovimento=true;
-            for(int i=0; i<5; i++){
-                if(woody[i].x!=vecchioWoody[i] && rana.y == woody[i].y){
-                    rana.x=rana.x+woody[i].x-vecchioWoody[i];
-                    //CHECK RANA SUI TRONCHI
-                    if((rana.y==woody[i].y && (rana.x<woody[i].x || rana.x>=woody[i].x+8))||(woody[i].enemy)){ //rana scende dal tronco e cade sul fiume
-                        rana.x=maxX/2;
-                        rana.y=offsetMarciapiede;
-                        if (vite>0){
-                            vite--; // DECREMENTA VITA SE CADE DAL TRONCO O SE DAL PRATO CADE NEL FIUME
-                        }
-                        
-                        
-                    
-                    }
-                    else if (frogCollisionChangeLogScore!=i){ // la rana cambia tronco, voglio aggiungere 50 anche se torna sullo stesso
-                        punteggio+=50;
-                        frogCollisionChangeLogScore=i; // tengo traccia di dove sono salito
-                    }
-                    //write che serve per comunicare alla funzione rana la nuova posizione di questa ogni volta che cambia con il movimento del tronco, serve anche in caso la rana scenda dal tronco e cada nel fime
-                    write(p5[1],&rana, sizeof(elemento));
-                    ranaSulTronco += woody[i].c;
-                    for (int i = 0; i<NUMTRONCHI; i++){
-                        write(p9[1],&ranaSulTronco, sizeof(int));
-                    }
-                }
-            }
-            vecchiaRana=rana; //aggiorno vecchiaRana utilizzato nel controllo quando la rana passa dal tronco al prato 
-        }
-        if (rana.y>=offsetPrato){ // voglio che la rana prenda +50 ogni volta che cambia tronco oppure che torna sul prato oppure è in qualunque altro posto sotto il prato
-            frogCollisionChangeLogScore=-1;// cosi mi aggiunge punteggio anche se la rana torna sul prato e vuole risalire sullo stesso tronco
-        }
-        if (vite==0){// controllo se le vite sono uguali a zero per check rana sul fiume
-            clear();
-            riprova(punteggioPtr);
-        }
-        //AGGIORNAMENTO OLDLOG
-        for(int i=0; i<5; i++){
-            vecchioWoody[i]=woody[i].x; //in oldlog vengono la x di ogni tronco che poi verrà confrontato con la nuova nell'iterazione successiva
-        }
-        //*********************************************************************************************************************************************************************
-        collisioneProiettiliMacchine(bullPtr,macchine,bullets,p9);
-        collisioneProiettileRanaProiettiliNemici(bullPtr,bullets,p9);
-        // stampa macchine
-        stampaMacchinaCamion(macchine);
-        //Stampa Fiume, tronchi, nemici e proiettili nemici
-        stampaTronchiNemici(woody,bullets,rana);
-        //Stampa Rana e Proiettile Rana
-        stampaRanaBullets(rana,bull);
-        collisionRanaVehicles(p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr);
-        
-        
-        proiettiliKillRana(rana, bullets,p4,frogCollisionPtr,punteggioPtr);
-        //fprintf(fp, "coordinate proiettile (%d,%d)\n", bull.x, bull.y);
-        if (bull.sparato){ // per non avere collateral
-            ranaKillEnemy(rana,bullPtr,woody,p8,punteggioPtr);
-        }
-        
-        //frogIsOnLog(p5,p7, rana, woody); 
-        // if (addPoints!=-1 && iterazioneMoment==iterazione){
-        //     fprintf(fp,"punteggio %d addPoints %d iterazione %d iterazioneMoment %d\n",punteggio,addPoints,iterazione,iterazioneMoment);
-        //     fflush(fp);
-        //     //punteggio+=addPoints;
-        //     iterazioneMoment=-1;
-        //     addPoints=-1;
-        // }
-
-        counter ++;
-        
-        refresh();
-    }
-    return;
 }
-
 void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, elemento* bull){
      //se è la rana
         if (d->c==20){ 
@@ -472,10 +451,12 @@ void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, e
 }
 
 void mostraVita(int n){
-    int x=3;
-    for (int i=0;i<n;i++){
-        mvaddch(offsetTempo+1,x+=2,'#');
-    }
+    attron(COLOR_PAIR(7));
+    attron(A_BOLD);
+    mvprintw(offsetPunteggio,2,"Vite : ");
+    mvprintw(offsetPunteggio,9,"%d",vite);
+    attroff(COLOR_PAIR(7));
+    attroff(A_BOLD);
     return;
 }
 
@@ -498,19 +479,19 @@ void getTronchiBullets(elemento* d,elemento woody[], elemento bullets[]){
 }
 
 void stampaRanaBullets(elemento rana, elemento bull){
-    attron(COLOR_PAIR(4));
+    
     mvprintw(rana.y,rana.x,"\\/");
     mvprintw(rana.y+1,rana.x,"/\\");
             //proiettile rana
     if (bull.sparato == true){
         mvprintw(bull.y, bull.x, "*");
     }
-    attroff(COLOR_PAIR(4));
+    
 }
 
 void stampaTronchiNemici(elemento woody[], elemento bullets[], elemento rana){
     // stampa tronchi e nemici
-    attron(COLOR_PAIR(6));
+    attron(COLOR_PAIR(9)| A_BOLD);
         for(size_t i = 0; i<NUMTRONCHI; i++){ 
             //fprintf(fp, "log %d pos:%d %d\n", woody[i].c, woody[i].x, woody[i].y);
             fflush(fp);
@@ -529,13 +510,10 @@ void stampaTronchiNemici(elemento woody[], elemento bullets[], elemento rana){
                 mvaddch(bullets[i].y, bullets[i].x, '*');
             }
         }
-        attroff(COLOR_PAIR(6));
+        attroff(COLOR_PAIR(9) | A_BOLD);
 }
 
 void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento macchine[],int* punteggio){
-        // if (rana->y==offsetMarciapiede && rana->x==maxX/2){
-        //         *(frogCollision)=1;                    
-        // } 
         //collisioni
         for(size_t i = 0; i<NUMMACCHINE; i++){
             if(macchine[i].type==1){// camion
@@ -547,7 +525,6 @@ void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento 
                     //write(p2[1], &frogCollision, sizeof(frogCollision));
                     // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
                     write(p4[1], frogCollision, sizeof(*(frogCollision))); 
-                    
                     //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
                     //refresh();
                     
@@ -564,11 +541,6 @@ void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento 
                         clear();
                         refresh();
                         riprova(punteggio);
-                        // int maxx=0,maxy=0;
-                        // getmaxyx(stdscr,maxy,maxx);
-                        // mvprintw(maxy/2,maxx/2,"SCONFITTA");
-                        // refresh();
-                        // sleep(5);
                     }
                 }
             }
@@ -595,11 +567,6 @@ void collisionRanaVehicles(int p4[],int* frogCollision, elemento* rana,elemento 
                         clear();
                         refresh();
                         riprova(punteggio);
-                        // int maxx=0,maxy=0;
-                        // getmaxyx(stdscr,maxy,maxx);
-                        // mvprintw(maxy/2,maxx/2,"SCONFITTA");
-                        // refresh();
-                        // sleep(5);
                     }
                 }
             }   
@@ -610,7 +577,7 @@ void stampaMacchinaCamion(elemento macchine[]){
     // stampa macchine
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if (macchine[i].c!=-1){
-                attron(COLOR_PAIR(4));
+                attron(COLOR_PAIR(9)|A_BOLD);
                 // stampa camion
                 if(macchine[i].type==1){
                     mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
@@ -621,7 +588,7 @@ void stampaMacchinaCamion(elemento macchine[]){
                     mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
 
                 }   
-                attroff(COLOR_PAIR(4));
+                attroff(COLOR_PAIR(9)|A_BOLD);
             }
         }
 }
@@ -690,40 +657,12 @@ void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]){
                 write(p2[1], &collision, sizeof(int));
             }
             band = false;
-            //fprintf(fp, "non ci sono state collisioni");
         }
         }
     }
     return;
 }
 
-void frogIsOnLog(int p5[], int p7[],  elemento rana, elemento logs[],int* punteggio){
-    int relPos=0;
-    int idxLog=0;
-    
-    
-    for (int i = 0; i < NUMTRONCHI; i++){
-        // TO DO
-        //  [+] se collisione e logs[i].enemy==false allora decrementa vita!
-        if (rana.y == logs[i].y && rana.x < logs[i].x+6 && rana.x >= logs[i].x && logs[i].enemy==false){ // la rana sale se collisione e se non c'è un enemy 
-            *punteggio+=50;// se la rana sale sul tronco prende 50 punti
-            logs[i].logOccupied = true;
-            if (rana.isOnLog==false){
-                    relPos = (rana.x-logs[i].x);
-                    idxLog=i;     
-                    write(p5[1],&relPos,sizeof(int));
-                    write(p5[1],&idxLog,sizeof(int));
-                }
-            else if(rana.idxLogOccupied!=i){ // la rana è sul tronco ma cambia tronco!
-                relPos = (rana.x-logs[i].x);
-                idxLog=i;     
-                write(p5[1],&relPos,sizeof(int));
-                write(p5[1],&idxLog,sizeof(int));
-            }
-            write(p7[1], &logs[i], sizeof(elemento));
-        }
-    }
-}
 
 void ranaKillEnemy(elemento rana,elemento* ranaProiettile, elemento logs[], int p8[],int* punteggio){
     int removeEnemy = 1;
@@ -808,7 +747,11 @@ void collisioneProiettileRanaProiettiliNemici(elemento *ranaProiettile, elemento
 
 
 void mostraPunteggio(int n){
-    mvprintw(2,maxX/2-2,"%d",n);
+    attron(COLOR_PAIR(7));
+    attron(A_BOLD);
+    mvprintw(offsetPunteggio,maxX-17,"Punteggio : %d",n);
+    attroff(A_BOLD);
+    attron(COLOR_PAIR(7));
     return;
 }
 
@@ -834,11 +777,6 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
                     clear();
                     refresh();
                     riprova(punteggio);
-                    // int maxx=0,maxy=0;
-                    // getmaxyx(stdscr,maxy,maxx);
-                    // mvprintw(maxy/2,maxx/2,"SCONFITTA");
-                    // refresh();
-                    // sleep(5);
                 }
                 // riporta alla posizione di partenza
                 write(p4[1], frogCollision, sizeof(frogCollision)); // frogCollision è già un puntatore
@@ -887,20 +825,20 @@ void tempo(int pipeTempo[],int restartTime[]){
 void displayTime(int secondoSegnale){
     if (secondoSegnale>=((maxX-2)/2)){
         attron(COLOR_PAIR(1));
-        mvhline(offsetFinale,1,' ',secondoSegnale);
-        mvhline(offsetFinale+1,1,' ',secondoSegnale);
+        mvhline(offsetTempo,1,' ',secondoSegnale);
+        mvhline(offsetTempo+1,1,' ',secondoSegnale);
         attroff(COLOR_PAIR(1));
     }
     else if(secondoSegnale<((maxX-2)/2) && secondoSegnale>=((maxX-2)/4)){
         attron(COLOR_PAIR(3));
-        mvhline(offsetFinale,1,' ',secondoSegnale);
-        mvhline(offsetFinale+1,1,' ',secondoSegnale);
+        mvhline(offsetTempo,1,' ',secondoSegnale);
+        mvhline(offsetTempo+1,1,' ',secondoSegnale);
         attroff(COLOR_PAIR(3));
     }
     else{
         attron(COLOR_PAIR(2));
-        mvhline(offsetFinale,1,' ',secondoSegnale);
-        mvhline(offsetFinale+1,1,' ',secondoSegnale);
+        mvhline(offsetTempo,1,' ',secondoSegnale);
+        mvhline(offsetTempo+1,1,' ',secondoSegnale);
         attroff(COLOR_PAIR(2));
     }
     

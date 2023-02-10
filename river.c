@@ -125,9 +125,6 @@ void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
         if (comunication-1 == proiettileNemico.c && comunication > 0){
             proiettileNemico.sparato = false;
         }
-        // else{
-        //     write(p9[1], &comunication, sizeof(int));
-        // }
 
         if (proiettileNemico.y<maxY){
             proiettileNemico.y += 1;
