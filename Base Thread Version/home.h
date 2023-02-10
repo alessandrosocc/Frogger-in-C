@@ -59,9 +59,8 @@ bool cambioRigaLibero = true;
 
 elemento rana;
 elemento ranaProiettile;
-elemento macchine[NUMACCHINE];
-// elemento tronchi[NUMTRONCHI];
-// elemento tronchiProiettili[NUMTRONCHI];
+
+
 
 // prototipi funzioni
 void initScreen();
@@ -71,9 +70,17 @@ void generaProiettile();
 void mostraPunteggio();
 void mostraVita();
 void displayTime();
+void ranaCollideConMacchine();
+void proiettileRanaCollideConMacchine();
+void ranaKillTronchi();
+void enemyKillRana();
+void printRana();
+void printMacchine();
+void printTronchi();
 
 
 extern void* ffrog();
 extern void* bullet();
-
+extern void* log(void*);
+extern void* logBullets(void*);
 

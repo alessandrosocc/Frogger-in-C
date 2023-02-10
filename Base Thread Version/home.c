@@ -9,19 +9,35 @@ int main(){
     windowGeneration();
     // variabili intere
     int carId[NUMACCHINE];
+    int logId[NUMTRONCHI];
+    int logBulletsId[NUMTRONCHI];
     for (int i = 0;i<NUMACCHINE; i++){
         carId[i] = i;
     }
+    for (int i = 0;i<NUMTRONCHI; i++){
+        logId[i] = i;
+    }
+    for (int i = 0; i<NUMTRONCHI; i++){
+        logBulletsId[i] = i;
+    }
+
 
     // id thread
     pthread_t ranaId, ranaProiettileId;
     pthread_t macchineId[NUMACCHINE];
-    
+    pthread_t tronchiId[NUMTRONCHI];
+    pthread_t proiettiliId[NUMTRONCHI];
     // creazione dei thread
     pthread_create(&ranaId, NULL, &ffrog, NULL);
     pthread_create(&ranaProiettileId, NULL, &bullet, NULL);
     for (int i = 0; i<NUMACCHINE; i++){
         pthread_create(&macchineId[i], NULL, &car,(void*)&carId[i]);
+    }
+    for (int i = 0; i<NUMTRONCHI; i++){
+        pthread_create(&tronchiId[i], NULL, &log, (void*)&logId[i]);
+    }
+    for (int i = 0;i<NUMTRONCHI; i++){
+        pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
     }
     sleep(2);
     areaDiGioco();
@@ -30,6 +46,12 @@ int main(){
     pthread_join(ranaProiettileId,NULL);
     for (int i = 0;i<NUMACCHINE; i++){
         pthread_join(macchineId[i],NULL);
+    }
+    for (int i = 0;i<NUMTRONCHI; i++){
+        pthread_join(tronchiId[i],NULL);
+    }
+    for (int i = 0;i<NUMTRONCHI; i++){
+        pthread_join(proiettiliId[i],NULL);
     }
 
     wait(NULL);
@@ -160,35 +182,16 @@ void areaDiGioco(){
                 fflush(fp);
             }
         }
-        fprintf(fp, "%d\n", cambioRigaLibero);
         if (macchineGenerateCorrettamente){
-            for (int i = 0; i<NUMACCHINE; i++){
-                    attron(COLOR_PAIR(4));
-                    if (macchine[i].type == 1){
-                        mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
-                        mvprintw(macchine[i].y+1,macchine[i].x,"O-----O");
-                    }
-                    else{
-                        mvprintw(macchine[i].y,macchine[i].x,"/--\\");
-                        mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
-                    }
-                    attroff(COLOR_PAIR(4));
-            }
-            // for (int i = 0; i<NUMACCHINE; i++){
-            // for (int j = 0; j<NUMACCHINE; j++){
-            //     if (macchine[i].y == macchine[j].y && i != j){
-            //         if (!(macchine[j].x > macchine[i].x+7 || macchine[j].x+7 < macchine[i].x))
-            //         {
-            //             //fprintf(fp, "la macchina %d e la macchina %d collidono durante il cambiamento di corsia\n", i, j);
-            //         }
-            //     }
-            // }
-        
+            printMacchine();
+            ranaCollideConMacchine();
+            proiettileRanaCollideConMacchine();
+            ranaKillTronchi();
+            enemyKillRana();
+            printTronchi();
         }
-        
         usleep(500);
         refresh();
-        
     }
 }
 
@@ -234,4 +237,131 @@ void mostraVita(){
 void mostraPunteggio(){
     mvprintw(2,maxX/2-2,"%d",punteggio);
     return;
+}
+void proiettileRanaCollideConMacchine(){
+    for (int i = 0; i<NUMACCHINE; i++){
+        if (macchine[i].y == ranaProiettile.y){
+            if(macchine[i].type==1){// camion
+                if (ranaProiettile.x>=macchine[i].x && ranaProiettile.x<=macchine[i].x+7){
+                    pthread_mutex_lock(&mutex);
+                    ranaProiettile.y = -1;
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+            else{
+                if (ranaProiettile.x>= macchine[i].x && ranaProiettile.x<=macchine[i].x+4){
+                    pthread_mutex_lock(&mutex);
+                    ranaProiettile.y = -1;
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+        }
+    }
+}
+void ranaCollideConMacchine(){
+    for (int i = 0; i<NUMACCHINE; i++){
+        if (macchine[i].y == rana.y){
+            if(macchine[i].type==1){// camion
+                if (rana.x>=macchine[i].x && rana.x<=macchine[i].x+7){
+                    pthread_mutex_lock(&mutex);
+                    rana.x = maxX/2;
+                    rana.y = offsetMarciapiede;
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+            else{
+                if (rana.x>= macchine[i].x && rana.x<=macchine[i].x+4){
+                    pthread_mutex_lock(&mutex);
+                    rana.x = maxX/2;
+                    rana.y = offsetMarciapiede;
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+        }
+    }
+}
+void ranaKillTronchi(){
+    for (int i = NUMTRONCHI-1; i>= 0;i--){
+        if (tronchi[i].enemy){
+            if (ranaProiettile.y == tronchi[i].y && ranaProiettile.sparato){
+                if (ranaProiettile.x == tronchi[i].x+3 || ranaProiettile.x == tronchi[i].x+4){
+                    pthread_mutex_lock(&mutex);
+                    tronchi[i].enemy = false;
+                    tronchi[i].killed = true;
+                    ranaProiettile.y = -1;
+                    i = NUMTRONCHI;
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+        }
+    }
+}
+
+void enemyKillRana(){
+    for (int i = NUMTRONCHI-1; i>= 0;i--){
+        if (tronchiProiettili[i].sparato){
+            if (rana.y == tronchiProiettili[i].y){
+                if (rana.x == tronchiProiettili[i].x || rana.x+1 == tronchiProiettili[i].x+4){
+                    pthread_mutex_lock(&mutex);
+                    rana.x = maxX/2;
+                    rana.y = offsetMarciapiede;
+                    i = NUMTRONCHI;
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+        }
+    }
+}
+void printRana(){
+    pthread_mutex_lock(&mutex);
+    mvprintw(rana.y,rana.x,"\\/");
+    mvprintw(rana.y+1,rana.x,"/\\");
+    mvaddch(ranaProiettile.y, ranaProiettile.x, '*');
+    pthread_mutex_unlock(&mutex);
+}
+void printMacchine(){
+    for (int i = 0; i<NUMACCHINE; i++){
+            attron(COLOR_PAIR(4));
+            if (macchine[i].type == 1){
+                pthread_mutex_lock(&mutex);
+                mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
+                mvprintw(macchine[i].y+1,macchine[i].x,"O-----O");
+                pthread_mutex_unlock(&mutex);
+            }
+            else{
+                pthread_mutex_lock(&mutex);
+                mvprintw(macchine[i].y,macchine[i].x,"/--\\");
+                mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
+                pthread_mutex_unlock(&mutex);
+            }
+            attroff(COLOR_PAIR(4));
+        }
+}
+void printTronchi(){
+    attron(COLOR_PAIR(6));
+            for(size_t i = 0; i<NUMTRONCHI; i++){ 
+                //fprintf(fp, "log %d pos:%d %d\n", woody[i].c, woody[i].x, woody[i].y);
+
+                if(tronchi[i].enemy==false ){
+                    pthread_mutex_lock(&mutex);
+                    mvprintw(tronchi[i].y,tronchi[i].x,"|------|");
+                    mvprintw(tronchi[i].y+1,tronchi[i].x,"|------|");
+                    pthread_mutex_unlock(&mutex);
+                }
+                else if(tronchi[i].enemy){//C'è un nemico
+                    pthread_mutex_lock(&mutex);
+                    mvprintw(tronchi[i].y,tronchi[i].x,"|--00--|");
+                    mvprintw(tronchi[i].y+1,tronchi[i].x,"|--||--|");
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+            //stampa proiettili dei nemici sui tronchi \addindex sparati
+            for (size_t i = 0; i< NUMTRONCHI; i++){
+                if (tronchiProiettili[i].sparato){
+                    pthread_mutex_lock(&mutex);
+                    mvaddch(tronchiProiettili[i].y, tronchiProiettili[i].x, '*');
+                    pthread_mutex_unlock(&mutex);
+                }
+            }
+                attroff(COLOR_PAIR(6));
 }

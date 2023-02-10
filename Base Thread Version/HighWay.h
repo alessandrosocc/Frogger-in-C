@@ -12,6 +12,7 @@
 #include <signal.h> //per kill
 #include <time.h>
 #include <string.h>
+#define NUMTRONCHI 5
 // definizione strutture per variabili globali
 typedef struct{
     int x;
@@ -29,6 +30,7 @@ typedef struct{
     bool cambioMovimento;
     bool generatoCorrettamente;
     bool macchinaFineRiga;
+    bool killed;
 }elemento;
 time_t t;
 FILE* fp; 
@@ -40,5 +42,9 @@ extern pthread_mutex_t mutex;
 extern int offsetAutostrada;
 extern bool macchineGenerateCorrettamente;
 elemento macchine[NUMACCHINE];
+elemento tronchi[NUMTRONCHI];
+elemento tronchiProiettili[NUMTRONCHI];
 
 void* car(void*);
+
+void printMacchine();

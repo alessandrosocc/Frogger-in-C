@@ -9,21 +9,21 @@
 #include <locale.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <signal.h> //per killª
+#include <signal.h> //per kill
 #include <time.h>
 #include <string.h>
+#define NUMTRONCHI 5
 #include "HighWay.h"
-#define NTANE 5
 time_t t;
 FILE* fp; 
 
+extern int offsetFiume;
 extern pthread_mutex_t mutex;
 extern int maxX;
 extern int maxY;
-extern int offsetMarciapiede;
+elemento tronchi[NUMTRONCHI];
+elemento tronchiProiettili[NUMTRONCHI];
 
-extern elemento rana;
-extern elemento ranaProiettile;
-
-void* ffrog();
-void* bullet();
+void generaProiettile();
+void* log(void*);
+void* logBullets(void*);
