@@ -69,7 +69,7 @@ int main(){
     initScreen(&maxY, &maxX); // inizializzo lo schermo
 
     //test menu
-    bool flag=false;
+    bool flag=false; //??
     char* choices[]={"Inizia a Giocare","Credits"};
     char* choicesCredits[]={""};
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
@@ -292,8 +292,6 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         if(flagTime==0 && timeSignal!=0){ //il processo creato dalla funzione time invia sempre zeri a caso, quindi cosi gli facciamo decrementare una vita solo se dopo che ha reimpostato il tempo, funziona tutto dandoci il tempo diverso da zero.
             flagTime=1;
         }
-        
-      
 
 
         //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO

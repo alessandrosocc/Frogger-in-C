@@ -60,3 +60,6 @@ void chiudiTana(int);
 void tempo(int[],int[]);
 void riprova(int*);
 void displayTime(int);
+
+
+
