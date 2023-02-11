@@ -855,18 +855,26 @@ void displayTime(int secondoSegnale){
         mvhline(offsetTempo,1,' ',secondoSegnale);
         mvhline(offsetTempo+1,1,' ',secondoSegnale);
         attroff(COLOR_PAIR(1));
+        attron(COLOR_PAIR(11));
+        mvprintw(offsetTempo,maxX-8,"TEMPO");
+        attroff(COLOR_PAIR(11));
     }
     else if(secondoSegnale<((maxX-2)/2) && secondoSegnale>=((maxX-2)/4)){
         attron(COLOR_PAIR(3));
         mvhline(offsetTempo,1,' ',secondoSegnale);
         mvhline(offsetTempo+1,1,' ',secondoSegnale);
         attroff(COLOR_PAIR(3));
+        attron(COLOR_PAIR(12));
+        mvprintw(offsetTempo,maxX-8,"TEMPO");
+        attroff(COLOR_PAIR(12));
     }
     else{
         attron(COLOR_PAIR(2));
         mvhline(offsetTempo,1,' ',secondoSegnale);
         mvhline(offsetTempo+1,1,' ',secondoSegnale);
         attroff(COLOR_PAIR(2));
+        attron(COLOR_PAIR(13));
+        mvprintw(offsetTempo,maxX-8,"TEMPO");
+        attron(COLOR_PAIR(13));
     }
-    
 }

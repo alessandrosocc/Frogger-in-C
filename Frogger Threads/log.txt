@@ -1,148 +1,28 @@
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
+le macchine non sono ancora state generate correttamente
 y tronchi 9
-y tronchi 17
 y tronchi 11
 y tronchi 13
-identifier 1
+y tronchi 15
+y tronchi 17
+identifier 5
+identifier 4
+identifier 6
 identifier 7
 identifier 3
-y tronchi 15
-identifier 5
 identifier 8
-identifier 4
-identifier 0
-identifier 6
 identifier 9
-le macchine non sono ancora state generate correttamente
+identifier 0
+identifier 1
 identifier 2
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
-sono bloccato qui dentro
 sono bloccato qui dentro
 sono bloccato qui dentro
 sono bloccato qui dentro
