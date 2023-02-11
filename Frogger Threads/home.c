@@ -107,29 +107,37 @@ void windowGeneration(){
     init_pair(11,COLOR_GREEN,COLOR_BLACK);
     init_pair(12,COLOR_YELLOW,COLOR_BLACK);
     init_pair(13,COLOR_RED,COLOR_BLACK);
-    
+    init_pair(14,COLOR_BLACK,COLOR_MAGENTA);
+    init_pair(15,COLOR_BLACK,COLOR_RED);
     box(stdscr,0,0);
     int offsetSum=1;
     //punteggio
     for (size_t i = 1; i<= PUNTEGGIOVITE; i++){
-        attron(COLOR_PAIR(7));
+        attron(COLOR_PAIR(3));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(7));
+        attroff(COLOR_PAIR(3));
     }
     offsetPunteggio=offsetSum;
     offsetSum+=PUNTEGGIOVITE;
     offsetTane=offsetSum;
-    attron(COLOR_PAIR(9));
+    attron(COLOR_PAIR(3));
     mvhline(offsetSum,1,' ',maxX-2);
-    attroff(COLOR_PAIR(9));
+    attroff(COLOR_PAIR(3));
     offsetSum+=1;
     //tane
     for (size_t i=1;i<=maxX-2;i++){
-        attron(COLOR_PAIR(9));
+        
         if (i<=3||(i%(maxX/NTANE)==0) || i>=maxX-3){
+            attron(COLOR_PAIR(3));
             mvvline(offsetSum,i,' ',TANE);
+            attroff(COLOR_PAIR(3));
         }
-        attroff(COLOR_PAIR(9));
+        else{
+            attron(COLOR_PAIR(9));
+            mvvline(offsetSum,i,' ',TANE);
+            attroff(COLOR_PAIR(9));
+        }
+        
     }
     offsetSum+=TANE;
     offsetEndTane=offsetSum;
@@ -153,9 +161,9 @@ void windowGeneration(){
 
     // autostrada
     for (size_t i = offsetSum; i<= offsetSum+AUTOSTRADA; i++){
-        attron(COLOR_PAIR(9));
+        attron(COLOR_PAIR(15));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(9));
+        attroff(COLOR_PAIR(15));
     }
     offsetAutostrada=offsetSum-1; //non so perchè ma vuole quel -1 altrimenti non è ben formattato
     offsetSum+=AUTOSTRADA;
@@ -163,14 +171,12 @@ void windowGeneration(){
     offsetMarciapiede=offsetSum;
     //marciapiede
     for (size_t i = offsetSum; i< MARCIAPIEDE+offsetSum; i++){
-        attron(COLOR_PAIR(3));
+        attron(COLOR_PAIR(14));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(3));
+        attroff(COLOR_PAIR(14));
     }
     offsetSum+=MARCIAPIEDE;
     offsetTempo=offsetSum;
-  
-
     pthread_mutex_unlock(&mutex);
 }
 
@@ -375,7 +381,7 @@ void riprova(){
     }
 }
 void mostraVita(){
-    attron(COLOR_PAIR(7));
+    attron(COLOR_PAIR(3));
     attron(A_BOLD);
     mvprintw(offsetPunteggio,2,"Vite : ");
     // VITE CON SIMBOLO
@@ -384,16 +390,16 @@ void mostraVita(){
     //     mvaddch(offsetPunteggio,x+=2,'#');
     // }
     mvprintw(offsetPunteggio,9,"%d",vite);
-    attroff(COLOR_PAIR(7));
+    attroff(COLOR_PAIR(3));
     attroff(A_BOLD);
     return;
 }
 void mostraPunteggio(){
-    attron(COLOR_PAIR(7));
+    attron(COLOR_PAIR(3));
     attron(A_BOLD);
     mvprintw(offsetPunteggio,maxX-17,"Punteggio : %d",punteggio);
     attroff(A_BOLD);
-    attron(COLOR_PAIR(7));
+    attron(COLOR_PAIR(3));
     return;
 }
 void proiettileRanaCollideConMacchine(){
@@ -497,7 +503,7 @@ void printRana(){
 }
 void printMacchine(){
     for (int i = 0; i<NUMACCHINE; i++){
-            attron(COLOR_PAIR(9)| A_BOLD);
+            attron(COLOR_PAIR(15)| A_BOLD);
             
             if (macchine[i].type == 1){
                 pthread_mutex_lock(&mutex);
@@ -512,7 +518,7 @@ void printMacchine(){
                 pthread_mutex_unlock(&mutex);
             }
             
-            attroff(COLOR_PAIR(9) | A_BOLD);
+            attroff(COLOR_PAIR(15) | A_BOLD);
         }
 }
 void printTronchi(){

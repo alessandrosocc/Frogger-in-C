@@ -54,7 +54,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
             timeLimit = 1+rand()%200;
         }
 
-        if(x > maxX-1 || x < 0){
+        if(x > maxX-7 || x < 0 ){
             direzione *= -1;
             //woody.y = 1 + rand()%(maxY-1);
         }
@@ -129,6 +129,7 @@ void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
             proiettileNemico.y += 1;
             write(p1[1], &proiettileNemico, sizeof(elemento));
         }
+        
         comunication = 0;
         tmp.sparato = false;
         usleep(40000);

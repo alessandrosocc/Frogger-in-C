@@ -1,18 +1,40 @@
+y tronchi 9
+y tronchi 17
 y tronchi 11
 y tronchi 13
-identifier 7
-identifier 8
-identifier 0
 identifier 1
-y tronchi 15
-identifier 6
-y tronchi 17
-identifier 4
-identifier 2
-y tronchi 9
+identifier 7
 identifier 3
+y tronchi 15
 identifier 5
+identifier 8
+identifier 4
+identifier 0
+identifier 6
 identifier 9
+le macchine non sono ancora state generate correttamente
+identifier 2
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
+sono bloccato qui dentro
 sono bloccato qui dentro
 sono bloccato qui dentro
 sono bloccato qui dentro

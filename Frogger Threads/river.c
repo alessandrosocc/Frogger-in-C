@@ -37,7 +37,7 @@ void* log(void*id){
         }
         pthread_mutex_lock(&mutex);
         x = tronchi[identifier].x + direzione;
-        if(x > maxX-8 || x < 0){
+        if(x > maxX-7 || x < 0){
             direzione *= -1;
             //woody.y = 1 + rand()%(maxY-1);
         }

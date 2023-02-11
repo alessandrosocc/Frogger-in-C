@@ -123,29 +123,37 @@ void windowGeneration(){
     init_pair(11,COLOR_GREEN,COLOR_BLACK);
     init_pair(12,COLOR_YELLOW,COLOR_BLACK);
     init_pair(13,COLOR_RED,COLOR_BLACK);
-    
+    init_pair(14,COLOR_BLACK,COLOR_MAGENTA);
+    init_pair(15,COLOR_BLACK,COLOR_RED);
     box(stdscr,0,0);
     int offsetSum=1;
     //punteggio
     for (size_t i = 1; i<= PUNTEGGIOVITE; i++){
-        attron(COLOR_PAIR(7));
+        attron(COLOR_PAIR(3));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(7));
+        attroff(COLOR_PAIR(3));
     }
     offsetPunteggio=offsetSum;
     offsetSum+=PUNTEGGIOVITE;
     offsetTane=offsetSum;
-    attron(COLOR_PAIR(9));
+    attron(COLOR_PAIR(3));
     mvhline(offsetSum,1,' ',maxX-2);
-    attroff(COLOR_PAIR(9));
+    attroff(COLOR_PAIR(3));
     offsetSum+=1;
     //tane
     for (size_t i=1;i<=maxX-2;i++){
-        attron(COLOR_PAIR(9));
+        
         if (i<=3||(i%(maxX/NTANE)==0) || i>=maxX-3){
+            attron(COLOR_PAIR(3));
             mvvline(offsetSum,i,' ',TANE);
+            attroff(COLOR_PAIR(3));
         }
-        attroff(COLOR_PAIR(9));
+        else{
+            attron(COLOR_PAIR(9));
+            mvvline(offsetSum,i,' ',TANE);
+            attroff(COLOR_PAIR(9));
+        }
+        
     }
     offsetSum+=TANE;
     offsetEndTane=offsetSum;
@@ -169,9 +177,9 @@ void windowGeneration(){
 
     // autostrada
     for (size_t i = offsetSum; i<= offsetSum+AUTOSTRADA; i++){
-        attron(COLOR_PAIR(9));
+        attron(COLOR_PAIR(15));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(9));
+        attroff(COLOR_PAIR(15));
     }
     offsetAutostrada=offsetSum-1; //non so perchè ma vuole quel -1 altrimenti non è ben formattato
     offsetSum+=AUTOSTRADA;
@@ -179,9 +187,9 @@ void windowGeneration(){
     offsetMarciapiede=offsetSum;
     //marciapiede
     for (size_t i = offsetSum; i< MARCIAPIEDE+offsetSum; i++){
-        attron(COLOR_PAIR(3));
+        attron(COLOR_PAIR(14));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(3));
+        attroff(COLOR_PAIR(14));
     }
     offsetSum+=MARCIAPIEDE;
     offsetTempo=offsetSum;
@@ -456,11 +464,11 @@ void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, e
 }
 
 void mostraVita(int n){
-    attron(COLOR_PAIR(7));
+    attron(COLOR_PAIR(3));
     attron(A_BOLD);
     mvprintw(offsetPunteggio,2,"Vite : ");
     mvprintw(offsetPunteggio,9,"%d",vite);
-    attroff(COLOR_PAIR(7));
+    attroff(COLOR_PAIR(3));
     attroff(A_BOLD);
     return;
 }
@@ -479,9 +487,13 @@ void getTronchiBullets(elemento* d,elemento woody[], elemento bullets[]){
                 bullets[i].y = d->y;
                 bullets[i].c = d->c;
                 bullets[i].sparato = d->sparato;
+                if (bullets[i].y==offsetMarciapiede){
+                    bullets[i].y=-1;
+                }
             }
         }
 }
+
 
 void stampaRanaBullets(elemento rana, elemento bull){
     
@@ -510,10 +522,12 @@ void stampaTronchiNemici(elemento woody[], elemento bullets[], elemento rana){
             }
         }
         //stampa proiettili dei nemici sui tronchi \addindex sparati
+        
         for (size_t i = 0; i< NUMTRONCHI; i++){
             if (bullets[i].sparato){
                 mvaddch(bullets[i].y, bullets[i].x, '*');
             }
+            
         }
         attroff(COLOR_PAIR(9) | A_BOLD);
 }
@@ -582,7 +596,7 @@ void stampaMacchinaCamion(elemento macchine[]){
     // stampa macchine
         for(size_t i = 0; i<CORSIE*MACCHINE; i++){
             if (macchine[i].c!=-1){
-                attron(COLOR_PAIR(9)|A_BOLD);
+                attron(COLOR_PAIR(15)|A_BOLD);
                 // stampa camion
                 if(macchine[i].type==1){
                     mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
@@ -593,7 +607,7 @@ void stampaMacchinaCamion(elemento macchine[]){
                     mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
 
                 }   
-                attroff(COLOR_PAIR(9)|A_BOLD);
+                attroff(COLOR_PAIR(15)|A_BOLD);
             }
         }
 }
@@ -752,11 +766,11 @@ void collisioneProiettileRanaProiettiliNemici(elemento *ranaProiettile, elemento
 
 
 void mostraPunteggio(int n){
-    attron(COLOR_PAIR(7));
+    attron(COLOR_PAIR(3));
     attron(A_BOLD);
     mvprintw(offsetPunteggio,maxX-17,"Punteggio : %d",n);
     attroff(A_BOLD);
-    attron(COLOR_PAIR(7));
+    attron(COLOR_PAIR(3));
     return;
 }
 
