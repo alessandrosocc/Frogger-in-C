@@ -11,8 +11,8 @@
 #include "HighWay.h"
 
 
-void funzioneMacchina(int p1[], int p2[], int p3[], int id){
-    
+void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id){
+    bool gioca=true;
     srand(getpid());
     int maxX = 0, maxY = 0, x = 0, y = 0, n = 0, counter = 0;
     getmaxyx(stdscr,maxY,maxX); //only for getting maxX

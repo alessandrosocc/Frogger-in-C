@@ -20,6 +20,7 @@
 #define KILLPROIETTILE 99
 
 void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
+    bool gioca=true;
     srand(getpid());
     close(p1[0]);
     int maxX = 0, maxY = 0, x = 0,direzione = 1, removeEnemy = 0, id1 = 0,id2 = 0, comunication = 0;
@@ -102,6 +103,7 @@ void enemyBullet(int p1[],int p6[],int p9[], elemento nemico){
 //aggiorna le posizioni del proiettile
 //se counter==30 allora stampa un proiettile
 void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
+    bool gioca=true;
     close(p1[0]);
     elemento proiettileNemico, tmp;
     tmp.sparato = false;

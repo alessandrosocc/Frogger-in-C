@@ -46,6 +46,7 @@ int main(){
     int p9[2];
     int pipeTempo[2];
     int restartTime[2];
+    int stopGame[2];
     pipe(p1);
     pipe(p2);
     pipe(p3);
@@ -57,6 +58,7 @@ int main(){
     pipe(p9);
     pipe(restartTime);
     pipe(pipeTempo);
+    pipe(stopGame);
     fcntl(p2[0], F_SETFL, O_NONBLOCK);
     fcntl(p3[0], F_SETFL, O_NONBLOCK);
     fcntl(p4[0], F_SETFL, O_NONBLOCK);
@@ -67,6 +69,7 @@ int main(){
     fcntl(p9[0], F_SETFL, O_NONBLOCK);
     fcntl(pipeTempo[0], F_SETFL, O_NONBLOCK);
     fcntl(restartTime[0], F_SETFL, O_NONBLOCK);
+    fcntl(stopGame[0], F_SETFL, O_NONBLOCK);
     initScreen(&maxY, &maxX); // inizializzo lo schermo
 
     // #####################
@@ -84,7 +87,7 @@ int main(){
             clear();
             refresh();
             windowGeneration(); // genero la window
-            processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9,pipeTempo,restartTime);
+            processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9,pipeTempo,restartTime,stopGame);
             wait(NULL);
         }
         choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
@@ -184,7 +187,7 @@ void windowGeneration(){
     offsetTempo=offsetSum;
 }
 
-void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int restartTime[]){
+void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int restartTime[],int stopGame[]){
     int via = 0;
     pid_t inizializzatoreProcessi;
     pid_t macchine[NUMMACCHINE];
@@ -197,7 +200,7 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
             macchine[i] = fork();
             if (macchine[i] == 0){
                 //chiamo la funzione macchine
-                funzioneMacchina(p1,p2,p3,i);
+                funzioneMacchina(p1,p2,p3,stopGame,i);
             }
         }
         rana = fork();
@@ -253,6 +256,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     controlloGenerazioneMacchine(p1,p2,p7);
     int timeRestart=1;
     bool flagTime=1;
+    bool gioca=true;
     //inizializzo il ciclo di stampa
     while(gioca){
         erase();
@@ -789,6 +793,7 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
 }
 
 void riprova(int* punteggio){
+    bool gioca=true;
     char* choices[]={"Si","NO"};
     clear();
     refresh();
@@ -813,6 +818,7 @@ void riprova(int* punteggio){
 }
 
 void tempo(int pipeTempo[],int restartTime[]){
+    bool gioca=true;
     int flag=0;
     int secondoSignal=maxX-2;
     while(gioca){

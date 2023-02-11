@@ -26,7 +26,7 @@ extern int offsetAutostrada;
 
 
 bool ControlloCollisione(elemento);
-void funzioneMacchina(int p1[], int p2[], int p3[], int id);
+void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id);
 //bool carCollision(elemento, int p[]);
 
 

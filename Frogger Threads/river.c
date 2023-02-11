@@ -42,7 +42,7 @@ void* log(void*id){
             //woody.y = 1 + rand()%(maxY-1);
         }
         else{
-            tronchi[identifier].x += direzione;            
+            tronchi[identifier].x += direzione;
         }
         if (rana.y == tronchi[identifier].y && rana.x >= tronchi[identifier].x && rana.x+2 <= tronchi[identifier].x+7){
             rana.x += direzione;

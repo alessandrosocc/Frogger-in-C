@@ -184,7 +184,6 @@ void areaDiGioco(){
         windowGeneration();
         mostraVita();
         mostraPunteggio();
-        //displayTime();
         checkTane();
         checkRanaInTana();
         collisioneProiettileRanaTronco();
@@ -238,7 +237,7 @@ void chiudiTana(int n){
     for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(8));
         if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
-            mvvline(offsetTane,i,'x',TANE);
+            mvvline(offsetTane+1,i,'x',TANE);
         }
         attroff(COLOR_PAIR(8));
     }
@@ -286,6 +285,7 @@ void checkTane(){
         clear();
         refresh();
         mvprintw(maxY/2,maxX/2,"HAI VINTO!");
+        mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",punteggio);
         refresh();
         sleep(5);
         exit(0);
@@ -316,7 +316,7 @@ void* calculateResidualTime(void* X){
             }
         }
         pthread_mutex_unlock(&mutex);
-        usleep(1000000);
+        usleep(100000);
     }
     
 }
@@ -353,6 +353,12 @@ void showTime(){
 }
 void riprova(){
     char* choices[]={"Si","NO"};
+    clear();
+    refresh();
+    mvprintw(maxY/2,maxX/2,"Hai Perso!");
+    mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",punteggio);
+    refresh();
+    sleep(4);
     clear();
     //gioca
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);

@@ -14,6 +14,7 @@
 
 
 void ffrog(int p1[], int p4[], int p5[], int p7[]){
+    bool gioca=true;
     elemento rana, tmp, oldfrog;
     tmp.cambioMovimento=false; // ALTRIMENTI SPAWNA IN ALTO A SINISTRA
     int maxx=0,maxy=0, counter = 0, collisionDetection=0;
