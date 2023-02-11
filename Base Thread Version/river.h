@@ -22,6 +22,7 @@ extern int offsetFiume;
 extern pthread_mutex_t mutex;
 extern int maxX;
 extern int maxY;
+extern int offsetMarciapiede;
 elemento tronchi[NUMTRONCHI];
 elemento tronchiProiettili[NUMTRONCHI];
 extern elemento rana;

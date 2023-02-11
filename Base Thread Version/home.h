@@ -48,6 +48,7 @@ int offsetPunteggio=0;
 int offsetTane=0;
 int offsetPrato=0;
 int offsetTempo=0;
+int offsetEndTane=0;
 bool gioca=true;
 int idMacchine = 0;
 int vite=5;

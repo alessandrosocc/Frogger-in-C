@@ -42,7 +42,7 @@ void* bullet(){
             ranaProiettile.y = rana.y;
             pthread_mutex_unlock(&mutex);
         
-            while(ranaProiettile.y >= 0){
+            while(ranaProiettile.y > offsetEndTane){
                 pthread_mutex_lock(&mutex);
                 ranaProiettile.y--;
                 pthread_mutex_unlock(&mutex);

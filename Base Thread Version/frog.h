@@ -21,7 +21,7 @@ extern pthread_mutex_t mutex;
 extern int maxX;
 extern int maxY;
 extern int offsetMarciapiede;
-
+extern int offsetEndTane;
 extern elemento rana;
 extern elemento ranaProiettile;
 

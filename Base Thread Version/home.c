@@ -129,7 +129,7 @@ void windowGeneration(){
         attroff(COLOR_PAIR(9));
     }
     offsetSum+=TANE;
-
+    offsetEndTane=offsetSum;
     //fiume
     for (size_t i = offsetSum; i<= FIUME+offsetSum; i++){
         attron(COLOR_PAIR(9));
@@ -166,7 +166,7 @@ void windowGeneration(){
     }
     offsetSum+=MARCIAPIEDE;
     offsetTempo=offsetSum;
-
+  
 
     pthread_mutex_unlock(&mutex);
 }

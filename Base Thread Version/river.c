@@ -17,10 +17,10 @@ void* log(void*id){
 
     while(gioca){
         if (counter == enemyLimit && tronchi[identifier].enemy == false && tronchi[identifier].killed == false){
-            // pthread_mutex_lock(&mutex);
-            // tronchi[identifier].enemy = true;
-            // pthread_mutex_unlock(&mutex);
-            // counter = 0;
+            pthread_mutex_lock(&mutex);
+            tronchi[identifier].enemy = true;
+            pthread_mutex_unlock(&mutex);
+            counter = 0;
         }
         if (tronchi[identifier].enemy){
             if (counter == bulletLimit){
@@ -63,7 +63,7 @@ void* logBullets(void*id){
             tronchiProiettili[identifier].x = tronchi[identifier].x+3;
             tronchiProiettili[identifier].y = tronchi[identifier].y;
 
-            while(tronchiProiettili[identifier].y < maxY-8){
+            while(tronchiProiettili[identifier].y < offsetMarciapiede){
                 pthread_mutex_lock(&mutex);
                 tronchiProiettili[identifier].y++;
                 pthread_mutex_unlock(&mutex);
