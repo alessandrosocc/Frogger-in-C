@@ -1,14 +1,7 @@
-/*
-    A 'plug and play' menu system for ncurses with automatic sizing and centering
-    Joe Standring <git@joestandring.com>
-    GNU GPLv3
-*/
-
 #include "menuGenerator.h"
 #include <ncurses.h>
 #include <stdlib.h>
 #include <string.h>
-
 int menu(char title[], char description[], char *choices[], int choicesSize, bool vertical, bool centered) // choicesSize is required as sizeOf does not work for array parameters (as far as I'm aware)
 {
     int menuXMax = 0;

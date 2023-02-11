@@ -1,9 +1,3 @@
-/*
-    A 'plug and play' menu system for ncurses with automatic sizing and centering
-    Joe Standring <git@joestandring.com>
-    GNU GPLv3
-*/
-
 #include "menuGenerator.h"
 #include <ncurses.h>
 #include <stdlib.h>
@@ -19,9 +13,7 @@ int menu(char title[], char description[], char *choices[], int choicesSize, boo
     int selection = 0;
     int yMax, xMax;
     int yMaxWindow,xMaxWindow;
-
     getmaxyx(stdscr, yMax, xMax);
-
     for(int i = 0; i < choicesSize; i++) // Gets the longest string in the array
     {
         if(strlen(choices[i]) > choicesLength)
@@ -29,7 +21,6 @@ int menu(char title[], char description[], char *choices[], int choicesSize, boo
             choicesLength = strlen(choices[i]);
         }
     }
-
     if(vertical)
     {
         menuHeight = choicesSize+8;
@@ -43,21 +34,17 @@ int menu(char title[], char description[], char *choices[], int choicesSize, boo
     {
         menuWidth = strlen(description)+4;
     }
-
     WINDOW *menu = newwin(menuHeight, menuWidth, yMax/2-menuHeight/2, xMax/2-menuWidth/2);
     getmaxyx(menu,yMaxWindow,xMaxWindow);//.
     box(menu, 0, 0);
     refresh();
     wrefresh(menu);
     keypad(menu, true);
-
     wattron(menu, A_REVERSE | A_BOLD);
     mvwprintw(menu, 0, xMaxWindow/2-strlen(title)/2, title);//.
     wattroff(menu, A_REVERSE | A_BOLD);
-
     mvwprintw(menu, 2, menuWidth/2-strlen(description)/2, description);
     mvwprintw(menu, menuHeight-3, menuWidth/2-4, "[C]ancel");
-
     menuXMax = getmaxx(menu);
 
     while(true)
@@ -136,5 +123,4 @@ int menu(char title[], char description[], char *choices[], int choicesSize, boo
                 break;
         }
     }
-
 }
