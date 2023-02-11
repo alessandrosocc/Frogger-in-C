@@ -18,6 +18,7 @@ int menu(char title[], char description[], char *choices[], int choicesSize, boo
     int choicesLength = 0;
     int selection = 0;
     int yMax, xMax;
+    int yMaxWindow,xMaxWindow;
 
     getmaxyx(stdscr, yMax, xMax);
 
@@ -44,14 +45,15 @@ int menu(char title[], char description[], char *choices[], int choicesSize, boo
     }
 
     WINDOW *menu = newwin(menuHeight, menuWidth, yMax/2-menuHeight/2, xMax/2-menuWidth/2);
+    getmaxyx(menu,yMaxWindow,xMaxWindow);//.
     box(menu, 0, 0);
     refresh();
     wrefresh(menu);
     keypad(menu, true);
 
-    wattron(menu, A_REVERSE);
-    mvwprintw(menu, 0, 2, title);
-    wattroff(menu, A_REVERSE);
+    wattron(menu, A_REVERSE | A_BOLD);
+    mvwprintw(menu, 0, xMaxWindow/2-strlen(title)/2, title);//.
+    wattroff(menu, A_REVERSE | A_BOLD);
 
     mvwprintw(menu, 2, menuWidth/2-strlen(description)/2, description);
     mvwprintw(menu, menuHeight-3, menuWidth/2-4, "[C]ancel");
@@ -87,7 +89,7 @@ int menu(char title[], char description[], char *choices[], int choicesSize, boo
                 }
             }
 
-            wattroff(menu, A_REVERSE);
+            wattroff(menu, A_REVERSE );
         }
 
         switch(wgetch(menu)) // Interaction

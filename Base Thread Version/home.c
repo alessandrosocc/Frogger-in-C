@@ -98,7 +98,12 @@ void windowGeneration(){
     init_pair(6,COLOR_WHITE, COLOR_MAGENTA);
     init_pair(7,COLOR_WHITE,COLOR_BLUE);
     init_pair(8,COLOR_BLACK,COLOR_RED);
-    init_pair(9,COLOR_WHITE,COLOR_BLACK);
+    init_pair(9,COLOR_YELLOW,COLOR_BLUE);
+    init_pair(10,COLOR_BLACK, COLOR_YELLOW);
+    //TEMPO text 
+    init_pair(11,COLOR_GREEN,COLOR_BLACK);
+    init_pair(12,COLOR_YELLOW,COLOR_BLACK);
+    init_pair(13,COLOR_RED,COLOR_BLACK);
     
     box(stdscr,0,0);
     int offsetSum=1;
@@ -111,25 +116,25 @@ void windowGeneration(){
     offsetPunteggio=offsetSum;
     offsetSum+=PUNTEGGIOVITE;
     offsetTane=offsetSum;
-    attron(COLOR_PAIR(3));
+    attron(COLOR_PAIR(9));
     mvhline(offsetSum,1,' ',maxX-2);
-    attroff(COLOR_PAIR(3));
+    attroff(COLOR_PAIR(9));
     offsetSum+=1;
     //tane
     for (size_t i=1;i<=maxX-2;i++){
-        attron(COLOR_PAIR(3));
+        attron(COLOR_PAIR(9));
         if (i<=3||(i%(maxX/NTANE)==0) || i>=maxX-3){
             mvvline(offsetSum,i,' ',TANE);
         }
-        attroff(COLOR_PAIR(3));
+        attroff(COLOR_PAIR(9));
     }
     offsetSum+=TANE;
 
     //fiume
     for (size_t i = offsetSum; i<= FIUME+offsetSum; i++){
-        attron(COLOR_PAIR(6));
+        attron(COLOR_PAIR(9));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(6));
+        attroff(COLOR_PAIR(9));
     }
     offsetFiume=offsetSum+1;
     offsetSum+=FIUME;
@@ -155,25 +160,20 @@ void windowGeneration(){
     offsetMarciapiede=offsetSum;
     //marciapiede
     for (size_t i = offsetSum; i< MARCIAPIEDE+offsetSum; i++){
-        attron(COLOR_PAIR(2));
+        attron(COLOR_PAIR(3));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(2));
+        attroff(COLOR_PAIR(3));
     }
     offsetSum+=MARCIAPIEDE;
     offsetTempo=offsetSum;
 
-    // //tempo
-    // for (size_t i = offsetSum; i<= offsetSum+3; i++){
-    //     attron(COLOR_PAIR(4));
-    //     mvhline(i, 1, ' ', maxX-2);
-    //     attroff(COLOR_PAIR(4));
-    // }
+
     pthread_mutex_unlock(&mutex);
 }
 
 void areaDiGioco(){
     pthread_mutex_lock(&mutex);
-    secondiRimanenti=maxX-2;
+    secondiRimanenti=maxX-10;
     pthread_mutex_unlock(&mutex);
     while(gioca){
         erase();
@@ -294,13 +294,13 @@ void displayTime(){
     pthread_mutex_lock(&mutex);
     if(flagTime){
         flagTime=0;
-        secondiRimanenti=maxX-2;
+        secondiRimanenti=maxX-10;
     }
     secondiRimanenti--;
     if(secondiRimanenti==0 && !flagTime){
         if(vite>0){
             vite--;
-            secondiRimanenti=maxX-2;
+            secondiRimanenti=maxX-10;
             rana.y=offsetMarciapiede;
             rana.x=maxX/2;
         }
@@ -314,18 +314,27 @@ void displayTime(){
         mvhline(offsetTempo,1,' ',secondiRimanenti);
         mvhline(offsetTempo+1,1,' ',secondiRimanenti);
         attroff(COLOR_PAIR(1));
+        attron(COLOR_PAIR(11));
+        mvprintw(offsetTempo,maxX-8,"TEMPO");
+        attroff(COLOR_PAIR(11));
     }
     else if(secondiRimanenti<((maxX-2)/2) && secondiRimanenti>=((maxX-2)/4)){
         attron(COLOR_PAIR(3));
         mvhline(offsetTempo,1,' ',secondiRimanenti);
         mvhline(offsetTempo+1,1,' ',secondiRimanenti);
         attroff(COLOR_PAIR(3));
+        attron(COLOR_PAIR(12));
+        mvprintw(offsetTempo,maxX-8,"TEMPO");
+        attroff(COLOR_PAIR(12));
     }
     else{
         attron(COLOR_PAIR(2));
         mvhline(offsetTempo,1,' ',secondiRimanenti);
         mvhline(offsetTempo+1,1,' ',secondiRimanenti);
         attroff(COLOR_PAIR(2));
+        attron(COLOR_PAIR(13));
+        mvprintw(offsetTempo,maxX-8,"TEMPO");
+        attron(COLOR_PAIR(13));
     }
     usleep(90000);
     pthread_mutex_unlock(&mutex);
@@ -345,7 +354,7 @@ void riprova(){
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;
         }
-        secondiRimanenti=maxX-2;
+        secondiRimanenti=maxX-10;
     }
 }
 void mostraVita(){
@@ -471,7 +480,7 @@ void printRana(){
 }
 void printMacchine(){
     for (int i = 0; i<NUMACCHINE; i++){
-            attron(COLOR_PAIR(9));
+            attron(COLOR_PAIR(9)| A_BOLD);
             
             if (macchine[i].type == 1){
                 pthread_mutex_lock(&mutex);
@@ -486,11 +495,11 @@ void printMacchine(){
                 pthread_mutex_unlock(&mutex);
             }
             
-            attroff(COLOR_PAIR(9));
+            attroff(COLOR_PAIR(9) | A_BOLD);
         }
 }
 void printTronchi(){
-    attron(COLOR_PAIR(6));
+    attron(COLOR_PAIR(9) | A_BOLD);
     for(size_t i = 0; i<NUMTRONCHI; i++){ 
         if(tronchi[i].enemy==false ){
             pthread_mutex_lock(&mutex);
@@ -513,5 +522,5 @@ void printTronchi(){
             pthread_mutex_unlock(&mutex);
         }
     }
-    attroff(COLOR_PAIR(6));
+    attroff(COLOR_PAIR(9) | A_BOLD);
 }
