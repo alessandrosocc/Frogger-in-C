@@ -11,3 +11,4 @@ void bulletMovement(int[], int[], elemento rana);
 void printFrog(int[]);
 
 extern bool gioca;
+extern int offsetEndTane;

@@ -64,8 +64,8 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
         if (woody.enemy == false){
             if (comunication <= 0 && id2 != woody.c ){
                 if (timeLimit == counter){ 
-                    //woody.enemy = true; // TRUE PER AVERE I NEMICI
-                    //enemyBullet(p1,p6,p9,woody);
+                    woody.enemy = true; // TRUE PER AVERE I NEMICI
+
                     counter = 0;
                 }
             }
@@ -75,7 +75,6 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
             }
         }
         else if(woody.enemy == true && counter == TIMERPROIETTILI){
-            fprintf(fp, "ciao\n");
             woody.sparato = true;
             write(p6[1], &woody, sizeof(elemento));
             woody.sparato = false;
@@ -98,8 +97,6 @@ void enemyBullet(int p1[],int p6[],int p9[], elemento nemico){
         enemyBulletShoot(p1, p6,p9, nemico);
         fprintf(fp,"ho killato un proiettile\n");
     }
-    // kill(bullet,1);
-    
 }
 
 //aggiorna le posizioni del proiettile
@@ -126,7 +123,7 @@ void enemyBulletShoot(int p1[], int p6[],int p9[], elemento enemy){
             proiettileNemico.sparato = false;
         }
 
-        if (proiettileNemico.y<maxY){
+        if (proiettileNemico.y<offsetMarciapiede){
             proiettileNemico.y += 1;
             write(p1[1], &proiettileNemico, sizeof(elemento));
         }

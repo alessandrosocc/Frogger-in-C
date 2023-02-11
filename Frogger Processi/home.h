@@ -53,7 +53,7 @@ void tempo(int[],int[]);
 void riprova(int*);
 void displayTime(int);
 void fineMancheThxTime(int[],int[],int,bool,int*,int,int);
-void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr);
+void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int*);
 void checkRanaInTana(int* frogCollisionPtr,elemento rana,int restartTime[],int timeRestart,int* punteggioPtr, int p4[]);
 void displayTanaChiusa(int taneChiuse[]);
 void checkRanaFiume(int vecchioWoody[],elemento woody[],int* punteggioPtr, elemento* ranaPtr, int* frogCollisionChangeLogScore, int* ranaSuLTroncoPtr, int p5[],elemento* vecchiaRanaPtr,int p9[]);

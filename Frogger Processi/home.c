@@ -262,7 +262,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         read(pipeTempo[0],&timeSignal,sizeof(timeSignal));
         displayTime(timeSignal);
         fineMancheThxTime(restartTime,p4,timeSignal,flagTime,punteggioPtr,frogCollision,timeRestart);
-        checkTaneOccupate(taneChiuse,totaleTaneChiusePtr);
+        checkTaneOccupate(taneChiuse,totaleTaneChiusePtr,punteggioPtr);
         read(p1[0], &(d), sizeof(elemento));
         getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr);
         getTronchiBullets(dptr,woody,bullets);
@@ -376,7 +376,7 @@ void checkRanaInTana(int* frogCollisionPtr, elemento rana, int restartTime[], in
         }
     }
 }
-void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr){
+void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int* punteggioPtr){
     //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
     for (size_t i=0;i<NTANE;i++){
         if(taneChiuse[i]==1){
@@ -387,6 +387,7 @@ void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr){
         clear();
         refresh();
         mvprintw(maxY/2,maxX/2,"HAI VINTO!");
+        mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",*punteggioPtr);
         refresh();
         sleep(5);
         exit(0);
@@ -760,7 +761,7 @@ void chiudiTana(int n){
     for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(8));
         if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
-            mvvline(offsetTane,i,'x',TANE);
+            mvvline(offsetTane+1,i,'x',TANE);
         }
         attroff(COLOR_PAIR(8));
     }
@@ -768,7 +769,7 @@ void chiudiTana(int n){
 
 void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *frogCollision, int* punteggio){
     for (int i = 0; i<NUMTRONCHI; i++){
-        if (proiettili[i].y == rana.y && rana.y != 0){
+        if (proiettili[i].sparato && proiettili[i].y == rana.y && rana.y != 0){
             if (proiettili[i].x == rana.x || proiettili[i].x == rana.x+1){
                 if(*frogCollision){
                     vite--;
@@ -790,7 +791,13 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
 void riprova(int* punteggio){
     char* choices[]={"Si","NO"};
     clear();
+    refresh();
+    mvprintw(maxY/2,maxX/2,"Hai Perso!");
+    mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",*punteggio);
+    refresh();
+    sleep(4);
     //gioca
+    clear();
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
     if(choice==0 || choice==2){
         gioca=false;

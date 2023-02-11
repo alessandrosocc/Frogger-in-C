@@ -104,7 +104,7 @@ void bulletMovement(int p1[],int p7[], elemento rana){
     proiettile.x = rana.x;
     proiettile.c = 21;
     int comunication = 0;
-    while(proiettile.y>=0){
+    while(proiettile.y>=offsetEndTane){
         proiettile.y -= 1;
         write(p1[1], &proiettile, sizeof(elemento));
         usleep(4000);
