@@ -25,7 +25,7 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 #define CORRENTI 5
 #define DIMCORRENTI 2
-#define PUNTEGGIO 3
+#define PUNTEGGIOVITE 1
 #define TANE 6
 #define FIUME 10
 #define PRATO 2

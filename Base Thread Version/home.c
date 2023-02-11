@@ -13,7 +13,7 @@ int main(){
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
     while(choice){
         if(choice==2){
-            choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/000??",choicesCredits,0,false,true);
+            choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/00010",choicesCredits,0,false,true);
             choice+=1;
         }
         else if(choice==1){
@@ -51,7 +51,7 @@ int main(){
             for (int i = 0;i<NUMTRONCHI; i++){
                 pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
             }
-            sleep(2);
+            //sleep(2);
             areaDiGioco();
 
             pthread_join(ranaId,NULL);
@@ -98,18 +98,23 @@ void windowGeneration(){
     init_pair(6,COLOR_WHITE, COLOR_MAGENTA);
     init_pair(7,COLOR_WHITE,COLOR_BLUE);
     init_pair(8,COLOR_BLACK,COLOR_RED);
+    init_pair(9,COLOR_WHITE,COLOR_BLACK);
     
     box(stdscr,0,0);
     int offsetSum=1;
     //punteggio
-    for (size_t i = 1; i<= PUNTEGGIO; i++){
+    for (size_t i = 1; i<= PUNTEGGIOVITE; i++){
         attron(COLOR_PAIR(7));
         mvhline(i, 1, ' ', maxX-2);
         attroff(COLOR_PAIR(7));
     }
     offsetPunteggio=offsetSum;
-    offsetSum+=3;
+    offsetSum+=PUNTEGGIOVITE;
     offsetTane=offsetSum;
+    attron(COLOR_PAIR(3));
+    mvhline(offsetSum,1,' ',maxX-2);
+    attroff(COLOR_PAIR(3));
+    offsetSum+=1;
     //tane
     for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(3));
@@ -140,9 +145,9 @@ void windowGeneration(){
 
     // autostrada
     for (size_t i = offsetSum; i<= offsetSum+AUTOSTRADA; i++){
-        attron(COLOR_PAIR(4));
+        attron(COLOR_PAIR(9));
         mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(4));
+        attroff(COLOR_PAIR(9));
     }
     offsetAutostrada=offsetSum-1; //non so perchè ma vuole quel -1 altrimenti non è ben formattato
     offsetSum+=AUTOSTRADA;
@@ -155,23 +160,14 @@ void windowGeneration(){
         attroff(COLOR_PAIR(2));
     }
     offsetSum+=MARCIAPIEDE;
-    offsetVite=offsetSum;
-    //vite
-    for (size_t i = offsetSum; i<= TEMPO+offsetSum; i++){
-        attron(COLOR_PAIR(3));
-        mvhline(i, 1, ' ', 20);
-        attroff(COLOR_PAIR(3));
-    }
+    offsetTempo=offsetSum;
 
-    offsetSum+=VITE;
-    offsetTempo=offsetSum+1;
-
-    //tempo
-    for (size_t i = offsetSum; i<= offsetSum+3; i++){
-        attron(COLOR_PAIR(4));
-        mvhline(i, 1, ' ', maxX-2);
-        attroff(COLOR_PAIR(4));
-    }
+    // //tempo
+    // for (size_t i = offsetSum; i<= offsetSum+3; i++){
+    //     attron(COLOR_PAIR(4));
+    //     mvhline(i, 1, ' ', maxX-2);
+    //     attroff(COLOR_PAIR(4));
+    // }
     pthread_mutex_unlock(&mutex);
 }
 
@@ -349,17 +345,29 @@ void riprova(){
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;
         }
+        secondiRimanenti=maxX-2;
     }
 }
 void mostraVita(){
-    int x=3;
-    for (int i=0;i<vite;i++){
-        mvaddch(offsetVite+1,x+=2,'#');
-    }
+    attron(COLOR_PAIR(7));
+    attron(A_BOLD);
+    mvprintw(offsetPunteggio,2,"Vite : ");
+    // VITE CON SIMBOLO
+    // int x=8;
+    // for (int i=0;i<vite;i++){
+    //     mvaddch(offsetPunteggio,x+=2,'#');
+    // }
+    mvprintw(offsetPunteggio,9,"%d",vite);
+    attroff(COLOR_PAIR(7));
+    attroff(A_BOLD);
     return;
 }
 void mostraPunteggio(){
-    mvprintw(2,maxX/2-2,"%d",punteggio);
+    attron(COLOR_PAIR(7));
+    attron(A_BOLD);
+    mvprintw(offsetPunteggio,maxX-17,"Punteggio : %d",punteggio);
+    attroff(A_BOLD);
+    attron(COLOR_PAIR(7));
     return;
 }
 void proiettileRanaCollideConMacchine(){
@@ -463,7 +471,8 @@ void printRana(){
 }
 void printMacchine(){
     for (int i = 0; i<NUMACCHINE; i++){
-            attron(COLOR_PAIR(4));
+            attron(COLOR_PAIR(9));
+            
             if (macchine[i].type == 1){
                 pthread_mutex_lock(&mutex);
                 mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
@@ -476,7 +485,8 @@ void printMacchine(){
                 mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
                 pthread_mutex_unlock(&mutex);
             }
-            attroff(COLOR_PAIR(4));
+            
+            attroff(COLOR_PAIR(9));
         }
 }
 void printTronchi(){
