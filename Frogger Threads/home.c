@@ -2,6 +2,10 @@
 #include "home.h"
 
 int main(){
+    char command[256];
+    sprintf(command,"aplay %s","/Users/alessandrosoccol/Downloads/sound.wav");
+    system(command);
+
     time(NULL);
     srand(time(NULL));
     fp = fopen("log.txt", "w");
