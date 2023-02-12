@@ -90,24 +90,28 @@ int main(){
             if(choice){
                 switch(choice){
                     case 1: //principiante
-                        vite=10;
+                        #define LVLVITE 10 // mi serve quando il giocatore perde e vuole rigiocare, devo reimpostare le vite
+                        vite=LVLVITE;
                         #define REMAININGTIME 800000
                         speedVehicles=30000;
                         speedLegnetto=50000;
                         break;
                     case 2: //intermedio
-                        vite=5;
+                        #define LVLVITE 5
+                        vite=LVLVITE;
                         #define REMAININGTIME 600000
                         speedVehicles=30000;
                         speedLegnetto=50000;
                     case 3: //difficile
-                        vite=3;
+                        #define LVLVITE 3
+                        vite=LVLVITE;
                         #define REMAININGTIME 200000
                         speedVehicles=10000;
                         speedLegnetto=30000;
                         break;
                     case 4: //impossibile
-                        vite=2;
+                        #define LVLVITE 2
+                        vite=LVLVITE;
                         #define REMAININGTIME 150000
                         speedVehicles=5000;
                         speedLegnetto=10000;
@@ -856,7 +860,7 @@ void riprova(int* punteggio, int stopGame[]){
         return;
     }else{
         // resetto tutto
-        vite=VITE;
+        vite=LVLVITE;
         *punteggio=0;
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;
