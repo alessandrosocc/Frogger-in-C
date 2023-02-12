@@ -18,7 +18,6 @@
 #include "river.h"
 
 #include "menuGenerator.h"
-
 time_t t;
 FILE* fp; 
 /*
@@ -75,7 +74,10 @@ int main(){
     // #####################
     // ### Menu Iniziale ###
     // #####################
+    int speedVehicles=0;
+    int speedLegnetto=0;
     char* choices[]={"Inizia a Giocare","Credits"};
+    char* choicesDifficulty[]={"Principiante","Intermedio","Esperto","Impossibile"};
     char* choicesCredits[]={""};
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
     while(choice){
@@ -84,15 +86,43 @@ int main(){
             choice+=1;
         }
         else if(choice==1){
-            clear();
-            refresh();
-            windowGeneration(); // genero la window
-            processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9,pipeTempo,restartTime,stopGame);
-            wait(NULL);
+            choice=menu("Difficoltà","Scegli la Difficoltà",choicesDifficulty,4,true,false);
+            if(choice){
+                switch(choice){
+                    case 1: //principiante
+                        vite=10;
+                        #define REMAININGTIME 800000
+                        speedVehicles=30000;
+                        speedLegnetto=50000;
+                        break;
+                    case 2: //intermedio
+                        vite=5;
+                        #define REMAININGTIME 600000
+                        speedVehicles=30000;
+                        speedLegnetto=50000;
+                    case 3: //difficile
+                        vite=3;
+                        #define REMAININGTIME 200000
+                        speedVehicles=10000;
+                        speedLegnetto=30000;
+                        break;
+                    case 4: //impossibile
+                        vite=2;
+                        #define REMAININGTIME 150000
+                        speedVehicles=5000;
+                        speedLegnetto=10000;
+                        break;
+                }
+                clear();
+                refresh();
+                windowGeneration(); // genero la window
+                processGeneration(p1,p2,p3,p4,p5,p6,p7,p8,p9,pipeTempo,restartTime,stopGame,speedVehicles,speedLegnetto);
+                wait(NULL);
+            }
+            
         }
         choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
-    }
-
+    }   
     endwin();
     fclose(fp);
     return 0;
@@ -195,7 +225,7 @@ void windowGeneration(){
     offsetTempo=offsetSum;
 }
 
-void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int restartTime[],int stopGame[]){
+void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int restartTime[],int stopGame[],int speedVehicles,int speedLegnetto){
     int via = 0;
     pid_t inizializzatoreProcessi;
     pid_t macchine[NUMMACCHINE];
@@ -208,7 +238,7 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
             macchine[i] = fork();
             if (macchine[i] == 0){
                 //chiamo la funzione macchine
-                funzioneMacchina(p1,p2,p3,stopGame,i);
+                funzioneMacchina(p1,p2,p3,stopGame,speedVehicles,i);
             }
         }
         rana = fork();
@@ -225,7 +255,7 @@ void processGeneration(int p1[],int p2[],int p3[],int p4[],int p5[],int p6[], in
             tronchi[i] = fork();
             if (tronchi[i] == 0){
                 // chiamo la funzione tronchi
-                legnetto(p1,p6,p8,p9,stopGame,i);
+                legnetto(p1,p6,p8,p9,stopGame,i,speedLegnetto);
             }
         }
     }
@@ -837,7 +867,7 @@ void riprova(int* punteggio, int stopGame[]){
 void tempo(int pipeTempo[],int restartTime[],int stopGame[]){
     bool gioca=true;
     int flag=0;
-    int secondoSignal=maxX-2;
+    int secondoSignal=maxX-10;
     while(gioca){
         read(stopGame[0],&gioca,sizeof(gioca));
         // invia ad intervalli di un secondo, un segnale
@@ -845,10 +875,10 @@ void tempo(int pipeTempo[],int restartTime[],int stopGame[]){
         secondoSignal--;
         read(restartTime[0],&flag,sizeof(flag));
         if(flag){
-            secondoSignal=maxX-2;
+            secondoSignal=maxX-10;
             flag=0;
         }
-        usleep(100000);
+        usleep(REMAININGTIME);
     }
     exit(0);
     

@@ -111,7 +111,7 @@ void* car(void*id){
             }
             pthread_mutex_unlock(&mutex);
                     
-            usleep(50000);
+            usleep(speedVehicles);
         }
     }
     pthread_exit(0);

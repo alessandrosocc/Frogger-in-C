@@ -19,7 +19,7 @@
 #define false 0
 #define KILLPROIETTILE 99
 
-void legnetto(int p1[],int p6[], int p8[],int p9[],int stopGame[], int riga){
+void legnetto(int p1[],int p6[], int p8[],int p9[],int stopGame[], int riga,int speedLegnetto){
     bool gioca=true;
     srand(getpid());
     close(p1[0]);
@@ -83,7 +83,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[],int stopGame[], int riga){
             counter = 0;
         }
         write(p1[1], &woody, sizeof(elemento));
-        usleep(DELAYT);
+        usleep(speedLegnetto);
         //sleep(); //OGNI QUANTO GENERARE TRONCHI?
         counter++; //delay enemy
     }

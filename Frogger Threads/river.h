@@ -29,3 +29,4 @@ extern elemento rana;
 void generaProiettile();
 void* log(void*);
 void* logBullets(void*);
+extern int speedLegnetto;

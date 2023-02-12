@@ -6,7 +6,7 @@
 #define TIMERPROIETTILI 100
 extern FILE* fp;
 void printLog(int[]);
-void legnetto(int[],int[],int[],int[],int[], int);
+void legnetto(int[],int[],int[],int[],int[], int,int);
 void enemyBullet(int[], int[],int [], elemento);
 void enemyBulletShoot(int[], int[],int[], elemento);
 void printEnemyBullets(int[]);

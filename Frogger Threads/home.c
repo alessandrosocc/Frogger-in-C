@@ -7,7 +7,7 @@ int main(){
     fp = fopen("log.txt", "w");
     initScreen();
     //windowGeneration();
-
+    char* choicesDifficulty[]={"Principiante","Intermedio","Esperto","Impossibile"};
     char* choices[]={"Inizia a Giocare","Credits"};
     char* choicesCredits[]={""};
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
@@ -17,6 +17,34 @@ int main(){
             choice+=1;
         }
         else if(choice==1){
+            choice=menu("Difficoltà","Scegli la Difficoltà",choicesDifficulty,4,true,false);
+            if(choice){
+                switch(choice){
+                    case 1: //principiante
+                        vite=10;
+                        #define REMAININGTIME 800000
+                        speedVehicles=30000;
+                        speedLegnetto=50000;
+                        break;
+                    case 2: //intermedio
+                        vite=5;
+                        #define REMAININGTIME 600000
+                        speedVehicles=30000;
+                        speedLegnetto=50000;
+                    case 3: //difficile
+                        vite=3;
+                        #define REMAININGTIME 200000
+                        speedVehicles=10000;
+                        speedLegnetto=30000;
+                        break;
+                    case 4: //impossibile
+                        vite=2;
+                        #define REMAININGTIME 150000
+                        speedVehicles=5000;
+                        speedLegnetto=10000;
+                        break;
+                }
+            }
             clear();
             refresh();
             windowGeneration(); // genero la window

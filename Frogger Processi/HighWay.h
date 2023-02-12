@@ -22,11 +22,11 @@ extern int offsetAutostrada;
 #define MACCHINE 2
 #define NUMMACCHINE 10
 #define ATTESACAMBIOCORSIA 25000
-#define DELAYM 30000
+//#define DELAYM 30000 
 
 
 bool ControlloCollisione(elemento);
-void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id);
+void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[],int speedVehicles, int id);
 //bool carCollision(elemento, int p[]);
 
 

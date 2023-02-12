@@ -16,14 +16,13 @@ void windowGeneration();
 void initScreen(int*, int*);
 void mostraVita(int);
 
-
 // global variables
 int offsetAutostrada = 0;
 int offsetFiume=0;
 int offsetTempo=0;
 int offsetMarciapiede=0;
 int idMacchine = 0;
-int vite=5;
+int vite=0;
 int maxX=0, maxY=0;
 int addPoints=0;
 int taneChiuse[NTANE]={0};
@@ -42,7 +41,7 @@ void stampaRanaBullets(elemento,elemento);
 void stampaMacchinaCamion(elemento[]);
 void getDataFromPipe(int[],elemento*,elemento[],elemento*, elemento*);
 void collisionRanaVehicles(int, int[],int[], int*,elemento*,elemento[],int*,int[]);
-void processGeneration(int[],int[],int[],int[],int[],int[],int[],int[], int[],int[],int[],int[]);
+void processGeneration(int[],int[],int[],int[],int[],int[],int[],int[], int[],int[],int[],int[],int,int);
 void ranaKillEnemy(elemento,elemento*, elemento [], int [], int*);
 void collisioneProiettiliMacchine(elemento *, elemento [], elemento [], int []);
 void collisioneProiettileRanaProiettiliNemici(elemento *, elemento[], int[]);

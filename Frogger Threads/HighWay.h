@@ -45,7 +45,7 @@ extern bool gioca;
 elemento macchine[NUMACCHINE];
 elemento tronchi[NUMTRONCHI];
 elemento tronchiProiettili[NUMTRONCHI];
-
+extern int speedVehicles;
 void* car(void*);
 
 void printMacchine();

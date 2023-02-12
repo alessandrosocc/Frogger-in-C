@@ -48,7 +48,7 @@ void* log(void*id){
             rana.x += direzione;
         }
         pthread_mutex_unlock(&mutex);
-        usleep(70000);
+        usleep(speedLegnetto);
         counter ++;
     }
     pthread_exit(0);

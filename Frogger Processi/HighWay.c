@@ -11,7 +11,7 @@
 #include "HighWay.h"
 
 
-void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id){
+void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[],int speedVehicles, int id){
     bool gioca=true;
     srand(getpid());
     int maxX = 0, maxY = 0, x = 0, y = 0, n = 0, counter = 0;
@@ -45,7 +45,7 @@ void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id){
     while (flag){
         int num = CORSIE;
         read(p2[0], &num, sizeof(int));
-        usleep(DELAYM/10);
+        usleep(speedVehicles/10);
         if (num == 1){
             //fprintf(fp,"ho cambiamo la posizione della macchine %d\n", id);
             macchina.y=possibleStartY[(rand()%5)]+offsetAutostrada;
@@ -96,7 +96,7 @@ void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id){
                 macchina.x += 1;
             }
         }
-        usleep(DELAYM);
+        usleep(speedVehicles);
         write(p1[1], &macchina, sizeof(elemento));
     }
     exit(0);

@@ -62,7 +62,8 @@ bool flagTime=0;
 int timeSignal=0;
 int taneChiuse[NTANE]={0};
 int totaleTaneChiuse=0;
-
+int speedVehicles=0;
+int speedLegnetto=0;
 
 
 elemento rana;
