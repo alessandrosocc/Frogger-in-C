@@ -13,14 +13,14 @@ int main(){
     pthread_t open,reopen;
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
     pthread_create(&open,NULL,&playOpenGame,NULL);
-    pthread_join(&open,NULL);
+    pthread_join(open,NULL);
     while(choice){
         if(choice==2){
             pthread_t credits;
             choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/00010",choicesCredits,0,false,true);
             choice+=1;
             pthread_create(&credits,NULL,&playOpenGame,NULL);
-            pthread_join(&credits,NULL);
+            pthread_join(credits,NULL);
         }
         else if(choice==1){
             choice=menu("Difficoltà","Scegli la Difficoltà",choicesDifficulty,4,true,false);
@@ -57,7 +57,7 @@ int main(){
             }
             pthread_t startingGame;
             pthread_create(&startingGame,NULL,&playStartingGame,NULL);
-            pthread_join(&startingGame,NULL);
+            pthread_join(startingGame,NULL);
             //sleep(4);
             clear();
             refresh();
@@ -364,7 +364,7 @@ void ranaSulFiume(){
                     secondiRimanenti=maxX-10;
                     pthread_t killato;
                     pthread_create(&killato,NULL,&playKilled,NULL);
-                    pthread_join(&killato,NULL);
+                    pthread_join(killato,NULL);
                 }
                 else if(gioca){
                     riprova();
@@ -402,7 +402,7 @@ void checkRanaInTana(){
                 if (vite>0){
                     pthread_t killato;
                     pthread_create(&killato,NULL,&playKilled,NULL);
-                    pthread_join(&killato,NULL);
+                    pthread_join(killato,NULL);
                     vite--;
                 }
                 else{
@@ -436,7 +436,7 @@ void checkTane(){
         pthread_t win;
         if(gioca){
             pthread_create(&win,NULL,&playWinner,NULL);
-            pthread_join(&win,NULL);
+            pthread_join(win,NULL);
         }
         mvprintw(maxY/2,maxX/2,"HAI VINTO!");
         mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",punteggio);
@@ -468,7 +468,7 @@ void* calculateResidualTime(void* X){
                 rana.x=maxX/2;
                 pthread_t killato;
                 pthread_create(&killato,NULL,&playKilled,NULL);
-                pthread_join(&killato,NULL);
+                pthread_join(killato,NULL);
             }
             else if(gioca){
                 riprova();
@@ -524,7 +524,7 @@ void riprova(){
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
     if(gioca){
         pthread_create(&musicaEndGame,NULL,&playEndGame,NULL);
-        pthread_join(&musicaEndGame,NULL);
+        pthread_join(musicaEndGame,NULL);
     }
     
     if(choice==0 || choice==2){
@@ -594,7 +594,7 @@ void ranaCollideConMacchine(){
                         secondiRimanenti=maxX-10;
                         pthread_t killato;
                         pthread_create(&killato,NULL,&playKilled,NULL);
-                        pthread_join(&killato,NULL);
+                        pthread_join(killato,NULL);
                     }
                     else if(gioca){
                         riprova();
@@ -612,7 +612,7 @@ void ranaCollideConMacchine(){
                         secondiRimanenti=maxX-10;
                         pthread_t killato;
                         pthread_create(&killato,NULL,&playKilled,NULL);
-                        pthread_join(&killato,NULL);
+                        pthread_join(killato,NULL);
                     }
                     else if(gioca){
                         riprova();
@@ -653,7 +653,7 @@ void enemyKillRana(){
                         secondiRimanenti=maxX-10;
                         pthread_t killato;
                         pthread_create(&killato,NULL,&playKilled,NULL);
-                        pthread_join(&killato,NULL);
+                        pthread_join(killato,NULL);
                     }
                     else if(gioca){
                         riprova();
@@ -673,7 +673,7 @@ void printRana(){
     ranaProiettile.sparato?mvaddch(ranaProiettile.y, ranaProiettile.x, '*'):1;
     if(ranaProiettile.sparato && !count){ //count serve per avviare la musica una volta e basta
         pthread_create(&musicaProiettile,NULL,&playProiettile,NULL);
-        pthread_join(&musicaProiettile,NULL);
+        pthread_join(musicaProiettile,NULL);
         count++;
     }
     if(ranaProiettile.y==offsetEndTane && ranaProiettile.sparato==0){ // playProiettile può ricominciare
