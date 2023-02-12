@@ -1,6 +1,5 @@
 #include "frog.h"
 void* ffrog(){
-    
     rana.c=20;
     rana.x = maxX/2;
     rana.y = offsetMarciapiede;
@@ -33,6 +32,7 @@ void* ffrog(){
         pthread_mutex_unlock(&mutex);
         usleep(10000);
     }
+    pthread_exit(0);
 }
 void* bullet(){
     while(gioca){

@@ -114,4 +114,5 @@ void* car(void*id){
             usleep(50000);
         }
     }
+    pthread_exit(0);
 }

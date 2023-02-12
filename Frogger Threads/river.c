@@ -51,6 +51,7 @@ void* log(void*id){
         usleep(70000);
         counter ++;
     }
+    pthread_exit(0);
 }
 
 void* logBullets(void*id){

@@ -19,7 +19,7 @@
 #define false 0
 #define KILLPROIETTILE 99
 
-void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
+void legnetto(int p1[],int p6[], int p8[],int p9[],int stopGame[], int riga){
     bool gioca=true;
     srand(getpid());
     close(p1[0]);
@@ -36,6 +36,7 @@ void legnetto(int p1[],int p6[], int p8[],int p9[], int riga){
     enemyBullet(p1,p6,p9,woody);
     write(p1[1], &woody, sizeof(elemento));
     while(gioca){
+        read(stopGame[0],&gioca,sizeof(gioca));
         removeEnemy = 0;
         comunication = 0;
         id1 = 0;

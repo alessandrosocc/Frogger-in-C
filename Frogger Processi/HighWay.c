@@ -20,8 +20,6 @@ void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id){
     elemento macchina;
     int possibleStartY[CORSIE]={0};
     bool flag = true;
-    
-    
     // generazione corsie possibili per le macchine
     for(int i=0;i<NUMMACCHINE;i++){
         if (i%2!=0 && i != 0){
@@ -63,6 +61,7 @@ void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[], int id){
     write(p1[1],&macchina,sizeof(elemento));
 
     while (gioca){
+        read(stopGame[0],&gioca,sizeof(gioca));
         flag = true;
         if (ControlloCollisione(macchina)){ // verifico se c'è stata una collisione
             while(flag){ // se si entro nel while 

@@ -13,7 +13,7 @@
 #include "frog.h"
 
 
-void ffrog(int p1[], int p4[], int p5[], int p7[]){
+void ffrog(int p1[], int p4[], int p5[], int p7[],int stopGame[]){
     bool gioca=true;
     elemento rana, tmp, oldfrog;
     tmp.cambioMovimento=false; // ALTRIMENTI SPAWNA IN ALTO A SINISTRA
@@ -28,6 +28,7 @@ void ffrog(int p1[], int p4[], int p5[], int p7[]){
     write(p1[1],&rana, sizeof(elemento));
 
     while(gioca){
+        read(stopGame[0],&gioca,sizeof(gioca)); 
         // prima di tutto leggo la pipe che mi fa comunicare con la funzione di controllo
         read(p4[0], &(collisionDetection), sizeof(int));
         read(p5[0], &tmp, sizeof(elemento));

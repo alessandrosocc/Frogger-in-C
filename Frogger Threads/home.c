@@ -10,7 +10,7 @@ int main(){
 
     char* choices[]={"Inizia a Giocare","Credits"};
     char* choicesCredits[]={""};
-    int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
+    int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
     while(choice){
         if(choice==2){
             choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/00010",choicesCredits,0,false,true);
@@ -220,11 +220,11 @@ void ranaSulFiume(){
         pthread_mutex_lock(&mutex);
         if (tronchi[i].y == rana.y){
             if((rana.y==tronchi[i].y && (rana.x<tronchi[i].x || rana.x>=tronchi[i].x+8))||(tronchi[i].enemy)){
-                
                 rana.x = maxX/2;
                 rana.y = offsetMarciapiede;
                 if (vite>0){
                     vite--;
+                    secondiRimanenti=maxX-10;
                 }
                 else{
                     riprova();
@@ -432,6 +432,7 @@ void ranaCollideConMacchine(){
                     rana.y = offsetMarciapiede;
                     if (vite>0){
                         vite--;
+                        secondiRimanenti=maxX-10;
                     }
                     else{
                         riprova();
