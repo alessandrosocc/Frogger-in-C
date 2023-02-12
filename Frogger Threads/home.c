@@ -10,41 +10,55 @@ int main(){
     char* choicesDifficulty[]={"Principiante","Intermedio","Esperto","Impossibile"};
     char* choices[]={"Inizia a Giocare","Credits"};
     char* choicesCredits[]={""};
+    pthread_t open,reopen;
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
+    pthread_create(&open,NULL,&playOpenGame,NULL);
+    pthread_join(&open,NULL);
     while(choice){
         if(choice==2){
+            pthread_t credits;
             choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/00010",choicesCredits,0,false,true);
             choice+=1;
+            pthread_create(&credits,NULL,&playOpenGame,NULL);
+            pthread_join(&credits,NULL);
         }
         else if(choice==1){
             choice=menu("Difficoltà","Scegli la Difficoltà",choicesDifficulty,4,true,false);
             if(choice){
                 switch(choice){
                     case 1: //principiante
-                        vite=10;
+                        #define LVLVITE 10 // mi serve quando il giocatore perde e vuole rigiocare, devo reimpostare le vite
+                        vite=LVLVITE;
                         #define REMAININGTIME 800000
                         speedVehicles=30000;
                         speedLegnetto=50000;
                         break;
                     case 2: //intermedio
-                        vite=5;
+                        #define LVLVITE 5
+                        vite=LVLVITE;
                         #define REMAININGTIME 600000
                         speedVehicles=30000;
                         speedLegnetto=50000;
                     case 3: //difficile
-                        vite=3;
+                        #define LVLVITE 3
+                        vite=LVLVITE;
                         #define REMAININGTIME 200000
                         speedVehicles=10000;
                         speedLegnetto=30000;
                         break;
                     case 4: //impossibile
-                        vite=2;
+                        #define LVLVITE 2
+                        vite=LVLVITE;
                         #define REMAININGTIME 150000
                         speedVehicles=5000;
                         speedLegnetto=10000;
                         break;
                 }
             }
+            pthread_t startingGame;
+            pthread_create(&startingGame,NULL,&playStartingGame,NULL);
+            pthread_join(&startingGame,NULL);
+            sleep(4);
             clear();
             refresh();
             windowGeneration(); // genero la window
@@ -68,6 +82,7 @@ int main(){
             pthread_t tronchiId[NUMTRONCHI];
             pthread_t proiettiliId[NUMTRONCHI];
             pthread_t tempoThread;
+            pthread_t musica;
             // creazione dei thread
             pthread_create(&tempoThread,NULL,&calculateResidualTime,NULL);
             pthread_create(&ranaId, NULL, &ffrog, NULL);
@@ -81,7 +96,6 @@ int main(){
             for (int i = 0;i<NUMTRONCHI; i++){
                 pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
             }
-            //sleep(2);
             areaDiGioco();
             pthread_join(tempoThread,NULL);
             pthread_join(ranaId,NULL);
@@ -99,21 +113,97 @@ int main(){
             wait(NULL);
         }
         choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
+
     }
     
     endwin();
     fclose(fp);
     return 0;
 }
-void playMusic(){
+void* playMusic(void* X){
+    char command[256];
+    while(gioca){
+        #ifdef __linux__
+        sprintf(command,"aplay %s","../musica/sound.wav");
+        #endif
+        #ifdef __APPLE__ || __MACH__
+            sprintf(command,"afplay %s","../musica/sound.wav");
+        #endif
+        system(command);
+    }
+    
+}
+void* playKilled(void* X){
     char command[256];
     #ifdef __linux__
-        sprintf(command,"aplay %s","sound.wav");
+    sprintf(command,"aplay %s","../musica/killed.wav");
     #endif
     #ifdef __APPLE__ || __MACH__
-        sprintf(command,"afplay %s","sound.wav");
+        sprintf(command,"afplay %s","../musica/killed.wav");
     #endif
     system(command);
+    
+    
+}
+void* playProiettile(void* X){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/proiettile.wav");
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/proiettile.wav");
+    #endif
+    system(command);
+    pthread_exit(0);
+    
+}
+void* playEndGame(void* X){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/endGame.wav");
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/endGame.wav");
+    #endif
+    system(command);
+    pthread_exit(0);
+    
+}
+void* playOpenGame(void* X){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/openSong.wav");
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/openSong.wav");
+    #endif
+    system(command);
+    pthread_exit(0);
+    
+}
+void* playWinner(void* X){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/winner.wav");
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/winner.wav");
+    #endif
+    system(command);
+    pthread_exit(0);
+    
+}
+void* playStartingGame(void* X){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/startingGame.wav");
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/startingGame.wav");
+    #endif
+    system(command);
+    pthread_exit(0);
+    
 }
 void initScreen(){
     initscr(); 
@@ -249,7 +339,6 @@ void areaDiGioco(){
             printRana();
         }
         usleep(500);
-        playMusic();
         refresh();
     }
 }
@@ -263,8 +352,11 @@ void ranaSulFiume(){
                 if (vite>0){
                     vite--;
                     secondiRimanenti=maxX-10;
+                    pthread_t killato;
+                    pthread_create(&killato,NULL,&playKilled,NULL);
+                    pthread_join(&killato,NULL);
                 }
-                else{
+                else if(gioca){
                     riprova();
                 }
                 
@@ -298,6 +390,9 @@ void checkRanaInTana(){
             }
             else if(taneChiuse[i]){
                 if (vite>0){
+                    pthread_t killato;
+                    pthread_create(&killato,NULL,&playKilled,NULL);
+                    pthread_join(&killato,NULL);
                     vite--;
                 }
                 else{
@@ -328,10 +423,18 @@ void checkTane(){
     if (totaleTaneChiuse==NTANE){
         clear();
         refresh();
+        pthread_t win;
+        if(gioca){
+            pthread_create(&win,NULL,&playWinner,NULL);
+            pthread_join(&win,NULL);
+        }
         mvprintw(maxY/2,maxX/2,"HAI VINTO!");
         mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",punteggio);
         refresh();
         sleep(5);
+        pthread_mutex_lock(&mutex);
+        gioca=false;
+        pthread_mutex_unlock(&mutex);
         exit(0);
     }
     else{
@@ -340,7 +443,6 @@ void checkTane(){
     pthread_mutex_unlock(&mutex);
 }
 void* calculateResidualTime(void* X){
-    
     while(gioca){
         pthread_mutex_lock(&mutex);
         if(flagTime){
@@ -354,8 +456,11 @@ void* calculateResidualTime(void* X){
                 secondiRimanenti=maxX-10;
                 rana.y=offsetMarciapiede;
                 rana.x=maxX/2;
+                pthread_t killato;
+                pthread_create(&killato,NULL,&playKilled,NULL);
+                pthread_join(&killato,NULL);
             }
-            else{
+            else if(gioca){
                 riprova();
             }
         }
@@ -404,13 +509,19 @@ void riprova(){
     refresh();
     sleep(4);
     clear();
+    pthread_t musicaEndGame;
     //gioca
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
+    if(gioca){
+        pthread_create(&musicaEndGame,NULL,&playEndGame,NULL);
+        pthread_join(&musicaEndGame,NULL);
+    }
+    
     if(choice==0 || choice==2){
         gioca=false;
     }else{
         // resetto tutto
-        vite=NVITE;
+        vite=LVLVITE;
         punteggio=0;
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;
@@ -471,8 +582,11 @@ void ranaCollideConMacchine(){
                     if (vite>0){
                         vite--;
                         secondiRimanenti=maxX-10;
+                        pthread_t killato;
+                        pthread_create(&killato,NULL,&playKilled,NULL);
+                        pthread_join(&killato,NULL);
                     }
-                    else{
+                    else if(gioca){
                         riprova();
                     }
                     pthread_mutex_unlock(&mutex);
@@ -485,8 +599,12 @@ void ranaCollideConMacchine(){
                     rana.y = offsetMarciapiede;
                     if (vite>0){
                         vite--;
+                        secondiRimanenti=maxX-10;
+                        pthread_t killato;
+                        pthread_create(&killato,NULL,&playKilled,NULL);
+                        pthread_join(&killato,NULL);
                     }
-                    else{
+                    else if(gioca){
                         riprova();
                     }
                     pthread_mutex_unlock(&mutex);
@@ -521,9 +639,13 @@ void enemyKillRana(){
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
                     if (vite>0){
-                    vite--;
+                        vite--;
+                        secondiRimanenti=maxX-10;
+                        pthread_t killato;
+                        pthread_create(&killato,NULL,&playKilled,NULL);
+                        pthread_join(&killato,NULL);
                     }
-                    else{
+                    else if(gioca){
                         riprova();
                     }
                     i = NUMTRONCHI;
@@ -534,10 +656,19 @@ void enemyKillRana(){
     }
 }
 void printRana(){
+    pthread_t musicaProiettile;
     pthread_mutex_lock(&mutex);
     mvprintw(rana.y,rana.x,"\\/");
     mvprintw(rana.y+1,rana.x,"/\\");
-    mvaddch(ranaProiettile.y, ranaProiettile.x, '*');
+    ranaProiettile.sparato?mvaddch(ranaProiettile.y, ranaProiettile.x, '*'):1;
+    if(ranaProiettile.sparato && !count){ //count serve per avviare la musica una volta e basta
+        pthread_create(&musicaProiettile,NULL,&playProiettile,NULL);
+        pthread_join(&musicaProiettile,NULL);
+        count++;
+    }
+    if(ranaProiettile.y==offsetEndTane && ranaProiettile.sparato==0){ // playProiettile può ricominciare
+        count=0;
+    }
     pthread_mutex_unlock(&mutex);
 }
 void printMacchine(){
