@@ -2,10 +2,6 @@
 #include "home.h"
 
 int main(){
-    char command[256];
-    sprintf(command,"aplay %s","/Users/alessandrosoccol/Downloads/sound.wav");
-    system(command);
-
     time(NULL);
     srand(time(NULL));
     fp = fopen("log.txt", "w");
@@ -109,7 +105,16 @@ int main(){
     fclose(fp);
     return 0;
 }
-
+void playMusic(){
+    char command[256];
+    #ifdef __linux__
+        sprintf(command,"aplay %s","sound.wav");
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","sound.wav");
+    #endif
+    system(command);
+}
 void initScreen(){
     initscr(); 
     curs_set(0); // settiamo il cursore per essere invisibile
@@ -244,6 +249,7 @@ void areaDiGioco(){
             printRana();
         }
         usleep(500);
+        playMusic();
         refresh();
     }
 }

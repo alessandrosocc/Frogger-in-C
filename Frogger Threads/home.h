@@ -97,3 +97,4 @@ extern void* log(void*);
 extern void* logBullets(void*);
 void collisioneProiettileRanaTronco();
 void showTime();
+void playMusic();
