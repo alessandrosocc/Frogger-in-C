@@ -113,9 +113,7 @@ int main(){
             wait(NULL);
         }
         choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
-
     }
-    
     endwin();
     fclose(fp);
     return 0;
@@ -155,7 +153,6 @@ void* playProiettile(void* X){
     #endif
     system(command);
     pthread_exit(0);
-    
 }
 void* playEndGame(void* X){
     char command[256];
