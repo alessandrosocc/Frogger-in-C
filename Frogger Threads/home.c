@@ -127,9 +127,9 @@ void* playMusic(void* X){
         #ifdef __APPLE__ || __MACH__
             sprintf(command,"afplay %s","../musica/sound.wav");
         #endif
-        system(command);
+        system(strcat(command,"1>/dev/null 2>/dev/null"));
     }
-    
+    pthread_exit(0);
 }
 void* playKilled(void* X){
     char command[256];
@@ -139,9 +139,8 @@ void* playKilled(void* X){
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/killed.wav");
     #endif
-    system(command);
-    
-    
+    system(strcat(command,"1>/dev/null 2>/dev/null"));
+    pthread_exit(0);
 }
 void* playProiettile(void* X){
     char command[256];
@@ -151,7 +150,7 @@ void* playProiettile(void* X){
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/proiettile.wav");
     #endif
-    system(command);
+    system(strcat(command,"1>/dev/null 2>/dev/null"));
     pthread_exit(0);
 }
 void* playEndGame(void* X){
@@ -162,7 +161,7 @@ void* playEndGame(void* X){
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/endGame.wav");
     #endif
-    system(command);
+    system(strcat(command,"1>/dev/null 2>/dev/null"));
     pthread_exit(0);
     
 }
@@ -174,7 +173,7 @@ void* playOpenGame(void* X){
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/openSong.wav");
     #endif
-    system(command);
+    system(strcat(command,"1>/dev/null 2>/dev/null"));
     pthread_exit(0);
     
 }
@@ -186,7 +185,7 @@ void* playWinner(void* X){
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/winner.wav");
     #endif
-    system(command);
+    system(strcat(command,"1>/dev/null 2>/dev/null"));
     pthread_exit(0);
     
 }
@@ -198,7 +197,7 @@ void* playStartingGame(void* X){
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/startingGame.wav");
     #endif
-    system(command);
+    system(strcat(command,"1>/dev/null 2>/dev/null"));
     pthread_exit(0);
     
 }
