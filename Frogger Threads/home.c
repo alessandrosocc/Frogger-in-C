@@ -18,7 +18,6 @@ int main(){
         if(choice==2){
             pthread_t credits;
             choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/00010",choicesCredits,0,false,true);
-            choice+=1;
             pthread_create(&credits,NULL,&playOpenGame,NULL);
             pthread_join(&credits,NULL);
         }
@@ -54,65 +53,67 @@ int main(){
                         speedLegnetto=10000;
                         break;
                 }
-            }
-            pthread_t startingGame;
-            pthread_create(&startingGame,NULL,&playStartingGame,NULL);
-            pthread_join(&startingGame,NULL);
-            //sleep(4);
-            clear();
-            refresh();
-            windowGeneration(); // genero la window
-            // variabili intere
-            int carId[NUMACCHINE];
-            int logId[NUMTRONCHI];
-            int logBulletsId[NUMTRONCHI];
-            for (int i = 0;i<NUMACCHINE; i++){
-                carId[i] = i;
-            }
-            for (int i = 0;i<NUMTRONCHI; i++){
-                logId[i] = i;
-            }
-            for (int i = 0; i<NUMTRONCHI; i++){
-                logBulletsId[i] = i;
-            }
+                pthread_t startingGame;
+                pthread_create(&startingGame,NULL,&playStartingGame,NULL);
+                pthread_join(&startingGame,NULL);
+                //sleep(4);
+                clear();
+                refresh();
+                windowGeneration(); // genero la window
+                // variabili intere
+                int carId[NUMACCHINE];
+                int logId[NUMTRONCHI];
+                int logBulletsId[NUMTRONCHI];
+                for (int i = 0;i<NUMACCHINE; i++){
+                    carId[i] = i;
+                }
+                for (int i = 0;i<NUMTRONCHI; i++){
+                    logId[i] = i;
+                }
+                for (int i = 0; i<NUMTRONCHI; i++){
+                    logBulletsId[i] = i;
+                }
 
-            // id thread
-            pthread_t ranaId, ranaProiettileId;
-            pthread_t macchineId[NUMACCHINE];
-            pthread_t tronchiId[NUMTRONCHI];
-            pthread_t proiettiliId[NUMTRONCHI];
-            pthread_t tempoThread;
-            pthread_t musica;
-            // creazione dei thread
-            pthread_create(&tempoThread,NULL,&calculateResidualTime,NULL);
-            pthread_create(&ranaId, NULL, &ffrog, NULL);
-            pthread_create(&ranaProiettileId, NULL, &bullet, NULL);
-            for (int i = 0; i<NUMACCHINE; i++){
-                pthread_create(&macchineId[i], NULL, &car,(void*)&carId[i]);
+                // id thread
+                pthread_t ranaId, ranaProiettileId;
+                pthread_t macchineId[NUMACCHINE];
+                pthread_t tronchiId[NUMTRONCHI];
+                pthread_t proiettiliId[NUMTRONCHI];
+                pthread_t tempoThread;
+                pthread_t musica;
+                // creazione dei thread
+                pthread_create(&tempoThread,NULL,&calculateResidualTime,NULL);
+                pthread_create(&ranaId, NULL, &ffrog, NULL);
+                pthread_create(&ranaProiettileId, NULL, &bullet, NULL);
+                for (int i = 0; i<NUMACCHINE; i++){
+                    pthread_create(&macchineId[i], NULL, &car,(void*)&carId[i]);
+                }
+                for (int i = 0; i<NUMTRONCHI; i++){
+                    pthread_create(&tronchiId[i], NULL, &log, (void*)&logId[i]);
+                }
+                for (int i = 0;i<NUMTRONCHI; i++){
+                    pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
+                }
+                areaDiGioco();
+                pthread_join(tempoThread,NULL);
+                pthread_join(ranaId,NULL);
+                pthread_join(ranaProiettileId,NULL);
+                
+                for (int i = 0;i<NUMACCHINE; i++){
+                    pthread_join(macchineId[i],NULL);
+                }
+                for (int i = 0;i<NUMTRONCHI; i++){
+                    pthread_join(tronchiId[i],NULL);
+                }
+                for (int i = 0;i<NUMTRONCHI; i++){
+                    pthread_join(proiettiliId[i],NULL);
+                }
+                wait(NULL);
+                }else{
+                    exit(0);
+                }
             }
-            for (int i = 0; i<NUMTRONCHI; i++){
-                pthread_create(&tronchiId[i], NULL, &log, (void*)&logId[i]);
-            }
-            for (int i = 0;i<NUMTRONCHI; i++){
-                pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
-            }
-            areaDiGioco();
-            pthread_join(tempoThread,NULL);
-            pthread_join(ranaId,NULL);
-            pthread_join(ranaProiettileId,NULL);
-            
-            for (int i = 0;i<NUMACCHINE; i++){
-                pthread_join(macchineId[i],NULL);
-            }
-            for (int i = 0;i<NUMTRONCHI; i++){
-                pthread_join(tronchiId[i],NULL);
-            }
-            for (int i = 0;i<NUMTRONCHI; i++){
-                pthread_join(proiettiliId[i],NULL);
-            }
-            wait(NULL);
-        }
-        choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
+            choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
     }
     endwin();
     fclose(fp);
@@ -521,6 +522,7 @@ void riprova(){
     clear();
     pthread_t musicaEndGame;
     //gioca
+    pthread_mutex_lock(&mutex);
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
     if(gioca){
         pthread_create(&musicaEndGame,NULL,&playEndGame,NULL);
@@ -538,6 +540,7 @@ void riprova(){
         }
         secondiRimanenti=maxX-10;
     }
+    pthread_mutex_unlock(&mutex);
 }
 void mostraVita(){
     attron(COLOR_PAIR(3));
