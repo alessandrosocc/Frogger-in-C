@@ -80,43 +80,56 @@ int main(){
     char* choicesDifficulty[]={"Principiante","Intermedio","Esperto","Impossibile"};
     char* choicesCredits[]={""};
     int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
+    pid_t openGame=fork();
+    if(openGame==0){
+        playOpenGame();
+    }
     while(choice){
         if(choice==2){
             choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/00010",choicesCredits,0,false,true);
-            choice+=1;
+            pid_t credits=fork();
+            if(credits==0){
+                playOpenGame();
+            }
         }
         else if(choice==1){
             choice=menu("Difficoltà","Scegli la Difficoltà",choicesDifficulty,4,true,false);
             if(choice){
                 switch(choice){
                     case 1: //principiante
-                        #define LVLVITE 10 // mi serve quando il giocatore perde e vuole rigiocare, devo reimpostare le vite
-                        vite=LVLVITE;
+                        lvlvite=10;
+                        vite=lvlvite;
                         #define REMAININGTIME 800000
                         speedVehicles=30000;
                         speedLegnetto=50000;
                         break;
                     case 2: //intermedio
-                        #define LVLVITE 5
-                        vite=LVLVITE;
+                        lvlvite=5;
+                        vite=lvlvite;
                         #define REMAININGTIME 600000
                         speedVehicles=30000;
                         speedLegnetto=50000;
                     case 3: //difficile
-                        #define LVLVITE 3
-                        vite=LVLVITE;
+                        lvlvite=3;
+                        vite=lvlvite;
                         #define REMAININGTIME 200000
                         speedVehicles=10000;
                         speedLegnetto=30000;
                         break;
                     case 4: //impossibile
-                        #define LVLVITE 2
-                        vite=LVLVITE;
+                        lvlvite=2;
+                        vite=lvlvite;
                         #define REMAININGTIME 150000
                         speedVehicles=5000;
                         speedLegnetto=10000;
                         break;
                 }
+                pid_t startingGame=fork();
+                if(startingGame==0){
+                    playStartingGame();
+                }
+        
+                sleep(4);
                 clear();
                 refresh();
                 windowGeneration(); // genero la window
@@ -131,7 +144,32 @@ int main(){
     fclose(fp);
     return 0;
 }
+void playStartingGame(){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/startingGame.wav");
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/startingGame.wav");
+        system(command);
+    #endif 
+    exit(0);
+}
+void playOpenGame(){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/openSong.wav");
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
 
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/openSong.wav");
+        system(command);
+
+    #endif
+    exit(0);
+}
 void initScreen(int* maxY, int* maxX){
     initscr(); 
     curs_set(0); // settiamo il cursore per essere invisibile
@@ -298,7 +336,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     controlloGenerazioneMacchine(p1,p2,p7);
     int timeRestart=1;
     bool flagTime=1;
-    bool gioca=true;
+
     //inizializzo il ciclo di stampa
     while(gioca){
         erase();
@@ -323,7 +361,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         //Stampa Fiume, tronchi, nemici e proiettili nemici
         stampaTronchiNemici(woody,bullets,rana);
         //Stampa Rana e Proiettile Rana
-        stampaRanaBullets(rana,bull);
+        stampaRanaBullets(rana,bullPtr);
         collisionRanaVehicles(timeRestart, restartTime, p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr,stopGame);
         proiettiliKillRana(rana, bullets,p4,frogCollisionPtr,punteggioPtr,stopGame);
         //fprintf(fp, "coordinate proiettile (%d,%d)\n", bull.x, bull.y);
@@ -356,6 +394,10 @@ void checkRanaFiume(int timeRestart, int restartTime[],int vecchioWoody[],elemen
                     ranaPtr->y=offsetMarciapiede;
                     if (vite>0){
                         vite--; // DECREMENTA VITA SE CADE DAL TRONCO O SE DAL PRATO CADE NEL FIUME
+                        pid_t killato=fork();
+                        if(killato==0){
+                            playKilled();
+                        }
                     }
                     write(restartTime[1], &timeRestart, sizeof(timeRestart)); // riavvio manche
                 }
@@ -376,7 +418,7 @@ void checkRanaFiume(int timeRestart, int restartTime[],int vecchioWoody[],elemen
     if (ranaPtr->y>=offsetPrato){ // voglio che la rana prenda +50 ogni volta che cambia tronco oppure che torna sul prato oppure è in qualunque altro posto sotto il prato
         *frogCollisionChangeLogScorePtr=-1;// cosi mi aggiunge punteggio anche se la rana torna sul prato e vuole risalire sullo stesso tronco
     }
-    if (vite==0){// controllo se le vite sono uguali a zero per check rana sul fiume
+    if (vite==0 && gioca){// controllo se le vite sono uguali a zero per check rana sul fiume
         clear();
         riprova(punteggioPtr,stopGame);
     }
@@ -384,6 +426,18 @@ void checkRanaFiume(int timeRestart, int restartTime[],int vecchioWoody[],elemen
     for(int i=0; i<5; i++){
         vecchioWoody[i]=woody[i].x; //in oldlog vengono la x di ogni tronco che poi verrà confrontato con la nuova nell'iterazione successiva
     }
+}
+void playKilled(){
+    char command[256];
+    #ifdef __linux__
+        sprintf(command,"aplay %s","../musica/killed.wav");
+        system(strcat(command," 1>/dev/null 2>/dev/null"));
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/killed.wav");
+        system(command);
+    #endif
+    exit(0);
 }
 void displayTanaChiusa(int taneChiuse[]){
     // CHIUDI TANA se è chiusa
@@ -409,8 +463,12 @@ void checkRanaInTana(int* frogCollisionPtr, elemento rana, int restartTime[], in
             else if(*frogCollisionPtr){
                 if (vite>0){
                     vite--;
+                    pid_t killato=fork();
+                    if(killato==0){
+                        playKilled();
+                    }
                 }
-                else{
+                else if(vite==0 &&gioca){
                     clear();
                     riprova(punteggioPtr,stopGame);
                 }
@@ -420,6 +478,18 @@ void checkRanaInTana(int* frogCollisionPtr, elemento rana, int restartTime[], in
             *frogCollisionPtr=0;
         }
     }
+}
+void playWinner(){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/winner.wav");
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/winner.wav");
+        system(command);
+    #endif
+    exit(0);
 }
 void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int* punteggioPtr){
     //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
@@ -431,6 +501,12 @@ void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int* punteggioP
     if (*totaleTaneChiusePtr==NTANE){
         clear();
         refresh();
+        if(gioca){
+            pid_t winner=fork();
+            if(winner==0){
+                playWinner();
+            }
+        }
         mvprintw(maxY/2,maxX/2,"HAI VINTO!");
         mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",*punteggioPtr);
         refresh();
@@ -447,8 +523,9 @@ void fineMancheThxTime(int restartTime[], int p4[],int timeSignal, bool flagTime
             if(vite>0){  //decrementa vita se non chiudi una rana entro la mance
                 vite--;
                 flagTime=0;
+                
             }
-            else if(vite==0){
+            else if(vite==0 && gioca){
                 clear();
                 refresh();
                 riprova(punteggioPtr,stopGame);
@@ -527,16 +604,36 @@ void getTronchiBullets(elemento* d,elemento woody[], elemento bullets[]){
         }
 }
 
-
-void stampaRanaBullets(elemento rana, elemento bull){
+void playProiettile(){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/proiettile.wav");
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/proiettile.wav");
+        system(command);
+    #endif
+    
+    exit(0);
+}
+void stampaRanaBullets(elemento rana, elemento* bull){
     
     mvprintw(rana.y,rana.x,"\\/");
     mvprintw(rana.y+1,rana.x,"/\\");
-            //proiettile rana
-    if (bull.sparato == true){
-        mvprintw(bull.y, bull.x, "*");
+    //proiettile rana
+    if (bull->sparato && bull->y!=offsetEndTane){
+        mvprintw(bull->y, bull->x, "*");
+        if(!count){
+            pid_t musicProiettile=fork();
+            if(musicProiettile==0){
+                playProiettile();
+            }
+            count=1;
+        }
+    }else{
+        count=0;
     }
-    
 }
 
 void stampaTronchiNemici(elemento woody[], elemento bullets[], elemento rana){
@@ -586,10 +683,14 @@ void collisionRanaVehicles(int timeRestart, int restartTime[],int p4[],int* frog
                         *(frogCollision)=0;
                         // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
                         // fflush(fp);
+                        pid_t killato=fork();
+                        if(killato==0){
+                            playKilled();
+                        }
                         mostraVita(vite);
                         refresh();
                     }
-                    else if(vite==0){
+                    else if(vite==0 && gioca){
                         clear();
                         refresh();
                         riprova(punteggio,stopGame);
@@ -613,10 +714,14 @@ void collisionRanaVehicles(int timeRestart, int restartTime[],int p4[],int* frog
                         *(frogCollision)=0;
                         // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
                         // fflush(fp);
+                        pid_t killato=fork();
+                        if(killato==0){
+                            playKilled();
+                        }
                         mostraVita(vite);
                         refresh();
                     }
-                    else if(vite==0){
+                    else if(vite==0 && gioca){
                         clear();
                         refresh();
                         riprova(punteggio,stopGame);
@@ -825,8 +930,12 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
             if (proiettili[i].x == rana.x || proiettili[i].x == rana.x+1){
                 if(*frogCollision){
                     vite--;
+                    pid_t killato=fork();
+                    if(killato==0){
+                        playKilled();
+                    }
                 }
-                else if(vite==0){
+                else if(vite==0 && gioca){
                     clear();
                     refresh();
                     riprova(punteggio,stopGame);
@@ -839,9 +948,32 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
         }
     }
 }
-
+void play
+(){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/proiettile.wav");
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/proiettile.wav");
+        system(command);
+    #endif
+    exit(0);
+}
+void playEndGame(){
+    char command[256];
+    #ifdef __linux__
+    sprintf(command,"aplay %s","../musica/endGame.wav");
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
+    #endif
+    #ifdef __APPLE__ || __MACH__
+        sprintf(command,"afplay %s","../musica/endGame.wav");
+        system(command);
+    #endif
+    exit(0);
+}
 void riprova(int* punteggio, int stopGame[]){
-    bool gioca=true;
     char* choices[]={"Si","NO"};
     clear();
     refresh();
@@ -851,6 +983,12 @@ void riprova(int* punteggio, int stopGame[]){
     sleep(4);
     //gioca
     clear();
+    if(gioca){
+        pid_t endGame=fork();
+        if(endGame==0){
+            playEndGame();
+        }
+    }
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
     if(choice==0 || choice==2){
         gioca=false;
@@ -860,7 +998,7 @@ void riprova(int* punteggio, int stopGame[]){
         return;
     }else{
         // resetto tutto
-        vite=LVLVITE;
+        vite=lvlvite;
         *punteggio=0;
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;
@@ -869,7 +1007,6 @@ void riprova(int* punteggio, int stopGame[]){
 }
 
 void tempo(int pipeTempo[],int restartTime[],int stopGame[]){
-    bool gioca=true;
     int flag=0;
     int secondoSignal=maxX-10;
     while(gioca){

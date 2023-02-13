@@ -56,7 +56,7 @@ int main(){
                 pthread_t startingGame;
                 pthread_create(&startingGame,NULL,&playStartingGame,NULL);
                 pthread_join(&startingGame,NULL);
-                //sleep(4);
+                sleep(4);
                 clear();
                 refresh();
                 windowGeneration(); // genero la window
