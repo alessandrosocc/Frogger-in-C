@@ -58,6 +58,7 @@ int main(){
     pipe(restartTime);
     pipe(pipeTempo);
     pipe(stopGame);
+    // rendiamo alcune pipe non bloccanti
     fcntl(p2[0], F_SETFL, O_NONBLOCK);
     fcntl(p3[0], F_SETFL, O_NONBLOCK);
     fcntl(p4[0], F_SETFL, O_NONBLOCK);
@@ -74,20 +75,20 @@ int main(){
     // #####################
     // ### Menu Iniziale ###
     // #####################
-    int speedVehicles=0;
-    int speedLegnetto=0;
-    char* choices[]={"Inizia a Giocare","Credits"};
-    char* choicesDifficulty[]={"Principiante","Intermedio","Esperto","Impossibile"};
+    int speedVehicles=0; // velocità veicoli, da usare per i vari livelli
+    int speedLegnetto=0; // velocità legnetti, da usare per i vari livelli
+    char* choices[]={"Inizia a Giocare","Credits"}; // scelte menù principale
+    char* choicesDifficulty[]={"Principiante","Intermedio","Esperto","Impossibile"}; // scelte livelli
     char* choicesCredits[]={""};
-    int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi e lacrime",choices,2,true,true);
-    pid_t openGame=fork();
+    int choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
+    pid_t openGame=fork(); // processo per musica di apertura del gioco
     if(openGame==0){
         playOpenGame();
     }
-    while(choice){
+    while(choice){ // continua a ciclare finchè non esco dal gioco
         if(choice==2){
             choice=menu("Credits","Alessandro Soccol 60/79/00057, Marco Cosseddu 60/79/00010",choicesCredits,0,false,true);
-            pid_t credits=fork();
+            pid_t credits=fork(); // musica credits 
             if(credits==0){
                 playOpenGame();
             }
@@ -95,41 +96,43 @@ int main(){
         else if(choice==1){
             choice=menu("Difficoltà","Scegli la Difficoltà",choicesDifficulty,4,true,false);
             if(choice){
+                // in base al livello di difficoltà scelto vengono ridenfiniti certi parametri per rendere più o meno complicata la vittoria 
                 switch(choice){
                     case 1: //principiante
-                        lvlvite=10;
+                        lvlvite=11;
                         vite=lvlvite;
-                        #define REMAININGTIME 800000
+                        remainingTime=300000;
+                        
                         speedVehicles=30000;
                         speedLegnetto=50000;
                         break;
                     case 2: //intermedio
-                        lvlvite=5;
+                        lvlvite=6; 
                         vite=lvlvite;
-                        #define REMAININGTIME 600000
+                        remainingTime=200000; // tempo manche
                         speedVehicles=30000;
                         speedLegnetto=50000;
                     case 3: //difficile
-                        lvlvite=3;
+                        lvlvite=4;
                         vite=lvlvite;
-                        #define REMAININGTIME 200000
+                        remainingTime=100000; // tempo manche 
                         speedVehicles=10000;
                         speedLegnetto=30000;
                         break;
                     case 4: //impossibile
-                        lvlvite=2;
+                        lvlvite=3;
                         vite=lvlvite;
-                        #define REMAININGTIME 150000
+                        remainingTime=50000; // tempo manche
                         speedVehicles=5000;
                         speedLegnetto=10000;
                         break;
                 }
-                pid_t startingGame=fork();
+                pid_t startingGame=fork(); // musica inizio gioco
                 if(startingGame==0){
                     playStartingGame();
                 }
         
-                sleep(4);
+                sleep(4); // il tempo di far finire la musica, è un effetto che abbiamo voluto mettere
                 clear();
                 refresh();
                 windowGeneration(); // genero la window
@@ -146,7 +149,7 @@ int main(){
 }
 void playStartingGame(){
     char command[256];
-    #ifdef __linux__
+    #ifdef __linux__ // se hai un pc linux, bisogna usare un programma diverso per lanciare la musica
     sprintf(command,"aplay %s","../musica/startingGame.wav");
     system(strcat(command," 1>/dev/null 2>/dev/null"));
     #endif
@@ -173,13 +176,14 @@ void playOpenGame(){
 void initScreen(int* maxY, int* maxX){
     initscr(); 
     curs_set(0); // settiamo il cursore per essere invisibile
-    noecho();
-    keypad(stdscr,1);
-    getmaxyx(stdscr,*maxY,*maxX);
+    noecho(); // non mostare i caratteri che clicco
+    keypad(stdscr,1); // attivo i tasti 
+    getmaxyx(stdscr,*maxY,*maxX); 
 }
 
 void windowGeneration(){
     int nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
+    // definiamo i colori che verranno utilizzato per la grafica 
     start_color();
     init_pair(1,COLOR_WHITE,COLOR_GREEN);
     init_pair(2,COLOR_WHITE,COLOR_RED);
@@ -212,6 +216,7 @@ void windowGeneration(){
     mvhline(offsetSum,1,' ',maxX-2);
     attroff(COLOR_PAIR(3));
     offsetSum+=1;
+    // attraverso delle variabili globali andremo a definire e dividere ogni porzione della mappa in un settore statico, in modo tale da rendere l'esperienza di gioco più intuitiva
     //tane
     for (size_t i=1;i<=maxX-2;i++){
         
@@ -334,27 +339,27 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     int timeSignal=0;
     // mi assicuro che le macchine vengano generate in maniera corretta
     controlloGenerazioneMacchine(p1,p2,p7);
-    int timeRestart=1;
-    bool flagTime=1;
+    int timeRestart=1; // è usato come flag nel momento in cui bisogna riavviare la manche
+    bool flagTime=1; // è un flag usato nel momento in cui bisogna riavviare la manche
 
     //inizializzo il ciclo di stampa
     while(gioca){
-        erase();
-        windowGeneration();
-        mostraPunteggio(punteggio);
-        mostraVita(vite);
-        read(pipeTempo[0],&timeSignal,sizeof(timeSignal));
-        displayTime(timeSignal);
-        fineMancheThxTime(restartTime,p4,timeSignal,flagTime,punteggioPtr,frogCollision,timeRestart,stopGame);
+        erase(); // puliamo la window
+        windowGeneration(); // rigeneriamo la window
+        mostraPunteggio(punteggio); // mostriamo il punteggio
+        mostraVita(vite); // mostra vite
+        read(pipeTempo[0],&timeSignal,sizeof(timeSignal)); // leggiamo il tempo che verrà stampato
+        displayTime(timeSignal); // mostra la barra del tempo, il tempo è calcolato in un processo, non qua.
+        fineMancheThxTime(restartTime,p4,timeSignal,flagTime,punteggioPtr,frogCollisionPtr,timeRestart,stopGame); // controlliamo che il tempo disponbilile non sia finito, in caso contrario la rana perde una manche e una vita
         checkTaneOccupate(taneChiuse,totaleTaneChiusePtr,punteggioPtr);
-        read(p1[0], &(d), sizeof(elemento));
-        getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr);
-        getTronchiBullets(dptr,woody,bullets);
-        checkRanaInTana(frogCollisionPtr, rana,restartTime,timeRestart,punteggioPtr,p4,stopGame);
-        displayTanaChiusa(taneChiuse);
+        read(p1[0], &(d), sizeof(elemento)); // pipe usata per fetch dati con la funzione getDataFromPipe
+        getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr); // prendiamo i dati dalla pipe
+        getTronchiBullets(dptr,woody,bullets); // prendiamo i dati inerenti al fiume dalla pipe 
+        checkRanaInTana(frogCollisionPtr, rana,restartTime,timeRestart,punteggioPtr,p4,stopGame); // controlla se la rana è in una tana
+        displayTanaChiusa(taneChiuse); // mostra le tane che sono state chiuse; per ogni manche
 
-        checkRanaFiume(timeRestart, restartTime,vecchioWoody,woody,punteggioPtr, ranaPtr, frogCollisionChangeLogScorePtr,  ranaSulTroncoPtr, p5, vecchiaRanaPtr,p9,stopGame);
-        collisioneProiettiliMacchine(bullPtr,macchine,bullets,p9);
+        checkRanaFiume(timeRestart, restartTime,vecchioWoody,woody,punteggioPtr, ranaPtr, frogCollisionChangeLogScorePtr,  ranaSulTroncoPtr, p5, vecchiaRanaPtr,p9,stopGame); // tutti i controlli da fare quando la rana si trova nel fiume
+        collisioneProiettiliMacchine(bullPtr,macchine,bullets,p9); // controllo se un proiettile (di un nemico o della rana) colpisce una macchina, in caso positivo esso scompare
         collisioneProiettileRanaProiettiliNemici(bullPtr,bullets,p9);
         // stampa macchine
         stampaMacchinaCamion(macchine);
@@ -362,31 +367,31 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         stampaTronchiNemici(woody,bullets,rana);
         //Stampa Rana e Proiettile Rana
         stampaRanaBullets(rana,bullPtr);
-        collisionRanaVehicles(timeRestart, restartTime, p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr,stopGame);
-        proiettiliKillRana(rana, bullets,p4,frogCollisionPtr,punteggioPtr,stopGame);
+        collisionRanaVehicles(timeRestart, restartTime, p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr,stopGame); // controllo se la rana è stata investita o meno da una macchina
+        proiettiliKillRana(rana, bullets,p4,frogCollisionPtr,punteggioPtr,stopGame); // controllo se la rana è stata, o meno colpita da un proiettile nemico
         //fprintf(fp, "coordinate proiettile (%d,%d)\n", bull.x, bull.y);
         if (bull.sparato){ // per non avere collateral
             ranaKillEnemy(rana,bullPtr,woody,p8,punteggioPtr);
         }
         counter ++;
         refresh();
-        read(stopGame[0],&gioca,sizeof(gioca));
+        read(stopGame[0],&gioca,sizeof(gioca)); // controlla se il gioco è finito, serve per uscire eventualmente dal while.
     }
     return;
 }
 void checkRanaFiume(int timeRestart, int restartTime[],int vecchioWoody[],elemento woody[],int* punteggioPtr, elemento* ranaPtr, int* frogCollisionChangeLogScorePtr, int* ranaSulTroncoPtr, int p5[],elemento* vecchiaRanaPtr,int p9[],int stopGame[]){
-//CHECK RANA SCENDE DAL FIUME
-    if(vecchiaRanaPtr->y==woody[0].y && ranaPtr->y==woody[0].y+2){
-        ranaPtr->cambioMovimento=true;
+    //CHECK RANA SCENDE DAL FIUME
+    if(vecchiaRanaPtr->y==woody[NUMTRONCHI-1].y && ranaPtr->y==woody[NUMTRONCHI-1].y+2){
+        ranaPtr->cambioMovimento=true; // la rana si trova o non si trova sul fiume. true = la rana non è nella zona del fiume
         write(p5[1], ranaPtr, sizeof(elemento)); //se la rana scende dal fiume, si scrive alla funzione rana di cambiare la posizione di questa con quella nuova
         ranaPtr->cambioMovimento=false;
-        vecchiaRanaPtr->y=10;
+        vecchiaRanaPtr->y=NUMMACCHINE; // la vecchia rana viene aggiornata solamente se la rana è sul fiume, viene cambiato in modo tale da non interagire con questo if per sbaglio
     }
     //CHECK RANA SUL FIUME |||| NON CANCELLARE !!!!!! RIATTIVARE!!!! |||||
-    if(ranaPtr->y<=20 && ranaPtr->y>=10){
+    if(ranaPtr->y<=offsetPrato && ranaPtr->y>=offsetFiume){ // rana è nel range del fiume [!!!!!!!!]
         ranaPtr->cambioMovimento=true;
-        for(int i=0; i<5; i++){
-            if(woody[i].x!=vecchioWoody[i] && ranaPtr->y == woody[i].y){
+        for(int i=0; i<NUMTRONCHI; i++){
+            if(woody[i].x!=vecchioWoody[i] && ranaPtr->y == woody[i].y){ // vecchio woody viene utilizzato per controllare se il tronco si è mosso o meno, dato che il tronco quando si trova nei bordi non si muove per un istante
                 ranaPtr->x=ranaPtr->x+woody[i].x-vecchioWoody[i];
                 //CHECK RANA SUI TRONCHI
                 if((ranaPtr->y==woody[i].y && (ranaPtr->x<woody[i].x || ranaPtr->x>=woody[i].x+8))||(woody[i].enemy)){ //rana scende dal tronco e cade sul fiume
@@ -439,11 +444,11 @@ void playKilled(){
     #endif
     exit(0);
 }
-void displayTanaChiusa(int taneChiuse[]){
+void displayTanaChiusa(int taneChiuse[]){ 
     // CHIUDI TANA se è chiusa
     for (size_t i=0;i<NTANE;i++){
-        if(taneChiuse[i]==1){
-            chiudiTana(i);
+        if(taneChiuse[i]==1){ // controlla se la tana è chiusa, 1 = chiusa , 0 = aperta
+            chiudiTana(i); // funzione che stampa la tana chiusa colorata
         }
     }
 }
@@ -453,28 +458,28 @@ void checkRanaInTana(int* frogCollisionPtr, elemento rana, int restartTime[], in
         *frogCollisionPtr=1;
     } 
     for (size_t i=0;i<NTANE;i++){ 
-        if (rana.y<10 && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
+        if (rana.y<offsetFiume && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
             if (!taneChiuse[i]){ // se la tana è aperta
-                taneChiuse[i]=1; // chiude la tana
-                *punteggioPtr+=500;
-                write(restartTime[1], &timeRestart, sizeof(timeRestart));
-                usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
+                taneChiuse[i]=1; // chiude la tana perchè la rana è dentro
+                *punteggioPtr+=PUNTEGGIOXTANA;
+                write(restartTime[1], &timeRestart, sizeof(timeRestart)); // riavvia la manche
+                usleep(LOADING); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
             }
-            else if(*frogCollisionPtr){
-                if (vite>0){
+            else if(*frogCollisionPtr){ // tana è chiusa
+                 if (vite>0){
                     vite--;
-                    pid_t killato=fork();
+                    pid_t killato=fork(); // musica rana kilata
                     if(killato==0){
-                        playKilled();
+                        playKilled(); 
                     }
                 }
-                else if(vite==0 &&gioca){
+                else if(vite==0 &&gioca){ // se la rana ha terminato le vite a disposizione viene chiesto se si vuole riprovare 
                     clear();
                     riprova(punteggioPtr,stopGame);
                 }
                 
             }
-            write(p4[1], &*frogCollisionPtr, sizeof(*frogCollisionPtr));
+            write(p4[1], &*frogCollisionPtr, sizeof(*frogCollisionPtr)); // riporto la rana sul marciapiede perchè è morta
             *frogCollisionPtr=0;
         }
     }
@@ -495,14 +500,14 @@ void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int* punteggioP
     //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
     for (size_t i=0;i<NTANE;i++){
         if(taneChiuse[i]==1){
-            *totaleTaneChiusePtr+=1;
+            *totaleTaneChiusePtr+=1; // conto quante tane sono chiuse
         }
     }
-    if (*totaleTaneChiusePtr==NTANE){
+    if (*totaleTaneChiusePtr==NTANE){ // se le tane sono tutte chiuse allora il giocatore ha vinto
         clear();
         refresh();
         if(gioca){
-            pid_t winner=fork();
+            pid_t winner=fork(); // suoniamo la musica per la vittoria
             if(winner==0){
                 playWinner();
             }
@@ -514,39 +519,34 @@ void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int* punteggioP
         exit(0);
     }
     else{
-        *totaleTaneChiusePtr=0;
+        *totaleTaneChiusePtr=0; // le tane non sono tutte chiuse, resetta il contatore e ricontale alla prossima iterazione
     }
 }
-void fineMancheThxTime(int restartTime[], int p4[],int timeSignal, bool flagTime,int* punteggioPtr,int frogCollision,int timeRestart, int stopGame[]){
-    if (!timeSignal && flagTime){
-            // Fine Manche
+void fineMancheThxTime(int restartTime[], int p4[],int timeSignal, bool flagTime,int* punteggioPtr,int* frogCollision,int timeRestart, int stopGame[]){
+        if (!timeSignal && flagTime){ // flagTime viene asserito ogni volta che bisogna resettare il tempo
             if(vite>0){  //decrementa vita se non chiudi una rana entro la mance
                 vite--;
                 flagTime=0;
-                
+                *frogCollision=0; // modifichiamo frogCollision in modo tale da non registrare più collisioni di quelle necessarie 
             }
             else if(vite==0 && gioca){
                 clear();
                 refresh();
                 riprova(punteggioPtr,stopGame);
             }
-            
-            write(p4[1], &frogCollision, sizeof(frogCollision));
-            write(restartTime[1], &timeRestart, sizeof(timeRestart));
-            usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
+            write(p4[1], &frogCollision, sizeof(frogCollision)); // scriviamo alla rana che ha perso la manche 
+            write(restartTime[1], &timeRestart, sizeof(timeRestart));  // scriviamo al tempo di rincominciare
+            usleep(RELOADTIME); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
         }
         if(flagTime==0 && timeSignal!=0){ //il processo creato dalla funzione time invia sempre zeri a caso, quindi cosi gli facciamo decrementare una vita solo se dopo che ha reimpostato il tempo, funziona tutto dandoci il tempo diverso da zero.
             flagTime=1;
         }
 }
 void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, elemento* bull){
-     //se è la rana
-        if (d->c==20){ 
+        //se è la rana
+        if (d->c==IDRANA){ 
             rana->y=d->y;
             rana->x=d->x;
-            
-            //fprintf(fp,"getdatafrom pipa -> rana.x %d d.x %d rana.y %d d.y %d\n",rana->x,d->x,rana->y,d->y);
-            fflush(fp);
             rana->c=d->c;
             rana->offsetLogOccupied = d->offsetLogOccupied;
             rana->idxLogOccupied = d->idxLogOccupied;
@@ -556,11 +556,11 @@ void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, e
             }
         }
         //se è il proiettile
-        else if(d->c==21){ 
+        else if(d->c==IDPROIETTILERANA){ 
             bull->x = d->x;
             bull->y = d->y;
         }
-        // allora è la macchina
+        // allora è un veicolo
         else{
             for (int i=0;i<NUMMACCHINE;i++){
                 if (d->c == i){ //assegna a macchina iesima
@@ -574,6 +574,7 @@ void getDataFromPipe(int p1[],elemento* d,elemento macchine[], elemento* rana, e
 }
 
 void mostraVita(int n){
+    // mostriamo le vite sotto forma di numero := Vite : <numero>
     attron(COLOR_PAIR(3));
     attron(A_BOLD);
     mvprintw(offsetPunteggio,2,"Vite : ");
@@ -585,14 +586,14 @@ void mostraVita(int n){
 
 void getTronchiBullets(elemento* d,elemento woody[], elemento bullets[]){
     for (int i=0;i<NUMTRONCHI;i++){
-            if (d->c == i+30){ //assegna a legnetto iesimo
+            if (d->c == i+OFFSETIDTRONCO){ //assegna a legnetto iesimo
                 woody[i].x = d->x;
                 woody[i].y = d->y;
                 woody[i].c = d->c; 
                 woody[i].enemy=d->enemy;
                 woody[i].logOccupied = d->logOccupied;
             }
-            if (d->c  == i+70){ // se è un proiettile allora d.c=70 <=> 30 (tronco ID) + 40 (proiettile ID)
+            if (d->c  == i+OFFSETIDTRONCOPROIETTILI){ // se è un proiettile allora d.c=70 <=> 30 (tronco ID) + 40 (proiettile ID)
                 bullets[i].x = d->x;
                 bullets[i].y = d->y;
                 bullets[i].c = d->c;
@@ -618,13 +619,15 @@ void playProiettile(){
     exit(0);
 }
 void stampaRanaBullets(elemento rana, elemento* bull){
-    
+    // stampa rana
     mvprintw(rana.y,rana.x,"\\/");
     mvprintw(rana.y+1,rana.x,"/\\");
-    //proiettile rana
+    //proiettile rana, lo stampo sempre se non è arrivato alla fine dell'area di gioco
     if (bull->sparato && bull->y!=offsetEndTane){
         mvprintw(bull->y, bull->x, "*");
-        if(!count){
+        if(!count){ // se cound non è asserito
+            // allora lo asserisco e riproduco il suono del proiettile lanciato
+            // count mi serve per riprodurre una sola volta la musica e non ogni volta in continuazione che c'è il proiettile.
             pid_t musicProiettile=fork();
             if(musicProiettile==0){
                 playProiettile();
@@ -640,21 +643,21 @@ void stampaTronchiNemici(elemento woody[], elemento bullets[], elemento rana){
     // stampa tronchi e nemici
     attron(COLOR_PAIR(9)| A_BOLD);
         for(size_t i = 0; i<NUMTRONCHI; i++){ 
-            //fprintf(fp, "log %d pos:%d %d\n", woody[i].c, woody[i].x, woody[i].y);
-            fflush(fp);
             if(woody[i].enemy==false ){
+                // se il tronco non ha alcun nemico sopra, allora la stampa è la seguente
                 mvprintw(woody[i].y,woody[i].x,"|------|");
                 mvprintw(woody[i].y+1,woody[i].x,"|------|");
             }
-            else if(woody[i].enemy){//C'è un nemico
+            else if(woody[i].enemy){
+                // se c' un nemico, invece, esso viene stampato al centro dello schermo
                 mvprintw(woody[i].y,woody[i].x,"|--00--|");
                 mvprintw(woody[i].y+1,woody[i].x,"|--||--|");
             }
         }
-        //stampa proiettili dei nemici sui tronchi \addindex sparati
-        
+        //stampa proiettili dei nemici sui tronchi sparati
         for (size_t i = 0; i< NUMTRONCHI; i++){
             if (bullets[i].sparato){
+                // vengono stampati i proiettili dei nemici, solamente se essi risultano sparati
                 mvaddch(bullets[i].y, bullets[i].x, '*');
             }
             
@@ -668,21 +671,12 @@ void collisionRanaVehicles(int timeRestart, int restartTime[],int p4[],int* frog
             if(macchine[i].type==1){// camion
                 if (rana->x>=macchine[i].x && rana->x<macchine[i].x+7 && rana->y==macchine[i].y && *(frogCollision)==1)
                 {
-                    // comunico alla pipe2 il fatto che le macchine hanno subito una collisione (scrivo in car)
-                    // fprintf(fp,"collisione camion | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
-                    // fflush(fp);
-                    //write(p2[1], &frogCollision, sizeof(frogCollision));
                     // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
                     write(p4[1], frogCollision, sizeof(*(frogCollision))); 
-                    //mvprintw(2,2 , "ho scritto sulla pipe %d", frogCollision);
-                    //refresh();
-                    
                     // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
                     if (vite>0){
                         vite--;
                         *(frogCollision)=0;
-                        // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
-                        // fflush(fp);
                         pid_t killato=fork();
                         if(killato==0){
                             playKilled();
@@ -701,20 +695,13 @@ void collisionRanaVehicles(int timeRestart, int restartTime[],int p4[],int* frog
             else{ //macchina
                 if (rana->x>=macchine[i].x && rana->x<macchine[i].x+4 && rana->y==macchine[i].y && *(frogCollision)==1)
                 {   
-                    //write(p2[1], &frogCollision, sizeof(frogCollision));
                     // comunico alla pipe3 che la rana ha subito una collisione (scrivo in ffrog)
-                    write(p4[1], frogCollision, sizeof(*(frogCollision)));
-                    // fprintf(fp,"collisione macchina | vite: %d | frogCollision=%d\n",vite,*(frogCollision));
-                    // fflush(fp);
-                    // fprintf(fp,"sizeof %ld sizeof int %ld",sizeof(*(frogCollision)),sizeof(int));
-                    // fflush(fp);
+                    write(p4[1], frogCollision, sizeof(*(frogCollision))); // c'è stata una collisione, riporta la rana al marciapiede
                     // se la vita è maggiore di 6 e la rana è in una posizione diversa dalla collisione precedente e siamo in un'iterazion del gioco precedente, allora diminuisci la vita
                     if (vite>0){
                         vite--;
-                        *(frogCollision)=0;
-                        // fprintf(fp,"vite>0? frogCollision %d \n",*(frogCollision));
-                        // fflush(fp);
-                        pid_t killato=fork();
+                        *(frogCollision)=0; 
+                        pid_t killato=fork(); // riproduci musica killato
                         if(killato==0){
                             playKilled();
                         }
@@ -756,15 +743,15 @@ void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]){
     int via = 1;
     elemento macchine[NUMMACCHINE];
     elemento data;
-    int matricePosizioniIniziali[10][2] = {{0}};
-    int controlloLettura[10] = {0};
-    bool band = true;
+    int matricePosizioniIniziali[10][2] = {{0}}; // inizializzo una matrice nella quale verranno salvate le posizioni delle macchine
+    int controlloLettura[10] = {0}; // array che controlla se una macchina è stata letta oppure no
+    bool band = true; // flag che conclude il while quando non ci sono collisioni tra macchine
 
     while(band){
-    read(p1[0], &data, sizeof(elemento));
-    if (counter < 10){
-        for (int i = 0; i < 10; i++){
-            if (data.c == i && controlloLettura[i] == 0){
+    read(p1[0], &data, sizeof(elemento)); // leggo le macchine
+    if (counter < NUMMACCHINE){
+        for (int i = 0; i < NUMMACCHINE; i++){ // controlla per il numero dei veicoli
+            if (data.c == i && controlloLettura[i] == 0){ // continuo a leggere dalla pipe sino a che non ho letto e salvato la posizione iniziale di tutte le macchine 
                 macchine[i].x = data.x;
                 macchine[i].y = data.y;
                 macchine[i].c = data.c;
@@ -773,36 +760,31 @@ void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]){
                 matricePosizioniIniziali[i][0] = macchine[i].x;
                 matricePosizioniIniziali[i][1] = macchine[i].y;
                 controlloLettura[i] = 1;
-                //fprintf(fp, "counter: %d\n", counter);
-            }             
+            }
         }
     }
-    if (counter == 10){
+    if (counter == NUMMACCHINE){ // dopo che ho letto e salvato le posizioni di tutt e le macchine
         int collision = 0;
-        // devo avviare il controllo
-        for (int i = 0; i<10; i++){
-            //fprintf(fp, "la macchina %d, si trova in posizione (x: %d, y: %d)\n",i,matricePosizioniIniziali[i][0],matricePosizioniIniziali[i][1]);
-        }
-        //fprintf(fp, "\n\n");
-        
-        for (int i = 0; i<10; i++){
-            for (int j = 0; j<10; j++){
+        // controllo le collisioni, controllo per ogni macchina se collide con qualsiasi altra macchina.
+        // se trova una collisione allora esco dai for, do ordine alle macchine di generare un'altra posizione e azzero il counter che mi dice se ho letto tutte le macchine (counter) e riazzero anche l'array controllo lettura.
+        for (int i = 0; i<NUMMACCHINE; i++){
+            for (int j = 0; j<NUMMACCHINE; j++){
                 if (i != j){
                     if (matricePosizioniIniziali[i][1] == matricePosizioniIniziali[j][1]){
                         if (!(matricePosizioniIniziali[j][0]> matricePosizioniIniziali[i][0]+7 || matricePosizioniIniziali[j][0]+7 < matricePosizioniIniziali[i][0])){
                             // collisione in generazione
                             // fprintf(fp, "c'è stata una collisione tra la macchina %d e la macchina %d\n", i, j);
-                            j = 10; 
-                            i = 10;
+                            j = NUMMACCHINE; 
+                            i = NUMMACCHINE;
                             counter = 0;
                             // fprintf(fp,"counter: %d\n", counter);
                             collision = 1;
                             // scrivo nella pipe
-                            for (int i = 0; i< 10; i++){
+                            for (int i = 0; i< NUMMACCHINE; i++){
                                 write(p2[1], &collision, sizeof(int));
                             }
                             // riazzero l'array che controllava la lettura di ogni singola macchina
-                            for (int i = 0; i < 10; i++){
+                            for (int i = 0; i < NUMMACCHINE; i++){
                                 controlloLettura[i] = 0;
                             }
                         }
@@ -810,8 +792,9 @@ void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]){
                 }
             }
         }
+        // non ho trovato collisioni, dico alle macchine di muoversi
         if (collision == 0){
-            for (int i = 0; i< 10; i++){
+            for (int i = 0; i< NUMMACCHINE; i++){
                 write(p2[1], &collision, sizeof(int));
             }
             band = false;
@@ -824,7 +807,7 @@ void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]){
 
 void ranaKillEnemy(elemento rana,elemento* ranaProiettile, elemento logs[], int p8[],int* punteggio){
     int removeEnemy = 1;
-    if (rana.cambioMovimento){
+    if (rana.cambioMovimento){ // se la rana si trova sul fiume
         for (int i = 0; i<NUMTRONCHI; i++){
             if (ranaProiettile->y==logs[i].y && logs[i].enemy && ranaProiettile->sparato){
                 if (ranaProiettile->x == logs[i].x+3 || ranaProiettile->x == logs[i].x+4){
@@ -834,7 +817,7 @@ void ranaKillEnemy(elemento rana,elemento* ranaProiettile, elemento logs[], int 
                         write(p8[1], &removeEnemy, sizeof(int));
                     }
                     ranaProiettile->sparato=false; // scompare proiettile
-                    *punteggio+=100;
+                    *punteggio+=PUNTEGGIOKILLENEMY;
                 }
             }
         }
@@ -859,14 +842,13 @@ void collisioneProiettiliMacchine(elemento *proiettileRana, elemento macchine[],
             }
         }
     }
-    // controllo se il proiettile di un nemico colpisce una macchina
+    // controllo se il proiettile di un nemico colpisce una macchina se questo accade scrivo al proiettile in questione di cancellarsi
     for (int i = 0; i<NUMMACCHINE; i++){
         for (int j = 0; j<NUMTRONCHI; j++){
             if (proiettiliNemici[j].y == macchine[i].y){
                 if (macchine[i].type == 1){
                     if (proiettiliNemici[j].x >= macchine[i].x && proiettiliNemici[j].x <= macchine[i].x+6){
                         comunication = 1 + proiettiliNemici[j].c;
-                        //write(p9[1], &comunication, sizeof(int));
                         for (int i = 0; i< NUMTRONCHI; i++){
                             write(p9[1], &comunication, sizeof(int));
                         }
@@ -875,7 +857,6 @@ void collisioneProiettiliMacchine(elemento *proiettileRana, elemento macchine[],
                 else{
                     if (proiettiliNemici[j].x > macchine[i].x && proiettiliNemici[j].x <= macchine[i].x+3){
                         comunication = 1 + proiettiliNemici[j].c;
-                        //write(p9[1], &comunication, sizeof(int));
                         for (int i = 0; i< NUMTRONCHI; i++){
                             write(p9[1], &comunication, sizeof(int));
                         }
@@ -889,9 +870,10 @@ void collisioneProiettiliMacchine(elemento *proiettileRana, elemento macchine[],
 }
 
 void collisioneProiettileRanaProiettiliNemici(elemento *ranaProiettile, elemento proiettiliNemici[], int p9[]){
+    // controllo se il proiettile della rana collide con un proiettile sparato da un nemico
     int comunication = 0;
     for (int i = 0; i < NUMTRONCHI; i++){
-        comunication = 1;
+        comunication = 1;// comunica al proiettile nemico di cancellarsi in seguito alla collisione con la rana
         if (ranaProiettile->y == proiettiliNemici[i].y && proiettiliNemici[i].y != 0){
             if (ranaProiettile->x == proiettiliNemici[i].x){
                 comunication = 1+proiettiliNemici[i].c;
@@ -907,7 +889,7 @@ void collisioneProiettileRanaProiettiliNemici(elemento *ranaProiettile, elemento
 void mostraPunteggio(int n){
     attron(COLOR_PAIR(3));
     attron(A_BOLD);
-    mvprintw(offsetPunteggio,maxX-17,"Punteggio : %d",n);
+    mvprintw(offsetPunteggio,maxX-MOSTRAPUNTEGGIO,"Punteggio : %d",n);
     attroff(A_BOLD);
     attron(COLOR_PAIR(3));
     return;
@@ -915,6 +897,7 @@ void mostraPunteggio(int n){
 
 
 void chiudiTana(int n){
+    // stampa la tana chiusa di colore rosso
     for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(8));
         if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
@@ -925,6 +908,7 @@ void chiudiTana(int n){
 }
 
 void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *frogCollision, int* punteggio,int stopGame[]){
+    // controllo se un proiettile dei nemici ha hittato la rana, se si dico alla rana che ha perso la manche e di rinascere, con una vita in meno
     for (int i = 0; i<NUMTRONCHI; i++){
         if (proiettili[i].sparato && proiettili[i].y == rana.y && rana.y != 0){
             if (proiettili[i].x == rana.x || proiettili[i].x == rana.x+1){
@@ -948,8 +932,7 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
         }
     }
 }
-void play
-(){
+void playProiettile(){
     char command[256];
     #ifdef __linux__
     sprintf(command,"aplay %s","../musica/proiettile.wav");
@@ -981,9 +964,8 @@ void riprova(int* punteggio, int stopGame[]){
     mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",*punteggio);
     refresh();
     sleep(4);
-    //gioca
     clear();
-    if(gioca){
+    if(gioca){ // riproduci musica di fine gioco
         pid_t endGame=fork();
         if(endGame==0){
             playEndGame();
@@ -991,14 +973,14 @@ void riprova(int* punteggio, int stopGame[]){
     }
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
     if(choice==0 || choice==2){
-        gioca=false;
-        for(size_t i=0;i<1000;i++){
+        gioca=false; // imposta gioca a false, tutti i processi devono terminare
+        for(size_t i=0;i<1000;i++){ // comunico con la pipe a tutti i processi che il nuovo valore di gioca è false, devono uscire dal while
             write(stopGame[1],&gioca,sizeof(gioca));
         }
         return;
     }else{
         // resetto tutto
-        vite=lvlvite;
+        vite=lvlvite-1;
         *punteggio=0;
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;
@@ -1019,7 +1001,7 @@ void tempo(int pipeTempo[],int restartTime[],int stopGame[]){
             secondoSignal=maxX-10;
             flag=0;
         }
-        usleep(REMAININGTIME);
+        usleep(remainingTime); 
     }
     exit(0);
     

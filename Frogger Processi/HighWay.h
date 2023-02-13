@@ -16,18 +16,20 @@ typedef struct{
 }elemento;
 extern int offsetAutostrada;
 
-//global variables
+// DEFINE
 #define CORSIE 5
 #define DIMCORSIE 2
 #define MACCHINE 2
 #define NUMMACCHINE 10
 #define ATTESACAMBIOCORSIA 25000
-//#define DELAYM 30000 
+#define PARI 2
+#define DADO 6
+#define TRE 3
+#define SETTE 7
 
 
 bool ControlloCollisione(elemento);
 void funzioneMacchina(int p1[], int p2[], int p3[],int stopGame[],int speedVehicles, int id);
-//bool carCollision(elemento, int p[]);
 
 
 extern bool gioca;

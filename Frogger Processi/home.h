@@ -10,6 +10,16 @@
 #define VITE 3
 #define NTANE 5
 #define PUNTEGGIOVITE 1
+#define PUNTEGGIOXTANA 500
+#define PUNTEGGIOKILLENEMY 100
+#define LOADING 2000
+#define RELOADTIME 200000
+#define IDRANA 20
+#define IDPROIETTILERANA 21
+#define OFFSETIDTRONCO 30
+#define OFFSETIDTRONCOPROIETTILI 70
+#define MOSTRAPUNTEGGIO 17
+
 void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int[],int[]);
 void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]);
 void windowGeneration();
@@ -36,6 +46,7 @@ int offsetFinale=0;
 int count=0;
 int lvlvite=0;
 bool gioca=true;
+int remainingTime=0;
 void proiettiliKillRana(elemento, elemento[], int[], int *,int*,int[]);
 void stampaTronchiNemici(elemento[],elemento[], elemento);
 void getTronchiBullets(elemento*,elemento[],elemento[]);
@@ -52,7 +63,7 @@ void chiudiTana(int);
 void tempo(int[],int[],int[]);
 void riprova(int*,int[]);
 void displayTime(int);
-void fineMancheThxTime(int[],int[],int,bool,int*,int,int,int[]);
+void fineMancheThxTime(int[],int[],int,bool,int*,int*,int,int[]);
 void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int*);
 void checkRanaInTana(int* frogCollisionPtr,elemento rana,int restartTime[],int timeRestart,int* punteggioPtr, int p4[],int[]);
 void displayTanaChiusa(int taneChiuse[]);

@@ -74,27 +74,6 @@ int main(){
             for (int i = 0; i<NUMTRONCHI; i++){
                 logBulletsId[i] = i;
             }
-                pthread_t startingGame;
-                pthread_create(&startingGame,NULL,&playStartingGame,NULL);
-                pthread_join(&startingGame,NULL);
-                sleep(4);
-                clear();
-                refresh();
-                windowGeneration(); // genero la window
-                // variabili intere
-                int carId[NUMACCHINE];
-                int logId[NUMTRONCHI];
-                int logBulletsId[NUMTRONCHI];
-                for (int i = 0;i<NUMACCHINE; i++){
-                    carId[i] = i;
-                }
-                for (int i = 0;i<NUMTRONCHI; i++){
-                    logId[i] = i;
-                }
-                for (int i = 0; i<NUMTRONCHI; i++){
-                    logBulletsId[i] = i;
-                }
-
             // id thread
             pthread_t ranaId, ranaProiettileId;
             pthread_t macchineId[NUMACCHINE];
