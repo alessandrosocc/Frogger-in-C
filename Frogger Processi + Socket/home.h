@@ -19,7 +19,7 @@
 #define OFFSETIDTRONCO 30
 #define OFFSETIDTRONCOPROIETTILI 70
 #define MOSTRAPUNTEGGIO 17
-
+#define PUNTEGGIOXKILLUCCELLO 1500
 void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int p7[], int p8[], int p9[],int pipeTempo[],int[],int[]);
 void controlloGenerazioneMacchine(int p1[], int p2[], int p7[]);
 void windowGeneration();
@@ -27,6 +27,7 @@ void initScreen(int*, int*);
 void mostraVita(int);
 
 // global variables
+elemento nemicoSocket;
 int network_socket;
 int offsetAutostrada = 0;
 int offsetFiume=0;
@@ -45,6 +46,7 @@ int offsetPunteggio=0;
 int offsetPrato=0;
 int offsetFinale=0;
 int count=0;
+bool socketUsable = true;
 int lvlvite=0;
 bool gioca=true;
 int remainingTime=0;
@@ -71,7 +73,8 @@ void displayTanaChiusa(int taneChiuse[]);
 void checkRanaFiume(int,int[],int vecchioWoody[],elemento woody[],int* punteggioPtr, elemento* ranaPtr, int* frogCollisionChangeLogScore, int* ranaSuLTroncoPtr, int p5[],elemento* vecchiaRanaPtr,int p9[],int[]);
 
 void printNemicoSocket(elemento,elemento);
-int set_non_blocking(int);    
+void nemicoKillRana(elemento, elemento, int[], int*, int*, int[]);
+void ranaKillSocketEnemy(elemento *,elemento ,int*);
 
 void playStartingGame();
 void playOpenGame();

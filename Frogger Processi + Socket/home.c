@@ -78,17 +78,18 @@ int main(){
     network_socket = socket(AF_INET,SOCK_STREAM, 0);
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
-    server_address.sin_port = htons(9003);
+    server_address.sin_port = htons(50000);
     server_address.sin_addr.s_addr = INADDR_ANY;
+
     int connection_status = connect(network_socket,(struct sockaddar *) &server_address, sizeof(server_address));
-    // controllo il risultato della connessione
+    // ceck the result of the connection 
     if (connection_status == -1){
         printf("there was an error making the connection to the remote socket\n\n");
     }
-    if (set_non_blocking(network_socket) == -1){
-        perror("errore nella generazione del socket non bloccante");
-    }
-    // fine creazione socket
+
+    // making the socket non blocking
+    int flags=fcntl(network_socket, F_GETFL);
+    fcntl(network_socket, F_SETFL,flags| O_NONBLOCK);
 
 
     // #####################
@@ -164,6 +165,7 @@ int main(){
     }   
     endwin();
     fclose(fp);
+    close(network_socket);
     return 0;
 }
 void playStartingGame(){
@@ -360,7 +362,7 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     controlloGenerazioneMacchine(p1,p2,p7);
     int timeRestart=1; // è usato come flag nel momento in cui bisogna riavviare la manche
     bool flagTime=1; // è un flag usato nel momento in cui bisogna riavviare la manche
-    elemento nemicoSocket, dataSocket, proiettileSocket;
+    elemento dataSocket, proiettileSocket;
     nemicoSocket.x = maxX/2;
     nemicoSocket.y = offsetEndTane;
 
@@ -376,21 +378,24 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         fineMancheThxTime(restartTime,p4,timeSignal,flagTime,punteggioPtr,frogCollisionPtr,timeRestart,stopGame); // controlliamo che il tempo disponbilile non sia finito, in caso contrario la rana perde una manche e una vita
         checkTaneOccupate(taneChiuse,totaleTaneChiusePtr,punteggioPtr);
         read(p1[0], &(d), sizeof(elemento)); // pipe usata per fetch dati con la funzione getDataFromPipe
-
-        recv(network_socket, &dataSocket, sizeof(elemento), 0);
-        if (dataSocket.c == 100){
-            nemicoSocket.x = dataSocket.x;
-            nemicoSocket.y = dataSocket.y;
-            nemicoSocket.c = dataSocket.c;
-            nemicoSocket.sparato = dataSocket.sparato;
-            if (dataSocket.sparato){
-                proiettileSocket.sparato = true;
+        fprintf(fp, "socket Usable: %d\n", socketUsable);
+        if (socketUsable){
+            // se il socket è utilizzabile allora leggo dal server per sapere la posizione degli elementi nemico e proiettile
+            recv(network_socket, &dataSocket, sizeof(elemento), 0);
+            if (dataSocket.c == 100){
+                nemicoSocket.x = dataSocket.x;
+                nemicoSocket.y = dataSocket.y;
+                nemicoSocket.c = dataSocket.c;
+                nemicoSocket.sparato = dataSocket.sparato;
+                if (dataSocket.sparato){
+                    proiettileSocket.sparato = true;
+                }
             }
-        }
-        else if(dataSocket.c == 101){
-            proiettileSocket.x = dataSocket.x;
-            proiettileSocket.y = dataSocket.y;
-            proiettileSocket.c = dataSocket.c;
+            else if(dataSocket.c == 101){
+                proiettileSocket.x = dataSocket.x;
+                proiettileSocket.y = dataSocket.y;
+                proiettileSocket.c = dataSocket.c;
+            }
         }
         getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr); // prendiamo i dati dalla pipe
         getTronchiBullets(dptr,woody,bullets); // prendiamo i dati inerenti al fiume dalla pipe 
@@ -407,10 +412,16 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         //Stampa Rana e Proiettile Rana
         stampaRanaBullets(rana,bullPtr);
         // stampa il nemico generato tramite socket
-        printNemicoSocket(nemicoSocket, proiettileSocket);
-
+        if (socketUsable){
+            printNemicoSocket(nemicoSocket, proiettileSocket);
+        }
         collisionRanaVehicles(timeRestart, restartTime, p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr,stopGame); // controllo se la rana è stata investita o meno da una macchina
         proiettiliKillRana(rana, bullets,p4,frogCollisionPtr,punteggioPtr,stopGame); // controllo se la rana è stata, o meno colpita da un proiettile nemico
+        if (socketUsable){
+            // controllo che la rana abbia ucciso il nemico o viceversa
+            nemicoKillRana(rana, proiettileSocket, p4, frogCollisionPtr, punteggioPtr, stopGame);
+            ranaKillSocketEnemy(bullPtr,nemicoSocket,punteggioPtr);
+        }
         //fprintf(fp, "coordinate proiettile (%d,%d)\n", bull.x, bull.y);
         if (bull.sparato){ // per non avere collateral
             ranaKillEnemy(rana,bullPtr,woody,p8,punteggioPtr);
@@ -927,7 +938,6 @@ void collisioneProiettileRanaProiettiliNemici(elemento *ranaProiettile, elemento
     }
 }
 
-
 void mostraPunteggio(int n){
     attron(COLOR_PAIR(3));
     attron(A_BOLD);
@@ -936,7 +946,6 @@ void mostraPunteggio(int n){
     attron(COLOR_PAIR(3));
     return;
 }
-
 
 void chiudiTana(int n){
     // stampa la tana chiusa di colore rosso
@@ -1011,8 +1020,14 @@ void riprova(int* punteggio, int stopGame[]){
         return;
     }else{
         // resetto tutto
+        fprintf(fp, "hai resettato tutto\n");
         vite=lvlvite-1;
         *punteggio=0;
+        socketUsable = true;
+        fprintf(fp, "socket Usable: %d\n", socketUsable);
+        nemicoSocket.x = maxX/2,
+        nemicoSocket.y = offsetEndTane;
+
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;
         }
@@ -1068,25 +1083,51 @@ void displayTime(int secondoSegnale){
 }
 
 void printNemicoSocket(elemento nemicoSocket, elemento proiettileNemicoSocket){
+    attron(COLOR_PAIR(9)| A_BOLD);
+    // stampo il nemico ottenuto tramite socket
     mvprintw(nemicoSocket.y-1, nemicoSocket.x, "______");
     mvprintw(nemicoSocket.y,nemicoSocket.x,"\\|00|/");
     mvprintw(nemicoSocket.y+1,nemicoSocket.x,"  \\/");
-    if (proiettileNemicoSocket.sparato){
+    if (proiettileNemicoSocket.sparato && proiettileNemicoSocket.y < offsetAutostrada){
         mvprintw(proiettileNemicoSocket.y, proiettileNemicoSocket.x, "*");
     }
+    attroff(COLOR_PAIR(9)| A_BOLD);
+
 }
-int set_non_blocking(int sockfd) {
-    int flags;
-
-    flags = fcntl(sockfd, F_GETFL, 0);
-    if (flags == -1) {
-        return -1;
+void nemicoKillRana(elemento rana, elemento proiettileNemicoSocket, int p4[], int*frogCollision, int*punteggio, int stopGame[]){
+    if (proiettileNemicoSocket.sparato && rana.y != offsetMarciapiede){
+        if (proiettileNemicoSocket.y == rana.y){
+            if (proiettileNemicoSocket.x == rana.x || proiettileNemicoSocket.x == rana.x+1){
+                if(*frogCollision){
+                    vite--;
+                    pid_t killato=fork();
+                    if(killato==0){
+                        playKilled();
+                    }
+                }
+                else if(vite==0 && gioca){
+                    clear();
+                    refresh();
+                    riprova(punteggio,stopGame);
+                }
+                // riporta alla posizione di partenza
+                write(p4[1], frogCollision, sizeof(frogCollision)); // frogCollision è già un puntatore
+                *frogCollision=0;
+            }
+        }
     }
 
-    flags |= O_NONBLOCK;
-    if (fcntl(sockfd, F_SETFL, flags) == -1) {
-        return -1;
-    }
+}
+void ranaKillSocketEnemy(elemento *proiettileRana ,elemento nemicoSocket, int *punteggio){
+    if  (proiettileRana->sparato == true){
+        if (proiettileRana->y == nemicoSocket.y){
+            if (proiettileRana->x >= nemicoSocket.x && proiettileRana->x <= nemicoSocket.x+5){
+                socketUsable = false; // il socket non è più utilizzabile quindi non vedrò più il nemico 
+                proiettileRana->y = -1;
+                *punteggio += PUNTEGGIOXKILLUCCELLO;
+                
+            }
+        }
 
-    return 0;
+    }
 }

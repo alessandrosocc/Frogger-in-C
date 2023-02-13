@@ -11,6 +11,10 @@
 #include <fcntl.h> // for open
 #include <unistd.h> // for close
 
+time_t t;
+FILE* fp;
+
+
 typedef struct{
     int x;
     int y;
@@ -33,6 +37,8 @@ void bulletGeneration(int[], int[], elemento);
 void proiettileRana(int [], int[], elemento);
 
 int main (void){
+    fp = fopen("log2.txt", "w");
+
     initscr(); 
     curs_set(0);
     noecho();
@@ -41,17 +47,17 @@ int main (void){
     elemento data;
     int maxX = 0, maxY = 0;
     getmaxyx(stdscr,maxY, maxX);
-    
+    // genero il socket
     int server_socket; 
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
 
-     // define the server address
+    // definisco l'indirizzo del server
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET;
-    server_address.sin_port = htons(9003);
+    server_address.sin_port = htons(50000);
     server_address.sin_addr.s_addr = INADDR_ANY;
 
-    // bind our socket to a specified IP and port
+    // bind il socket appena creato a una porta e a un determinato IP
     bind(server_socket, (struct sockaddr*)&server_address, sizeof(server_address));
     listen(server_socket, 10);
 
@@ -79,8 +85,11 @@ int main (void){
         
         // funzione padre
         while(true){
+            
             read(p1[0], &data,sizeof(elemento));
+            // scrivo i dati generati dai processi 
             send(client_socket, &data, sizeof(elemento), 0);
+            fprintf(fp, "data identifier %d:\n", data.c);
         }
     
     }
@@ -96,9 +105,9 @@ void ffrog(int p1[], int p2[], int p3[]){
     elemento rana;
     int maxX = 0, maxY = 0;
     getmaxyx(stdscr, maxY, maxX);
-    rana.c = 10;
+    rana.c = 100;
     rana.x = maxX/2;
-    rana.y = maxY/2;
+    rana.y = 10;
     rana.sparato = false;
     while(true){
         timeout(1);
@@ -111,11 +120,11 @@ void ffrog(int p1[], int p2[], int p3[]){
                 break;
             case KEY_UP:
                 if(rana.y > 0)
-                    rana.y -= 2;
+                    rana.y -= 1;
                     break;
             case KEY_DOWN:
                 if(rana.y < maxY - 1)
-                    rana.y += 2;
+                    rana.y += 1;
                     break;
             case KEY_LEFT:
                 if(rana.x > 0){
@@ -146,8 +155,8 @@ void proiettileRana(int p1[], int p2[], elemento rana){
     elemento proiettile;
     proiettile.y = rana.y; 
     proiettile.x = rana.x+2;
-    proiettile.c = 20;
-    while (proiettile.y<50){
+    proiettile.c = 101;
+    while (proiettile.y<70){
         proiettile.y += 1;
         write(p1[1], &proiettile, sizeof(elemento));
         usleep(10000);
