@@ -73,6 +73,7 @@ elemento ranaProiettile;
 
 // prototipi funzioni
 void initScreen();
+void* ffrog();
 void windowGeneration();
 void areaDiGioco();
 void generaProiettile();
@@ -91,7 +92,7 @@ void checkTane();
 void checkRanaInTana();
 void chiudiTana(int);
 void ranaSulFiume();
-extern void* ffrog();
+//extern void* ffrog();
 extern void* bullet();
 extern void* log(void*);
 extern void* logBullets(void*);
@@ -104,3 +105,4 @@ void* playWinner(void*);
 void* playOpenGame(void*);
 void* playEndGame(void*);
 int count=0;
+void proiettileEnemyCollideConMacchine();

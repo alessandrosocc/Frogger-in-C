@@ -8,11 +8,10 @@
 #include <locale.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <signal.h> //per kill
+#include <signal.h> 
 #include <fcntl.h>
 #include <time.h>
 #include <string.h>
-//#include "HighWay.h"
 #include "frog.h"
 #include "home.h"
 #include "river.h"
@@ -75,6 +74,12 @@ int main(){
     // #####################
     // ### Menu Iniziale ###
     // #####################
+    clear();
+    refresh();
+    stampaScritta();
+    clear();
+    refresh();
+    sleep(4);
     int speedVehicles=0; // velocità veicoli, da usare per i vari livelli
     int speedLegnetto=0; // velocità legnetti, da usare per i vari livelli
     char* choices[]={"Inizia a Giocare","Credits"}; // scelte menù principale
@@ -147,6 +152,7 @@ int main(){
     fclose(fp);
     return 0;
 }
+
 void playStartingGame(){
     char command[256];
     #ifdef __linux__ // se hai un pc linux, bisogna usare un programma diverso per lanciare la musica
@@ -901,7 +907,7 @@ void chiudiTana(int n){
     for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(8));
         if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
-            mvvline(offsetTane+1,i,'x',TANE);
+            mvvline(offsetTane+1,i,' ',TANE);
         }
         attroff(COLOR_PAIR(8));
     }
@@ -932,18 +938,7 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
         }
     }
 }
-void playProiettile(){
-    char command[256];
-    #ifdef __linux__
-    sprintf(command,"aplay %s","../musica/proiettile.wav");
-    system(strcat(command," 1>/dev/null 2>/dev/null"));
-    #endif
-    #ifdef __APPLE__ || __MACH__
-        sprintf(command,"afplay %s","../musica/proiettile.wav");
-        system(command);
-    #endif
-    exit(0);
-}
+
 void playEndGame(){
     char command[256];
     #ifdef __linux__

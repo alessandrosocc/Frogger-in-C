@@ -14,6 +14,7 @@
 #include <string.h>
 #include "HighWay.h"
 #define NTANE 5
+#define VELOCITAPROIETTILE 40000
 time_t t;
 FILE* fp; 
 extern bool gioca;
@@ -25,5 +26,5 @@ extern int offsetEndTane;
 extern elemento rana;
 extern elemento ranaProiettile;
 
-void* ffrog();
+//void* ffrog();
 void* bullet();

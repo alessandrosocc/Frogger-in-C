@@ -15,12 +15,14 @@ void* log(void*id){
     pthread_mutex_unlock(&mutex);
 
     while(gioca){
+        // genero un enemy se il counter == enemyLimit ed il tronco non ha un nemico sopra
         if (counter == enemyLimit && tronchi[identifier].enemy == false && tronchi[identifier].killed == false){
             pthread_mutex_lock(&mutex);
             tronchi[identifier].enemy = true;
             pthread_mutex_unlock(&mutex);
             counter = 0;
         }
+        // se c'è un tronco un nemico
         if (tronchi[identifier].enemy){
             if (counter == bulletLimit){
                 pthread_mutex_lock(&mutex);
@@ -29,6 +31,7 @@ void* log(void*id){
                 counter = 0;
             }
         }
+        // se il nemico sul tronco è stato ucciso, reimposto .killed a false
         if (tronchi[identifier].killed){
             pthread_mutex_lock(&mutex);
             tronchi[identifier].killed = false;
@@ -37,13 +40,14 @@ void* log(void*id){
         }
         pthread_mutex_lock(&mutex);
         x = tronchi[identifier].x + direzione;
+        // faccio spostare il tronco
         if(x > maxX-7 || x < 0){
             direzione *= -1;
-            //woody.y = 1 + rand()%(maxY-1);
         }
         else{
             tronchi[identifier].x += direzione;
         }
+        // la rana segue il tronco se la rana è sopra il tronco
         if (rana.y == tronchi[identifier].y && rana.x >= tronchi[identifier].x && rana.x+2 <= tronchi[identifier].x+7){
             rana.x += direzione;
         }
@@ -57,9 +61,11 @@ void* log(void*id){
 void* logBullets(void*id){
     int identifier = *((int *)id);
     while(gioca){
+        //se il tronco ha un proiettile sparato
         if (tronchiProiettili[identifier].sparato){
             tronchiProiettili[identifier].x = tronchi[identifier].x+3;
             tronchiProiettili[identifier].y = tronchi[identifier].y;
+            // il proiettile del tronco continua a spostarsi finchè non arriva all'offset del marciapiede
             while(tronchiProiettili[identifier].y < offsetMarciapiede){
                 pthread_mutex_lock(&mutex);
                 tronchiProiettili[identifier].y++;
@@ -72,7 +78,6 @@ void* logBullets(void*id){
             pthread_mutex_unlock(&mutex);
         }
         usleep(20000);
-        fprintf(fp,"sono bloccato qui dentro\n");
     }
 }
 

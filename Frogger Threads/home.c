@@ -61,7 +61,7 @@ int main(){
             clear();
             refresh();
             windowGeneration(); // genero la window
-            // variabili intere
+            // variabili intere che verranno utilizzate per indicizzare gli array di thread per la loro creazione
             int carId[NUMACCHINE];
             int logId[NUMTRONCHI];
             int logBulletsId[NUMTRONCHI];
@@ -94,11 +94,13 @@ int main(){
             for (int i = 0;i<NUMTRONCHI; i++){
                 pthread_create(&proiettiliId[i],NULL,&logBullets, (void*)&logBulletsId[i]);
             }
+            // aspetto un secondo e vado a stampare l'area di gioco
+            sleep(1);
             areaDiGioco();
+            // usciti dalla funzione elimino tuttu i thread creati precedentemente
             pthread_join(tempoThread,NULL);
             pthread_join(ranaId,NULL);
             pthread_join(ranaProiettileId,NULL);
-            
             for (int i = 0;i<NUMACCHINE; i++){
                 pthread_join(macchineId[i],NULL);
             }
@@ -225,7 +227,6 @@ void initScreen(){
     pthread_mutex_unlock(&mutex);
 
 }
-
 void windowGeneration(){
     int nCorsie=3, nFiume = 3, yBox = 0, xBox=0, incYBox = 0, corsie = 1, correnti = 1, righe = 1;
     pthread_mutex_lock(&mutex);
@@ -319,54 +320,65 @@ void windowGeneration(){
 
 void areaDiGioco(){
     pthread_mutex_lock(&mutex);
-    secondiRimanenti=maxX-10;
+    secondiRimanenti=maxX-10; // imposto la lunghezza della barra del tempo
     pthread_mutex_unlock(&mutex);
     while(gioca){
-        erase();
         macchineGenerateCorrettamente = true;
-        windowGeneration();
-        mostraVita();
-        mostraPunteggio();
         checkTane();
         checkRanaInTana();
         collisioneProiettileRanaTronco();
-        showTime();
+        // effettuo il controllo per la corretta generazione di tutte le macchine
         for (int i = 0; i<NUMACCHINE; i++){
             if (!(macchine[i].generatoCorrettamente)){
                 macchineGenerateCorrettamente = false;
-                fprintf(fp, "le macchine non sono ancora state generate correttamente\n");
-                fflush(fp);
             }
-        }
-        if (macchineGenerateCorrettamente){
-            printMacchine();
+        } 
+        if (macchineGenerateCorrettamente){ // dopo che le macchine sono state create correttamente allora faccio tutti gli altri controlli del caso, per le collisioni tra più elementi
             ranaCollideConMacchine();
             proiettileRanaCollideConMacchine();
+            proiettileEnemyCollideConMacchine();
             ranaKillTronchi();
             enemyKillRana();
             ranaSulFiume();
-            printTronchi();
-            printRana();
         }
-        usleep(500);
-        refresh();
     }
+}
+void proiettileEnemyCollideConMacchine(){
+    pthread_mutex_lock(&mutex);
+    // scorro per i tronchi e le macchine, controllo se c'è una collisione tra i tronchi e le macchine e nel caso ci fosse metto tronchiProiettili[i].sparato = false
+    for(size_t i=0;i<NUMTRONCHI;i++){
+        for(size_t j=0;j<NUMACCHINE;j++){
+            if(macchine[j].type==1){ // camion
+                if(tronchiProiettili[i].x>=macchine[j].x && tronchiProiettili[i].x<macchine[j].x+7 && tronchiProiettili[i].y==macchine[j].y ){
+                    tronchiProiettili[i].sparato=false;
+                }
+            }
+            else{
+                if(tronchiProiettili[i].x>=macchine[j].x && tronchiProiettili[i].x<macchine[j].x+4 && tronchiProiettili[i].y==macchine[j].y ){
+                    tronchiProiettili[i].sparato=false;
+                }
+            }
+
+        }
+    }
+    pthread_mutex_unlock(&mutex);
 }
 void ranaSulFiume(){
     for (int i = 0; i<NUMTRONCHI; i++){
         pthread_mutex_lock(&mutex);
-        if (tronchi[i].y == rana.y){
+        if (tronchi[i].y == rana.y){ // se la rana si trova nella stessa riga di un tronco
             if((rana.y==tronchi[i].y && (rana.x<tronchi[i].x || rana.x>=tronchi[i].x+8))||(tronchi[i].enemy)){
+                // c'è stata una collisione con un tronco, riporta la rana sul marciapiede e decrementa la vita nel caso fosse >0
                 rana.x = maxX/2;
                 rana.y = offsetMarciapiede;
                 if (vite>0){
                     vite--;
-                    secondiRimanenti=maxX-10;
-                    pthread_t killato;
+                    secondiRimanenti=maxX-10; // reimposta la barra del tempo
+                    pthread_t killato; // riproduci suono killeto
                     pthread_create(&killato,NULL,&playKilled,NULL);
                     pthread_join(killato,NULL);
                 }
-                else if(gioca){
+                else if(!vite && gioca){
                     riprova();
                 }
                 
@@ -382,24 +394,30 @@ void ranaSulFiume(){
 void chiudiTana(int n){
     for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(8));
+        /*
+        chiudi la tana in posizione n, fatto colorando lo spazio oltre la prima posizione della tana "n" da chiudere e prima dell'ultima posizione della tana "n+1"
+        */
         if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
-            mvvline(offsetTane+1,i,'x',TANE);
+            mvvline(offsetTane+1,i,' ',TANE);
         }
         attroff(COLOR_PAIR(8));
     }
 }
 void checkRanaInTana(){
     pthread_mutex_lock(&mutex);
+    // controlla per ogni tana
     for (size_t i=0;i<NTANE;i++){ 
+        // controlla se la rana è entrata dentro una tana
         if (rana.y<10 && (rana.x>i*(maxX/NTANE)) && (rana.x<(i+1)*(maxX/NTANE))){
             if (!taneChiuse[i]){ // se la tana è aperta
-                taneChiuse[i]=1; // chiude la tana
+                taneChiuse[i]=1; // allora chiude la tana
                 punteggio+=500;
-                flagTime=1;
+                flagTime=1; // resetta il tempo
                 usleep(2000); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
             }
             else if(taneChiuse[i]){
                 if (vite>0){
+                    // riproduci suono della rana killata e decrementa vite
                     pthread_t killato;
                     pthread_create(&killato,NULL,&playKilled,NULL);
                     pthread_join(killato,NULL);
@@ -422,18 +440,20 @@ void checkRanaInTana(){
     }
     pthread_mutex_unlock(&mutex);
 }
+// controlliamo se tutte le tane sono chiude
 void checkTane(){
     //TANE TUTTE OCCUPATE? -> GIOCATORE HA VINTO
     pthread_mutex_lock(&mutex);
     for (size_t i=0;i<NTANE;i++){
+        // conto quante tane sono chiuse
         if(taneChiuse[i]==1){
-            totaleTaneChiuse+=1;
+            totaleTaneChiuse+=1; 
         }
     }
-    if (totaleTaneChiuse==NTANE){
+    if (totaleTaneChiuse==NTANE){ // tutte le tane sono chiuse -> il giocatore ha vinto
         clear();
         refresh();
-        pthread_t win;
+        pthread_t win; // riproduco suono vittoria
         if(gioca){
             pthread_create(&win,NULL,&playWinner,NULL);
             pthread_join(win,NULL);
@@ -443,30 +463,31 @@ void checkTane(){
         refresh();
         sleep(5);
         pthread_mutex_lock(&mutex);
-        gioca=false;
+        gioca=false; // imposto a false cosi tutti i thread termineranno
         pthread_mutex_unlock(&mutex);
         exit(0);
     }
     else{
-        totaleTaneChiuse=0;
+        totaleTaneChiuse=0;// le tane non sono tutte chiuse, reimposta il contatore a 0 cosi ritenterà più avanti
     }
     pthread_mutex_unlock(&mutex);
 }
 void* calculateResidualTime(void* X){
     while(gioca){
         pthread_mutex_lock(&mutex);
-        if(flagTime){
-        flagTime=0;
-        secondiRimanenti=maxX-10;
+        if(flagTime){ // bisogna resettare la barra
+            flagTime=0;
+            secondiRimanenti=maxX-10;
         }
-        secondiRimanenti--;
-        if(secondiRimanenti==0 && !flagTime){
+        secondiRimanenti--; // decrementa la barra
+        if(secondiRimanenti==0 && !flagTime){ // la manche è finita
             if(vite>0){
                 vite--;
-                secondiRimanenti=maxX-10;
-                rana.y=offsetMarciapiede;
+                secondiRimanenti=maxX-10; // resetto barra
+                //riporto rana sul marciapiede
+                rana.y=offsetMarciapiede; 
                 rana.x=maxX/2;
-                pthread_t killato;
+                pthread_t killato; // riproduci suono rana killata
                 pthread_create(&killato,NULL,&playKilled,NULL);
                 pthread_join(killato,NULL);
             }
@@ -477,9 +498,9 @@ void* calculateResidualTime(void* X){
         pthread_mutex_unlock(&mutex);
         usleep(100000);
     }
-    
 }
 void showTime(){
+    // Mostro la barra
     pthread_mutex_lock(&mutex);
     if (secondiRimanenti>=((maxX-2)/2)){
         attron(COLOR_PAIR(1));
@@ -520,8 +541,8 @@ void riprova(){
     sleep(4);
     clear();
     pthread_t musicaEndGame;
-    //gioca
     pthread_mutex_lock(&mutex);
+    
     int choice=menu("HAI PERSO","Vuoi Riprovare?",choices,2,true,true);
     if(gioca){
         pthread_create(&musicaEndGame,NULL,&playEndGame,NULL);
@@ -529,13 +550,15 @@ void riprova(){
     }
     
     if(choice==0 || choice==2){
+        // se l'utente esce dal menù oppure dice che non vuole continuare
         gioca=false;
     }else{
+        //il giocatore vuole continuare a giocare, resetto tutto
         // resetto tutto
         vite=LVLVITE;
         punteggio=0;
         for(size_t i=0;i<NTANE;i++){
-            taneChiuse[i]=0;
+            taneChiuse[i]=0; // resetto le taneChiuse
         }
         secondiRimanenti=maxX-10;
     }
@@ -544,12 +567,8 @@ void riprova(){
 void mostraVita(){
     attron(COLOR_PAIR(3));
     attron(A_BOLD);
+    // mostro le vite in carattere bold, in alto a sx
     mvprintw(offsetPunteggio,2,"Vite : ");
-    // VITE CON SIMBOLO
-    // int x=8;
-    // for (int i=0;i<vite;i++){
-    //     mvaddch(offsetPunteggio,x+=2,'#');
-    // }
     mvprintw(offsetPunteggio,9,"%d",vite);
     attroff(COLOR_PAIR(3));
     attroff(A_BOLD);
@@ -564,6 +583,7 @@ void mostraPunteggio(){
     return;
 }
 void proiettileRanaCollideConMacchine(){
+    // con questo ceck controllo che il proiettile della rana collida con una macchina, in caso positivo imposto la posizione del proiettile a -1, in modo tale da non vederlo più e da evitare possibili collisioni indesiderate
     for (int i = 0; i<NUMACCHINE; i++){
         if (macchine[i].y == ranaProiettile.y){
             if(macchine[i].type==1){// camion
@@ -572,7 +592,7 @@ void proiettileRanaCollideConMacchine(){
                     ranaProiettile.y = -1;
                     pthread_mutex_unlock(&mutex);
                 }
-            }
+            } // il controllo della posizione viene effettuato utilizzando le dimensioni della macchine e del camion
             else{
                 if (ranaProiettile.x>= macchine[i].x && ranaProiettile.x<=macchine[i].x+4){
                     pthread_mutex_lock(&mutex);
@@ -584,6 +604,7 @@ void proiettileRanaCollideConMacchine(){
     }
 }
 void ranaCollideConMacchine(){
+    // ciclo ogni macchina per controllare se la rana si trova nel range di un veicolo, in caso positivo la rana perde una vita e la manche, così viene riportata al punto di partenza;
     for (int i = 0; i<NUMACCHINE; i++){
         if (macchine[i].y == rana.y){
             if(macchine[i].type==1){// camion
@@ -598,17 +619,17 @@ void ranaCollideConMacchine(){
                         pthread_create(&killato,NULL,&playKilled,NULL);
                         pthread_join(killato,NULL);
                     }
+                    // se la rana viene killata e non ha più vite disponibili, perde la partita e viene chiesto se si desidera rincominciarne una nuova
                     else if(gioca){
                         riprova();
                     }
                     pthread_mutex_unlock(&mutex);
                 }
             }
-            else{
+            else{ // viene fatta la stessa cosa di prima, ma con le dimensioni delle macchine e non camion
                 if (rana.x>= macchine[i].x && rana.x<=macchine[i].x+4){
                     pthread_mutex_lock(&mutex);
                     rana.x = maxX/2;
-                    rana.y = offsetMarciapiede;
                     if (vite>0){
                         vite--;
                         secondiRimanenti=maxX-10;
@@ -625,15 +646,19 @@ void ranaCollideConMacchine(){
         }
     }
 }
-void ranaKillTronchi(){
+
+void ranaKillTronchi(){ // controllo per tutti i tronchi che hanno un nemico se il proiettile il colpisce, in caso positivo elimino il nemico e il proiettile che l'ha ucciso
     for (int i = NUMTRONCHI-1; i>= 0;i--){
+        // se c'è un nemico sul tronco
         if (tronchi[i].enemy){
+            // se il proiettile della rana è nella stessa riga del tronco iesimo
             if (ranaProiettile.y == tronchi[i].y && ranaProiettile.sparato){
+                // se il proiettile della rana hitta il nemico
                 if (ranaProiettile.x == tronchi[i].x+3 || ranaProiettile.x == tronchi[i].x+4){
                     pthread_mutex_lock(&mutex);
-                    tronchi[i].enemy = false;
-                    tronchi[i].killed = true;
-                    ranaProiettile.y = -1;
+                    tronchi[i].enemy = false; // il nemico è ucciso
+                    tronchi[i].killed = true; // il nemico è killato
+                    ranaProiettile.y = -1; 
                     i = NUMTRONCHI;
                     pthread_mutex_unlock(&mutex);
                 }
@@ -642,22 +667,24 @@ void ranaKillTronchi(){
     }
 }
 
-void enemyKillRana(){
+void enemyKillRana(){ // ciclo tutti i proiettili sparati dai nemici spora i tronchi e controllo se essi si trovano all'interno del range occupato dalla rana
     for (int i = NUMTRONCHI-1; i>= 0;i--){
-        if (tronchiProiettili[i].sparato){
-            if (rana.y == tronchiProiettili[i].y){
-                if (rana.x == tronchiProiettili[i].x ){
+        if (tronchiProiettili[i].sparato){ // proiettile è sparato 
+            if (rana.y == tronchiProiettili[i].y){ // proiettile è nella stessa riga della rana
+                if (rana.x == tronchiProiettili[i].x || rana.x+1 == tronchiProiettili[i].x){ // controllo la x
                     pthread_mutex_lock(&mutex);
+                    // riporto la rana sul marciapiede
                     rana.x = maxX/2;
                     rana.y = offsetMarciapiede;
+                    // decremento le vite e reimposto la barra del tempo
                     if (vite>0){
                         vite--;
                         secondiRimanenti=maxX-10;
-                        pthread_t killato;
+                        pthread_t killato; // rumore kill
                         pthread_create(&killato,NULL,&playKilled,NULL);
                         pthread_join(killato,NULL);
                     }
-                    else if(gioca){
+                    else if(vite==0 && gioca){
                         riprova();
                     }
                     i = NUMTRONCHI;
@@ -667,11 +694,13 @@ void enemyKillRana(){
         }
     }
 }
+
 void printRana(){
     pthread_t musicaProiettile;
     pthread_mutex_lock(&mutex);
     mvprintw(rana.y,rana.x,"\\/");
     mvprintw(rana.y+1,rana.x,"/\\");
+    // se il proiettile è stato sparato, stampalo
     ranaProiettile.sparato?mvaddch(ranaProiettile.y, ranaProiettile.x, '*'):1;
     if(ranaProiettile.sparato && !count){ //count serve per avviare la musica una volta e basta
         pthread_create(&musicaProiettile,NULL,&playProiettile,NULL);
@@ -683,17 +712,18 @@ void printRana(){
     }
     pthread_mutex_unlock(&mutex);
 }
+
 void printMacchine(){
     for (int i = 0; i<NUMACCHINE; i++){
             attron(COLOR_PAIR(15)| A_BOLD);
             
-            if (macchine[i].type == 1){
+            if (macchine[i].type == 1){ // stampo il camion
                 pthread_mutex_lock(&mutex);
                 mvprintw(macchine[i].y,macchine[i].x,"/-----\\");
                 mvprintw(macchine[i].y+1,macchine[i].x,"O-----O");
                 pthread_mutex_unlock(&mutex);
             }
-            else{
+            else{ // stampo il veicolo macchina
                 pthread_mutex_lock(&mutex);
                 mvprintw(macchine[i].y,macchine[i].x,"/--\\");
                 mvprintw(macchine[i].y+1,macchine[i].x,"O--O");
@@ -720,7 +750,9 @@ void printTronchi(){
         }
     }
     //stampa proiettili dei nemici sui tronchi \addindex sparati
-    for (size_t i = 0; i< NUMTRONCHI; i++){
+    for (size_t i = 0; i< NUMTRONCHI; i++)
+    {
+        // stampa il proiettile sparato dal tronco se è stato sparato
         if (tronchiProiettili[i].sparato){
             pthread_mutex_lock(&mutex);
             mvaddch(tronchiProiettili[i].y, tronchiProiettili[i].x, '*');
@@ -732,10 +764,61 @@ void printTronchi(){
 void collisioneProiettileRanaTronco(){
     for (int i = NUMTRONCHI-1; i>= 0;i--){
         pthread_mutex_lock(&mutex);
+        // se il proiettile della rana e del tronco collidono, allora distruggili
         if(tronchiProiettili[i].y==ranaProiettile.y && tronchiProiettili[i].x==ranaProiettile.x){
             ranaProiettile.sparato=false;
             tronchiProiettili[i].sparato=false;
         }
         pthread_mutex_unlock(&mutex);
     }
+}
+void* ffrog(){
+    // imposto i dati iniziali
+    rana.c=20;
+    rana.x = maxX/2;
+    rana.y = offsetMarciapiede;
+    while(gioca){
+        
+        timeout(1);
+        int c = getch();
+        pthread_mutex_lock(&mutex);
+        switch(c) {
+            case KEY_UP: 
+                if(rana.y > 0)
+                    rana.y -= 2; 
+                    break;
+            case KEY_DOWN:
+                if(rana.y < maxY - 1)
+                    rana.y += 2; 
+                    break;
+            case KEY_LEFT: 
+                if(rana.x> 0)
+                    rana.x -= 1; 
+                break;
+            case KEY_RIGHT:
+                if(rana.x < maxX - 1)
+                    rana.x += 1; 
+                break;
+            case 32: // barra spaziatrice
+                ranaProiettile.sparato = true;
+                break;
+                // genero il thread che genererà a sua volta il proiettile
+        }
+        rana.y>offsetMarciapiede?rana.y=offsetMarciapiede:1; // la rana non può spostarsi oltre l'area di gioco, ossia oltre il marciapiede in basso
+        pthread_mutex_unlock(&mutex);
+        // stampo tutto, lo faccio qua perchè in home.c ho dei problemi e si vede molto male.
+        if(macchineGenerateCorrettamente){
+            erase();
+            windowGeneration();
+            mostraPunteggio();
+            mostraVita();
+            showTime();
+            printMacchine();
+            printTronchi();
+            printRana();
+            refresh();
+        }
+        
+    }
+    pthread_exit(0);
 }

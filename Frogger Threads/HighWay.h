@@ -36,6 +36,8 @@ time_t t;
 FILE* fp; 
 #define NUMACCHINE 10
 #define CORSIE 5
+#define DADI 6
+#define PARI 2
 extern int maxX;
 extern int maxY;
 extern pthread_mutex_t mutex;
@@ -47,5 +49,4 @@ elemento tronchi[NUMTRONCHI];
 elemento tronchiProiettili[NUMTRONCHI];
 extern int speedVehicles;
 void* car(void*);
-
 void printMacchine();
