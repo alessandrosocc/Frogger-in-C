@@ -58,7 +58,7 @@ int main(){
             pthread_t startingGame;
             pthread_create(&startingGame,NULL,&playStartingGame,NULL);
             pthread_join(&startingGame,NULL);
-            sleep(4);
+            //sleep(4);
             clear();
             refresh();
             windowGeneration(); // genero la window
@@ -123,7 +123,7 @@ void* playMusic(void* X){
     while(gioca){
         #ifdef __linux__
         sprintf(command,"aplay %s","../musica/sound.wav");
-        system(strcat(command,"1>/dev/null 2>/dev/null"));
+        system(strcat(command," 1>/dev/null 2>/dev/null"));
         #endif
         #ifdef __APPLE__ || __MACH__
             sprintf(command,"afplay %s","../musica/sound.wav");
@@ -137,7 +137,7 @@ void* playKilled(void* X){
     char command[256];
     #ifdef __linux__
         sprintf(command,"aplay %s","../musica/killed.wav");
-        system(strcat(command,"1>/dev/null 2>/dev/null"));
+        system(strcat(command," 1>/dev/null 2>/dev/null"));
     #endif
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/killed.wav");
@@ -149,7 +149,7 @@ void* playProiettile(void* X){
     char command[256];
     #ifdef __linux__
     sprintf(command,"aplay %s","../musica/proiettile.wav");
-    system(strcat(command,"1>/dev/null 2>/dev/null"));
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
     #endif
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/proiettile.wav");
@@ -162,7 +162,7 @@ void* playEndGame(void* X){
     char command[256];
     #ifdef __linux__
     sprintf(command,"aplay %s","../musica/endGame.wav");
-    system(strcat(command,"1>/dev/null 2>/dev/null"));
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
     #endif
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/endGame.wav");
@@ -176,7 +176,7 @@ void* playOpenGame(void* X){
     char command[256];
     #ifdef __linux__
     sprintf(command,"aplay %s","../musica/openSong.wav");
-    system(strcat(command,"1>/dev/null 2>/dev/null"));
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
 
     #endif
     #ifdef __APPLE__ || __MACH__
@@ -191,7 +191,7 @@ void* playWinner(void* X){
     char command[256];
     #ifdef __linux__
     sprintf(command,"aplay %s","../musica/winner.wav");
-    system(strcat(command,"1>/dev/null 2>/dev/null"));
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
     #endif
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/winner.wav");
@@ -205,7 +205,7 @@ void* playStartingGame(void* X){
     char command[256];
     #ifdef __linux__
     sprintf(command,"aplay %s","../musica/startingGame.wav");
-    system(strcat(command,"1>/dev/null 2>/dev/null"));
+    system(strcat(command," 1>/dev/null 2>/dev/null"));
     #endif
     #ifdef __APPLE__ || __MACH__
         sprintf(command,"afplay %s","../musica/startingGame.wav");
