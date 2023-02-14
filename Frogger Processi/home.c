@@ -76,10 +76,8 @@ int main(){
     // #####################
     clear();
     refresh();
-    stampaScritta();
     clear();
     refresh();
-    sleep(4);
     int speedVehicles=0; // velocità veicoli, da usare per i vari livelli
     int speedLegnetto=0; // velocità legnetti, da usare per i vari livelli
     char* choices[]={"Inizia a Giocare","Credits"}; // scelte menù principale
@@ -104,7 +102,7 @@ int main(){
                 // in base al livello di difficoltà scelto vengono ridenfiniti certi parametri per rendere più o meno complicata la vittoria 
                 switch(choice){
                     case 1: //principiante
-                        lvlvite=11;
+                        lvlvite=10;
                         vite=lvlvite;
                         remainingTime=300000;
                         
@@ -112,7 +110,7 @@ int main(){
                         speedLegnetto=50000;
                         break;
                     case 2: //intermedio
-                        lvlvite=6; 
+                        lvlvite=5; 
                         vite=lvlvite;
                         remainingTime=200000; // tempo manche
                         speedVehicles=30000;
@@ -347,7 +345,6 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     controlloGenerazioneMacchine(p1,p2,p7);
     int timeRestart=1; // è usato come flag nel momento in cui bisogna riavviare la manche
     bool flagTime=1; // è un flag usato nel momento in cui bisogna riavviare la manche
-
     //inizializzo il ciclo di stampa
     while(gioca){
         erase(); // puliamo la window
@@ -533,14 +530,15 @@ void fineMancheThxTime(int restartTime[], int p4[],int timeSignal, bool flagTime
             if(vite>0){  //decrementa vita se non chiudi una rana entro la mance
                 vite--;
                 flagTime=0;
+                write(p4[1], &*frogCollision, sizeof(frogCollision)); // scriviamo alla rana che ha perso la manche 
                 *frogCollision=0; // modifichiamo frogCollision in modo tale da non registrare più collisioni di quelle necessarie 
             }
             else if(vite==0 && gioca){
                 clear();
                 refresh();
                 riprova(punteggioPtr,stopGame);
-            }
-            write(p4[1], &frogCollision, sizeof(frogCollision)); // scriviamo alla rana che ha perso la manche 
+                }
+            
             write(restartTime[1], &timeRestart, sizeof(timeRestart));  // scriviamo al tempo di rincominciare
             usleep(RELOADTIME); // altrimenti la timesignal legge sempre 0 e la barra del tempo impiega troppo a reiniziare
         }
@@ -880,6 +878,7 @@ void collisioneProiettileRanaProiettiliNemici(elemento *ranaProiettile, elemento
     int comunication = 0;
     for (int i = 0; i < NUMTRONCHI; i++){
         comunication = 1;// comunica al proiettile nemico di cancellarsi in seguito alla collisione con la rana
+        // È FATTO APPOSTA CHE LA RANA NON PERDA VITE SE COLPITA DA UN PROIETTILE NEL MARCIAPIEDE!!!!!!!
         if (ranaProiettile->y == proiettiliNemici[i].y && proiettiliNemici[i].y != 0){
             if (ranaProiettile->x == proiettiliNemici[i].x){
                 comunication = 1+proiettiliNemici[i].c;
@@ -975,7 +974,7 @@ void riprova(int* punteggio, int stopGame[]){
         return;
     }else{
         // resetto tutto
-        vite=lvlvite-1;
+        vite=lvlvite;
         *punteggio=0;
         for(size_t i=0;i<NTANE;i++){
             taneChiuse[i]=0;

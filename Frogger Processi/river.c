@@ -55,13 +55,13 @@ void legnetto(int p1[],int p6[], int p8[],int p9[],int stopGame[], int riga,int 
             timeLimit = 1+rand()%LIMTIMERNEMICI/2;
         }
         // sposta il legnetto
-        if(x > maxX-LUNGHEZZATRONCO || x < 0 ){
-            direzione *= -1;
-        }
-        else{
-            woody.x += direzione;
-        }
-        //woody.x=120;
+        // if(x > maxX-LUNGHEZZATRONCO || x < 0 ){
+        //     direzione *= -1;
+        // }
+        // else{
+        //     woody.x += direzione;
+        // }
+        woody.x=120; // DEBUG PURPOSE
         if (woody.enemy == false){
             if (comunication <= 0 && id2 != woody.c){ // controliamo se è possibile spownare un nemico 
                 if (timeLimit == counter){  // se il counter è arrivato al limite allora viene spownato

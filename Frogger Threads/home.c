@@ -53,7 +53,7 @@ int main(){
                         speedLegnetto=10000;
                         break;
                 }
-            }
+            
             pthread_t startingGame;
             pthread_create(&startingGame,NULL,&playStartingGame,NULL);
             pthread_join(startingGame,NULL);
@@ -111,8 +111,7 @@ int main(){
                 pthread_join(proiettiliId[i],NULL);
             }
             wait(NULL);
-            }else{
-                exit(0);
+            }
             }
             choice=menu("Frogger 2023","Benvenuto in Frogger, un gioco creato con processi, threads e lacrime",choices,2,true,true);
     }
@@ -325,7 +324,6 @@ void areaDiGioco(){
     while(gioca){
         macchineGenerateCorrettamente = true;
         checkTane();
-        checkRanaInTana();
         collisioneProiettileRanaTronco();
         // effettuo il controllo per la corretta generazione di tutte le macchine
         for (int i = 0; i<NUMACCHINE; i++){
@@ -384,7 +382,7 @@ void ranaSulFiume(){
                 
             }
             else if(bakIDTroncoPunteggio!=i){ // la rana è su un tronco, non può scendere e salire sullo stesso tronco altrimenti potrebbe ottenere un punteggio alto pur facendo niente
-                punteggio+=500;
+                punteggio+=50;
                 bakIDTroncoPunteggio=i;
             }
         }
@@ -421,6 +419,7 @@ void checkRanaInTana(){
                     pthread_t killato;
                     pthread_create(&killato,NULL,&playKilled,NULL);
                     pthread_join(killato,NULL);
+                    secondiRimanenti=maxX-10;
                     vite--;
                 }
                 else{
@@ -462,9 +461,7 @@ void checkTane(){
         mvprintw(maxY/2+1,maxX/2,"Il tuo score finale è %d",punteggio);
         refresh();
         sleep(5);
-        pthread_mutex_lock(&mutex);
         gioca=false; // imposto a false cosi tutti i thread termineranno
-        pthread_mutex_unlock(&mutex);
         exit(0);
     }
     else{
@@ -660,6 +657,7 @@ void ranaKillTronchi(){ // controllo per tutti i tronchi che hanno un nemico se 
                     tronchi[i].killed = true; // il nemico è killato
                     ranaProiettile.y = -1; 
                     i = NUMTRONCHI;
+                    punteggio+=100;
                     pthread_mutex_unlock(&mutex);
                 }
             }
@@ -816,6 +814,7 @@ void* ffrog(){
             printMacchine();
             printTronchi();
             printRana();
+            checkRanaInTana();
             refresh();
         }
         
