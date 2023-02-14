@@ -8,11 +8,10 @@
 #include <locale.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <signal.h> //per kill
+#include <signal.h> 
 #include <fcntl.h>
 #include <time.h>
 #include <string.h>
-//#include "HighWay.h"
 #include "frog.h"
 #include "home.h"
 #include "river.h"
@@ -901,7 +900,7 @@ void chiudiTana(int n){
     for (size_t i=1;i<=maxX-2;i++){
         attron(COLOR_PAIR(8));
         if ((i>n*(maxX/NTANE)) && (i<(n+1)*(maxX/NTANE))){
-            mvvline(offsetTane+1,i,'x',TANE);
+            mvvline(offsetTane+1,i,' ',TANE);
         }
         attroff(COLOR_PAIR(8));
     }

@@ -1,42 +1,8 @@
 #include "frog.h"
-void* ffrog(){
-    rana.c=20;
-    rana.x = maxX/2;
-    rana.y = offsetMarciapiede;
-    while(gioca){
-        int c = getch();
-        pthread_mutex_lock(&mutex);
-        switch(c) {
-            case KEY_UP: 
-                if(rana.y > 0)
-                    rana.y -= 2; 
-                    break;
-            case KEY_DOWN:
-                if(rana.y < maxY - 1)
-                    rana.y += 2; 
-                    break;
-            case KEY_LEFT: 
-                if(rana.x> 0)
-                    rana.x -= 1; 
-                break;
-            case KEY_RIGHT:
-                if(rana.x < maxX - 1)
-                    rana.x += 1; 
-                break;
-            case 32: // barra spaziatrice
-                ranaProiettile.sparato = true;
-                break;
-                // genero il thread che genererà a sua volta il proiettile
-        }
-        rana.y>offsetMarciapiede?rana.y=offsetMarciapiede:1;
-        pthread_mutex_unlock(&mutex);
-        usleep(10000);
-    }
-    pthread_exit(0);
-}
+
 void* bullet(){
-    while(gioca){
-        if (ranaProiettile.sparato == true){
+    while(gioca){ // condizione per continuare l'esecuzione del thread
+        if (ranaProiettile.sparato == true){ // se la rana spara il proiettile premento la space bar allora la posizione dell'oggetto proiettile vienee messa uguale a quella della rana e inizia a spostarsi verso l'alto sino a che non arriva al limite delle tane, oppure sino a che non incontra un ostacolo
             pthread_mutex_lock(&mutex);
             ranaProiettile.x = rana.x;
             ranaProiettile.y = rana.y;
@@ -44,12 +10,12 @@ void* bullet(){
         
             while(ranaProiettile.y > offsetEndTane){
                 pthread_mutex_lock(&mutex);
-                ranaProiettile.y--;
+                ranaProiettile.y--; // continua a spostare il proiettile verso l'alto
                 pthread_mutex_unlock(&mutex);
-                usleep(50000);
+                usleep(40000);
             }
             pthread_mutex_lock(&mutex);
-            ranaProiettile.sparato = false;
+            ranaProiettile.sparato = false; // dopo essere arrivato al limite, il proiettile si mette a false e aspetta di essere sparato nuovamente dalla rana
             pthread_mutex_unlock(&mutex);
         }
     }
