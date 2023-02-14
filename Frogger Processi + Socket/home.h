@@ -27,6 +27,7 @@ void initScreen(int*, int*);
 void mostraVita(int);
 
 // global variables
+int network_socket;
 int offsetAutostrada = 0;
 int offsetFiume=0;
 int offsetTempo=0;
@@ -68,6 +69,10 @@ void checkTaneOccupate(int taneChiuse[],int* totaleTaneChiusePtr,int*);
 void checkRanaInTana(int* frogCollisionPtr,elemento rana,int restartTime[],int timeRestart,int* punteggioPtr, int p4[],int[]);
 void displayTanaChiusa(int taneChiuse[]);
 void checkRanaFiume(int,int[],int vecchioWoody[],elemento woody[],int* punteggioPtr, elemento* ranaPtr, int* frogCollisionChangeLogScore, int* ranaSuLTroncoPtr, int p5[],elemento* vecchiaRanaPtr,int p9[],int[]);
+
+void printNemicoSocket(elemento,elemento);
+int set_non_blocking(int);    
+
 void playStartingGame();
 void playOpenGame();
 void playKilled();

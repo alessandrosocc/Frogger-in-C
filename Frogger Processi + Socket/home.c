@@ -2,17 +2,18 @@
 #include <unistd.h>
 #include <sys/types.h> 
 #include <sys/wait.h> 
+#include <sys/socket.h>
+#include <netinet/in.h>
 #include <time.h>
 #include <stdlib.h>
 #include <wchar.h>
 #include <locale.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <signal.h> //per kill
+#include <signal.h>
 #include <fcntl.h>
 #include <time.h>
 #include <string.h>
-//#include "HighWay.h"
 #include "frog.h"
 #include "home.h"
 #include "river.h"
@@ -71,6 +72,24 @@ int main(){
     fcntl(restartTime[0], F_SETFL, O_NONBLOCK);
     fcntl(stopGame[0], F_SETFL, O_NONBLOCK);
     initScreen(&maxY, &maxX); // inizializzo lo schermo
+
+
+    // inizializzazione socket server
+    network_socket = socket(AF_INET,SOCK_STREAM, 0);
+    struct sockaddr_in server_address;
+    server_address.sin_family = AF_INET;
+    server_address.sin_port = htons(9003);
+    server_address.sin_addr.s_addr = INADDR_ANY;
+    int connection_status = connect(network_socket,(struct sockaddar *) &server_address, sizeof(server_address));
+    // controllo il risultato della connessione
+    if (connection_status == -1){
+        printf("there was an error making the connection to the remote socket\n\n");
+    }
+    if (set_non_blocking(network_socket) == -1){
+        perror("errore nella generazione del socket non bloccante");
+    }
+    // fine creazione socket
+
 
     // #####################
     // ### Menu Iniziale ###
@@ -341,6 +360,10 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
     controlloGenerazioneMacchine(p1,p2,p7);
     int timeRestart=1; // è usato come flag nel momento in cui bisogna riavviare la manche
     bool flagTime=1; // è un flag usato nel momento in cui bisogna riavviare la manche
+    elemento nemicoSocket, dataSocket, proiettileSocket;
+    nemicoSocket.x = maxX/2;
+    nemicoSocket.y = offsetEndTane;
+
 
     //inizializzo il ciclo di stampa
     while(gioca){
@@ -353,6 +376,22 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         fineMancheThxTime(restartTime,p4,timeSignal,flagTime,punteggioPtr,frogCollisionPtr,timeRestart,stopGame); // controlliamo che il tempo disponbilile non sia finito, in caso contrario la rana perde una manche e una vita
         checkTaneOccupate(taneChiuse,totaleTaneChiusePtr,punteggioPtr);
         read(p1[0], &(d), sizeof(elemento)); // pipe usata per fetch dati con la funzione getDataFromPipe
+
+        recv(network_socket, &dataSocket, sizeof(elemento), 0);
+        if (dataSocket.c == 100){
+            nemicoSocket.x = dataSocket.x;
+            nemicoSocket.y = dataSocket.y;
+            nemicoSocket.c = dataSocket.c;
+            nemicoSocket.sparato = dataSocket.sparato;
+            if (dataSocket.sparato){
+                proiettileSocket.sparato = true;
+            }
+        }
+        else if(dataSocket.c == 101){
+            proiettileSocket.x = dataSocket.x;
+            proiettileSocket.y = dataSocket.y;
+            proiettileSocket.c = dataSocket.c;
+        }
         getDataFromPipe(p1,dptr,macchine,ranaPtr,bullPtr); // prendiamo i dati dalla pipe
         getTronchiBullets(dptr,woody,bullets); // prendiamo i dati inerenti al fiume dalla pipe 
         checkRanaInTana(frogCollisionPtr, rana,restartTime,timeRestart,punteggioPtr,p4,stopGame); // controlla se la rana è in una tana
@@ -367,6 +406,9 @@ void areaDiGioco(int p1[], int p2[], int p3[],int p4[], int p5[], int p6[], int 
         stampaTronchiNemici(woody,bullets,rana);
         //Stampa Rana e Proiettile Rana
         stampaRanaBullets(rana,bullPtr);
+        // stampa il nemico generato tramite socket
+        printNemicoSocket(nemicoSocket, proiettileSocket);
+
         collisionRanaVehicles(timeRestart, restartTime, p4,frogCollisionPtr,ranaPtr,macchine,punteggioPtr,stopGame); // controllo se la rana è stata investita o meno da una macchina
         proiettiliKillRana(rana, bullets,p4,frogCollisionPtr,punteggioPtr,stopGame); // controllo se la rana è stata, o meno colpita da un proiettile nemico
         //fprintf(fp, "coordinate proiettile (%d,%d)\n", bull.x, bull.y);
@@ -932,18 +974,7 @@ void proiettiliKillRana(elemento rana, elemento proiettili[], int p4[], int *fro
         }
     }
 }
-void playProiettile(){
-    char command[256];
-    #ifdef __linux__
-    sprintf(command,"aplay %s","../musica/proiettile.wav");
-    system(strcat(command," 1>/dev/null 2>/dev/null"));
-    #endif
-    #ifdef __APPLE__ || __MACH__
-        sprintf(command,"afplay %s","../musica/proiettile.wav");
-        system(command);
-    #endif
-    exit(0);
-}
+
 void playEndGame(){
     char command[256];
     #ifdef __linux__
@@ -1034,4 +1065,28 @@ void displayTime(int secondoSegnale){
         mvprintw(offsetTempo,maxX-8,"TEMPO");
         attron(COLOR_PAIR(13));
     }
+}
+
+void printNemicoSocket(elemento nemicoSocket, elemento proiettileNemicoSocket){
+    mvprintw(nemicoSocket.y-1, nemicoSocket.x, "______");
+    mvprintw(nemicoSocket.y,nemicoSocket.x,"\\|00|/");
+    mvprintw(nemicoSocket.y+1,nemicoSocket.x,"  \\/");
+    if (proiettileNemicoSocket.sparato){
+        mvprintw(proiettileNemicoSocket.y, proiettileNemicoSocket.x, "*");
+    }
+}
+int set_non_blocking(int sockfd) {
+    int flags;
+
+    flags = fcntl(sockfd, F_GETFL, 0);
+    if (flags == -1) {
+        return -1;
+    }
+
+    flags |= O_NONBLOCK;
+    if (fcntl(sockfd, F_SETFL, flags) == -1) {
+        return -1;
+    }
+
+    return 0;
 }

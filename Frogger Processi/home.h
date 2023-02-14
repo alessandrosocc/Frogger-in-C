@@ -45,6 +45,8 @@ int offsetPrato=0;
 int offsetFinale=0;
 int count=0;
 int lvlvite=0;
+int network_socket;
+
 bool gioca=true;
 int remainingTime=0;
 void proiettiliKillRana(elemento, elemento[], int[], int *,int*,int[]);
