@@ -26,7 +26,7 @@ void ffrog(int p1[], int p4[], int p5[], int p7[],int stopGame[]){
     rana.x=maxx/2;
     rana.sparato=false;
     write(p1[1],&rana, sizeof(elemento)); //push dati iniziali rana 
-
+    
     while(gioca){
         read(stopGame[0],&gioca,sizeof(gioca));  // gioca è un booleano che è impostato a false quando i processi devono terminare
         // prima di tutto leggo la pipe che mi fa comunicare con la funzione di controllo

@@ -31,6 +31,7 @@ typedef struct{
     bool generatoCorrettamente;
     bool macchinaFineRiga;
     bool killed;
+    bool sparato2;
 }elemento;
 time_t t;
 FILE* fp; 

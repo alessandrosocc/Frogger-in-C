@@ -12,7 +12,7 @@ typedef struct{
     bool isOnLog;
     bool logOccupied;
     bool cambioMovimento;
-
+    bool 
 }elemento;
 extern int offsetAutostrada;
 

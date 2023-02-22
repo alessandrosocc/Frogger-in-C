@@ -700,6 +700,7 @@ void printRana(){
     mvprintw(rana.y+1,rana.x,"/\\");
     // se il proiettile è stato sparato, stampalo
     ranaProiettile.sparato?mvaddch(ranaProiettile.y, ranaProiettile.x, '*'):1;
+    ranaProiettile.sparato2?mvaddch(ranaProiettile.y, ranaProiettile.x, '#'):1;
     if(ranaProiettile.sparato && !count){ //count serve per avviare la musica una volta e basta
         pthread_create(&musicaProiettile,NULL,&playProiettile,NULL);
         pthread_join(musicaProiettile,NULL);
@@ -798,7 +799,12 @@ void* ffrog(){
                     rana.x += 1; 
                 break;
             case 32: // barra spaziatrice
-                ranaProiettile.sparato = true;
+                if (ranaProiettile.sparato==false){
+                    ranaProiettile.sparato = true;
+                }
+                else if (ranaProiettile.sparato2==false){
+                    ranaProiettile.sparato2=true;
+                }
                 break;
                 // genero il thread che genererà a sua volta il proiettile
         }
