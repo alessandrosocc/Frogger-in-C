@@ -1,4 +1,4 @@
-# Frogger_C
+# Frogger in C
 
 
 ***
